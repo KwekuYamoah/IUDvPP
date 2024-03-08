@@ -39,7 +39,7 @@ def asr_pipeline(audio_folder: str) -> str:
     Returns:
     - json_file (str): The path to the generated json file containing the transcriptions.
     """
-    model = whisper.load_model("base.en")
+    model = whisper.load_model("medium.en")
 
     # Get the list of audio files in the folder
     audio_files = os.listdir(audio_folder)
@@ -60,7 +60,7 @@ def asr_pipeline(audio_folder: str) -> str:
             transcriptions[audio_file] = transcription["text"]
 
     # Convert the dictionary to a json file
-    json_file = "transcriptions.json"
+    json_file = "transcriptions_k_sample.json"
     with open(json_file, "w") as json_file:
 
 
