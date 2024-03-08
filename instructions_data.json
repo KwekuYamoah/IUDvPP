@@ -1,0 +1,932 @@
+[
+    {
+        "instruction": "Go to the red sofa but dont pass by any door then go to the computer, the sofa is behind the pillar and on the right side",
+        "all_referents": [
+            "computer",
+            "door",
+            "pillar",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "red_sofa",
+            "computer"
+        ],
+        "avoidance_intent_referents": [
+            "door"
+        ],
+        "detail_intent_referents": [
+            "pillar"
+        ],
+        "all_details": {
+            "red_sofa": [
+                "isbehind(pillar)",
+                "isrightof(pillar)"
+            ],
+            "pillar": [],
+            "door": [],
+            "computer": []
+        }
+    },
+    {
+        "instruction": "Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa",
+        "all_referents": [
+            "yellow_pillar",
+            "sofa",
+            "tree",
+            "door_with_posters"
+        ],
+        "goal_intent_referents": [
+            "door_with_posters",
+            "tree"
+        ],
+        "avoidance_intent_referents": [
+            "sofa"
+        ],
+        "detail_intent_referents": [
+            "yellow_pillar"
+        ],
+        "all_details": {
+            "door_with_posters": [
+                "isinfrontof(yellow_pillar)"
+            ],
+            "yellow_pillar": [],
+            "sofa": [],
+            "tree": []
+        }
+    },
+    {
+        "instruction": "There is a cabinet, a television and a tree in this room. I want you to go to the last item I mentioned then pass by the second item but dont go close to the first when you are going to the second item.",
+        "all_referents": [
+            "tree",
+            "television",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "television",
+            "tree"
+        ],
+        "avoidance_intent_referents": [
+            "cabinet"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "cabinet": [],
+            "tree": [],
+            "television": []
+        }
+    },
+    {
+        "instruction": "Go to the trash bin, after that go to the large television. Actually can you go to the laptop on the table before doing all that?",
+        "all_referents": [
+            "large_television",
+            "table",
+            "laptop",
+            "trash_bin"
+        ],
+        "goal_intent_referents": [
+            "trash_bin",
+            "large_television",
+            "laptop"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "table"
+        ],
+        "all_details": {
+            "laptop": [
+                "isabove(table)"
+            ],
+            "table": [],
+            "trash_bin": [],
+            "large_television": []
+        }
+    },
+    {
+        "instruction": "Try to go to the tree without going near the trash bin.",
+        "all_referents": [
+            "trash_bin",
+            "tree"
+        ],
+        "goal_intent_referents": [
+            "tree"
+        ],
+        "avoidance_intent_referents": [
+            "trash_bin"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "trash_bin": [],
+            "tree": []
+        }
+    },
+    {
+        "instruction": "Find the yellow trash bin and go to it, then go by the white table. But before doing the first thing visit where the fridge is then after the last thing, stop by the red sofa but avoid the wooden door with posters",
+        "all_referents": [
+            "yellow_trash_bin",
+            "white_table",
+            "fridge",
+            "wooden_door_with_posters",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "yellow_trash_bin",
+            "white_table",
+            "fridge",
+            "red_sofa"
+        ],
+        "avoidance_intent_referents": [
+            "wooden_door_with_posters"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "yellow_trash_bin": [],
+            "fridge": [],
+            "wooden_door_with_posters": [],
+            "red_sofa": [],
+            "white_table": []
+        }
+    },
+    {
+        "instruction": "Go to the television but avoid the tree.",
+        "all_referents": [
+            "tree",
+            "television"
+        ],
+        "goal_intent_referents": [
+            "television"
+        ],
+        "avoidance_intent_referents": [
+            "tree"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "television": [],
+            "tree": []
+        }
+    },
+    {
+        "instruction": "Go to any trash bin but not the yellow one",
+        "all_referents": [
+            "yellow_trash_bin",
+            "trash_bin"
+        ],
+        "goal_intent_referents": [
+            "trash_bin"
+        ],
+        "avoidance_intent_referents": [
+            "yellow_trash_bin"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "yellow_bin": [],
+            "trash_bin": []
+        }
+    },
+    {
+        "instruction": "Visit one of the televisions in this room then go to the fridge to the left of the cabinet",
+        "all_referents": [
+            "fridge",
+            "television",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "television",
+            "fridge"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "cabinet"
+        ],
+        "all_details": {
+            "television": [],
+            "fridge": [
+                "isleftof(cabinet)"
+            ],
+            "cabinet": []
+        }
+    },
+    {
+        "instruction": "I need you to first go to the table between the pillar and the door with posters, then go to the tree. You know what, ignore the last thing I asked you to go to, after the first thing go to the computer next to the green box instead.",
+        "all_referents": [
+            "table",
+            "green_box",
+            "computer",
+            "pillar",
+            "pillar,door_with_posters",
+            "door_with_posters"
+        ],
+        "goal_intent_referents": [
+            "table",
+            "pillar",
+            "door_with_posters",
+            "computer"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "green_box",
+            "pillar,door_with_posters"
+        ],
+        "all_details": {
+            "computer": [
+                "isnextto(green_box)"
+            ],
+            "green_box": [],
+            "table": [
+                "isbetween(pillar,door_with_posters)"
+            ],
+            "pillar": [],
+            "door_with_posters": []
+        }
+    },
+    {
+        "instruction": "Go to the red sofa then the blue one next to the cabinet but first pass by the book shelf",
+        "all_referents": [
+            "book_shelf",
+            "blue_sofa",
+            "cabinet",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "red_sofa",
+            "blue_sofa",
+            "book_shelf"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "cabinet"
+        ],
+        "all_details": {
+            "blue_sofa": [
+                "isnextto(cabinet)"
+            ],
+            "cabinet": [],
+            "book_shelf": [],
+            "red_sofa": []
+        }
+    },
+    {
+        "instruction": "Go to water filter, dont pass by any computer to the left of the red sofa",
+        "all_referents": [
+            "computer",
+            "red_sofa",
+            "water_filter"
+        ],
+        "goal_intent_referents": [
+            "water_filter"
+        ],
+        "avoidance_intent_referents": [
+            "computer"
+        ],
+        "detail_intent_referents": [
+            "red_sofa"
+        ],
+        "all_details": {
+            "water_filter": [],
+            "computer": [
+                "isleftof(red_sofa)"
+            ],
+            "red_sofa": []
+        }
+    },
+    {
+        "instruction": "Visit these things in the following order the microwave, then the black chair infront of the yellow robot then the fridge, but before doing any of this go to the robot",
+        "all_referents": [
+            "black_chair",
+            "fridge",
+            "yellow_robot",
+            "microwave"
+        ],
+        "goal_intent_referents": [
+            "microwave",
+            "black_chair",
+            "fridge"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "yellow_robot"
+        ],
+        "all_details": {
+            "robot": [],
+            "microwave": [],
+            "fridge": [],
+            "black_chair": [
+                "isinfrontof(yellow_robot)"
+            ],
+            "yellow_robot": []
+        }
+    },
+    {
+        "instruction": "Go to the cabinet between the blue sofa and the brown box. ",
+        "all_referents": [
+            "blue_sofa",
+            "brown_box",
+            "blue_sofa,brown_box",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "cabinet",
+            "blue_sofa",
+            "brown_box"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "blue_sofa,brown_box"
+        ],
+        "all_details": {
+            "cabinet": [
+                "isbetween(blue_sofa,brown_box)"
+            ],
+            "blue_sofa": [],
+            "brown_box": []
+        }
+    },
+    {
+        "instruction": "I want you to go the cabinet but dont go near any black chair. Hold on, actually can you pass by the whiteboard before doing all that?",
+        "all_referents": [
+            "whiteboard",
+            "black_chair",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "cabinet",
+            "whiteboard"
+        ],
+        "avoidance_intent_referents": [
+            "black_chair"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "whiteboard": [],
+            "black_chair": [],
+            "cabinet": []
+        }
+    },
+    {
+        "instruction": "I need you to go to the red sofa but dont go anywhere near the sink",
+        "all_referents": [
+            "sink",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "red_sofa"
+        ],
+        "avoidance_intent_referents": [
+            "sink"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "sink": [],
+            "red_sofa": []
+        }
+    },
+    {
+        "instruction": "You can either go as close as you can to the sink or the plant pot but dont go near the yellow robot.",
+        "all_referents": [
+            "plant_pot",
+            "sink",
+            "yellow_robot"
+        ],
+        "goal_intent_referents": [
+            "sink",
+            "plant_pot"
+        ],
+        "avoidance_intent_referents": [
+            "yellow_robot"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "yellow_robot": [],
+            "plant_pot": [],
+            "sink": []
+        }
+    },
+    {
+        "instruction": "Go to the green curtain after that the large television but try not to go near the red sofa",
+        "all_referents": [
+            "green_curtain",
+            "red_sofa",
+            "large_television"
+        ],
+        "goal_intent_referents": [
+            "green_curtain",
+            "large_television"
+        ],
+        "avoidance_intent_referents": [
+            "red_sofa"
+        ],
+        "detail_intent_referents": [],
+        "all_details": {
+            "red_sofa": [],
+            "green_curtain": [],
+            "large_television": []
+        }
+    },
+    {
+        "instruction": "Go to the sink then the red sofa, then the guitar. After that I want you to return to the first thing you visited.",
+        "all_referents": [
+            "sink",
+            "guitar",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "sink",
+            "red_sofa",
+            "guitar"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [],
+        "all_details": {
+            "guitar": [],
+            "sink": [],
+            "red_sofa": []
+        }
+    },
+    {
+        "instruction": "I need you to go to the sink then any computer on a table but before you start that can you first go to the bookshelf, when you are done with all that, return to brown box",
+        "all_referents": [
+            "computer",
+            "table",
+            "bookshelf",
+            "sink",
+            "brown_box"
+        ],
+        "goal_intent_referents": [
+            "sink",
+            "computer",
+            "bookshelf",
+            "brown_box"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "table"
+        ],
+        "all_details": {
+            "bookshelf": [],
+            "computer": [
+                "isabove(table)"
+            ],
+            "table": [],
+            "sink": [],
+            "brown_box": []
+        }
+    },
+    {
+        "instruction": "There are a couple of things in this room, a coffee machine, a robot, a computer and a plant pot. Visit the second item I mentioned then the first, after that visit the brown box, then go to the items you haven\u2019t visited yet.",
+        "all_referents": [
+            "computer",
+            "plant_pot",
+            "robot",
+            "coffee_machine",
+            "brown_box"
+        ],
+        "goal_intent_referents": [
+            "coffee_machine",
+            "robot",
+            "computer",
+            "plant_pot",
+            "brown_box"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [],
+        "all_details": {
+            "coffee_machine": [],
+            "plant_pot": [],
+            "robot": [],
+            "computer": [],
+            "brown_box": []
+        }
+    },
+    {
+        "instruction": "Avoid any cabinet but go get the mug on the blue sofa and take it to red one",
+        "all_referents": [
+            "mug",
+            "blue_sofa",
+            "cabinet",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "mug",
+            "red_sofa"
+        ],
+        "avoidance_intent_referents": [
+            "cabinet"
+        ],
+        "detail_intent_referents": [
+            "blue_sofa"
+        ],
+        "all_details": {
+            "mug": [
+                "isabove(blue_sofa)"
+            ],
+            "blue_sofa": [],
+            "red_sofa": [],
+            "cabinet": []
+        }
+    },
+    {
+        "instruction": "Please get me my plant pot from between the sofa and the sink, bring it to the white cabinet",
+        "all_referents": [
+            "white_cabinet",
+            "plant_pot",
+            "sink",
+            "sofa,sink",
+            "sofa"
+        ],
+        "goal_intent_referents": [
+            "plant_pot",
+            "sofa",
+            "sink",
+            "white_cabinet"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "sofa,sink"
+        ],
+        "all_details": {
+            "plant_pot": [
+                "isbetween(sofa,sink)"
+            ],
+            "sofa": [],
+            "sink": [],
+            "white_cabinet": []
+        }
+    },
+    {
+        "instruction": "Can you pick up my book from the left side of the television and bring it to me? I am sitting on the couch which is to the right of the door with posters. Make sure to never go near the trashbin while doing all this, it on the yellow table.",
+        "all_referents": [
+            "couch",
+            "yellow_table",
+            "trashbin",
+            "door_with_posters",
+            "television",
+            "book"
+        ],
+        "goal_intent_referents": [
+            "book",
+            "couch"
+        ],
+        "avoidance_intent_referents": [
+            "trashbin"
+        ],
+        "detail_intent_referents": [
+            "yellow_table",
+            "television",
+            "door_with_posters"
+        ],
+        "all_details": {
+            "couch": [
+                "isrightof(door_with_posters)"
+            ],
+            "door_with_posters": [],
+            "book": [
+                "isleftof(television)"
+            ],
+            "television": [],
+            "trashbin": [
+                "isabove(yellow_table)"
+            ],
+            "yellow_table": []
+        }
+    },
+    {
+        "instruction": "Bring the green plush toy to the whiteboard infront of it, watchout for the robot infront of the toy",
+        "all_referents": [
+            "whiteboard",
+            "green_plush_toy",
+            "robot"
+        ],
+        "goal_intent_referents": [
+            "whiteboard"
+        ],
+        "avoidance_intent_referents": [
+            "robot"
+        ],
+        "detail_intent_referents": [
+            "green_plush_toy"
+        ],
+        "all_details": {
+            "robot": [
+                "isinfrontof(green_plush_toy)"
+            ],
+            "green_plush_toy": [],
+            "whiteboard": [
+                "isinfrontof(green_plush_toy)"
+            ]
+        }
+    },
+    {
+        "instruction": "Go get my yellow bag and bring it to the table between the yellow pillar and the wooden door with posters next to the whiteboard",
+        "all_referents": [
+            "table",
+            "yellow_bag",
+            "yellow_pillar,wooden_door_with_posters::isnexttowhiteboard",
+            "yellow_pillar",
+            "whiteboard",
+            "isbetweenyellow_pillar,wooden_door_with_posters::whiteboard",
+            "wooden_door_with_posters"
+        ],
+        "goal_intent_referents": [
+            "yellow_bag",
+            "table",
+            "wooden_door_with_posters",
+            "yellow_pillar"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "whiteboard",
+            "isbetweenyellow_pillar,wooden_door_with_posters::whiteboard",
+            "yellow_pillar,wooden_door_with_posters::isnexttowhiteboard"
+        ],
+        "all_details": {
+            "table": [
+                "isbetween(yellow_pillar,wooden_door_with_posters::isnextto(whiteboard))"
+            ],
+            "yellow_pillar": [],
+            "wooden_door_with_posters": [
+                "isnextto(whiteboard)"
+            ],
+            "whiteboard": [],
+            "yellow_bag": []
+        }
+    },
+    {
+        "instruction": "Find the bottle that is on the table to the left of the computer and bring it to the wardrobe that is next to the glass door",
+        "all_referents": [
+            "table",
+            "computer",
+            "bottle",
+            "wardrobe",
+            "table::isleftofcomputer",
+            "glass_door",
+            "isabovetable::computer"
+        ],
+        "goal_intent_referents": [
+            "bottle",
+            "table",
+            "wardrobe"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "table::isleftofcomputer",
+            "computer",
+            "isabovetable::computer",
+            "glass_door"
+        ],
+        "all_details": {
+            "bottle": [
+                "isabove(table::isleftof(computer))"
+            ],
+            "table": [
+                "isleftof(computer)"
+            ],
+            "computer": [],
+            "wardrobe": [
+                "isnextto(glass_door)"
+            ],
+            "glass_door": []
+        }
+    },
+    {
+        "instruction": "Go to the cabinet between the blue sofa and the yellow robot or the cabinet to the left of the blue sofa. ",
+        "all_referents": [
+            "yellow_robot",
+            "blue_sofa",
+            "blue_sofa,yellow_robot",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "cabinet",
+            "yellow_robot"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "blue_sofa",
+            "blue_sofa,yellow_robot"
+        ],
+        "all_details": {
+            "cabinet": [
+                "isbetween(blue_sofa,yellow_robot)",
+                "isleftof(blue_sofa)"
+            ],
+            "blue_sofa": [],
+            "yellow_robot": []
+        }
+    },
+    {
+        "instruction": "Go take the green toy that is next to the sofa under the poster and bring it to the bookshelf",
+        "all_referents": [
+            "bookshelf",
+            "green_toy",
+            "poster",
+            "isnexttosofa::poster",
+            "sofa",
+            "sofa::isbelowposter"
+        ],
+        "goal_intent_referents": [
+            "green_toy",
+            "sofa",
+            "bookshelf"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "poster",
+            "isnexttosofa::poster",
+            "sofa::isbelowposter"
+        ],
+        "all_details": {
+            "bookshelf": [],
+            "green_toy": [
+                "isnextto(sofa::isbelow(poster))"
+            ],
+            "sofa": [
+                "isbelow(poster)"
+            ],
+            "poster": []
+        }
+    },
+    {
+        "instruction": "I have a white cabinet, a green toy, a bookshelf and a red chair around here somewhere. Take the second item I mentioned from between the first item and the third. Bring it the cabinet but avoid the last item at all costs.",
+        "all_referents": [
+            "bookshelf",
+            "white_cabinet",
+            "green_toy",
+            "white_cabinet,bookshelf",
+            "red_chair"
+        ],
+        "goal_intent_referents": [
+            "white_cabinet",
+            "green_toy",
+            "bookshelf"
+        ],
+        "avoidance_intent_referents": [
+            "red_chair"
+        ],
+        "detail_intent_referents": [
+            "white_cabinet,bookshelf"
+        ],
+        "all_details": {
+            "green_toy": [
+                "isbetween(white_cabinet,bookshelf)"
+            ],
+            "white_cabinet": [],
+            "bookshelf": [],
+            "red_chair": []
+        }
+    },
+    {
+        "instruction": "Hey I am standing by the whiteboard infront of the bookshelf, can you bring me the mug from the table to the left of the fridge?",
+        "all_referents": [
+            "table",
+            "bookshelf",
+            "table::isleftoffridge",
+            "isabovetable::fridge",
+            "whiteboard",
+            "mug",
+            "fridge"
+        ],
+        "goal_intent_referents": [
+            "whiteboard",
+            "mug",
+            "table"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "isabovetable::fridge",
+            "table::isleftoffridge",
+            "fridge",
+            "bookshelf"
+        ],
+        "all_details": {
+            "mug": [
+                "isabove(table::isleftof(fridge))"
+            ],
+            "table": [
+                "isleftof(fridge)"
+            ],
+            "fridge": [],
+            "whiteboard": [
+                "isinfrontof(bookshelf)"
+            ],
+            "bookshelf": []
+        }
+    },
+    {
+        "instruction": "Never pass by a robot, but i need you to bring the bag on the table to the cabinet",
+        "all_referents": [
+            "table",
+            "robot",
+            "bag",
+            "cabinet"
+        ],
+        "goal_intent_referents": [
+            "bag",
+            "cabinet"
+        ],
+        "avoidance_intent_referents": [
+            "robot"
+        ],
+        "detail_intent_referents": [
+            "table"
+        ],
+        "all_details": {
+            "bag": [
+                "isabove(table)"
+            ],
+            "cabinet": [],
+            "table": [],
+            "robot": []
+        }
+    },
+    {
+        "instruction": "Take a soda can to the fridge, you can find one on the table to the left of the blue sofa",
+        "all_referents": [
+            "isabovetable::blue_sofa",
+            "table",
+            "table::isleftofblue_sofa",
+            "soda_can",
+            "blue sofa",
+            "fridge",
+            "blue_sofa"
+        ],
+        "goal_intent_referents": [
+            "soda_can",
+            "fridge",
+            "table",
+            "blue sofa"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "isabovetable::blue_sofa",
+            "blue_sofa",
+            "table::isleftofblue_sofa"
+        ],
+        "all_details": {
+            "soda_can": [
+                "isabove(table::isleftof(blue_sofa))"
+            ],
+            "table": [
+                "isleftof(blue_sofa)"
+            ],
+            "blue_sofa": [],
+            "fridge": []
+        }
+    },
+    {
+        "instruction": "Hey, can you pick up my bag for me? It is under the table infront of the glass door, bring it to the cabinet. Actually you know what, forget what i asked for and bring the green toy instead, its at the same place",
+        "all_referents": [
+            "table",
+            "isbelowtable::glass_door",
+            "cabinet",
+            "table::isinfrontofglass_door",
+            "green_toy",
+            "glass_door"
+        ],
+        "goal_intent_referents": [
+            "table",
+            "cabinet",
+            "green_toy"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "table::isinfrontofglass_door",
+            "isbelowtable::glass_door",
+            "glass_door"
+        ],
+        "all_details": {
+            "green_toy": [
+                "isbelow(table::isinfrontof(glass_door))"
+            ],
+            "table": [
+                "isinfrontof(glass_door)"
+            ],
+            "glass_door": [],
+            "cabinet": []
+        }
+    },
+    {
+        "instruction": "Go to the sink and take the mug beside the coffee maker, drop it off at the red sofa",
+        "all_referents": [
+            "sink",
+            "mug",
+            "coffee_maker",
+            "red_sofa"
+        ],
+        "goal_intent_referents": [
+            "sink",
+            "mug",
+            "red_sofa"
+        ],
+        "avoidance_intent_referents": [],
+        "detail_intent_referents": [
+            "coffee_maker"
+        ],
+        "all_details": {
+            "mug": [
+                "isnextto(coffee_maker)"
+            ],
+            "coffee_maker": [],
+            "sink": [],
+            "red_sofa": []
+        }
+    }
+]
