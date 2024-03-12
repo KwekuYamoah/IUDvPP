@@ -1,0 +1,70 @@
+Instruction 1: Go to the red sofa but don't pass by any door then go to the computer, the sofa is behind the pillar and on the right side
+
+Instruction 2: Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa
+
+Instruction 3: There is a cabinet, a television and a tree in this room. I want you to go to the last item I mentioned then pass by the second item but don't go close to the first when you are going to the second item.
+
+Instruction 4: Go to the trash bin, after that go to the large television. Actually can you go to the laptop on the table before doing all that?
+
+Instruction 5: Try to go to the tree without going near the trash bin.
+
+Instruction 6: Find the yellow trash bin and go to it, then go by the white table. But before doing the first thing visit where the fridge is then after the last thing, stop by the red sofa but avoid the wooden door with posters
+
+Instruction 7: Go to the television but avoid the tree.
+
+Instruction 8: Go to any trash bin but not the yellow one
+
+Instruction 9: Visit one of the televisions in this room then go to the fridge to the left of the cabinet
+
+Instruction 10: I need you to first go to the table between the pillar and the door with posters, then go to the tree. You know what, ignore the last thing I asked you to go to, after the first thing go to the computer next to the green box instead.
+
+Instruction 11: Go to the red sofa then the blue one next to the cabinet but first pass by the book shelf
+
+Instruction 12: Go to water filter, don't pass by any computer to the left of the red sofa
+
+Instruction 13: Visit these things in the following order the microwave, then the black chair in front of the yellow robot then the fridge, but before doing any of this go to the robot
+
+Instruction 14: Go to the cabinet between the blue sofa and the brown box. 
+
+Instruction 15: I want you to go the cabinet but don't go near any black chair. Hold on, actually can you pass by the whiteboard before doing all that?
+
+Instruction 16: I need you to go to the red sofa but don\t go anywhere near the sink
+
+Instruction 17: You can either go as close as you can to the sink or the plant pot but don't go near the yellow robot.
+
+Instruction 18: Go to the green curtain after that the large television but try not to go near the red sofa
+
+Instruction 19: Go to the sink then the red sofa, then the guitar. After that I want you to return to the first thing you visited.
+
+Instruction 20: I need you to go to the sink then any computer on a table but before you start that can you first go to the bookshelf, when you are done with all that, return to brown box
+
+Instruction 21: There are a couple of things in this room, a coffee machine, a robot, a computer and a plant pot. Visit the second item I mentioned then the first, after that visit the brown box, then go to the items you haven’t visited yet.
+
+Instruction 22: Avoid any cabinet but go get the mug on the blue sofa and take it to red one
+
+Instruction 23: Please get me my plant pot from between the sofa and the sink, bring it to the white cabinet
+
+Instruction 24: Can you pick up my book from the left side of the television and bring it to me? I am sitting on the couch which is to the right of the door with posters. Make sure to never go near the trash bin while doing all this, it on the yellow table.
+
+Instruction 25: Bring the green plush toy to the whiteboard in front of it, watchout for the robot in front of the toy
+
+Instruction 26: Go get my yellow bag and bring it to the table between the yellow pillar and the wooden door with posters next to the whiteboard
+
+Instruction 27: Find the bottle that is on the table to the left of the computer and bring it to the wardrobe that is next to the glass door
+
+Instruction 28: Go to the cabinet between the blue sofa and the yellow robot or the cabinet to the left of the blue sofa. 
+
+Instruction 29: Go take the green toy that is next to the sofa under the poster and bring it to the bookshelf
+
+Instruction 30: I have a white cabinet, a green toy, a bookshelf and a red chair around here somewhere. Take the second item I mentioned from between the first item and the third. Bring it the cabinet but avoid the last item at all costs.
+
+Instruction 31: Hey I am standing by the whiteboard in front of the bookshelf, can you bring me the mug from the table to the left of the fridge?
+
+Instruction 32: Never pass by a robot, but i need you to bring the bag on the table to the cabinet
+
+Instruction 33: Take a soda can to the fridge, you can find one on the table to the left of the blue sofa
+
+Instruction 34: Hey, can you pick up my bag for me? It is under the table in front of the glass door, bring it to the cabinet. Actually you know what, forget what i asked for and bring the green toy instead, its at the same place
+
+Instruction 35: Go to the sink and take the mug beside the coffee maker, drop it off at the red sofa
+
