@@ -25,6 +25,7 @@ import json
 import whisper
 from openai import OpenAI
 from dotenv import load_dotenv
+import argparse
 
 # Load the environment variables
 load_dotenv()
@@ -120,9 +121,20 @@ def asr_pipeline_local(audio_folder: str) -> str:
     return json_file
 
 
+def main():
+    parser = argparse.ArgumentParser(description="ASR Pipeline")
+    parser.add_argument("--audio_folder", type=str, help="Path to the folder containing audio files")
+    parser.add_argument("--mode", type=str, help="ASR mode: 'openai' or 'local'")
+    args = parser.parse_args()
+
+    if args.mode == "openai":
+        json_file = asr_pipeline_openai(args.audio_folder)
+        print(f"Transcriptions from API endpoint: {json_file}")
+    elif args.mode == "local":
+        json_file = asr_pipeline_local(args.audio_folder)
+        print(f"Transcriptions from local model: {json_file}")
+    else:
+        print("Invalid mode. Please choose 'openai' or 'local'.")
+
 if __name__ == "__main__":
-    # Test the asr_pipeline function
-    audio_folder = "p001/"
-    json_file = asr_pipeline_openai(audio_folder)
-    #print(f"Transcriptions saved to {json_file}")
-    print(f"Transcriptions from API endpoint: {json_file}")
+    main()
