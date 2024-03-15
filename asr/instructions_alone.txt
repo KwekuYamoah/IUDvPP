@@ -1,4 +1,4 @@
-Instruction 1: Go to the red sofa but don't pass by any door then go to the computer, the sofa is behind the pillar and on the right side
+ Instruction 1: Go to the red sofa but don't pass by any door then go to the computer, the sofa is behind the pillar and on the right side
 
 Instruction 2: Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa
 

@@ -23,13 +23,64 @@ Define a function that takes a path to a folder with audio files:
 import os
 import json
 import whisper
+from openai import OpenAI
+from dotenv import load_dotenv
+
+# Load the environment variables
+load_dotenv()
+
+# Load the OpenAI API key
+API_KEY = os.getenv("OPENAI_API_KEY")
 
 
+def asr_pipeline_openai(audio_folder: str) -> str:
+    """
+    Transcribes audio files in a given folder using OpenAI's Whisper ASR model.
 
-def asr_pipeline(audio_folder: str) -> str:
+    Args:
+        audio_folder (str): The path to the folder containing the audio files.
+
+    Returns:
+        str: The name of the JSON file containing the transcriptions.
+
+    """
+
+    #create client object
+    client = OpenAI(api_key=API_KEY)
+
+    #test for audio file example
+
+    #Adapt for multiple files in a folder
+    audio_files = os.listdir(audio_folder)
+    transcriptions = {}
+
+    for audio_file in audio_files:
+        if audio_file.endswith(".mp3") or audio_file.endswith(".wav"):
+            # Get the audio file path
+            audio_file_path = os.path.join(audio_folder, audio_file)
+            # Transcribe the audio file
+            audio = open(audio_file_path, "rb")
+            transcription = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio,
+                language= "en",
+                response_format= "text",
+            )
+
+            # Store the transcription in the dictionary
+            transcriptions[audio_file] = transcription
+            
+    # Convert the dictionary to a json file
+    json_file = "transcriptions_openai_sample.json"
+    with open(json_file, "w") as json_file:
+        json.dump(transcriptions, json_file, indent=4)
+    
+    return json_file
+
+def asr_pipeline_local(audio_folder: str) -> str:
     """
     This function takes in a folder containing
-    audio files and transcribes them using the
+    audio files locally and transcribes them using the
     whisper model. The transcriptions are then
     stored in a json file and returned.
 
@@ -72,5 +123,6 @@ def asr_pipeline(audio_folder: str) -> str:
 if __name__ == "__main__":
     # Test the asr_pipeline function
     audio_folder = "p001/"
-    json_file = asr_pipeline(audio_folder)
-    print(f"Transcriptions saved to {json_file}")
+    json_file = asr_pipeline_openai(audio_folder)
+    #print(f"Transcriptions saved to {json_file}")
+    print(f"Transcriptions from API endpoint: {json_file}")
