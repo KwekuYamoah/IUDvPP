@@ -56,7 +56,7 @@ def asr_pipeline_openai(audio_folder: str) -> str:
     transcriptions = {}
 
     for audio_file in audio_files:
-        if audio_file.endswith(".mp3") or audio_file.endswith(".wav"):
+        if audio_file.endswith(".m4a") or audio_file.endswith(".wav"):
             # Get the audio file path
             audio_file_path = os.path.join(audio_folder, audio_file)
             # Transcribe the audio file
@@ -122,6 +122,19 @@ def asr_pipeline_local(audio_folder: str) -> str:
 
 
 def main():
+    """
+    Main function for the ASR Pipeline.
+
+    This function parses command line arguments, determines the ASR mode, and calls the appropriate ASR pipeline function.
+
+    Args:
+        --audio_folder (str): Path to the folder containing audio files.
+        --mode (str): ASR mode: 'openai' or 'local'.
+
+    Returns:
+        None
+    """
+
     parser = argparse.ArgumentParser(description="ASR Pipeline")
     parser.add_argument("--audio_folder", type=str, help="Path to the folder containing audio files")
     parser.add_argument("--mode", type=str, help="ASR mode: 'openai' or 'local'")
