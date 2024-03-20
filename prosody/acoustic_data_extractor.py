@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AUTHOR
+Adaptations written by: David Sasu.
 
-    Sébastien Le Maguer <lemagues@tcd.ie>
-
-DESCRIPTION
-
-LICENSE
-    This script is in the public domain, free from copyrights or restrictions.
-    Created: 27 January 2020
+This script was created by building on the original script provided by Sébastien Le Maguer <lemagues@tcd.ie>
 """
 
 # System/default
@@ -23,6 +17,7 @@ import math
 import argparse
 
 # Messaging/logging
+import json
 import traceback
 import time
 import logging
@@ -39,6 +34,7 @@ import scipy.ndimage
 import scipy.integrate as integrate
 import matplotlib.pyplot as plt
 import seaborn as sns
+import librosa
 
 # Parallel job managment
 from joblib import Parallel, delayed
@@ -54,12 +50,13 @@ from Prosody_tools import duration_processing
 from Prosody_tools import misc
 from Prosody_tools import smooth_and_interp
 from Prosody_tools import cwt_utils, loma, lab
+import torch
 
 
 LEVEL = [logging.WARNING, logging.INFO, logging.DEBUG]
 
 #dictionary to keep track of the prominence labels of the words in a given dataset corpus
-PROMINENCE_GOLD_LABEL_DICTIONARY = {}
+GOLD_LABEL_DICTIONARY = {}
 
 
 
@@ -144,13 +141,13 @@ Returns:
 '''
 def extract_word_information(signal_info, filename, language, word_info):
     #extract the filename
-    filename = filename.split('/')[2].split('.')[0]
+    filename = filename.split('/')[3].split('.')[0]
 
     #initialize word_signal_info
-    word_signal_info = []
+    word_signal_info = {}
 
     #extract the dictionary containing gold label information on the words in word_info
-    gold_labels = PROMINENCE_GOLD_LABEL_DICTIONARY[language][filename]
+    gold_labels = GOLD_LABEL_DICTIONARY[language][filename]
 
 
     #obtain the keys of the gold label dictionary for a specified file to ensure that we only include words for which we have their prosodic annotations
@@ -165,15 +162,14 @@ def extract_word_information(signal_info, filename, language, word_info):
         if word[2] in gold_label_words:
             #slice the signal
             word_signal = signal_info[int(word[0]):int(word[1])]
+            mean_word_signal = sum(word_signal)/len(word_signal)
 
             #extract the prosodic gold label of the word
             prosodic_gold_label = gold_labels[word[2]]
             
             #updated word list
-            word_list = [word[0], word[1], word[2], word_signal, prosodic_gold_label]
+            word_signal_info[word[2]] = {'start_time':word[0], 'end_time':word[1], 'mean_value':mean_word_signal, 'label':prosodic_gold_label}
 
-            #place the word signal information into word_signal_info
-            word_signal_info.append(word_list)
 
 
     return word_signal_info
@@ -218,12 +214,44 @@ def generate_gold_labels_dictionary(language_tag, gold_label_path):
             gold_label_dictionary[current_filename][word_key] = gold_label
     
     #place the populated dictionary into the global dictionary for keeping track of the words in the input audio files and their corresponding gold labels
-    PROMINENCE_GOLD_LABEL_DICTIONARY[language_tag] = gold_label_dictionary
+    GOLD_LABEL_DICTIONARY[language_tag] = gold_label_dictionary
+
 
 
 
     return
 
+
+#(word_f0, word_en, word_dur, word_f0_energy, word_f0_rate, word_energy_rate, word_f0_energy_rate)
+def network_input_matrix(word_f0, word_en, word_dur, word_f0_energy, word_f0_rate, word_energy_rate, word_f0_energy_rate):
+    #get the words which are keys in any of the parameters
+    words = list(word_f0.keys())
+  
+
+    #initialize a pytorch tensor to store the total result
+    final_storage_tensor = []
+    label_storage_tensor = []
+
+    #for each word select its corresponding desired values and its label and place them in the desired list
+    for word in words:
+        word_feature_tensor = []
+        word_feature_tensor.append(word_f0[word]['mean_value'])
+        word_feature_tensor.append(word_en[word]['mean_value'])
+        word_feature_tensor.append(word_dur[word]['mean_value'])
+        word_feature_tensor.append(word_f0_energy[word]['mean_value'])
+        word_feature_tensor.append(word_f0_rate[word]['mean_value'])
+        word_feature_tensor.append(word_energy_rate[word]['mean_value'])
+        word_feature_tensor.append(word_f0_energy_rate[word]['mean_value'])
+
+
+        label_storage_tensor.append(word_f0[word]['label'])
+        final_storage_tensor.append(word_feature_tensor)
+    
+    #final_storage_tensor = torch.tensor(final_storage_tensor)
+    #label_storage_tensor = torch.tensor(label_storage_tensor)
+
+
+    return final_storage_tensor, label_storage_tensor, words
 
 
 def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=None, plot=False):
@@ -233,7 +261,8 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
     #sig is refering to the extracted original signal and orig_sr is refering to the original sample rate.
     orig_sr, sig = misc.read_wav(input_file)
 
-    np.set_printoptions(threshold=np.inf)
+
+    #np.set_printoptions(threshold=np.inf)
 
     sig = sig.tolist()
     
@@ -243,6 +272,7 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
                                               cfg["energy"]["band_min"],
                                               cfg["energy"]["band_max"],
                                               cfg["energy"]["calculation_method"])
+    
     energy = np.cbrt(energy+1)
     if cfg["energy"]["smooth_energy"]:
         energy = smooth_and_interp.peak_smooth(energy, 30, 3)  # FIXME: 30? 3?
@@ -251,15 +281,27 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
   
 
     # extract f0
+    
     raw_pitch = f0_processing.extract_f0(sig, orig_sr,
-                                         f0_min=cfg["f0"]["min_f0"],
-                                         f0_max=cfg["f0"]["max_f0"],
-                                         voicing=cfg["f0"]["voicing_threshold"],
-                                         configuration=cfg["f0"]["pitch_tracker"])
+                                        f0_min=cfg["f0"]["min_f0"],
+                                        f0_max=cfg["f0"]["max_f0"],
+                                        voicing=cfg["f0"]["voicing_threshold"],
+                                        configuration=cfg["f0"]["pitch_tracker"])
+    
+    
 
-   
+    
+    #extract the fundamental frequency using the librosa library instead
+    '''
+    y, sr = librosa.load(input_file, sr=orig_sr)
+    raw_pitch, voiced_flag, voiced_probs = librosa.pyin(y, fmin=librosa.note_to_hz('C2'), fmax=librosa.note_to_hz('C7'))
+    raw_pitch = np.nan_to_num(raw_pitch)
+    '''
+
     # interpolate, stylize
     pitch = f0_processing.process(raw_pitch)
+
+    
 
     # extract speech rate
     rate = np.zeros(len(pitch))
@@ -318,12 +360,15 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
     # Combine signals
     min_length = np.min([len(pitch), len(energy), len(rate)])
  
-  
+    
     pitch = pitch[:min_length]
+
  
     energy = energy[:min_length]
+
  
     rate = rate[:min_length]
+
 
 
     '''
@@ -374,7 +419,6 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
     #split the information of various signals into the different words within the audio signal
     word_raw_data = extract_word_information(sig,input_file, language, experiment_tiers_information)
     word_f0 = extract_word_information(pitch.tolist(), input_file, language, experiment_tiers_information)
-    word_f0 = extract_word_information(pitch.tolist(), input_file, language, experiment_tiers_information)
     word_en = extract_word_information(energy.tolist(), input_file, language, experiment_tiers_information)
     word_dur = extract_word_information(rate.tolist(), input_file, language, experiment_tiers_information)
     word_f0_energy = extract_word_information(pitch_energy, input_file, language, experiment_tiers_information)
@@ -383,12 +427,22 @@ def analysis(input_file, language, cfg, logger, annotation_dir=None, output_dir=
     word_f0_energy_rate = extract_word_information(params, input_file, language, experiment_tiers_information)
 
     pitch = [round(x,2) for x in pitch.tolist()]
+   
     energy = [round(x,2) for x in energy.tolist()]
+  
     rate = [round(x,2) for x in rate.tolist()]
 
+    #construct network input matrix
+    network_matrix, network_labels, words = network_input_matrix(word_f0, word_en, word_dur, word_f0_energy, word_f0_rate, word_energy_rate, word_f0_energy_rate)
+    
 
     #return all of the extracted features as a dictionary represented as a string
-    extracted_features =  input_file + '=' + '{"raw_audio_data":' + str(sig)+',"f0":'+str(pitch)+',"en":'+ str(energy)+',"dur":'+str(rate)+',"f0_energy":'+str(pitch_energy)+',"f0_rate":'+str(pitch_rate)+',"en_rate":'+str(energy_rate)+',"f0_en_rate":'+str(params)+',"word_raw_data":'+str(word_raw_data)+',"word_f0":'+str(word_f0)+',"word_en":'+str(word_en)+',"word_dur":'+str(word_dur)+',"word_f0_energy":'+str(word_f0_energy)+',"word_f0_rate":'+str(word_f0_rate)+',"word_energy_rate":'+str(word_energy_rate)+',"word_f0_energy_rate":'+str(word_f0_energy_rate)+'}'
+    #extracted_features =  {input_file : {"raw_audio_data" : str(sig) ,"f0": str(pitch) ,"en": str(energy) ,"dur": str(rate), "f0_energy": str(pitch_energy), "f0_rate": str(pitch_rate) , "en_rate": str(energy_rate), "f0_en_rate": str(params), "word_raw_data": word_raw_data, "word_f0": word_f0 , "word_en": word_en , "word_dur": word_dur, "word_f0_energy": word_f0_energy , "word_f0_rate": word_f0_rate, "word_energy_rate": word_energy_rate , "word_f0_energy_rate": word_f0_energy_rate } }
+
+    extracted_features = {input_file:{"input_features": network_matrix, "labels": network_labels, "words": words}}
+
+
+
 
     return extracted_features
 
@@ -452,13 +506,15 @@ def main():
             wav_files.append(language_file)
             input_files.append(wav_files)
 
-    
+    print('input files: ', input_files)
     if len(input_files) == 1:
         nb_jobs = 1
 
     plot_flag = 0
 
   
+    #initialising the output json object
+    output_json_object = []
    
     #obtain the audio data features for each audio file and write it into the provided output file
     for language in input_files:
@@ -483,21 +539,28 @@ def main():
             write_output_file = open(output_file_path, 'a')
 
             for f in language[:len(language)-1]:
-                #first, obtain the filename from the filepath to ensure that we have gold labels for that file
-                filename = f.split('/')[2].split('.')[0]
+                print('f: ',f)
 
-                keys_gold_label_dict = list(PROMINENCE_GOLD_LABEL_DICTIONARY[focus_language].keys())
+                print('f split: ', f.split('/'))
+                #first, obtain the filename from the filepath to ensure that we have gold labels for that file
+                filename = f.split('/')[3].split('.')[0]
+                print('filename: ', filename)
+
+                keys_gold_label_dict = list(GOLD_LABEL_DICTIONARY[focus_language].keys())
+                print('keys gold label dict: ', keys_gold_label_dict)
     
 
                 if filename in keys_gold_label_dict:
-                    print(f)
+                    print(True)
                     extracted_features = analysis(f, focus_language, configuration, logger, args.annotation_directory, args.output_directory, plot_flag)
+                    output_json_object.append(extracted_features)
 
-                    #write the extracted features into a text file
-                    write_output_file.write(extracted_features+'\n')
-            
-            #close the file
-            write_output_file.close()
+            #add the language information to the json file
+            output_file_path = './' + focus_language + '_extracted_features.json'
+            #write the json object to a json file
+            with open(output_file_path, 'w') as outfile:
+                json.dump(output_json_object, outfile)
+        
 
 
     
@@ -525,14 +588,14 @@ if __name__ == '__main__':
         parser.add_argument("-v", "--verbosity", action="count", default=1,
                             help="increase output verbosity")
         #adding can argument to represent the directory where the audio language data is stored
-        parser.add_argument("-e", "--extracted_features", default='/Users/dr_david_sasu/Desktop/Research Code/extracted_audio_features/', type=str,
+        parser.add_argument("-e", "--extracted_features", default='./extracted_audio_features/', type=str,
                             help="Provide the directory where the extracted features of the audio files would be stored.")
 
         # Add argument for the directory containing the .wav files
-        parser.add_argument("input", help="directory with wave files or wave file to analyze (a label file with the same basename should be available)")
+        parser.add_argument("-input", default='./sample_language_audio_data/', type=str, help="directory with wave files or wave file to analyze (a label file with the same basename should be available)")
 
         # Add argument for the directory containg the prominence gold labels for the words in each input audio file
-        parser.add_argument("-g", "--prominence_gold_labels", default='/Users/dr_david_sasu/Desktop/Research Code/sample prominence gold labels/', type=str, help="directory where the prominence gold labels for the words in each input audio file.")
+        parser.add_argument("-g", "--prominence_gold_labels", default='./sample prominence gold labels/', type=str, help="directory where the prominence gold labels for the words in each input audio file.")
 
 
 
