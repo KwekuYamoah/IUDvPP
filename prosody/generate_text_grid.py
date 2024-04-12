@@ -6,7 +6,7 @@ import subprocess
 PROJECT_DIR = '/Users/kayems/Library/CloudStorage/OneDrive-AshesiUniversity/IUDvPP/'
 AENEAS_DIR = os.path.join(PROJECT_DIR, 'aeneas')  # Assuming 'aeneas' is directly under project_dir
 VOICE_SAMPLES_DIR = os.path.join(PROJECT_DIR, 'voice_samples')
-TEXT_GRID_DIR = os.path.join(PROJECT_DIR, 'prosody', 'text_grid_files')
+TEXT_GRID_DIR = os.path.join(PROJECT_DIR, 'prosody', 'text_grid_files_v2')
 TRANSCRIPTIONS_JSON_PATH = os.path.join(PROJECT_DIR, 'asr', 'transcriptions.json')
 TEMP_TEXT_FILE_PATH = os.path.join(PROJECT_DIR, 'temp_transcription.txt')
 
@@ -51,7 +51,7 @@ def call_aeneas(audio_file, transcription_text, output_file):
             'python3', '-m', 'aeneas.tools.execute_task',
             audio_file,
             TEMP_TEXT_FILE_PATH,
-            'task_language=eng|is_text_type=plain|os_task_file_format=textgrid',
+            'task_language=eng|is_text_type=plain|os_task_file_format=aud',
             output_file
         ]
 
