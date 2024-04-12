@@ -3,26 +3,40 @@ import os
 import subprocess
 
 # Define directories with absolute paths
-project_dir = '/Users/kayems/Library/CloudStorage/OneDrive-AshesiUniversity/IUDvPP/'
-aeneas_dir = os.path.join(project_dir, 'aeneas')  # Assuming 'aeneas' is directly under project_dir
-voice_samples_dir = os.path.join(project_dir, 'voice_samples')
-text_grid_dir = os.path.join(project_dir, 'prosody', 'text_grid_files')
-transcriptions_json_path = os.path.join(project_dir, 'asr', 'transcriptions.json')
-temp_text_file_path = os.path.join(project_dir, 'temp_transcription.txt')
+PROJECT_DIR = '/Users/kayems/Library/CloudStorage/OneDrive-AshesiUniversity/IUDvPP/'
+AENEAS_DIR = os.path.join(PROJECT_DIR, 'aeneas')  # Assuming 'aeneas' is directly under project_dir
+VOICE_SAMPLES_DIR = os.path.join(PROJECT_DIR, 'voice_samples')
+TEXT_GRID_DIR = os.path.join(PROJECT_DIR, 'prosody', 'text_grid_files')
+TRANSCRIPTIONS_JSON_PATH = os.path.join(PROJECT_DIR, 'asr', 'transcriptions.json')
+TEMP_TEXT_FILE_PATH = os.path.join(PROJECT_DIR, 'temp_transcription.txt')
 
 # Ensure the output directory exists
-if not os.path.exists(text_grid_dir):
-    os.makedirs(text_grid_dir)
-    print(f"Created directory {text_grid_dir}")
+if not os.path.exists(TEXT_GRID_DIR):
+    os.makedirs(TEXT_GRID_DIR)
+    print(f"Created directory {TEXT_GRID_DIR}")
 
 # Load transcriptions
-with open(transcriptions_json_path, 'r') as f:
+with open(TRANSCRIPTIONS_JSON_PATH, 'r', encoding='utf-8') as f:
     transcriptions = json.load(f)
 
 # Function to call aeneas using subprocess
 def call_aeneas(audio_file, transcription_text, output_file):
+    """
+    Call aeneas to generate TextGrid file.
+
+    Args:
+        audio_file (str): The path to the audio file.
+        transcription_text (str): The transcription text.
+        output_file (str): The path to save the generated TextGrid file.
+
+    Raises:
+        subprocess.CalledProcessError: If the command to run aeneas fails.
+
+    Returns:
+        None
+    """
     # Write the transcription text to the temp file
-    with open(temp_text_file_path, 'w') as temp_text_file:
+    with open(TEMP_TEXT_FILE_PATH, 'w', encoding='utf-8') as temp_text_file:
         for word in transcription_text.split():
             temp_text_file.write(word + '\n')
 
@@ -30,13 +44,13 @@ def call_aeneas(audio_file, transcription_text, output_file):
     current_dir = os.getcwd()
     try:
         # Change to the aeneas directory
-        os.chdir(aeneas_dir)
+        os.chdir(AENEAS_DIR)
 
         # Define the command to run aeneas
         command = [
             'python3', '-m', 'aeneas.tools.execute_task',
             audio_file,
-            temp_text_file_path,
+            TEMP_TEXT_FILE_PATH,
             'task_language=eng|is_text_type=plain|os_task_file_format=textgrid',
             output_file
         ]
@@ -51,12 +65,12 @@ def call_aeneas(audio_file, transcription_text, output_file):
         os.chdir(current_dir)
 
 # Iterate over voice samples
-for filename in sorted(os.listdir(voice_samples_dir)):
+for filename in sorted(os.listdir(VOICE_SAMPLES_DIR)):
     if filename.endswith('.wav'):
-        file_path = os.path.join(voice_samples_dir, filename)
+        file_path = os.path.join(VOICE_SAMPLES_DIR, filename)
         if filename in transcriptions:
             transcription = transcriptions[filename]
-            output_file_path = os.path.join(text_grid_dir, f"{os.path.splitext(filename)[0]}.TextGrid")
+            output_file_path = os.path.join(TEXT_GRID_DIR, f"{os.path.splitext(filename)[0]}.TextGrid")
             print(f"Generating TextGrid for {file_path} to {output_file_path}")
             call_aeneas(file_path, transcription, output_file_path)
         else:
