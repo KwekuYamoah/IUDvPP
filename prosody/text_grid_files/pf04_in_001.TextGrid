@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 9.96
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 9.96
+		intervals: size = 27
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.56
+			text = "Go"
+		intervals [2]:
+			xmin = 0.56
+			xmax = 0.8
+			text = "to"
+		intervals [3]:
+			xmin = 0.8
+			xmax = 1.28
+			text = "the"
+		intervals [4]:
+			xmin = 1.28
+			xmax = 1.56
+			text = "red"
+		intervals [5]:
+			xmin = 1.56
+			xmax = 2.0
+			text = "sofa"
+		intervals [6]:
+			xmin = 2.0
+			xmax = 2.56
+			text = "but"
+		intervals [7]:
+			xmin = 2.56
+			xmax = 2.84
+			text = "don't"
+		intervals [8]:
+			xmin = 2.84
+			xmax = 3.2
+			text = "pass"
+		intervals [9]:
+			xmin = 3.2
+			xmax = 3.52
+			text = "by"
+		intervals [10]:
+			xmin = 3.52
+			xmax = 3.64
+			text = "any"
+		intervals [11]:
+			xmin = 3.64
+			xmax = 4.04
+			text = "door."
+		intervals [12]:
+			xmin = 4.04
+			xmax = 4.32
+			text = "Then"
+		intervals [13]:
+			xmin = 4.32
+			xmax = 4.68
+			text = "go"
+		intervals [14]:
+			xmin = 4.68
+			xmax = 5.04
+			text = "to"
+		intervals [15]:
+			xmin = 5.04
+			xmax = 5.2
+			text = "the"
+		intervals [16]:
+			xmin = 5.2
+			xmax = 5.68
+			text = "computer."
+		intervals [17]:
+			xmin = 5.68
+			xmax = 6.12
+			text = "The"
+		intervals [18]:
+			xmin = 6.12
+			xmax = 6.64
+			text = "sofa"
+		intervals [19]:
+			xmin = 6.64
+			xmax = 6.84
+			text = "is"
+		intervals [20]:
+			xmin = 6.84
+			xmax = 7.24
+			text = "behind"
+		intervals [21]:
+			xmin = 7.24
+			xmax = 7.4
+			text = "the"
+		intervals [22]:
+			xmin = 7.4
+			xmax = 7.6
+			text = "pillar"
+		intervals [23]:
+			xmin = 7.6
+			xmax = 7.84
+			text = "and"
+		intervals [24]:
+			xmin = 7.84
+			xmax = 7.88
+			text = "on"
+		intervals [25]:
+			xmin = 7.88
+			xmax = 8.4
+			text = "the"
+		intervals [26]:
+			xmin = 8.4
+			xmax = 8.68
+			text = "right"
+		intervals [27]:
+			xmin = 8.68
+			xmax = 9.96
+			text = "side."

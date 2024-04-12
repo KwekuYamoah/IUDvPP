@@ -1,0 +1,102 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 8.72
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 8.72
+		intervals: size = 22
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.52
+			text = "Go"
+		intervals [2]:
+			xmin = 0.52
+			xmax = 0.96
+			text = "to"
+		intervals [3]:
+			xmin = 0.96
+			xmax = 1.52
+			text = "the"
+		intervals [4]:
+			xmin = 1.52
+			xmax = 2.04
+			text = "cabinet"
+		intervals [5]:
+			xmin = 2.04
+			xmax = 2.48
+			text = "between"
+		intervals [6]:
+			xmin = 2.48
+			xmax = 2.76
+			text = "the"
+		intervals [7]:
+			xmin = 2.76
+			xmax = 2.96
+			text = "blue"
+		intervals [8]:
+			xmin = 2.96
+			xmax = 3.56
+			text = "sofa"
+		intervals [9]:
+			xmin = 3.56
+			xmax = 3.84
+			text = "and"
+		intervals [10]:
+			xmin = 3.84
+			xmax = 4.2
+			text = "the"
+		intervals [11]:
+			xmin = 4.2
+			xmax = 4.68
+			text = "yellow"
+		intervals [12]:
+			xmin = 4.68
+			xmax = 5.16
+			text = "robots"
+		intervals [13]:
+			xmin = 5.16
+			xmax = 5.36
+			text = "or"
+		intervals [14]:
+			xmin = 5.36
+			xmax = 5.68
+			text = "the"
+		intervals [15]:
+			xmin = 5.68
+			xmax = 6.24
+			text = "cabinet"
+		intervals [16]:
+			xmin = 6.24
+			xmax = 6.76
+			text = "to"
+		intervals [17]:
+			xmin = 6.76
+			xmax = 7.04
+			text = "the"
+		intervals [18]:
+			xmin = 7.04
+			xmax = 7.52
+			text = "left"
+		intervals [19]:
+			xmin = 7.52
+			xmax = 7.84
+			text = "of"
+		intervals [20]:
+			xmin = 7.84
+			xmax = 8.2
+			text = "the"
+		intervals [21]:
+			xmin = 8.2
+			xmax = 8.32
+			text = "blue"
+		intervals [22]:
+			xmin = 8.32
+			xmax = 8.72
+			text = "sofa"

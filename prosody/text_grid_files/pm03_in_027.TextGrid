@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 8.8
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 8.8
+		intervals: size = 27
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.16
+			text = "Find"
+		intervals [2]:
+			xmin = 0.16
+			xmax = 0.68
+			text = "the"
+		intervals [3]:
+			xmin = 0.68
+			xmax = 1.32
+			text = "bottle"
+		intervals [4]:
+			xmin = 1.32
+			xmax = 1.88
+			text = "that"
+		intervals [5]:
+			xmin = 1.88
+			xmax = 2.52
+			text = "is"
+		intervals [6]:
+			xmin = 2.52
+			xmax = 2.68
+			text = "on"
+		intervals [7]:
+			xmin = 2.68
+			xmax = 3.16
+			text = "the"
+		intervals [8]:
+			xmin = 3.16
+			xmax = 3.28
+			text = "table"
+		intervals [9]:
+			xmin = 3.28
+			xmax = 3.72
+			text = "to"
+		intervals [10]:
+			xmin = 3.72
+			xmax = 3.96
+			text = "the"
+		intervals [11]:
+			xmin = 3.96
+			xmax = 4.24
+			text = "left"
+		intervals [12]:
+			xmin = 4.24
+			xmax = 4.32
+			text = "of"
+		intervals [13]:
+			xmin = 4.32
+			xmax = 4.64
+			text = "the"
+		intervals [14]:
+			xmin = 4.64
+			xmax = 5.12
+			text = "computer"
+		intervals [15]:
+			xmin = 5.12
+			xmax = 5.32
+			text = "and"
+		intervals [16]:
+			xmin = 5.32
+			xmax = 5.4
+			text = "bring"
+		intervals [17]:
+			xmin = 5.4
+			xmax = 5.44
+			text = "it"
+		intervals [18]:
+			xmin = 5.44
+			xmax = 5.68
+			text = "to"
+		intervals [19]:
+			xmin = 5.68
+			xmax = 6.16
+			text = "the"
+		intervals [20]:
+			xmin = 6.16
+			xmax = 6.8
+			text = "wardrobe"
+		intervals [21]:
+			xmin = 6.8
+			xmax = 6.96
+			text = "that"
+		intervals [22]:
+			xmin = 6.96
+			xmax = 7.04
+			text = "is"
+		intervals [23]:
+			xmin = 7.04
+			xmax = 7.44
+			text = "next"
+		intervals [24]:
+			xmin = 7.44
+			xmax = 7.6
+			text = "to"
+		intervals [25]:
+			xmin = 7.6
+			xmax = 7.88
+			text = "the"
+		intervals [26]:
+			xmin = 7.88
+			xmax = 8.16
+			text = "glass"
+		intervals [27]:
+			xmin = 8.16
+			xmax = 8.8
+			text = "door."

@@ -1,0 +1,186 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 15.84
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 15.84
+		intervals: size = 43
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.8
+			text = "Find"
+		intervals [2]:
+			xmin = 0.8
+			xmax = 1.16
+			text = "the"
+		intervals [3]:
+			xmin = 1.16
+			xmax = 1.52
+			text = "yellow"
+		intervals [4]:
+			xmin = 1.52
+			xmax = 1.96
+			text = "trash"
+		intervals [5]:
+			xmin = 1.96
+			xmax = 2.48
+			text = "bin"
+		intervals [6]:
+			xmin = 2.48
+			xmax = 2.8
+			text = "and"
+		intervals [7]:
+			xmin = 2.8
+			xmax = 3.0
+			text = "go"
+		intervals [8]:
+			xmin = 3.0
+			xmax = 3.2
+			text = "to"
+		intervals [9]:
+			xmin = 3.2
+			xmax = 3.4
+			text = "it"
+		intervals [10]:
+			xmin = 3.4
+			xmax = 3.84
+			text = "then"
+		intervals [11]:
+			xmin = 3.84
+			xmax = 4.16
+			text = "go"
+		intervals [12]:
+			xmin = 4.16
+			xmax = 4.44
+			text = "by"
+		intervals [13]:
+			xmin = 4.44
+			xmax = 4.72
+			text = "the"
+		intervals [14]:
+			xmin = 4.72
+			xmax = 5.32
+			text = "white"
+		intervals [15]:
+			xmin = 5.32
+			xmax = 5.72
+			text = "table"
+		intervals [16]:
+			xmin = 5.72
+			xmax = 6.04
+			text = "but"
+		intervals [17]:
+			xmin = 6.04
+			xmax = 6.24
+			text = "before"
+		intervals [18]:
+			xmin = 6.24
+			xmax = 6.6
+			text = "doing"
+		intervals [19]:
+			xmin = 6.6
+			xmax = 6.72
+			text = "the"
+		intervals [20]:
+			xmin = 6.72
+			xmax = 7.16
+			text = "first"
+		intervals [21]:
+			xmin = 7.16
+			xmax = 7.6
+			text = "thing"
+		intervals [22]:
+			xmin = 7.6
+			xmax = 8.0
+			text = "visit"
+		intervals [23]:
+			xmin = 8.0
+			xmax = 8.12
+			text = "where"
+		intervals [24]:
+			xmin = 8.12
+			xmax = 8.28
+			text = "the"
+		intervals [25]:
+			xmin = 8.28
+			xmax = 8.72
+			text = "fridge"
+		intervals [26]:
+			xmin = 8.72
+			xmax = 9.16
+			text = "is"
+		intervals [27]:
+			xmin = 9.16
+			xmax = 9.36
+			text = "then"
+		intervals [28]:
+			xmin = 9.36
+			xmax = 9.72
+			text = "after"
+		intervals [29]:
+			xmin = 9.72
+			xmax = 9.8
+			text = "the"
+		intervals [30]:
+			xmin = 9.8
+			xmax = 10.24
+			text = "last"
+		intervals [31]:
+			xmin = 10.24
+			xmax = 10.92
+			text = "thing"
+		intervals [32]:
+			xmin = 10.92
+			xmax = 11.24
+			text = "stop"
+		intervals [33]:
+			xmin = 11.24
+			xmax = 11.48
+			text = "by"
+		intervals [34]:
+			xmin = 11.48
+			xmax = 11.6
+			text = "the"
+		intervals [35]:
+			xmin = 11.6
+			xmax = 12.04
+			text = "red"
+		intervals [36]:
+			xmin = 12.04
+			xmax = 12.52
+			text = "sofa"
+		intervals [37]:
+			xmin = 12.52
+			xmax = 12.68
+			text = "but"
+		intervals [38]:
+			xmin = 12.68
+			xmax = 13.16
+			text = "avoid"
+		intervals [39]:
+			xmin = 13.16
+			xmax = 13.2
+			text = "the"
+		intervals [40]:
+			xmin = 13.2
+			xmax = 13.64
+			text = "wooden"
+		intervals [41]:
+			xmin = 13.64
+			xmax = 13.92
+			text = "door"
+		intervals [42]:
+			xmin = 13.92
+			xmax = 14.08
+			text = "with"
+		intervals [43]:
+			xmin = 14.08
+			xmax = 15.84
+			text = "posters"

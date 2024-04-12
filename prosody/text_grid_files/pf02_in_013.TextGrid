@@ -1,0 +1,146 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 12.8
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 12.8
+		intervals: size = 33
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.56
+			text = "This"
+		intervals [2]:
+			xmin = 0.56
+			xmax = 1.16
+			text = "is"
+		intervals [3]:
+			xmin = 1.16
+			xmax = 1.44
+			text = "these"
+		intervals [4]:
+			xmin = 1.44
+			xmax = 1.8
+			text = "things"
+		intervals [5]:
+			xmin = 1.8
+			xmax = 1.8
+			text = "in"
+		intervals [6]:
+			xmin = 1.8
+			xmax = 2.0
+			text = "the"
+		intervals [7]:
+			xmin = 2.0
+			xmax = 2.36
+			text = "following"
+		intervals [8]:
+			xmin = 2.36
+			xmax = 2.88
+			text = "order,"
+		intervals [9]:
+			xmin = 2.88
+			xmax = 3.2
+			text = "the"
+		intervals [10]:
+			xmin = 3.2
+			xmax = 4.04
+			text = "microwave,"
+		intervals [11]:
+			xmin = 4.04
+			xmax = 4.24
+			text = "then"
+		intervals [12]:
+			xmin = 4.24
+			xmax = 4.24
+			text = "the"
+		intervals [13]:
+			xmin = 4.24
+			xmax = 4.36
+			text = "black"
+		intervals [14]:
+			xmin = 4.36
+			xmax = 4.68
+			text = "chair"
+		intervals [15]:
+			xmin = 4.68
+			xmax = 4.68
+			text = "in"
+		intervals [16]:
+			xmin = 4.68
+			xmax = 5.36
+			text = "front"
+		intervals [17]:
+			xmin = 5.36
+			xmax = 5.8
+			text = "of"
+		intervals [18]:
+			xmin = 5.8
+			xmax = 6.04
+			text = "a"
+		intervals [19]:
+			xmin = 6.04
+			xmax = 6.52
+			text = "yellow"
+		intervals [20]:
+			xmin = 6.52
+			xmax = 6.92
+			text = "robot,"
+		intervals [21]:
+			xmin = 6.92
+			xmax = 7.12
+			text = "then"
+		intervals [22]:
+			xmin = 7.12
+			xmax = 7.56
+			text = "the"
+		intervals [23]:
+			xmin = 7.56
+			xmax = 8.6
+			text = "fridge,"
+		intervals [24]:
+			xmin = 8.6
+			xmax = 8.92
+			text = "but"
+		intervals [25]:
+			xmin = 8.92
+			xmax = 9.36
+			text = "before"
+		intervals [26]:
+			xmin = 9.36
+			xmax = 9.8
+			text = "doing"
+		intervals [27]:
+			xmin = 9.8
+			xmax = 10.04
+			text = "any"
+		intervals [28]:
+			xmin = 10.04
+			xmax = 10.16
+			text = "of"
+		intervals [29]:
+			xmin = 10.16
+			xmax = 10.92
+			text = "this,"
+		intervals [30]:
+			xmin = 10.92
+			xmax = 11.2
+			text = "go"
+		intervals [31]:
+			xmin = 11.2
+			xmax = 11.36
+			text = "to"
+		intervals [32]:
+			xmin = 11.36
+			xmax = 11.76
+			text = "the"
+		intervals [33]:
+			xmin = 11.76
+			xmax = 12.8
+			text = "robot."

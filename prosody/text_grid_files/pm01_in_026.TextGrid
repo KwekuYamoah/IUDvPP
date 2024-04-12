@@ -1,0 +1,114 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 7.84
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 7.84
+		intervals: size = 25
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.04
+			text = "Go"
+		intervals [2]:
+			xmin = 0.04
+			xmax = 0.28
+			text = "get"
+		intervals [3]:
+			xmin = 0.28
+			xmax = 0.76
+			text = "my"
+		intervals [4]:
+			xmin = 0.76
+			xmax = 1.08
+			text = "yellow"
+		intervals [5]:
+			xmin = 1.08
+			xmax = 1.36
+			text = "bag"
+		intervals [6]:
+			xmin = 1.36
+			xmax = 1.44
+			text = "and"
+		intervals [7]:
+			xmin = 1.44
+			xmax = 1.68
+			text = "bring"
+		intervals [8]:
+			xmin = 1.68
+			xmax = 1.76
+			text = "it"
+		intervals [9]:
+			xmin = 1.76
+			xmax = 1.8
+			text = "to"
+		intervals [10]:
+			xmin = 1.8
+			xmax = 1.96
+			text = "the"
+		intervals [11]:
+			xmin = 1.96
+			xmax = 2.24
+			text = "table"
+		intervals [12]:
+			xmin = 2.24
+			xmax = 3.36
+			text = "between"
+		intervals [13]:
+			xmin = 3.36
+			xmax = 3.44
+			text = "the"
+		intervals [14]:
+			xmin = 3.44
+			xmax = 3.48
+			text = "yellow"
+		intervals [15]:
+			xmin = 3.48
+			xmax = 3.6
+			text = "pillar"
+		intervals [16]:
+			xmin = 3.6
+			xmax = 3.6
+			text = "and"
+		intervals [17]:
+			xmin = 3.6
+			xmax = 3.72
+			text = "the"
+		intervals [18]:
+			xmin = 3.72
+			xmax = 4.12
+			text = "wooden"
+		intervals [19]:
+			xmin = 4.12
+			xmax = 4.36
+			text = "door"
+		intervals [20]:
+			xmin = 4.36
+			xmax = 4.52
+			text = "with"
+		intervals [21]:
+			xmin = 4.52
+			xmax = 5.0
+			text = "posters"
+		intervals [22]:
+			xmin = 5.0
+			xmax = 5.2
+			text = "next"
+		intervals [23]:
+			xmin = 5.2
+			xmax = 5.52
+			text = "to"
+		intervals [24]:
+			xmin = 5.52
+			xmax = 7.04
+			text = "the"
+		intervals [25]:
+			xmin = 7.04
+			xmax = 7.84
+			text = "whiteboard."

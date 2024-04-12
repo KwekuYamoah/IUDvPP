@@ -1,0 +1,106 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 9.44
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 9.44
+		intervals: size = 23
+		intervals [1]:
+			xmin = 0.0
+			xmax = 1.04
+			text = "You"
+		intervals [2]:
+			xmin = 1.04
+			xmax = 1.32
+			text = "can"
+		intervals [3]:
+			xmin = 1.32
+			xmax = 1.88
+			text = "either"
+		intervals [4]:
+			xmin = 1.88
+			xmax = 2.2
+			text = "go"
+		intervals [5]:
+			xmin = 2.2
+			xmax = 2.52
+			text = "as"
+		intervals [6]:
+			xmin = 2.52
+			xmax = 3.0
+			text = "close"
+		intervals [7]:
+			xmin = 3.0
+			xmax = 3.28
+			text = "as"
+		intervals [8]:
+			xmin = 3.28
+			xmax = 3.4
+			text = "you"
+		intervals [9]:
+			xmin = 3.4
+			xmax = 3.68
+			text = "can"
+		intervals [10]:
+			xmin = 3.68
+			xmax = 4.08
+			text = "to"
+		intervals [11]:
+			xmin = 4.08
+			xmax = 4.44
+			text = "the"
+		intervals [12]:
+			xmin = 4.44
+			xmax = 4.76
+			text = "sink"
+		intervals [13]:
+			xmin = 4.76
+			xmax = 4.92
+			text = "or"
+		intervals [14]:
+			xmin = 4.92
+			xmax = 5.12
+			text = "the"
+		intervals [15]:
+			xmin = 5.12
+			xmax = 5.56
+			text = "plant"
+		intervals [16]:
+			xmin = 5.56
+			xmax = 5.68
+			text = "pot"
+		intervals [17]:
+			xmin = 5.68
+			xmax = 6.0
+			text = "but"
+		intervals [18]:
+			xmin = 6.0
+			xmax = 6.52
+			text = "don't"
+		intervals [19]:
+			xmin = 6.52
+			xmax = 7.2
+			text = "go"
+		intervals [20]:
+			xmin = 7.2
+			xmax = 7.56
+			text = "near"
+		intervals [21]:
+			xmin = 7.56
+			xmax = 8.0
+			text = "the"
+		intervals [22]:
+			xmin = 8.0
+			xmax = 8.64
+			text = "yellow"
+		intervals [23]:
+			xmin = 8.64
+			xmax = 9.44
+			text = "robot."

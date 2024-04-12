@@ -1,0 +1,118 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 9.16
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 9.16
+		intervals: size = 26
+		intervals [1]:
+			xmin = 0.0
+			xmax = 1.52
+			text = "Go"
+		intervals [2]:
+			xmin = 1.52
+			xmax = 1.8
+			text = "to"
+		intervals [3]:
+			xmin = 1.8
+			xmax = 2.04
+			text = "the"
+		intervals [4]:
+			xmin = 2.04
+			xmax = 2.4
+			text = "trash"
+		intervals [5]:
+			xmin = 2.4
+			xmax = 2.88
+			text = "bin."
+		intervals [6]:
+			xmin = 2.88
+			xmax = 3.12
+			text = "After"
+		intervals [7]:
+			xmin = 3.12
+			xmax = 3.4
+			text = "that,"
+		intervals [8]:
+			xmin = 3.4
+			xmax = 3.56
+			text = "go"
+		intervals [9]:
+			xmin = 3.56
+			xmax = 3.56
+			text = "to"
+		intervals [10]:
+			xmin = 3.56
+			xmax = 3.56
+			text = "the"
+		intervals [11]:
+			xmin = 3.56
+			xmax = 3.96
+			text = "large"
+		intervals [12]:
+			xmin = 3.96
+			xmax = 4.92
+			text = "television."
+		intervals [13]:
+			xmin = 4.92
+			xmax = 5.84
+			text = "Actually,"
+		intervals [14]:
+			xmin = 5.84
+			xmax = 6.0
+			text = "can"
+		intervals [15]:
+			xmin = 6.0
+			xmax = 6.08
+			text = "you"
+		intervals [16]:
+			xmin = 6.08
+			xmax = 6.24
+			text = "go"
+		intervals [17]:
+			xmin = 6.24
+			xmax = 6.48
+			text = "to"
+		intervals [18]:
+			xmin = 6.48
+			xmax = 6.68
+			text = "the"
+		intervals [19]:
+			xmin = 6.68
+			xmax = 6.96
+			text = "laptop"
+		intervals [20]:
+			xmin = 6.96
+			xmax = 7.16
+			text = "on"
+		intervals [21]:
+			xmin = 7.16
+			xmax = 7.24
+			text = "the"
+		intervals [22]:
+			xmin = 7.24
+			xmax = 7.64
+			text = "table"
+		intervals [23]:
+			xmin = 7.64
+			xmax = 7.96
+			text = "before"
+		intervals [24]:
+			xmin = 7.96
+			xmax = 8.16
+			text = "doing"
+		intervals [25]:
+			xmin = 8.16
+			xmax = 8.8
+			text = "all"
+		intervals [26]:
+			xmin = 8.8
+			xmax = 9.16
+			text = "that?"

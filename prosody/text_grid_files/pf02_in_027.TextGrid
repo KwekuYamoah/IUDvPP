@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 8.92
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 8.92
+		intervals: size = 27
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.24
+			text = "Find"
+		intervals [2]:
+			xmin = 0.24
+			xmax = 0.4
+			text = "the"
+		intervals [3]:
+			xmin = 0.4
+			xmax = 0.84
+			text = "bottle"
+		intervals [4]:
+			xmin = 0.84
+			xmax = 1.48
+			text = "that"
+		intervals [5]:
+			xmin = 1.48
+			xmax = 1.84
+			text = "is"
+		intervals [6]:
+			xmin = 1.84
+			xmax = 2.16
+			text = "on"
+		intervals [7]:
+			xmin = 2.16
+			xmax = 2.52
+			text = "the"
+		intervals [8]:
+			xmin = 2.52
+			xmax = 2.8
+			text = "table"
+		intervals [9]:
+			xmin = 2.8
+			xmax = 2.8
+			text = "to"
+		intervals [10]:
+			xmin = 2.8
+			xmax = 3.24
+			text = "the"
+		intervals [11]:
+			xmin = 3.24
+			xmax = 3.64
+			text = "left"
+		intervals [12]:
+			xmin = 3.64
+			xmax = 3.68
+			text = "of"
+		intervals [13]:
+			xmin = 3.68
+			xmax = 4.0
+			text = "the"
+		intervals [14]:
+			xmin = 4.0
+			xmax = 4.48
+			text = "computer"
+		intervals [15]:
+			xmin = 4.48
+			xmax = 4.52
+			text = "and"
+		intervals [16]:
+			xmin = 4.52
+			xmax = 4.56
+			text = "bring"
+		intervals [17]:
+			xmin = 4.56
+			xmax = 4.96
+			text = "it"
+		intervals [18]:
+			xmin = 4.96
+			xmax = 5.16
+			text = "to"
+		intervals [19]:
+			xmin = 5.16
+			xmax = 5.6
+			text = "the"
+		intervals [20]:
+			xmin = 5.6
+			xmax = 5.96
+			text = "wardrobe"
+		intervals [21]:
+			xmin = 5.96
+			xmax = 6.4
+			text = "that"
+		intervals [22]:
+			xmin = 6.4
+			xmax = 6.72
+			text = "is"
+		intervals [23]:
+			xmin = 6.72
+			xmax = 7.12
+			text = "next"
+		intervals [24]:
+			xmin = 7.12
+			xmax = 7.24
+			text = "to"
+		intervals [25]:
+			xmin = 7.24
+			xmax = 7.28
+			text = "the"
+		intervals [26]:
+			xmin = 7.28
+			xmax = 7.68
+			text = "glass"
+		intervals [27]:
+			xmin = 7.68
+			xmax = 8.92
+			text = "door."

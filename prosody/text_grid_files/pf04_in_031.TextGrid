@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 9.24
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 9.24
+		intervals: size = 27
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.36
+			text = "Hey,"
+		intervals [2]:
+			xmin = 0.36
+			xmax = 0.68
+			text = "I"
+		intervals [3]:
+			xmin = 0.68
+			xmax = 0.76
+			text = "am"
+		intervals [4]:
+			xmin = 0.76
+			xmax = 1.4
+			text = "standing"
+		intervals [5]:
+			xmin = 1.4
+			xmax = 1.68
+			text = "by"
+		intervals [6]:
+			xmin = 1.68
+			xmax = 2.44
+			text = "the"
+		intervals [7]:
+			xmin = 2.44
+			xmax = 3.12
+			text = "whiteboard"
+		intervals [8]:
+			xmin = 3.12
+			xmax = 3.4
+			text = "in"
+		intervals [9]:
+			xmin = 3.4
+			xmax = 3.8
+			text = "front"
+		intervals [10]:
+			xmin = 3.8
+			xmax = 3.8
+			text = "of"
+		intervals [11]:
+			xmin = 3.8
+			xmax = 3.96
+			text = "the"
+		intervals [12]:
+			xmin = 3.96
+			xmax = 4.8
+			text = "bookshelf."
+		intervals [13]:
+			xmin = 4.8
+			xmax = 5.12
+			text = "Can"
+		intervals [14]:
+			xmin = 5.12
+			xmax = 5.4
+			text = "you"
+		intervals [15]:
+			xmin = 5.4
+			xmax = 5.64
+			text = "bring"
+		intervals [16]:
+			xmin = 5.64
+			xmax = 5.8
+			text = "me"
+		intervals [17]:
+			xmin = 5.8
+			xmax = 6.0
+			text = "the"
+		intervals [18]:
+			xmin = 6.0
+			xmax = 6.28
+			text = "mug"
+		intervals [19]:
+			xmin = 6.28
+			xmax = 6.64
+			text = "from"
+		intervals [20]:
+			xmin = 6.64
+			xmax = 6.84
+			text = "the"
+		intervals [21]:
+			xmin = 6.84
+			xmax = 7.08
+			text = "table"
+		intervals [22]:
+			xmin = 7.08
+			xmax = 7.56
+			text = "to"
+		intervals [23]:
+			xmin = 7.56
+			xmax = 7.84
+			text = "the"
+		intervals [24]:
+			xmin = 7.84
+			xmax = 8.0
+			text = "left"
+		intervals [25]:
+			xmin = 8.0
+			xmax = 8.24
+			text = "of"
+		intervals [26]:
+			xmin = 8.24
+			xmax = 8.28
+			text = "the"
+		intervals [27]:
+			xmin = 8.28
+			xmax = 9.24
+			text = "fridge?"

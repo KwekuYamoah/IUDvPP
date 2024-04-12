@@ -1,0 +1,226 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 15.68
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 15.68
+		intervals: size = 53
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.32
+			text = "Can"
+		intervals [2]:
+			xmin = 0.32
+			xmax = 0.4
+			text = "you"
+		intervals [3]:
+			xmin = 0.4
+			xmax = 0.6
+			text = "pick"
+		intervals [4]:
+			xmin = 0.6
+			xmax = 0.76
+			text = "up"
+		intervals [5]:
+			xmin = 0.76
+			xmax = 1.08
+			text = "my"
+		intervals [6]:
+			xmin = 1.08
+			xmax = 1.28
+			text = "book"
+		intervals [7]:
+			xmin = 1.28
+			xmax = 1.44
+			text = "from"
+		intervals [8]:
+			xmin = 1.44
+			xmax = 1.72
+			text = "the"
+		intervals [9]:
+			xmin = 1.72
+			xmax = 1.96
+			text = "left"
+		intervals [10]:
+			xmin = 1.96
+			xmax = 2.16
+			text = "side"
+		intervals [11]:
+			xmin = 2.16
+			xmax = 2.48
+			text = "of"
+		intervals [12]:
+			xmin = 2.48
+			xmax = 2.92
+			text = "the"
+		intervals [13]:
+			xmin = 2.92
+			xmax = 3.68
+			text = "television"
+		intervals [14]:
+			xmin = 3.68
+			xmax = 4.12
+			text = "and"
+		intervals [15]:
+			xmin = 4.12
+			xmax = 4.48
+			text = "bring"
+		intervals [16]:
+			xmin = 4.48
+			xmax = 4.52
+			text = "it"
+		intervals [17]:
+			xmin = 4.52
+			xmax = 4.84
+			text = "to"
+		intervals [18]:
+			xmin = 4.84
+			xmax = 4.92
+			text = "me?"
+		intervals [19]:
+			xmin = 4.92
+			xmax = 5.2
+			text = "I"
+		intervals [20]:
+			xmin = 5.2
+			xmax = 5.36
+			text = "am"
+		intervals [21]:
+			xmin = 5.36
+			xmax = 5.72
+			text = "sitting"
+		intervals [22]:
+			xmin = 5.72
+			xmax = 5.76
+			text = "on"
+		intervals [23]:
+			xmin = 5.76
+			xmax = 5.96
+			text = "the"
+		intervals [24]:
+			xmin = 5.96
+			xmax = 6.36
+			text = "couch"
+		intervals [25]:
+			xmin = 6.36
+			xmax = 6.56
+			text = "which"
+		intervals [26]:
+			xmin = 6.56
+			xmax = 6.84
+			text = "is"
+		intervals [27]:
+			xmin = 6.84
+			xmax = 6.84
+			text = "to"
+		intervals [28]:
+			xmin = 6.84
+			xmax = 6.92
+			text = "the"
+		intervals [29]:
+			xmin = 6.92
+			xmax = 7.36
+			text = "right"
+		intervals [30]:
+			xmin = 7.36
+			xmax = 7.36
+			text = "of"
+		intervals [31]:
+			xmin = 7.36
+			xmax = 7.52
+			text = "the"
+		intervals [32]:
+			xmin = 7.52
+			xmax = 7.6
+			text = "door"
+		intervals [33]:
+			xmin = 7.6
+			xmax = 8.0
+			text = "with"
+		intervals [34]:
+			xmin = 8.0
+			xmax = 8.68
+			text = "posters."
+		intervals [35]:
+			xmin = 8.68
+			xmax = 8.84
+			text = "Make"
+		intervals [36]:
+			xmin = 8.84
+			xmax = 9.32
+			text = "sure"
+		intervals [37]:
+			xmin = 9.32
+			xmax = 9.84
+			text = "to"
+		intervals [38]:
+			xmin = 9.84
+			xmax = 10.0
+			text = "never"
+		intervals [39]:
+			xmin = 10.0
+			xmax = 10.24
+			text = "go"
+		intervals [40]:
+			xmin = 10.24
+			xmax = 10.4
+			text = "near"
+		intervals [41]:
+			xmin = 10.4
+			xmax = 10.68
+			text = "the"
+		intervals [42]:
+			xmin = 10.68
+			xmax = 11.16
+			text = "trash"
+		intervals [43]:
+			xmin = 11.16
+			xmax = 11.32
+			text = "bin"
+		intervals [44]:
+			xmin = 11.32
+			xmax = 11.64
+			text = "while"
+		intervals [45]:
+			xmin = 11.64
+			xmax = 12.0
+			text = "doing"
+		intervals [46]:
+			xmin = 12.0
+			xmax = 12.16
+			text = "all"
+		intervals [47]:
+			xmin = 12.16
+			xmax = 12.6
+			text = "this."
+		intervals [48]:
+			xmin = 12.6
+			xmax = 12.64
+			text = "It"
+		intervals [49]:
+			xmin = 12.64
+			xmax = 12.92
+			text = "is"
+		intervals [50]:
+			xmin = 12.92
+			xmax = 13.08
+			text = "on"
+		intervals [51]:
+			xmin = 13.08
+			xmax = 13.52
+			text = "the"
+		intervals [52]:
+			xmin = 13.52
+			xmax = 13.84
+			text = "yellow"
+		intervals [53]:
+			xmin = 13.84
+			xmax = 15.68
+			text = "table."

@@ -1,0 +1,110 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 8.48
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 8.48
+		intervals: size = 24
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.56
+			text = "Go"
+		intervals [2]:
+			xmin = 0.56
+			xmax = 1.16
+			text = "to"
+		intervals [3]:
+			xmin = 1.16
+			xmax = 1.36
+			text = "the"
+		intervals [4]:
+			xmin = 1.36
+			xmax = 2.04
+			text = "sink,"
+		intervals [5]:
+			xmin = 2.04
+			xmax = 2.24
+			text = "then"
+		intervals [6]:
+			xmin = 2.24
+			xmax = 2.44
+			text = "the"
+		intervals [7]:
+			xmin = 2.44
+			xmax = 2.88
+			text = "red"
+		intervals [8]:
+			xmin = 2.88
+			xmax = 3.36
+			text = "sofa,"
+		intervals [9]:
+			xmin = 3.36
+			xmax = 3.52
+			text = "then"
+		intervals [10]:
+			xmin = 3.52
+			xmax = 3.88
+			text = "the"
+		intervals [11]:
+			xmin = 3.88
+			xmax = 5.0
+			text = "guitar."
+		intervals [12]:
+			xmin = 5.0
+			xmax = 5.24
+			text = "After"
+		intervals [13]:
+			xmin = 5.24
+			xmax = 5.56
+			text = "that"
+		intervals [14]:
+			xmin = 5.56
+			xmax = 5.68
+			text = "I"
+		intervals [15]:
+			xmin = 5.68
+			xmax = 6.2
+			text = "want"
+		intervals [16]:
+			xmin = 6.2
+			xmax = 6.24
+			text = "you"
+		intervals [17]:
+			xmin = 6.24
+			xmax = 6.64
+			text = "to"
+		intervals [18]:
+			xmin = 6.64
+			xmax = 7.0
+			text = "return"
+		intervals [19]:
+			xmin = 7.0
+			xmax = 7.2
+			text = "to"
+		intervals [20]:
+			xmin = 7.2
+			xmax = 7.32
+			text = "the"
+		intervals [21]:
+			xmin = 7.32
+			xmax = 7.6
+			text = "first"
+		intervals [22]:
+			xmin = 7.6
+			xmax = 7.84
+			text = "thing"
+		intervals [23]:
+			xmin = 7.84
+			xmax = 7.88
+			text = "you"
+		intervals [24]:
+			xmin = 7.88
+			xmax = 8.48
+			text = "visited."

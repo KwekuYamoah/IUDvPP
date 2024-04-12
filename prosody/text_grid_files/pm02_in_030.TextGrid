@@ -1,0 +1,190 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 13.36
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 13.36
+		intervals: size = 44
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.24
+			text = "I"
+		intervals [2]:
+			xmin = 0.24
+			xmax = 0.84
+			text = "have"
+		intervals [3]:
+			xmin = 0.84
+			xmax = 1.04
+			text = "a"
+		intervals [4]:
+			xmin = 1.04
+			xmax = 1.36
+			text = "white"
+		intervals [5]:
+			xmin = 1.36
+			xmax = 1.88
+			text = "cabinet,"
+		intervals [6]:
+			xmin = 1.88
+			xmax = 2.0
+			text = "a"
+		intervals [7]:
+			xmin = 2.0
+			xmax = 2.24
+			text = "green"
+		intervals [8]:
+			xmin = 2.24
+			xmax = 2.6
+			text = "toy,"
+		intervals [9]:
+			xmin = 2.6
+			xmax = 2.76
+			text = "a"
+		intervals [10]:
+			xmin = 2.76
+			xmax = 3.16
+			text = "bookshelf"
+		intervals [11]:
+			xmin = 3.16
+			xmax = 3.24
+			text = "and"
+		intervals [12]:
+			xmin = 3.24
+			xmax = 3.44
+			text = "a"
+		intervals [13]:
+			xmin = 3.44
+			xmax = 3.64
+			text = "red"
+		intervals [14]:
+			xmin = 3.64
+			xmax = 4.04
+			text = "chair"
+		intervals [15]:
+			xmin = 4.04
+			xmax = 4.16
+			text = "around"
+		intervals [16]:
+			xmin = 4.16
+			xmax = 4.36
+			text = "here"
+		intervals [17]:
+			xmin = 4.36
+			xmax = 5.08
+			text = "somewhere."
+		intervals [18]:
+			xmin = 5.08
+			xmax = 5.4
+			text = "Take"
+		intervals [19]:
+			xmin = 5.4
+			xmax = 5.52
+			text = "the"
+		intervals [20]:
+			xmin = 5.52
+			xmax = 5.92
+			text = "second"
+		intervals [21]:
+			xmin = 5.92
+			xmax = 6.24
+			text = "item"
+		intervals [22]:
+			xmin = 6.24
+			xmax = 6.36
+			text = "I"
+		intervals [23]:
+			xmin = 6.36
+			xmax = 6.76
+			text = "mentioned"
+		intervals [24]:
+			xmin = 6.76
+			xmax = 7.0
+			text = "from"
+		intervals [25]:
+			xmin = 7.0
+			xmax = 7.48
+			text = "between"
+		intervals [26]:
+			xmin = 7.48
+			xmax = 7.68
+			text = "the"
+		intervals [27]:
+			xmin = 7.68
+			xmax = 8.08
+			text = "first"
+		intervals [28]:
+			xmin = 8.08
+			xmax = 8.36
+			text = "item"
+		intervals [29]:
+			xmin = 8.36
+			xmax = 8.6
+			text = "and"
+		intervals [30]:
+			xmin = 8.6
+			xmax = 8.76
+			text = "the"
+		intervals [31]:
+			xmin = 8.76
+			xmax = 9.16
+			text = "third."
+		intervals [32]:
+			xmin = 9.16
+			xmax = 9.44
+			text = "Bring"
+		intervals [33]:
+			xmin = 9.44
+			xmax = 9.64
+			text = "it"
+		intervals [34]:
+			xmin = 9.64
+			xmax = 9.72
+			text = "to"
+		intervals [35]:
+			xmin = 9.72
+			xmax = 9.88
+			text = "the"
+		intervals [36]:
+			xmin = 9.88
+			xmax = 10.32
+			text = "cabinet"
+		intervals [37]:
+			xmin = 10.32
+			xmax = 10.76
+			text = "but"
+		intervals [38]:
+			xmin = 10.76
+			xmax = 11.48
+			text = "avoid"
+		intervals [39]:
+			xmin = 11.48
+			xmax = 11.76
+			text = "the"
+		intervals [40]:
+			xmin = 11.76
+			xmax = 12.12
+			text = "last"
+		intervals [41]:
+			xmin = 12.12
+			xmax = 12.44
+			text = "item"
+		intervals [42]:
+			xmin = 12.44
+			xmax = 12.64
+			text = "at"
+		intervals [43]:
+			xmin = 12.64
+			xmax = 12.76
+			text = "all"
+		intervals [44]:
+			xmin = 12.76
+			xmax = 13.36
+			text = "costs."

@@ -1,0 +1,122 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 9.16
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 9.16
+		intervals: size = 27
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.16
+			text = "Go"
+		intervals [2]:
+			xmin = 0.16
+			xmax = 0.72
+			text = "to"
+		intervals [3]:
+			xmin = 0.72
+			xmax = 1.12
+			text = "the"
+		intervals [4]:
+			xmin = 1.12
+			xmax = 1.44
+			text = "red"
+		intervals [5]:
+			xmin = 1.44
+			xmax = 2.16
+			text = "sofa"
+		intervals [6]:
+			xmin = 2.16
+			xmax = 2.32
+			text = "but"
+		intervals [7]:
+			xmin = 2.32
+			xmax = 2.76
+			text = "don't"
+		intervals [8]:
+			xmin = 2.76
+			xmax = 3.12
+			text = "pass"
+		intervals [9]:
+			xmin = 3.12
+			xmax = 3.48
+			text = "by"
+		intervals [10]:
+			xmin = 3.48
+			xmax = 3.6
+			text = "any"
+		intervals [11]:
+			xmin = 3.6
+			xmax = 4.16
+			text = "door."
+		intervals [12]:
+			xmin = 4.16
+			xmax = 4.44
+			text = "Then"
+		intervals [13]:
+			xmin = 4.44
+			xmax = 4.6
+			text = "go"
+		intervals [14]:
+			xmin = 4.6
+			xmax = 4.72
+			text = "to"
+		intervals [15]:
+			xmin = 4.72
+			xmax = 5.08
+			text = "the"
+		intervals [16]:
+			xmin = 5.08
+			xmax = 5.72
+			text = "computer."
+		intervals [17]:
+			xmin = 5.72
+			xmax = 5.8
+			text = "The"
+		intervals [18]:
+			xmin = 5.8
+			xmax = 6.24
+			text = "sofa"
+		intervals [19]:
+			xmin = 6.24
+			xmax = 6.48
+			text = "is"
+		intervals [20]:
+			xmin = 6.48
+			xmax = 6.84
+			text = "behind"
+		intervals [21]:
+			xmin = 6.84
+			xmax = 7.0
+			text = "the"
+		intervals [22]:
+			xmin = 7.0
+			xmax = 7.36
+			text = "pillar"
+		intervals [23]:
+			xmin = 7.36
+			xmax = 7.44
+			text = "and"
+		intervals [24]:
+			xmin = 7.44
+			xmax = 7.56
+			text = "on"
+		intervals [25]:
+			xmin = 7.56
+			xmax = 7.92
+			text = "the"
+		intervals [26]:
+			xmin = 7.92
+			xmax = 8.24
+			text = "right"
+		intervals [27]:
+			xmin = 8.24
+			xmax = 9.16
+			text = "side."

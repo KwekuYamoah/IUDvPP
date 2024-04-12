@@ -1,0 +1,106 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 7.52
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 7.52
+		intervals: size = 23
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.4
+			text = "Bring"
+		intervals [2]:
+			xmin = 0.4
+			xmax = 0.6
+			text = "the"
+		intervals [3]:
+			xmin = 0.6
+			xmax = 1.24
+			text = "green"
+		intervals [4]:
+			xmin = 1.24
+			xmax = 1.56
+			text = "plush"
+		intervals [5]:
+			xmin = 1.56
+			xmax = 1.76
+			text = "toy"
+		intervals [6]:
+			xmin = 1.76
+			xmax = 1.88
+			text = "to"
+		intervals [7]:
+			xmin = 1.88
+			xmax = 1.96
+			text = "the"
+		intervals [8]:
+			xmin = 1.96
+			xmax = 2.32
+			text = "white"
+		intervals [9]:
+			xmin = 2.32
+			xmax = 2.68
+			text = "board"
+		intervals [10]:
+			xmin = 2.68
+			xmax = 2.84
+			text = "in"
+		intervals [11]:
+			xmin = 2.84
+			xmax = 3.52
+			text = "front"
+		intervals [12]:
+			xmin = 3.52
+			xmax = 3.76
+			text = "of"
+		intervals [13]:
+			xmin = 3.76
+			xmax = 3.92
+			text = "it,"
+		intervals [14]:
+			xmin = 3.92
+			xmax = 4.32
+			text = "watch"
+		intervals [15]:
+			xmin = 4.32
+			xmax = 4.88
+			text = "out"
+		intervals [16]:
+			xmin = 4.88
+			xmax = 5.36
+			text = "for"
+		intervals [17]:
+			xmin = 5.36
+			xmax = 5.64
+			text = "the"
+		intervals [18]:
+			xmin = 5.64
+			xmax = 5.96
+			text = "robot"
+		intervals [19]:
+			xmin = 5.96
+			xmax = 6.08
+			text = "in"
+		intervals [20]:
+			xmin = 6.08
+			xmax = 6.68
+			text = "front"
+		intervals [21]:
+			xmin = 6.68
+			xmax = 6.96
+			text = "of"
+		intervals [22]:
+			xmin = 6.96
+			xmax = 7.4
+			text = "the"
+		intervals [23]:
+			xmin = 7.4
+			xmax = 7.52
+			text = "toy."

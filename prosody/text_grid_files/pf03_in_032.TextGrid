@@ -1,0 +1,90 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 7.36
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 7.36
+		intervals: size = 19
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.0
+			text = "Never"
+		intervals [2]:
+			xmin = 0.0
+			xmax = 1.08
+			text = "pass"
+		intervals [3]:
+			xmin = 1.08
+			xmax = 2.08
+			text = "by"
+		intervals [4]:
+			xmin = 2.08
+			xmax = 2.6
+			text = "a"
+		intervals [5]:
+			xmin = 2.6
+			xmax = 3.28
+			text = "robot,"
+		intervals [6]:
+			xmin = 3.28
+			xmax = 3.56
+			text = "but"
+		intervals [7]:
+			xmin = 3.56
+			xmax = 4.04
+			text = "I"
+		intervals [8]:
+			xmin = 4.04
+			xmax = 4.4
+			text = "need"
+		intervals [9]:
+			xmin = 4.4
+			xmax = 4.4
+			text = "you"
+		intervals [10]:
+			xmin = 4.4
+			xmax = 4.44
+			text = "to"
+		intervals [11]:
+			xmin = 4.44
+			xmax = 4.76
+			text = "bring"
+		intervals [12]:
+			xmin = 4.76
+			xmax = 5.0
+			text = "the"
+		intervals [13]:
+			xmin = 5.0
+			xmax = 5.4
+			text = "bag"
+		intervals [14]:
+			xmin = 5.4
+			xmax = 5.6
+			text = "on"
+		intervals [15]:
+			xmin = 5.6
+			xmax = 5.76
+			text = "the"
+		intervals [16]:
+			xmin = 5.76
+			xmax = 6.04
+			text = "table"
+		intervals [17]:
+			xmin = 6.04
+			xmax = 6.04
+			text = "to"
+		intervals [18]:
+			xmin = 6.04
+			xmax = 6.56
+			text = "the"
+		intervals [19]:
+			xmin = 6.56
+			xmax = 7.36
+			text = "cabinet."

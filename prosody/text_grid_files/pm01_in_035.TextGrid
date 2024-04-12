@@ -1,0 +1,94 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0
+xmax = 6.6
+tiers? <exists>
+size = 1
+item []:
+	item [1]:
+		class = "IntervalTier"
+		name = "Token"
+		xmin = 0.0
+		xmax = 6.6
+		intervals: size = 20
+		intervals [1]:
+			xmin = 0.0
+			xmax = 0.16
+			text = "Go"
+		intervals [2]:
+			xmin = 0.16
+			xmax = 0.6
+			text = "to"
+		intervals [3]:
+			xmin = 0.6
+			xmax = 1.08
+			text = "the"
+		intervals [4]:
+			xmin = 1.08
+			xmax = 1.8
+			text = "sink"
+		intervals [5]:
+			xmin = 1.8
+			xmax = 2.52
+			text = "and"
+		intervals [6]:
+			xmin = 2.52
+			xmax = 2.88
+			text = "take"
+		intervals [7]:
+			xmin = 2.88
+			xmax = 3.28
+			text = "the"
+		intervals [8]:
+			xmin = 3.28
+			xmax = 3.52
+			text = "mug"
+		intervals [9]:
+			xmin = 3.52
+			xmax = 4.04
+			text = "beside"
+		intervals [10]:
+			xmin = 4.04
+			xmax = 4.36
+			text = "the"
+		intervals [11]:
+			xmin = 4.36
+			xmax = 4.8
+			text = "coffee"
+		intervals [12]:
+			xmin = 4.8
+			xmax = 5.0
+			text = "maker"
+		intervals [13]:
+			xmin = 5.0
+			xmax = 5.16
+			text = "and"
+		intervals [14]:
+			xmin = 5.16
+			xmax = 5.24
+			text = "drop"
+		intervals [15]:
+			xmin = 5.24
+			xmax = 5.28
+			text = "it"
+		intervals [16]:
+			xmin = 5.28
+			xmax = 5.32
+			text = "off"
+		intervals [17]:
+			xmin = 5.32
+			xmax = 5.6
+			text = "at"
+		intervals [18]:
+			xmin = 5.6
+			xmax = 6.2
+			text = "the"
+		intervals [19]:
+			xmin = 6.2
+			xmax = 6.4
+			text = "red"
+		intervals [20]:
+			xmin = 6.4
+			xmax = 6.6
+			text = "sofa."
