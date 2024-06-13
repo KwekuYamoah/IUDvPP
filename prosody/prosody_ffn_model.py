@@ -662,5 +662,3 @@ if __name__ == '__main__':
     #execute the mlp model
     #execute_MLP_model(train_data, test_data, val_data, 7, 1, 0.0, device="cpu")
     execute_LSTM_MLP_model(train_data, test_data, val_data, 7, 7, 54, 0.0, device="cpu")
-   
-
