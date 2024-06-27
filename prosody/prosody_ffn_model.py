@@ -222,7 +222,6 @@ def train_model(model, training_data, val_data, test_data, learning_rate, epochs
 
 
     return train_f1s, val_f1s, test_f1s, train_accuracy, val_accuracy, test_accuracy, train_precision, val_precision, test_precision, train_recall, val_recall, test_recall
-    return
 
 
 
