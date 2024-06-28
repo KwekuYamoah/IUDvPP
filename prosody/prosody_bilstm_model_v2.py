@@ -563,7 +563,7 @@ if __name__ == "__main__":
 
     # Load GloVe embeddings
     embedding_dim = 100  # or any other dimension you prefer
-    glove_path = '../prosody/glove.6B.100d.txt'  # update with the path to your GloVe file
+    glove_path = '../prosody/glove_embeddings/glove.6B.100d.txt'  # update with the path to your GloVe file
     glove_embeddings = load_glove_embeddings(glove_path, embedding_dim)
 
     # Create word2idx and embedding matrix using GloVe
@@ -638,7 +638,7 @@ if __name__ == "__main__":
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
-            torch.save(model.state_dict(), 'best-model-embeddings-version.pt')
+            torch.save(model.state_dict(), 'models/best-model-embeddings-version.pt')
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
@@ -650,7 +650,7 @@ if __name__ == "__main__":
             break
 
     # Load the best model and test
-    model.load_state_dict(torch.load('best-model-embeddings-version.pt'))
+    model.load_state_dict(torch.load('models/best-model-embeddings-version.pt'))
     test_model(model, test_loader, word2idx)
 
     # Plotting the metrics
