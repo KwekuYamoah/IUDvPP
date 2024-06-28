@@ -171,3 +171,13 @@ aeneas/
 research_paper/
 prosody/model_checkpoints/
 prosody/reconstruct_json.py
+
+#Ignore Glove files
+glove.6B.50d.txt
+glove.6B.100d.txt
+glove.6B.200d.txt
+glove.6B.300d.txt
+glove.6B.zip
+
+# Ignore large Models
+prosody/best-model-embeddings-version.pt
