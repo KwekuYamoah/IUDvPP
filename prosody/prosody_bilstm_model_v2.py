@@ -4,6 +4,7 @@ import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
+from torchinfo import summary
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -226,9 +227,8 @@ class Attention(nn.Module):
         super(Attention, self).__init__()
         self.attn = nn.Linear(hidden_dim * 2 + hidden_dim, hidden_dim)
         self.v = nn.Linear(hidden_dim, 1, bias=False)
-        self.stopwords = set(['the', 'a', 'an', 'in', 'on', 'at', 'of', 'for', 'with', 'to', 'by', 'and', 'or', 'but'])
 
-    def forward(self, hidden, encoder_outputs, words):
+    def forward(self, hidden, encoder_outputs):
         """
         Forward pass for the attention mechanism.
 
@@ -243,18 +243,9 @@ class Attention(nn.Module):
         batch_size = encoder_outputs.size(0)
         src_len = encoder_outputs.size(1)
         hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)
-        energy = torch.relu(self.attn(torch.cat((hidden, encoder_outputs), dim=2)))
+        energy = torch.tanh(self.attn(torch.cat((hidden, encoder_outputs), dim=2)))
         attention = self.v(energy).squeeze(2)
 
-        # Create stopword mask
-        mask = torch.ones_like(attention)
-        for i, word_seq in enumerate(words):
-            for j, word_idx in enumerate(word_seq):
-                word = word_idx.item()
-                if word in self.stopwords:
-                    mask[i][j] = 0
-
-        attention = attention * mask
         return torch.softmax(attention, dim=1)
 
 class Encoder(nn.Module):
@@ -313,7 +304,7 @@ class Decoder(nn.Module):
         self.sigmoid = nn.Sigmoid()
         self.attention = Attention(hidden_dim)
 
-    def forward(self, encoder_outputs, hidden, cell, words):
+    def forward(self, encoder_outputs, hidden, cell):
         """
         Forward pass for the decoder.
 
@@ -326,7 +317,7 @@ class Decoder(nn.Module):
         Returns:
             tuple: Decoder predictions, hidden state, and cell state.
         """
-        attn_weights = self.attention(hidden[-1], encoder_outputs, words)
+        attn_weights = self.attention(hidden[-1], encoder_outputs)
         context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs).squeeze(1)
         lstm_input = torch.cat((context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2)
         outputs, (hidden, cell) = self.lstm(lstm_input, (hidden, cell))
@@ -347,7 +338,7 @@ class Seq2Seq(nn.Module):
         self.encoder = encoder
         self.decoder = decoder
 
-    def forward(self, src, features, words):
+    def forward(self, src, features):
         """
         Forward pass for the Seq2Seq model.
 
@@ -360,7 +351,7 @@ class Seq2Seq(nn.Module):
             torch.Tensor: Model outputs.
         """
         encoder_outputs, hidden, cell = self.encoder(src, features)
-        outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell, words)
+        outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell)
         return outputs
 
 def train(model, iterator, optimizer, criterion):
@@ -383,7 +374,7 @@ def train(model, iterator, optimizer, criterion):
         features = features.to(device)
         labels = labels.to(device)
         optimizer.zero_grad()
-        output = model(words, features, words)
+        output = model(words, features)
         output = output.view(-1)
         labels = labels.view(-1).float()
         loss = criterion(output, labels)
@@ -413,7 +404,7 @@ def evaluate(model, iterator, criterion):
             words = words.to(device)
             features = features.to(device)
             labels = labels.to(device)
-            output = model(words, features, words)
+            output = model(words, features)
             output = output.view(-1)
             labels = labels.view(-1).float()
             loss = criterion(output, labels)
@@ -450,7 +441,7 @@ def test_model(model, iterator, word2idx):
             words = words.to(device)
             features = features.to(device)
             labels = labels.to(device)
-            output = model(words, features, words)
+            output = model(words, features)
             preds = (output > 0.4).float()
 
             for i in range(words.shape[0]):
@@ -469,8 +460,8 @@ def test_model(model, iterator, word2idx):
                 }
 
                 df = pd.DataFrame(data)
-                print(df.to_string(index=False))
-                print("\n" + "-" * 50 + "\n")
+                # print(df.to_string(index=False))
+                # ''''print("\n" + "-" * 50 + "\n")
                 with open('prosody_bilstm_embeddings_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
@@ -607,6 +598,14 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
+    # Print the model summary
+    # Prepare a sample input for the summary
+    sample_words, sample_features, _ = next(iter(train_loader))
+    sample_words = sample_words.to(device)
+    sample_features = sample_features.to(device)
+
+    summary(model, input_data=[sample_words, sample_features], device=device)
+    
     optimizer = optim.Adam(model.parameters(), weight_decay=1e-5)
     criterion = nn.BCELoss()
 
