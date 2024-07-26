@@ -177,3 +177,4 @@ prosody/glove_embeddings
 
 # Ignore large Models
 prosody/models/
+ltl/test_samples/

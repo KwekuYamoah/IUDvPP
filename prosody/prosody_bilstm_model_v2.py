@@ -142,7 +142,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
         self.embedding.weight = nn.Parameter(embeddings)
-        self.embedding.weight.requires_grad = False
+        self.embedding.weight.requires_grad = True # Set to True to allow fine-tuning
         self.lstm = nn.LSTM(embedding_dim + feature_dim, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
 
     def forward(self, words, features):
@@ -313,8 +313,8 @@ if __name__ == "__main__":
     train_data, val_data, test_data = split_data(data)
     combined_corpus = get_corpus(dict(train_data)) + get_corpus(dict(val_data)) + get_corpus(dict(test_data))
 
-    embedding_dim = 100
-    glove_path = '../prosody/glove_embeddings/glove.6B.100d.txt'
+    embedding_dim = 300
+    glove_path = '../prosody/glove_embeddings/glove.6B.300d.txt'
     glove_embeddings = load_glove_embeddings(glove_path, embedding_dim)
 
     vocab = list(glove_embeddings.keys())
@@ -336,7 +336,7 @@ if __name__ == "__main__":
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
     VOCAB_SIZE = len(word2idx) + 1
-    EMBEDDING_DIM = 100
+    EMBEDDING_DIM = 300
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
     NUM_LAYERS = 2
@@ -365,7 +365,7 @@ if __name__ == "__main__":
     val_recalls = []
     val_f1s = []
 
-    N_EPOCHS = 1000
+    N_EPOCHS = 500
     CLIP = 1
 
     early_stopping = EarlyStopping(patience=10, min_delta=0.001)

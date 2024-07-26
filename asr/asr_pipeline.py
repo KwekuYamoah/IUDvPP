@@ -34,6 +34,47 @@ load_dotenv()
 API_KEY = os.getenv("OPENAI_API_KEY")
 
 
+
+def asr_infer_pipeline(audio_file_path: str) -> str:
+    """
+    Transcribes a given audio file using OpenAI's Whisper ASR model.
+
+    Args:
+        audio_file_path (str): The path to the audio file.
+
+    Returns:
+        str: The path to the JSON file containing the transcription.
+
+    """
+    # Create client object
+    client = OpenAI(api_key=API_KEY)
+    
+    # Check if the audio file has the correct extension
+    if not (audio_file_path.endswith((".mp3", ".wav", ".mp4", ".m4a", ".ogg"))):
+        raise ValueError("Unsupported audio format. Please provide a .mp3, .wav, .mp4, .m4a, or .ogg file.")
+
+    # Transcribe the audio file
+    with open(audio_file_path, "rb") as audio:
+        transcription = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=audio,
+            language="en",
+            response_format="text",
+        )
+
+    # Create the JSON file path
+    json_file_path = os.path.splitext(audio_file_path)[0] + "_transcription.json"
+
+    # Save the transcription to the JSON file
+    with open(json_file_path, "w") as json_file:
+        json.dump({audio_file_path: transcription}, json_file, indent=4)
+
+    return json_file_path
+
+
+
+
+
 def asr_pipeline_openai(audio_folder: str) -> str:
     """
     Transcribes audio files in a given folder using OpenAI's Whisper ASR model.
