@@ -1,4 +1,5 @@
 import json
+import random
 import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
@@ -9,6 +10,17 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib.pyplot as plt
 import pandas as pd
 import re
+
+# Set the random seeds for reproducibility
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU.
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+
 
 class EarlyStopping:
     def __init__(self, patience=5, min_delta=0):
@@ -142,7 +154,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
         self.embedding.weight = nn.Parameter(embeddings)
-        self.embedding.weight.requires_grad = True # Set to True to allow fine-tuning
+        self.embedding.weight.requires_grad = True  # Set to True to allow fine-tuning
         self.lstm = nn.LSTM(embedding_dim + feature_dim, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
 
     def forward(self, words, features):
@@ -307,6 +319,10 @@ def clean_up_sentence(words, gold_labels, pred_labels):
     return filtered_words, filtered_gold_labels, filtered_pred_labels
 
 if __name__ == "__main__":
+
+    seed = 72 
+    set_seed(seed)
+
     json_path = '../prosody/reconstructed_extracted_features.json'
     data = load_data(json_path)
 
