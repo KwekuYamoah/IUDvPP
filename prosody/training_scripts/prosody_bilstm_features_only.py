@@ -413,7 +413,7 @@ def test_model(model, iterator):
     model.eval()
     all_labels = []
     all_preds = []
-    with open('prosody_bilstm_embeddings_results.txt', 'w') as file:
+    with open('./outputs/prosody_bilstm_features_results.txt', 'w') as file:
         file.write("")
     with torch.no_grad():
         for features, labels in iterator:
@@ -432,7 +432,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('prosody_bilstm_embeddings_results.txt', 'a') as file:
+                with open('./outputs/prosody_bilstm_features_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -480,7 +480,7 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.plot(epochs, val_f1s, label='Validation F1 Score')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('../prosody/bilstm_features_version.png')
+    plt.savefig('./outputs/bilstm_features_version.png')
 
 def clean_up_sentence(words, gold_labels, pred_labels):
     """
