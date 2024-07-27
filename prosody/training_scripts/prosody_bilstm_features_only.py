@@ -1,5 +1,6 @@
 import json
 import torch
+import random
 import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
@@ -9,6 +10,17 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib.pyplot as plt
 import pandas as pd
 import re
+
+
+# Set the random seeds for reproducibility
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU.
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
 
 class EarlyStopping:
     """
@@ -508,6 +520,9 @@ def clean_up_sentence(words, gold_labels, pred_labels):
     return filtered_gold_labels, filtered_pred_labels
 
 if __name__ == "__main__":
+    
+    seed = 42 
+    set_seed(seed)
     json_path = '../prosody/reconstructed_extracted_features.json'
     data = load_data(json_path)
 
