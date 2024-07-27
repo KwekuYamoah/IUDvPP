@@ -320,7 +320,7 @@ def clean_up_sentence(words, gold_labels, pred_labels):
 
 if __name__ == "__main__":
 
-    seed = 72 
+    seed = 42 
     set_seed(seed)
 
     json_path = '../prosody/reconstructed_extracted_features.json'
@@ -329,8 +329,8 @@ if __name__ == "__main__":
     train_data, val_data, test_data = split_data(data)
     combined_corpus = get_corpus(dict(train_data)) + get_corpus(dict(val_data)) + get_corpus(dict(test_data))
 
-    embedding_dim = 300
-    glove_path = '../prosody/glove_embeddings/glove.6B.300d.txt'
+    embedding_dim = 50
+    glove_path = '../prosody/glove_embeddings/glove.6B.50d.txt'
     glove_embeddings = load_glove_embeddings(glove_path, embedding_dim)
 
     vocab = list(glove_embeddings.keys())
@@ -352,7 +352,7 @@ if __name__ == "__main__":
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
     VOCAB_SIZE = len(word2idx) + 1
-    EMBEDDING_DIM = 300
+    EMBEDDING_DIM = 50
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
     NUM_LAYERS = 2
