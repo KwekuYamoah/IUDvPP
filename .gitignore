@@ -167,7 +167,6 @@ cython_debug/
 p001/
 recordings/
 Prosody_tools/
-aeneas/
 research_paper/
 prosody/model_checkpoints/
 prosody/reconstruct_json.py
