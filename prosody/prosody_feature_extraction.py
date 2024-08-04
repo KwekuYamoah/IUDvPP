@@ -1,10 +1,9 @@
 import torch
 from torch import Tensor as tensor
-from disvoice_prosody.prosody import Prosody
+from disvoice.prosody import Prosody
 import json
 
-
-
+#import disvoice
 
 def extract_prosody_features(audio_path):
     '''
@@ -23,8 +22,6 @@ def extract_prosody_features(audio_path):
     
     #extract the prosody features
     prosody_features = prosody_extractor.extract_features_file(audio_path, static=True, plots=False, fmt='torch')
-
-
 
   
 
@@ -140,4 +137,4 @@ def restructure_json_objects(json_object_path):
 
 #extract_prosody_features('/Users/dasa/Desktop/prosody_ltl/IUDvPP-main/language_files/en/pm04_in_003.wav')
 #construct_feature_json('./en_extracted_features.json', './new_en_extracted_features.json')
-restructure_json_objects('./combined_extracted_features.json')
+# restructure_json_objects('./combined_extracted_features.json')

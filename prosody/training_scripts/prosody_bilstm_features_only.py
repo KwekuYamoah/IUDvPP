@@ -544,7 +544,7 @@ if __name__ == "__main__":
     OUTPUT_DIM = 1
     NUM_LAYERS = 2
     DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 2
+    NUM_ATTENTION_LAYERS = 128
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     feature_dim = next(iter(train_loader))[0].shape[2]
