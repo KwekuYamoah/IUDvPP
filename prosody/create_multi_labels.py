@@ -41,7 +41,7 @@ for feature_id, feature in features_data.items():
                 if check_word_in_referents(word, instruction_entry['goal_intent_referents']):
                     new_labels.append(1)
                 elif check_word_in_referents(word, instruction_entry['avoidance_intent_referents']):
-                    new_labels.append(-1)
+                    new_labels.append(3)
                 elif check_word_in_referents(word, instruction_entry['detail_intent_referents']):
                     new_labels.append(2)
                 else:
