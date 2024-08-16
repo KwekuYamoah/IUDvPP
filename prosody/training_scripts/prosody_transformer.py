@@ -5,9 +5,7 @@ import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
-from torchinfo import summary
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-import matplotlib.pyplot as plt
 import pandas as pd
 import re
 
@@ -53,12 +51,6 @@ def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
     test_size = total - train_size - val_size
     return random_split(list(data.items()), [train_size, val_size, test_size])
 
-def preprocess_text(words):
-    processed_words = []
-    for word in words:
-        processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
-    return processed_words
-
 class ProsodyDataset(Dataset):
     def __init__(self, data):
         self.data = data
@@ -85,78 +77,53 @@ def collate_fn(batch):
 
     return features_padded, labels_padded
 
-class AttentionLayer(nn.Module):
-    def __init__(self, hidden_dim):
-        super(AttentionLayer, self).__init__()
-        self.attn = nn.Linear(hidden_dim * 2 + hidden_dim, hidden_dim)
-        self.v = nn.Linear(hidden_dim, 1, bias=False)
-
-    def forward(self, hidden, encoder_outputs):
-        src_len = encoder_outputs.size(1)
-        hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)
-        energy = torch.tanh(self.attn(torch.cat((hidden, encoder_outputs), dim=2)))
-        attention = self.v(energy).squeeze(2)
-        return torch.softmax(attention, dim=1)
-
-class MultiAttention(nn.Module):
-    def __init__(self, hidden_dim, num_layers):
-        super(MultiAttention, self).__init__()
-        self.attention_layers = nn.ModuleList([AttentionLayer(hidden_dim) for _ in range(num_layers)])
-
-    def forward(self, hidden, encoder_outputs):
-        attn_weights = []
-        for layer in self.attention_layers:
-            attn_weight = layer(hidden, encoder_outputs)
-            attn_weights.append(attn_weight)
-        attn_weights = torch.stack(attn_weights, dim=1).mean(dim=1)
-        return attn_weights
-
-class Encoder(nn.Module):
-    def __init__(self, feature_dim, hidden_dim, num_layers, dropout):
-        super(Encoder, self).__init__()
-        self.lstm = nn.LSTM(feature_dim, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
+class TransformerEncoder(nn.Module):
+    def __init__(self, feature_dim, hidden_dim, num_layers, dropout, num_heads=8):
+        super(TransformerEncoder, self).__init__()
+        self.input_fc = nn.Linear(feature_dim, hidden_dim)
+        self.encoder_layer = nn.TransformerEncoderLayer(d_model=hidden_dim, nhead=num_heads, dropout=dropout)
+        self.transformer_encoder = nn.TransformerEncoder(self.encoder_layer, num_layers=num_layers)
+        self.dropout = nn.Dropout(dropout)
 
     def forward(self, features):
-        outputs, (hidden, cell) = self.lstm(features)
-        return outputs, hidden, cell
+        src = self.input_fc(features)
+        src = self.dropout(src)
+        memory = self.transformer_encoder(src)
+        return memory
 
-class Decoder(nn.Module):
-    def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_attention_layers, num_classes=2):
-        super(Decoder, self).__init__()
+class TransformerDecoder(nn.Module):
+    def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_classes=2, num_heads=8):
+        super(TransformerDecoder, self).__init__()
         self.hidden_dim = hidden_dim
         self.num_classes = num_classes
-        self.lstm = nn.LSTM(hidden_dim * 4, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
+        self.input_fc = nn.Linear(hidden_dim, hidden_dim)  # Ensure the input has the correct dimensionality
+        self.decoder_layer = nn.TransformerDecoderLayer(d_model=hidden_dim, nhead=num_heads, dropout=dropout)
+        self.transformer_decoder = nn.TransformerDecoder(self.decoder_layer, num_layers=num_layers)
+        self.fc_out = nn.Linear(hidden_dim, output_dim * num_classes if num_classes > 2 else output_dim)
+        self.activation = nn.Sigmoid() if num_classes == 2 else None
 
-        if num_classes == 2:
-            self.fc = nn.Linear(hidden_dim * 2, output_dim)
-            self.activation = nn.Sigmoid()  # For binary classification
-        else:
-            self.fc = nn.Linear(hidden_dim * 2, output_dim * num_classes)
-            self.activation = None  # No activation before CrossEntropyLoss
-
-        self.attention = MultiAttention(hidden_dim, num_attention_layers)
-
-    def forward(self, encoder_outputs, hidden, cell):
-        attn_weights = self.attention(hidden[-1], encoder_outputs)
-        context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs).squeeze(1)
-        lstm_input = torch.cat((context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2)
-        outputs, (hidden, cell) = self.lstm(lstm_input, (hidden, cell))
-        predictions = self.fc(outputs)
+    def forward(self, memory, tgt):
+        tgt = self.input_fc(tgt)  # Ensure target is projected to the correct hidden dimension
+        output = self.transformer_decoder(tgt, memory)
+        output = self.fc_out(output)
 
         if self.num_classes == 2:
-            predictions = self.activation(predictions)  # Apply Sigmoid for binary classification
+            output = self.activation(output)
 
-        return predictions, (hidden, cell)
+        return output
 
-class Seq2Seq(nn.Module):
+class TransformerSeq2Seq(nn.Module):
     def __init__(self, encoder, decoder):
-        super(Seq2Seq, self).__init__()
+        super(TransformerSeq2Seq, self).__init__()
         self.encoder = encoder
         self.decoder = decoder
 
     def forward(self, features):
-        encoder_outputs, hidden, cell = self.encoder(features)
-        outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell)
+        print("Input features shape:", features.shape)
+        memory = self.encoder(features)
+        print("Memory shape after encoder:", memory.shape)
+        outputs = self.decoder(memory, features)
+        print("Outputs shape after decoder:", outputs.shape)
         return outputs
 
 def train(model, iterator, optimizer, criterion, num_classes=2):
@@ -216,7 +183,7 @@ def test_model(model, iterator, num_classes=2):
     model.eval()
     all_labels = []
     all_preds = []
-    with open('./outputs/prosody_bilstm_features_results.txt', 'w') as file:
+    with open('./outputs/prosody_transformer_features_results.txt', 'w') as file:
         file.write("")
     with torch.no_grad():
         for features, labels in iterator:
@@ -237,7 +204,7 @@ def test_model(model, iterator, num_classes=2):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/prosody_bilstm_features_results.txt', 'a') as file:
+                with open('./outputs/prosody_transformer_features_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -254,47 +221,11 @@ def test_model(model, iterator, num_classes=2):
     print(f'Test F1 Score: {f1:.2f}')
     return all_labels, all_preds
 
-def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
-    epochs = range(1, len(train_losses) + 1)
-    plt.figure(figsize=(12, 8))
-    plt.subplot(2, 3, 1)
-    plt.plot(epochs, train_losses, label='Train Loss')
-    plt.plot(epochs, val_losses, label='Validation Loss')
-    plt.legend()
-    plt.subplot(2, 3, 2)
-    plt.plot(epochs, val_accuracies, label='Validation Accuracy')
-    plt.legend()
-    plt.subplot(2, 3, 3)
-    plt.plot(epochs, val_precisions, label='Validation Precision')
-    plt.legend()
-    plt.subplot(2, 3, 4)
-    plt.plot(epochs, val_recalls, label='Validation Recall')
-    plt.legend()
-    plt.subplot(2, 3, 5)
-    plt.plot(epochs, val_f1s, label='Validation F1 Score')
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig('./outputs/bilstm_features_version.png')
-
-def clean_up_sentence(words, gold_labels, pred_labels):
-    end_index = len(words) - 1
-    while end_index >= 0 and words[end_index] == 'the':
-        end_index -= 1
-
-    filtered_gold_labels = gold_labels[:end_index+1]
-    filtered_pred_labels = pred_labels[:end_index+1]
-
-    for i in range(end_index+1, len(words)):
-        filtered_gold_labels.append(gold_labels[i])
-        filtered_pred_labels.append(pred_labels[i])
-
-    return filtered_gold_labels, filtered_pred_labels
-
 if __name__ == "__main__":
     
     seed = 42 
     set_seed(seed)
-    json_path = '../prosody/multi_label_features.json' #change data path here
+    json_path = '../prosody/multi_label_features.json' # Change data path here
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
@@ -314,21 +245,18 @@ if __name__ == "__main__":
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
     NUM_LAYERS = 4
-    DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 8
+    DROPOUT = 0.3
+    NUM_HEADS = 8
     NUM_CLASSES = 4  # Change this depending on the number of classes (set to 2 for binary classification)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     feature_dim = next(iter(train_loader))[0].shape[2]
 
-    encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
-    decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS, num_classes=NUM_CLASSES).to(device)
-    model = Seq2Seq(encoder, decoder).to(device)
+    encoder = TransformerEncoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT, num_heads=NUM_HEADS).to(device)
+    decoder = TransformerDecoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, num_classes=NUM_CLASSES, num_heads=NUM_HEADS).to(device)
+    model = TransformerSeq2Seq(encoder, decoder).to(device)
 
-    sample_features, _ = next(iter(train_loader))
-    summary(model, input_data=sample_features, device=device, depth=6)
-
-    optimizer = optim.Adam(model.parameters(), weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
     criterion = nn.CrossEntropyLoss() if NUM_CLASSES > 2 else nn.BCELoss()
 
     train_losses = []
@@ -338,7 +266,7 @@ if __name__ == "__main__":
     val_recalls = []
     val_f1s = []
 
-    N_EPOCHS = 500
+    N_EPOCHS = 100
     CLIP = 1
 
     early_stopping = EarlyStopping(patience=15, min_delta=0.001)
@@ -357,7 +285,7 @@ if __name__ == "__main__":
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
-            torch.save(model.state_dict(), 'models/best-model-features-version.pt')
+            torch.save(model.state_dict(), 'models/best-transformer-model.pt')
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
@@ -368,6 +296,5 @@ if __name__ == "__main__":
             print("Early stopping")
             break
 
-    model.load_state_dict(torch.load('models/best-model-features-version.pt'))
+    model.load_state_dict(torch.load('models/best-transformer-model.pt'))
     test_model(model, test_loader, num_classes=NUM_CLASSES)
-    plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
