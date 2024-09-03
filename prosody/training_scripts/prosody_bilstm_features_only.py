@@ -174,7 +174,6 @@ def train(model, iterator, optimizer, criterion, num_classes=2):
         else:
             output = output.view(-1, num_classes)
             labels = labels.view(-1).long()
-        
         loss = criterion(output, labels)
         loss.backward()
         optimizer.step()
@@ -226,6 +225,7 @@ def test_model(model, iterator, num_classes=2):
             if num_classes == 2:
                 preds = (output > 0.4).float()
             else:
+                
                 preds = torch.argmax(output, dim=2)
             for i in range(features.shape[0]):
                 gold_labels = labels[i].cpu().numpy().flatten()
@@ -294,7 +294,7 @@ if __name__ == "__main__":
     
     seed = 42 
     set_seed(seed)
-    json_path = '../prosody/multi_label_features.json' #change data path here
+    json_path = '../prosody/reconstructed_extracted_features.json' #change data path here
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
@@ -313,10 +313,10 @@ if __name__ == "__main__":
 
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
-    NUM_LAYERS = 4
+    NUM_LAYERS = 2
     DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 8
-    NUM_CLASSES = 4  # Change this depending on the number of classes (set to 2 for binary classification)
+    NUM_ATTENTION_LAYERS = 128
+    NUM_CLASSES = 2  # Change this depending on the number of classes (set to 2 for binary classification)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     feature_dim = next(iter(train_loader))[0].shape[2]
@@ -328,7 +328,7 @@ if __name__ == "__main__":
     sample_features, _ = next(iter(train_loader))
     summary(model, input_data=sample_features, device=device, depth=6)
 
-    optimizer = optim.Adam(model.parameters(), weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(),  lr=0.001, weight_decay=1e-5) #,
     criterion = nn.CrossEntropyLoss() if NUM_CLASSES > 2 else nn.BCELoss()
 
     train_losses = []
