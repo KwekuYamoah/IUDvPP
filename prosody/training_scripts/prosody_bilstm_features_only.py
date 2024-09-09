@@ -73,6 +73,7 @@ class ProsodyDataset(Dataset):
         labels = torch.tensor(item['labels'], dtype=torch.float32)
         return features, labels
 
+# Modified collate_fn to include masking
 def collate_fn(batch):
     features = [item[0] for item in batch]
     labels = [item[1] for item in batch]
@@ -80,10 +81,10 @@ def collate_fn(batch):
     features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=0.0)
     labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=0.0)
 
-    max_length = features_padded.size(1)
-    labels_padded = torch.nn.functional.pad(labels_padded, (0, max_length - labels_padded.size(1)), "constant", 0)
+    # Create a mask for the labels (1 for valid labels, 0 for padding)
+    mask = (labels_padded != 0.0).float()
 
-    return features_padded, labels_padded
+    return features_padded, labels_padded, mask
 
 class AttentionLayer(nn.Module):
     def __init__(self, hidden_dim):
@@ -159,12 +160,15 @@ class Seq2Seq(nn.Module):
         outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell)
         return outputs
 
+
 def train(model, iterator, optimizer, criterion, num_classes=2):
     model.train()
     epoch_loss = 0
-    for features, labels in iterator:
+    for features, labels, mask in iterator:
         features = features.to(device)
         labels = labels.to(device)
+        mask = mask.to(device)
+        
         optimizer.zero_grad()
         output = model(features)
         
@@ -174,11 +178,16 @@ def train(model, iterator, optimizer, criterion, num_classes=2):
         else:
             output = output.view(-1, num_classes)
             labels = labels.view(-1).long()
+
         loss = criterion(output, labels)
+        loss = (loss * mask.view(-1)).sum() / mask.sum()  # Masked loss calculation
+        
         loss.backward()
         optimizer.step()
         epoch_loss += loss.item()
+    
     return epoch_loss / len(iterator)
+
 
 def evaluate(model, iterator, criterion, num_classes=2):
     model.eval()
@@ -186,9 +195,11 @@ def evaluate(model, iterator, criterion, num_classes=2):
     all_labels = []
     all_preds = []
     with torch.no_grad():
-        for features, labels in iterator:
+        for features, labels, mask in iterator:
             features = features.to(device)
             labels = labels.to(device)
+            mask = mask.to(device)
+            
             output = model(features)
             
             if num_classes == 2:
@@ -201,10 +212,12 @@ def evaluate(model, iterator, criterion, num_classes=2):
                 preds = torch.argmax(output, dim=1)
             
             loss = criterion(output, labels)
+            loss = (loss * mask.view(-1)).sum() / mask.sum()  # Masked loss calculation
+            
             epoch_loss += loss.item()
             all_labels.extend(labels.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
-    
+
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
@@ -218,14 +231,14 @@ def test_model(model, iterator, num_classes=2):
     with open('./outputs/prosody_bilstm_features_results.txt', 'w') as file:
         file.write("")
     with torch.no_grad():
-        for features, labels in iterator:
+        for features, labels, mask in iterator:
             features = features.to(device)
             labels = labels.to(device)
+            mask = mask.to(device)
             output = model(features)
             if num_classes == 2:
                 preds = (output > 0.4).float()
             else:
-                
                 preds = torch.argmax(output, dim=2)
             for i in range(features.shape[0]):
                 gold_labels = labels[i].cpu().numpy().flatten()
@@ -276,25 +289,11 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.tight_layout()
     plt.savefig('./outputs/bilstm_features_version.png')
 
-def clean_up_sentence(words, gold_labels, pred_labels):
-    end_index = len(words) - 1
-    while end_index >= 0 and words[end_index] == 'the':
-        end_index -= 1
-
-    filtered_gold_labels = gold_labels[:end_index+1]
-    filtered_pred_labels = pred_labels[:end_index+1]
-
-    for i in range(end_index+1, len(words)):
-        filtered_gold_labels.append(gold_labels[i])
-        filtered_pred_labels.append(pred_labels[i])
-
-    return filtered_gold_labels, filtered_pred_labels
-
 if __name__ == "__main__":
     
     seed = 42 
     set_seed(seed)
-    json_path = '../prosody/reconstructed_extracted_features.json' #change data path here
+    json_path = '../prosody/multi_label_features.json' #change data path here
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
@@ -315,8 +314,8 @@ if __name__ == "__main__":
     OUTPUT_DIM = 1
     NUM_LAYERS = 2
     DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 128
-    NUM_CLASSES = 2  # Change this depending on the number of classes (set to 2 for binary classification)
+    NUM_ATTENTION_LAYERS = 32
+    NUM_CLASSES = 4  # Change this depending on the number of classes (set to 2 for binary classification)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     feature_dim = next(iter(train_loader))[0].shape[2]
@@ -325,10 +324,10 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS, num_classes=NUM_CLASSES).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
-    sample_features, _ = next(iter(train_loader))
-    summary(model, input_data=sample_features, device=device, depth=6)
+    # sample_features, _ = next(iter(train_loader))
+    # summary(model, input_data=sample_features, device=device, depth=6)
 
-    optimizer = optim.Adam(model.parameters(),  lr=0.001, weight_decay=1e-5) #,
+    optimizer = optim.Adam(model.parameters(),  lr=0.001, weight_decay=1e-5) 
     criterion = nn.CrossEntropyLoss() if NUM_CLASSES > 2 else nn.BCELoss()
 
     train_losses = []

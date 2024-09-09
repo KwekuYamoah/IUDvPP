@@ -45,7 +45,7 @@ for feature_id, feature in features_data.items():
                 elif check_word_in_referents(word, instruction_entry['detail_intent_referents']):
                     new_labels.append(2)
                 else:
-                    new_labels.append(0)
+                    new_labels.append(0) # No intent, default label
             feature['labels'] = new_labels
             break
 
