@@ -546,9 +546,9 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=lambda batch: collate_fn(batch, pad_value=-1))
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=lambda batch: collate_fn(batch, pad_value=-1))
 
-    HIDDEN_DIM = 512
+    HIDDEN_DIM = 128
     OUTPUT_DIM = 1
-    NUM_LAYERS = 8
+    NUM_LAYERS = 4
     DROPOUT = 0.5
     NUM_ATTENTION_LAYERS = 32
     NUM_CLASSES = 4  # Change this depending on the number of classes (set to 2 for binary classification)
