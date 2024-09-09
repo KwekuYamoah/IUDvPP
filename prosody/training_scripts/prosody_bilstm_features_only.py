@@ -74,15 +74,15 @@ class ProsodyDataset(Dataset):
         return features, labels
 
 # Modified collate_fn to include masking
-def collate_fn(batch):
+def collate_fn(batch, pad_value = -1):
     features = [item[0] for item in batch]
     labels = [item[1] for item in batch]
 
-    features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=0.0)
-    labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=0.0)
+    features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=pad_value)
+    labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=pad_value)
 
     # Create a mask for the labels (1 for valid labels, 0 for padding)
-    mask = (labels_padded != 0.0).float()
+    mask = (labels_padded != pad_value).float()
 
     return features_padded, labels_padded, mask
 
@@ -97,7 +97,7 @@ class AttentionLayer(nn.Module):
         hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)
         energy = torch.tanh(self.attn(torch.cat((hidden, encoder_outputs), dim=2)))
         attention = self.v(energy).squeeze(2)
-        return torch.softmax(attention, dim=1)
+        return torch.sigmoid(attention)
 
 class MultiAttention(nn.Module):
     def __init__(self, hidden_dim, num_layers):
@@ -160,8 +160,8 @@ class Seq2Seq(nn.Module):
         outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell)
         return outputs
 
-
-def train(model, iterator, optimizer, criterion, num_classes=2):
+# Dynamic train function for handling both binary and multi-class classification
+def train(model, iterator, optimizer, criterion, num_classes=2, pad_value=-1):
     model.train()
     epoch_loss = 0
     for features, labels, mask in iterator:
@@ -175,21 +175,25 @@ def train(model, iterator, optimizer, criterion, num_classes=2):
         if num_classes == 2:
             output = output.view(-1)
             labels = labels.view(-1).float()
+
+            # BCEWithLogitsLoss and applying masking manually for binary classification
+            loss = criterion(output, labels)
+            loss = (loss * mask.view(-1)).sum() / mask.sum()  
         else:
             output = output.view(-1, num_classes)
             labels = labels.view(-1).long()
 
-        loss = criterion(output, labels)
-        loss = (loss * mask.view(-1)).sum() / mask.sum()  # Masked loss calculation
-        
+            # CrossEntropyLoss with ignore_index=-1 for multi-class classification
+            loss = criterion(output, labels)
+
         loss.backward()
         optimizer.step()
         epoch_loss += loss.item()
     
     return epoch_loss / len(iterator)
 
-
-def evaluate(model, iterator, criterion, num_classes=2):
+# Dynamic evaluate function for handling both binary and multi-class classification
+def evaluate(model, iterator, criterion, num_classes=2, pad_value=-1):
     model.eval()
     epoch_loss = 0
     all_labels = []
@@ -206,14 +210,18 @@ def evaluate(model, iterator, criterion, num_classes=2):
                 output = output.view(-1)
                 labels = labels.view(-1).float()
                 preds = (output > 0.5).float()
+
+                # BCEWithLogitsLoss and applying masking manually for binary classification
+                loss = criterion(output, labels)
+                loss = (loss * mask.view(-1)).sum() / mask.sum() 
             else:
                 output = output.view(-1, num_classes)
                 labels = labels.view(-1).long()
                 preds = torch.argmax(output, dim=1)
-            
-            loss = criterion(output, labels)
-            loss = (loss * mask.view(-1)).sum() / mask.sum()  # Masked loss calculation
-            
+
+                # CrossEntropyLoss with ignore_index=-1 for multi-class classification
+                loss = criterion(output, labels)
+
             epoch_loss += loss.item()
             all_labels.extend(labels.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
@@ -224,7 +232,7 @@ def evaluate(model, iterator, criterion, num_classes=2):
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
     return epoch_loss / len(iterator), accuracy, precision, recall, f1
 
-def test_model(model, iterator, num_classes=2):
+def test_model(model, iterator, num_classes=2, pad_value=-1):
     model.eval()
     all_labels = []
     all_preds = []
@@ -236,36 +244,51 @@ def test_model(model, iterator, num_classes=2):
             labels = labels.to(device)
             mask = mask.to(device)
             output = model(features)
+            
             if num_classes == 2:
+                # Binary classification
                 preds = (output > 0.4).float()
             else:
+                # Multi-class classification
                 preds = torch.argmax(output, dim=2)
+
             for i in range(features.shape[0]):
+                # Flatten and move to CPU for comparison
                 gold_labels = labels[i].cpu().numpy().flatten()
                 pred_labels = preds[i].cpu().numpy().flatten()
+                mask_i = mask[i].cpu().numpy().flatten()  # Get the mask for the current example
 
+                # Filter out padding tokens using the mask (mask_i > 0 means valid tokens)
+                gold_labels = gold_labels[mask_i > 0]
+                pred_labels = pred_labels[mask_i > 0]
+
+                # Write to file
                 data = {
                     'Gold Label': gold_labels.tolist(),
                     'Predicted Label': pred_labels.tolist()
                 }
-
                 df = pd.DataFrame(data)
                 with open('./outputs/prosody_bilstm_features_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
-            all_labels.extend(labels.cpu().numpy().flatten().tolist())
-            all_preds.extend(preds.cpu().numpy().flatten().tolist())
+                all_labels.extend(gold_labels.tolist())
+                all_preds.extend(pred_labels.tolist())
 
+    # Compute metrics (note: only valid labels and preds are used here)
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
+
+    # Print results
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision:.2f}')
     print(f'Test Recall: {recall:.2f}')
     print(f'Test F1 Score: {f1:.2f}')
+    
     return all_labels, all_preds
+
 
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
     epochs = range(1, len(train_losses) + 1)
@@ -306,9 +329,9 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=lambda batch: collate_fn(batch, pad_value=-1))
+    val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False, collate_fn= lambda batch: collate_fn(batch, pad_value=-1))
+    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, collate_fn= lambda batch: collate_fn(batch, pad_value=-1))
 
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
@@ -324,11 +347,10 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS, num_classes=NUM_CLASSES).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
-    # sample_features, _ = next(iter(train_loader))
-    # summary(model, input_data=sample_features, device=device, depth=6)
+    # Use the appropriate criterion based on the number of classes
+    criterion = nn.CrossEntropyLoss(ignore_index=-1) if NUM_CLASSES > 2 else nn.BCEWithLogitsLoss()
 
-    optimizer = optim.Adam(model.parameters(),  lr=0.001, weight_decay=1e-5) 
-    criterion = nn.CrossEntropyLoss() if NUM_CLASSES > 2 else nn.BCELoss()
+    optimizer = optim.Adam(model.parameters(),  lr=0.001, weight_decay=1e-5)
 
     train_losses = []
     val_losses = []
@@ -337,7 +359,7 @@ if __name__ == "__main__":
     val_recalls = []
     val_f1s = []
 
-    N_EPOCHS = 500
+    N_EPOCHS = 200
     CLIP = 1
 
     early_stopping = EarlyStopping(patience=15, min_delta=0.001)
@@ -362,10 +384,10 @@ if __name__ == "__main__":
         print(f'\tTrain Loss: {train_loss:.3f}')
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}% |  Precision: {valid_precision:.2f} |  Recall: {valid_recall:.2f} |  F1 Score: {valid_f1:.2f}')
 
-        early_stopping(valid_loss)
-        if early_stopping.early_stop:
-            print("Early stopping")
-            break
+        # early_stopping(valid_loss)
+        # if early_stopping.early_stop:
+        #     print("Early stopping")
+        #     break
 
     model.load_state_dict(torch.load('models/best-model-features-version.pt'))
     test_model(model, test_loader, num_classes=NUM_CLASSES)
