@@ -1,0 +1,1358 @@
+[
+    [
+        {
+            "instruction": "Go to the red sofa but dont pass by any door then go to the computer, the sofa is behind the pillar and on the right side",
+            "encoding_map": {
+                "A": "near[red_sofa::isbehind(pillar)::isrightof(pillar)]",
+                "B": "near[door]",
+                "C": "near[computer]"
+            },
+            "response": "F ( A & ~B & F ( C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the red sofa but dont pass by any door then go to the computer, the sofa is behind the pillar and on the right side",
+            "encoding_map": {
+                "A": "near[red_sofa::isbehind(pillar)::isrightof(pillar)]",
+                "B": "near[door]",
+                "C": "near[computer]"
+            },
+            "response": "F ( A & ~B & F ( C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the red sofa but dont pass by any door then go to the computer, the sofa is behind the pillar and on the right side",
+            "encoding_map": {
+                "A": "near[red_sofa::isbehind(pillar)::isrightof(pillar)]",
+                "B": "near[door]",
+                "C": "near[computer]"
+            },
+            "response": "F ( A & ~B & F ( C ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa",
+            "encoding_map": {
+                "A": "near[door_with_posters::isinfrontof(yellow_pillar)]",
+                "B": "near[tree]",
+                "C": "near[sofa]"
+            },
+            "response": "F ( A & F ( B & ~ C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa",
+            "encoding_map": {
+                "A": "near[door_with_posters::isinfrontof(yellow_pillar)]",
+                "B": "near[tree]",
+                "C": "near[sofa]"
+            },
+            "response": "F ( A & F ( B & ~ C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Find the door with posters in front of the yellow pillar then go stand by the tree but avoid any sofa",
+            "encoding_map": {
+                "A": "near[door_with_posters::isinfrontof(yellow_pillar)]",
+                "B": "near[tree]",
+                "C": "near[sofa]"
+            },
+            "response": "F ( A & F ( B & ~ C ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "There is a cabinet, a television and a tree in this room. I want you to go to the last item I mentioned then pass by the second item but dont go close to the first when you are going to the second item.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[cabinet]",
+                "C": "near[television]"
+            },
+            "response": "F ( A & F ( ~B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "There is a cabinet, a television and a tree in this room. I want you to go to the last item I mentioned then pass by the second item but dont go close to the first when you are going to the second item.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[cabinet]",
+                "C": "near[television]"
+            },
+            "response": "F ( A & F ( ~B U C ) )",
+            "success": true
+        },
+        {
+            "instruction": "There is a cabinet, a television and a tree in this room. I want you to go to the last item I mentioned then pass by the second item but dont go close to the first when you are going to the second item.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[cabinet]",
+                "C": "near[television]"
+            },
+            "response": "F ( A & F ( ~B & F ( C ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the trash bin, after that go to the large television. Actually can you go to the laptop on the table before doing all that?",
+            "encoding_map": {
+                "A": "near[laptop::isabove(table)]",
+                "B": "near[trash_bin]",
+                "C": "near[large_television]"
+            },
+            "response": "F ( A & F ( B & F C ))",
+            "success": true
+        },
+        {
+            "instruction": "Go to the trash bin, after that go to the large television. Actually can you go to the laptop on the table before doing all that?",
+            "encoding_map": {
+                "A": "near[laptop::isabove(table)]",
+                "B": "near[trash_bin]",
+                "C": "near[large_television]"
+            },
+            "response": "F ( A & F ( B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the trash bin, after that go to the large television. Actually can you go to the laptop on the table before doing all that?",
+            "encoding_map": {
+                "A": "near[laptop::isabove(table)]",
+                "B": "near[trash_bin]",
+                "C": "near[large_television]"
+            },
+            "response": "F ( A & F ( B & F C ))",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Try to go to the tree without going near the trash bin.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[trash_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Try to go to the tree without going near the trash bin.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[trash_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Try to go to the tree without going near the trash bin.",
+            "encoding_map": {
+                "A": "near[tree]",
+                "B": "near[trash_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Find the yellow trash bin and go to it, then go by the white table. But before doing the first thing visit where the fridge is then after the last thing, stop by the red sofa but avoid the wooden door with posters",
+            "encoding_map": {
+                "A": "near[fridge_location]",
+                "B": "near[yellow_trash_bin]",
+                "C": "near[white_table]",
+                "D": "near[red_sofa]",
+                "E": "near[wooden_door_with_posters]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ G ( E )",
+            "success": true
+        },
+        {
+            "instruction": "Find the yellow trash bin and go to it, then go by the white table. But before doing the first thing visit where the fridge is then after the last thing, stop by the red sofa but avoid the wooden door with posters",
+            "encoding_map": {
+                "A": "near[fridge_location]",
+                "B": "near[yellow_trash_bin]",
+                "C": "near[white_table]",
+                "D": "near[red_sofa]",
+                "E": "near[wooden_door_with_posters]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & G ( ~E )",
+            "success": true
+        },
+        {
+            "instruction": "Find the yellow trash bin and go to it, then go by the white table. But before doing the first thing visit where the fridge is then after the last thing, stop by the red sofa but avoid the wooden door with posters",
+            "encoding_map": {
+                "A": "near[fridge_location]",
+                "B": "near[yellow_trash_bin]",
+                "C": "near[white_table]",
+                "D": "near[red_sofa]",
+                "E": "near[wooden_door_with_posters]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & ~G ( E ) ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the television but avoid the tree.",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[tree]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the television but avoid the tree.",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[tree]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the television but avoid the tree.",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[tree]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to any trash bin but not the yellow one",
+            "encoding_map": {
+                "A": "near[trash_bin]",
+                "B": "near[yellow_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to any trash bin but not the yellow one",
+            "encoding_map": {
+                "A": "near[trash_bin]",
+                "B": "near[yellow_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to any trash bin but not the yellow one",
+            "encoding_map": {
+                "A": "near[trash_bin]",
+                "B": "near[yellow_bin]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Visit one of the televisions in this room then go to the fridge to the left of the cabinet",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[fridge::isleftof(cabinet)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "Visit one of the televisions in this room then go to the fridge to the left of the cabinet",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[fridge::isleftof(cabinet)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "Visit one of the televisions in this room then go to the fridge to the left of the cabinet",
+            "encoding_map": {
+                "A": "near[television]",
+                "B": "near[fridge::isleftof(cabinet)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I need you to first go to the table between the pillar and the door with posters, then go to the tree. You know what, ignore the last thing I asked you to go to, after the first thing go to the computer next to the green box instead.",
+            "encoding_map": {
+                "A": "near[table::isbetween(pillar,door_with_posters)]",
+                "B": "near[computer::isnextto(green_box)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to first go to the table between the pillar and the door with posters, then go to the tree. You know what, ignore the last thing I asked you to go to, after the first thing go to the computer next to the green box instead.",
+            "encoding_map": {
+                "A": "near[table::isbetween(pillar,door_with_posters)]",
+                "B": "near[computer::isnextto(green_box)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to first go to the table between the pillar and the door with posters, then go to the tree. You know what, ignore the last thing I asked you to go to, after the first thing go to the computer next to the green box instead.",
+            "encoding_map": {
+                "A": "near[table::isbetween(pillar,door_with_posters)]",
+                "B": "near[computer::isnextto(green_box)]"
+            },
+            "response": "F ( A & F ( B ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the red sofa then the blue one next to the cabinet but first pass by the book shelf",
+            "encoding_map": {
+                "A": "near[book_shelf]",
+                "B": "near[red_sofa]",
+                "C": "near[blue_sofa::isnextto(cabinet)]"
+            },
+            "response": "F ( A & F ( B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the red sofa then the blue one next to the cabinet but first pass by the book shelf",
+            "encoding_map": {
+                "A": "near[book_shelf]",
+                "B": "near[red_sofa]",
+                "C": "near[blue_sofa::isnextto(cabinet)]"
+            },
+            "response": "F ( A & F ( B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the red sofa then the blue one next to the cabinet but first pass by the book shelf",
+            "encoding_map": {
+                "A": "near[book_shelf]",
+                "B": "near[red_sofa]",
+                "C": "near[blue_sofa::isnextto(cabinet)]"
+            },
+            "response": "F ( A & F ( B & F ( C ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to water filter, dont pass by any computer to the left of the red sofa",
+            "encoding_map": {
+                "A": "near[water_filter]",
+                "B": "near[computer::isleftof(red_sofa)]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to water filter, dont pass by any computer to the left of the red sofa",
+            "encoding_map": {
+                "A": "near[water_filter]",
+                "B": "near[computer::isleftof(red_sofa)]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to water filter, dont pass by any computer to the left of the red sofa",
+            "encoding_map": {
+                "A": "near[water_filter]",
+                "B": "near[computer::isleftof(red_sofa)]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Visit these things in the following order the microwave, then the black chair infront of the yellow robot then the fridge, but before doing any of this go to the robot",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[microwave]",
+                "C": "near[black_chair::isinfrontof(yellow_robot)]",
+                "D": "near[fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Visit these things in the following order the microwave, then the black chair infront of the yellow robot then the fridge, but before doing any of this go to the robot",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[microwave]",
+                "C": "near[black_chair::isinfrontof(yellow_robot)]",
+                "D": "near[fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Visit these things in the following order the microwave, then the black chair infront of the yellow robot then the fridge, but before doing any of this go to the robot",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[microwave]",
+                "C": "near[black_chair::isinfrontof(yellow_robot)]",
+                "D": "near[fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the brown box. ",
+            "encoding_map": {
+                "A": "near[cabinet::isbetween(blue_sofa,brown_box)]"
+            },
+            "response": "F ( A )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the brown box. ",
+            "encoding_map": {
+                "A": "near[cabinet::isbetween(blue_sofa,brown_box)]"
+            },
+            "response": "F ( A )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the brown box. ",
+            "encoding_map": {
+                "A": "near[cabinet::isbetween(blue_sofa,brown_box)]"
+            },
+            "response": "F ( A )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I want you to go the cabinet but dont go near any black chair. Hold on, actually can you pass by the whiteboard before doing all that?",
+            "encoding_map": {
+                "A": "near[whiteboard]",
+                "B": "near[black_chair]",
+                "C": "near[cabinet]"
+            },
+            "response": "F ( A & F ( ~ B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I want you to go the cabinet but dont go near any black chair. Hold on, actually can you pass by the whiteboard before doing all that?",
+            "encoding_map": {
+                "A": "near[whiteboard]",
+                "B": "near[black_chair]",
+                "C": "near[cabinet]"
+            },
+            "response": "F ( A & F ( ~ B & F ( C ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I want you to go the cabinet but dont go near any black chair. Hold on, actually can you pass by the whiteboard before doing all that?",
+            "encoding_map": {
+                "A": "near[whiteboard]",
+                "B": "near[black_chair]",
+                "C": "near[cabinet]"
+            },
+            "response": "F ( A & F ( ~ B & F ( C ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I need you to go to the red sofa but dont go anywhere near the sink",
+            "encoding_map": {
+                "A": "near[red_sofa]",
+                "B": "near[sink]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to go to the red sofa but dont go anywhere near the sink",
+            "encoding_map": {
+                "A": "near[red_sofa]",
+                "B": "near[sink]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to go to the red sofa but dont go anywhere near the sink",
+            "encoding_map": {
+                "A": "near[red_sofa]",
+                "B": "near[sink]"
+            },
+            "response": "F ( A & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "You can either go as close as you can to the sink or the plant pot but dont go near the yellow robot.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[plant_pot]",
+                "C": "near[yellow_robot]"
+            },
+            "response": "F ( ( A | B ) & ~ C )",
+            "success": true
+        },
+        {
+            "instruction": "You can either go as close as you can to the sink or the plant pot but dont go near the yellow robot.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[plant_pot]",
+                "C": "near[yellow_robot]"
+            },
+            "response": "F ( ( A | B ) & ~ C )",
+            "success": true
+        },
+        {
+            "instruction": "You can either go as close as you can to the sink or the plant pot but dont go near the yellow robot.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[plant_pot]",
+                "C": "near[yellow_robot]"
+            },
+            "response": "F ( ( A | B ) & ~ C )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the green curtain after that the large television but try not to go near the red sofa",
+            "encoding_map": {
+                "A": "near[green_curtain]",
+                "B": "near[red_sofa]",
+                "C": "near[large_television]",
+                "D": "near[red_sofa]"
+            },
+            "response": "F ( A & ~ B ) & F ( C & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the green curtain after that the large television but try not to go near the red sofa",
+            "encoding_map": {
+                "A": "near[green_curtain]",
+                "B": "near[red_sofa]",
+                "C": "near[large_television]",
+                "D": "near[red_sofa]"
+            },
+            "response": "F ( A & ~ B ) & F ( C & ~ B )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the green curtain after that the large television but try not to go near the red sofa",
+            "encoding_map": {
+                "A": "near[green_curtain]",
+                "B": "near[red_sofa]",
+                "C": "near[large_television]",
+                "D": "near[red_sofa]"
+            },
+            "response": "F ( A & ~ B ) & F ( C & ~ B )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the sink then the red sofa, then the guitar. After that I want you to return to the first thing you visited.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[red_sofa]",
+                "C": "near[guitar]",
+                "D": "near[sink]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( A ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sink then the red sofa, then the guitar. After that I want you to return to the first thing you visited.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[red_sofa]",
+                "C": "near[guitar]",
+                "D": "near[sink]"
+            },
+            "response": "F ( A & F ( B & F ( C & F A ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sink then the red sofa, then the guitar. After that I want you to return to the first thing you visited.",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[red_sofa]",
+                "C": "near[guitar]",
+                "D": "near[sink]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( A ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I need you to go to the sink then any computer on a table but before you start that can you first go to the bookshelf, when you are done with all that, return to brown box",
+            "encoding_map": {
+                "A": "near[bookshelf]",
+                "B": "near[sink]",
+                "C": "near[computer::isabove(table)]",
+                "D": "near[brown_box]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to go to the sink then any computer on a table but before you start that can you first go to the bookshelf, when you are done with all that, return to brown box",
+            "encoding_map": {
+                "A": "near[bookshelf]",
+                "B": "near[sink]",
+                "C": "near[computer::isabove(table)]",
+                "D": "near[brown_box]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I need you to go to the sink then any computer on a table but before you start that can you first go to the bookshelf, when you are done with all that, return to brown box",
+            "encoding_map": {
+                "A": "near[bookshelf]",
+                "B": "near[sink]",
+                "C": "near[computer::isabove(table)]",
+                "D": "near[brown_box]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "There are a couple of things in this room, a coffee machine, a robot, a computer and a plant pot. Visit the second item I mentioned then the first, after that visit the brown box, then go to the items you haven\u2019t visited yet.",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[coffee_machine]",
+                "C": "near[brown_box]",
+                "D": "near[computer]",
+                "E": "near[plant_pot]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "There are a couple of things in this room, a coffee machine, a robot, a computer and a plant pot. Visit the second item I mentioned then the first, after that visit the brown box, then go to the items you haven\u2019t visited yet.",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[coffee_machine]",
+                "C": "near[brown_box]",
+                "D": "near[computer]",
+                "E": "near[plant_pot]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "There are a couple of things in this room, a coffee machine, a robot, a computer and a plant pot. Visit the second item I mentioned then the first, after that visit the brown box, then go to the items you haven\u2019t visited yet.",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[coffee_machine]",
+                "C": "near[brown_box]",
+                "D": "near[computer]",
+                "E": "near[plant_pot]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F E ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Avoid any cabinet but go get the mug on the blue sofa and take it to red one",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "pick[mug]",
+                "C": "near[cabinet]",
+                "D": "near[red_sofa]",
+                "E": "release[mug,red_sofa]",
+                "H": "near[cabinet]"
+            },
+            "response": "F ( A & F ( B & ~ C ) ) & F ( D & F ( E & ~ C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Avoid any cabinet but go get the mug on the blue sofa and take it to red one",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "pick[mug]",
+                "C": "near[cabinet]",
+                "D": "near[red_sofa]",
+                "E": "release[mug,red_sofa]",
+                "H": "near[cabinet]"
+            },
+            "response": "F ( A & F ( B & ~ C ) ) & F ( D & F ( E & ~ C ) )",
+            "success": true
+        },
+        {
+            "instruction": "Avoid any cabinet but go get the mug on the blue sofa and take it to red one",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "near[cabinet]",
+                "C": "pick[mug]",
+                "D": "near[red_sofa]",
+                "E": "near[cabinet]",
+                "H": "release[mug,red_sofa]"
+            },
+            "response": "F ( A & ~ B & F ( C & F ( D & ~ B & F ( H ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Please get me my plant pot from between the sofa and the sink, bring it to the white cabinet",
+            "encoding_map": {
+                "A": "near[plant_pot::isbetween(sofa,sink)]",
+                "B": "pick[plant_pot::isbetween(sofa,sink)]",
+                "C": "near[white_cabinet]",
+                "D": "release[plant_pot,white_cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Please get me my plant pot from between the sofa and the sink, bring it to the white cabinet",
+            "encoding_map": {
+                "A": "near[plant_pot::isbetween(sofa,sink)]",
+                "B": "pick[plant_pot::isbetween(sofa,sink)]",
+                "C": "near[white_cabinet]",
+                "D": "release[plant_pot,white_cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Please get me my plant pot from between the sofa and the sink, bring it to the white cabinet",
+            "encoding_map": {
+                "A": "near[plant_pot::isbetween(sofa,sink)]",
+                "B": "pick[plant_pot::isbetween(sofa,sink)]",
+                "C": "near[white_cabinet]",
+                "D": "release[plant_pot,white_cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Can you pick up my book from the left side of the television and bring it to me? I am sitting on the couch which is to the right of the door with posters. Make sure to never go near the trashbin while doing all this, it on the yellow table.",
+            "encoding_map": {
+                "A": "near[book::isleftof(television)]",
+                "B": "pick[book::isleftof(television)]",
+                "C": "near[couch::isrightof(door_with_posters)]",
+                "D": "release[book,couch::isrightof(door_with_posters)]",
+                "E": "near[trashbin::isabove(yellow_table)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ G ( E )",
+            "success": true
+        },
+        {
+            "instruction": "Can you pick up my book from the left side of the television and bring it to me? I am sitting on the couch which is to the right of the door with posters. Make sure to never go near the trashbin while doing all this, it on the yellow table.",
+            "encoding_map": {
+                "A": "near[book::isleftof(television)]",
+                "B": "pick[book::isleftof(television)]",
+                "C": "near[couch::isrightof(door_with_posters)]",
+                "D": "release[book,couch::isrightof(door_with_posters)]",
+                "E": "near[trashbin::isabove(yellow_table)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & G ( ~ E )",
+            "success": true
+        },
+        {
+            "instruction": "Can you pick up my book from the left side of the television and bring it to me? I am sitting on the couch which is to the right of the door with posters. Make sure to never go near the trashbin while doing all this, it on the yellow table.",
+            "encoding_map": {
+                "A": "near[book::isleftof(television)]",
+                "B": "pick[book::isleftof(television)]",
+                "C": "near[couch::isrightof(door_with_posters)]",
+                "D": "release[book,couch::isrightof(door_with_posters)]",
+                "E": "near[trashbin::isabove(yellow_table)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & G ( ~ E )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Bring the green plush toy to the whiteboard infront of it, watchout for the robot infront of the toy",
+            "encoding_map": {
+                "A": "near[green_plush_toy::isinfrontof(whiteboard)]",
+                "B": "near[robot::isinfrontof(green_plush_toy)]",
+                "C": "pick[green_plush_toy::isinfrontof(whiteboard)]",
+                "D": "near[whiteboard]",
+                "E": "release[green_plush_toy,whiteboard]"
+            },
+            "response": "F ( A & ~B & F ( C & F ( D & F ( E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Bring the green plush toy to the whiteboard infront of it, watchout for the robot infront of the toy",
+            "encoding_map": {
+                "A": "near[green_plush_toy]",
+                "B": "pick[green_plush_toy]",
+                "C": "near[robot::isinfrontof(green_plush_toy)]",
+                "D": "near[whiteboard::isinfrontof(green_plush_toy)]",
+                "E": "release[green_plush_toy,whiteboard::isinfrontof(green_plush_toy)]"
+            },
+            "response": "F ( A & F ( B & F ( ~C & F ( D & F ( E ) ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Bring the green plush toy to the whiteboard infront of it, watchout for the robot infront of the toy",
+            "encoding_map": {
+                "A": "near[green_plush_toy]",
+                "B": "pick[green_plush_toy]",
+                "C": "near[robot::isinfrontof(green_plush_toy)]",
+                "D": "near[whiteboard::isinfrontof(green_plush_toy)]",
+                "E": "release[green_plush_toy,whiteboard::isinfrontof(green_plush_toy)]"
+            },
+            "response": "F ( A & F ( B & F ( ~C & F ( D & F ( E ) ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go get my yellow bag and bring it to the table between the yellow pillar and the wooden door with posters next to the whiteboard",
+            "encoding_map": {
+                "A": "near[yellow_bag]",
+                "B": "pick[yellow_bag]",
+                "C": "near[table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]",
+                "D": "release[yellow_bag,table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go get my yellow bag and bring it to the table between the yellow pillar and the wooden door with posters next to the whiteboard",
+            "encoding_map": {
+                "A": "near[yellow_bag]",
+                "B": "pick[yellow_bag]",
+                "C": "near[table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]",
+                "D": "release[yellow_bag,table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go get my yellow bag and bring it to the table between the yellow pillar and the wooden door with posters next to the whiteboard",
+            "encoding_map": {
+                "A": "near[yellow_bag]",
+                "B": "pick[yellow_bag]",
+                "C": "near[table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]",
+                "D": "release[yellow_bag,table::isbetween(yellow_pillar,wooden_door::isnextto(posters::isnextto(whiteboard)))]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Find the bottle that is on the table to the left of the computer and bring it to the wardrobe that is next to the glass door",
+            "encoding_map": {
+                "A": "near[bottle::isabove(table::isleftof(computer))]",
+                "B": "pick[bottle::isabove(table::isleftof(computer))]",
+                "C": "near[wardrobe::isnextto(glass_door)]",
+                "D": "release[bottle,wardrobe::isnextto(glass_door)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Find the bottle that is on the table to the left of the computer and bring it to the wardrobe that is next to the glass door",
+            "encoding_map": {
+                "A": "near[bottle::isabove(table::isleftof(computer))]",
+                "B": "pick[bottle::isabove(table::isleftof(computer))]",
+                "C": "near[wardrobe::isnextto(glass_door)]",
+                "D": "release[bottle,wardrobe::isnextto(glass_door)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Find the bottle that is on the table to the left of the computer and bring it to the wardrobe that is next to the glass door",
+            "encoding_map": {
+                "A": "near[bottle::isabove(table::isleftof(computer))]",
+                "B": "pick[bottle::isabove(table::isleftof(computer))]",
+                "C": "near[wardrobe::isnextto(glass_door)]",
+                "D": "release[bottle,wardrobe::isnextto(glass_door)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the yellow robot or the cabinet to the left of the blue sofa. ",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "near[yellow_robot]",
+                "C": "near[cabinet::isbetween(blue_sofa,yellow_robot)]",
+                "D": "near[blue_sofa]",
+                "E": "near[cabinet::isleftof(blue_sofa)]"
+            },
+            "response": "F ( ( A & F ( B & F ( C ) ) ) | ( A & F ( E ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the yellow robot or the cabinet to the left of the blue sofa. ",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "near[yellow_robot]",
+                "C": "near[cabinet::isbetween(blue_sofa,yellow_robot)]",
+                "D": "near[blue_sofa]",
+                "E": "near[cabinet::isleftof(blue_sofa)]"
+            },
+            "response": "F ( ( A & B & F ( C ) ) | ( A & F ( E ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the cabinet between the blue sofa and the yellow robot or the cabinet to the left of the blue sofa. ",
+            "encoding_map": {
+                "A": "near[blue_sofa]",
+                "B": "near[yellow_robot]",
+                "C": "near[cabinet::isbetween(blue_sofa,yellow_robot)]",
+                "D": "near[blue_sofa]",
+                "E": "near[cabinet::isleftof(blue_sofa)]"
+            },
+            "response": "F ( ( A & B & F ( C ) ) | ( A & F ( E ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go take the green toy that is next to the sofa under the poster and bring it to the bookshelf",
+            "encoding_map": {
+                "A": "near[green_toy::isnextto(sofa::isbelow(poster))]",
+                "B": "pick[green_toy::isnextto(sofa::isbelow(poster))]",
+                "C": "near[bookshelf]",
+                "D": "release[green_toy,bookshelf]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go take the green toy that is next to the sofa under the poster and bring it to the bookshelf",
+            "encoding_map": {
+                "A": "near[green_toy::isnextto(sofa::isbelow(poster))]",
+                "B": "pick[green_toy::isnextto(sofa::isbelow(poster))]",
+                "C": "near[bookshelf]",
+                "D": "release[green_toy,bookshelf]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go take the green toy that is next to the sofa under the poster and bring it to the bookshelf",
+            "encoding_map": {
+                "A": "near[green_toy::isnextto(sofa::isbelow(poster))]",
+                "B": "pick[green_toy::isnextto(sofa::isbelow(poster))]",
+                "C": "near[bookshelf]",
+                "D": "release[green_toy,bookshelf]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I have a white cabinet, a green toy, a bookshelf and a red chair around here somewhere. Take the second item I mentioned from between the first item and the third. Bring it the cabinet but avoid the last item at all costs.",
+            "encoding_map": {
+                "A": "near[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "B": "pick[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "C": "near[white_cabinet]",
+                "D": "release[green_toy,white_cabinet]",
+                "E": "near[red_chair]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ E",
+            "success": true
+        },
+        {
+            "instruction": "I have a white cabinet, a green toy, a bookshelf and a red chair around here somewhere. Take the second item I mentioned from between the first item and the third. Bring it the cabinet but avoid the last item at all costs.",
+            "encoding_map": {
+                "A": "near[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "B": "pick[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "C": "near[white_cabinet]",
+                "D": "release[green_toy,white_cabinet]",
+                "E": "near[red_chair]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & G ~E",
+            "success": true
+        },
+        {
+            "instruction": "I have a white cabinet, a green toy, a bookshelf and a red chair around here somewhere. Take the second item I mentioned from between the first item and the third. Bring it the cabinet but avoid the last item at all costs.",
+            "encoding_map": {
+                "A": "near[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "B": "pick[green_toy::isbetween(white_cabinet,bookshelf)]",
+                "C": "near[white_cabinet]",
+                "D": "release[green_toy,white_cabinet]",
+                "E": "near[red_chair]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ E",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Hey I am standing by the whiteboard infront of the bookshelf, can you bring me the mug from the table to the left of the fridge?",
+            "encoding_map": {
+                "A": "near[whiteboard::isinfrontof(bookshelf)]",
+                "B": "near[table::isleftof(fridge)]",
+                "C": "pick[mug]",
+                "D": "near[whiteboard::isinfrontof(bookshelf)]",
+                "E": "release[mug,whiteboard::isinfrontof(bookshelf)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( A & F ( E ) ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Hey I am standing by the whiteboard infront of the bookshelf, can you bring me the mug from the table to the left of the fridge?",
+            "encoding_map": {
+                "A": "near[whiteboard::isinfrontof(bookshelf)]",
+                "B": "near[table::isleftof(fridge)]",
+                "C": "pick[mug]",
+                "D": "near[whiteboard::isinfrontof(bookshelf)]",
+                "E": "release[mug,whiteboard::isinfrontof(bookshelf)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( A & F ( E ) ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Hey I am standing by the whiteboard infront of the bookshelf, can you bring me the mug from the table to the left of the fridge?",
+            "encoding_map": {
+                "A": "near[whiteboard::isinfrontof(bookshelf)]",
+                "B": "near[table::isleftof(fridge)]",
+                "C": "pick[mug]",
+                "D": "near[whiteboard::isinfrontof(bookshelf)]",
+                "E": "release[mug,whiteboard::isinfrontof(bookshelf)]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( A & F ( E ) ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Never pass by a robot, but i need you to bring the bag on the table to the cabinet",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[bag::isabove(table)]",
+                "C": "pick[bag::isabove(table)]",
+                "D": "near[cabinet]",
+                "E": "release[bag,cabinet]"
+            },
+            "response": "G ( ~ A ) & F ( B & F ( C & F ( D & F ( E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Never pass by a robot, but i need you to bring the bag on the table to the cabinet",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[bag::isabove(table)]",
+                "C": "pick[bag::isabove(table)]",
+                "D": "near[cabinet]",
+                "E": "release[bag,cabinet]"
+            },
+            "response": "G ( ~ A ) & F ( B & F ( C & F ( D & F ( E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Never pass by a robot, but i need you to bring the bag on the table to the cabinet",
+            "encoding_map": {
+                "A": "near[robot]",
+                "B": "near[bag::isabove(table)]",
+                "C": "pick[bag::isabove(table)]",
+                "D": "near[cabinet]",
+                "E": "release[bag,cabinet]"
+            },
+            "response": "G ( ~ A ) & F ( B & F ( C & F ( D & F ( E ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Take a soda can to the fridge, you can find one on the table to the left of the blue sofa",
+            "encoding_map": {
+                "A": "near[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "B": "pick[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "C": "near[fridge]",
+                "D": "release[soda_can,fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Take a soda can to the fridge, you can find one on the table to the left of the blue sofa",
+            "encoding_map": {
+                "A": "near[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "B": "pick[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "C": "near[fridge]",
+                "D": "release[soda_can,fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Take a soda can to the fridge, you can find one on the table to the left of the blue sofa",
+            "encoding_map": {
+                "A": "near[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "B": "pick[soda_can::isnextto(table::isleftof(blue_sofa))]",
+                "C": "near[fridge]",
+                "D": "release[soda_can,fridge]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Hey, can you pick up my bag for me? It is under the table infront of the glass door, bring it to the cabinet. Actually you know what, forget what i asked for and bring the green toy instead, its at the same place",
+            "encoding_map": {
+                "A": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "B": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "C": "near[cabinet]",
+                "D": "release[bag,cabinet]",
+                "E": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "H": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "I": "near[cabinet]",
+                "J": "release[bag,cabinet]",
+                "K": "near[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "L": "pick[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "N": "near[cabinet]",
+                "O": "release[green_toy,cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ F ( A & F ( B & F ( C & F ( D ) ) ) ) & F ( K & F ( L & F ( C & F ( O ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Hey, can you pick up my bag for me? It is under the table infront of the glass door, bring it to the cabinet. Actually you know what, forget what i asked for and bring the green toy instead, its at the same place",
+            "encoding_map": {
+                "A": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "B": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "C": "near[cabinet]",
+                "D": "release[bag,cabinet]",
+                "E": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "H": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "I": "near[cabinet]",
+                "J": "release[bag,cabinet]",
+                "K": "near[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "L": "pick[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "N": "near[cabinet]",
+                "O": "release[green_toy,cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ F ( A & F ( B & F ( C & F ( D ) ) ) ) & F ( K & F ( L & F ( C & F ( O ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Hey, can you pick up my bag for me? It is under the table infront of the glass door, bring it to the cabinet. Actually you know what, forget what i asked for and bring the green toy instead, its at the same place",
+            "encoding_map": {
+                "A": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "B": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "C": "near[cabinet]",
+                "D": "release[bag,cabinet]",
+                "E": "near[bag::isbelow(table::isinfrontof(glass_door))]",
+                "H": "pick[bag::isbelow(table::isinfrontof(glass_door))]",
+                "I": "near[cabinet]",
+                "J": "release[bag,cabinet]",
+                "K": "near[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "L": "pick[green_toy::isbelow(table::isinfrontof(glass_door))]",
+                "N": "near[cabinet]",
+                "O": "release[green_toy,cabinet]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D ) ) ) ) & ~ F ( A & F ( B & F ( C & F ( D ) ) ) ) & F ( K & F ( L & F ( C & F ( O ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the sink and take the mug beside the coffee maker, drop it off at the red sofa",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[mug::isnextto(coffee_maker)]",
+                "C": "pick[mug::isnextto(coffee_maker)]",
+                "D": "near[red_sofa]",
+                "E": "release[mug,red_sofa]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F ( E ) ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sink and take the mug beside the coffee maker, drop it off at the red sofa",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[mug::isnextto(coffee_maker)]",
+                "C": "pick[mug::isnextto(coffee_maker)]",
+                "D": "near[red_sofa]",
+                "E": "release[mug,red_sofa]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F ( E ) ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sink and take the mug beside the coffee maker, drop it off at the red sofa",
+            "encoding_map": {
+                "A": "near[sink]",
+                "B": "near[mug::isnextto(coffee_maker)]",
+                "C": "pick[mug::isnextto(coffee_maker)]",
+                "D": "near[red_sofa]",
+                "E": "release[mug,red_sofa]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & F ( E ) ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go to the sofa behind the chair next to the orange counter in front of the pillar",
+            "encoding_map": {
+                "A": "near[sofa::isbehind(chair::isnextto(orange_counter::isinfrontof(pillar)))]"
+            },
+            "response": "F ( A )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sofa behind the chair next to the orange counter in front of the pillar",
+            "encoding_map": {
+                "A": "near[sofa::isbehind(chair::isnextto(orange_counter::isinfrontof(pillar)))]"
+            },
+            "response": "F ( A )",
+            "success": true
+        },
+        {
+            "instruction": "Go to the sofa behind the chair next to the orange counter in front of the pillar",
+            "encoding_map": {
+                "A": "near[sofa::isbehind(chair::isnextto(orange_counter::isinfrontof(pillar)))]"
+            },
+            "response": "F ( A )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I want you to go visit the chair behind the sofa then the green bag, do that 3 times but during the second time avoid the fridge ",
+            "encoding_map": {
+                "A": "near[chair::isbehind(sofa)]",
+                "B": "near[green_bag]",
+                "C": "near[chair::isbehind(sofa)]",
+                "D": "near[green_bag]",
+                "E": "near[fridge]",
+                "H": "near[chair::isbehind(sofa)]",
+                "I": "near[green_bag]"
+            },
+            "response": "F ( A & F ( B ) ) & F ( A & F ( B & ~ E ) ) & F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "I want you to go visit the chair behind the sofa then the green bag, do that 3 times but during the second time avoid the fridge ",
+            "encoding_map": {
+                "A": "near[chair::isbehind(sofa)]",
+                "B": "near[green_bag]",
+                "C": "near[chair::isbehind(sofa)]",
+                "D": "near[green_bag]",
+                "E": "near[fridge]",
+                "H": "near[chair::isbehind(sofa)]",
+                "I": "near[green_bag]"
+            },
+            "response": "F ( A & F ( B ) ) & F ( A & F ( B & ~ E ) ) & F ( A & F ( B ) )",
+            "success": true
+        },
+        {
+            "instruction": "I want you to go visit the chair behind the sofa then the green bag, do that 3 times but during the second time avoid the fridge ",
+            "encoding_map": {
+                "A": "near[chair::isbehind(sofa)]",
+                "B": "near[green_bag]",
+                "C": "near[chair::isbehind(sofa)]",
+                "D": "near[green_bag]",
+                "E": "near[fridge]",
+                "H": "near[chair::isbehind(sofa)]",
+                "I": "near[green_bag]"
+            },
+            "response": "F ( A & F ( B ) ) & F ( A & F ( B & ~ E ) ) & F ( A & F ( B ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "Go bring the plush toy between the sofa and the television to the couch, my cat is on the brown table so please dont pass near the table when you are returning with the toy",
+            "encoding_map": {
+                "A": "near[plush_toy::isbetween(sofa,television)]",
+                "B": "pick[plush_toy::isbetween(sofa,television)]",
+                "C": "near[couch]",
+                "D": "release[plush_toy,couch]",
+                "E": "near[brown_table]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & ~ E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go bring the plush toy between the sofa and the television to the couch, my cat is on the brown table so please dont pass near the table when you are returning with the toy",
+            "encoding_map": {
+                "A": "near[plush_toy::isbetween(sofa,television)]",
+                "B": "pick[plush_toy::isbetween(sofa,television)]",
+                "C": "near[couch]",
+                "D": "release[plush_toy,couch]",
+                "E": "near[brown_table]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & ~ E U cat ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "Go bring the plush toy between the sofa and the television to the couch, my cat is on the brown table so please dont pass near the table when you are returning with the toy",
+            "encoding_map": {
+                "A": "near[plush_toy::isbetween(sofa,television)]",
+                "B": "pick[plush_toy::isbetween(sofa,television)]",
+                "C": "near[couch]",
+                "D": "release[plush_toy,couch]",
+                "E": "near[brown_table]"
+            },
+            "response": "F ( A & F ( B & F ( C & F ( D & ~ E ) ) ) )",
+            "success": true
+        }
+    ],
+    [
+        {
+            "instruction": "I think I left my wallet on the kitchen counter, go get it i will meet you at the bed. There is a lantern near the bed, make sure you dont hit it.",
+            "encoding_map": {
+                "A": "near[kitchen_counter]",
+                "B": "pick[wallet]",
+                "C": "near[bed]",
+                "D": "near[lantern]",
+                "E": "release[wallet,bed]"
+            },
+            "response": "F ( A & F ( B & F ( C & ~ D & F ( E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I think I left my wallet on the kitchen counter, go get it i will meet you at the bed. There is a lantern near the bed, make sure you dont hit it.",
+            "encoding_map": {
+                "A": "near[kitchen_counter]",
+                "B": "pick[wallet]",
+                "C": "near[bed]",
+                "D": "near[lantern]",
+                "E": "release[wallet,bed]"
+            },
+            "response": "F ( A & F ( B & F ( C & ~ D & F ( E ) ) ) )",
+            "success": true
+        },
+        {
+            "instruction": "I think I left my wallet on the kitchen counter, go get it i will meet you at the bed. There is a lantern near the bed, make sure you dont hit it.",
+            "encoding_map": {
+                "A": "near[kitchen_counter]",
+                "B": "pick[wallet]",
+                "C": "near[bed]",
+                "D": "near[lantern]",
+                "E": "release[wallet,bed]"
+            },
+            "response": "F ( A & F ( B & F ( C & ~ D & F ( E ) ) ) )",
+            "success": true
+        }
+    ]
+]
