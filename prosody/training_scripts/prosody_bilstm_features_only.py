@@ -32,6 +32,7 @@ from torchinfo import summary
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.utils.class_weight import compute_class_weight
 
 
 
@@ -337,7 +338,7 @@ class Seq2Seq(nn.Module):
         return outputs
 
 
-def train(model, iterator, optimizer, criterion, num_classes=2, pad_value=-1):
+def train(model, iterator, optimizer, criterion, num_classes=2, pad_value=-1, CLIP=1):
     """
     Trains the model using the given iterator and optimizer for binary or multi-class
     classification.
@@ -370,6 +371,9 @@ def train(model, iterator, optimizer, criterion, num_classes=2, pad_value=-1):
         loss = (loss * mask.view(-1)).sum() / mask.sum()  # masking for valid tokens
 
         loss.backward()
+        # gradient clipping
+        # torch.nn.utils.clip_grad_norm_(model.parameters(), CLIP)
+
         optimizer.step()
         epoch_loss += loss.item()
 
@@ -420,9 +424,9 @@ def evaluate(model, iterator, criterion, num_classes=2, pad_value=-1):
             all_preds.extend(preds.cpu().numpy())
 
     accuracy = accuracy_score(all_labels, all_preds)
-    precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
-    recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
-    f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
+    precision = precision_score(all_labels, all_preds, average='macro', zero_division=0)
+    recall = recall_score(all_labels, all_preds, average='macro', zero_division=0)
+    f1 = f1_score(all_labels, all_preds, average='macro', zero_division=0)
 
     return epoch_loss / len(iterator), accuracy, precision, recall, f1
 
@@ -477,9 +481,9 @@ def test_model(model, iterator, num_classes=2, pad_value=-1):
 
     # Compute metrics
     accuracy = accuracy_score(all_labels, all_preds)
-    precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
-    recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
-    f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
+    precision = precision_score(all_labels, all_preds, average='macro', zero_division=0)
+    recall = recall_score(all_labels, all_preds, average='macro', zero_division=0)
+    f1 = f1_score(all_labels, all_preds, average='macro', zero_division=0)
 
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision:.2f}')
@@ -548,9 +552,9 @@ if __name__ == "__main__":
 
     HIDDEN_DIM = 128
     OUTPUT_DIM = 1
-    NUM_LAYERS = 4
+    NUM_LAYERS = 2
     DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 32
+    NUM_ATTENTION_LAYERS = 2
     NUM_CLASSES = 4  # Change this depending on the number of classes (set to 2 for binary classification)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -561,6 +565,21 @@ if __name__ == "__main__":
     model = Seq2Seq(encoder, decoder).to(device)
 
     # CrossEntropyLoss for both binary and multi-class classification
+    # Concatenate all labels into a single tensor
+    # labels = torch.cat([torch.tensor(item['labels']) for item in data.values()])
+
+    # # Remove any invalid labels, such as padding tokens (-1)
+    # valid_labels = labels[labels != -1].numpy()  # Convert to numpy for sklearn
+
+    # # Compute unique valid classes
+    # valid_classes = np.unique(valid_labels)
+
+    # # Compute class weights for the valid labels
+    # class_weights = compute_class_weight('balanced', classes=valid_classes, y=valid_labels)
+
+    # # Convert class weights back to a tensor and move to the device (GPU/CPU)
+    # class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+
     criterion = nn.CrossEntropyLoss(ignore_index=-1)
 
     optimizer = optim.Adam(model.parameters(), lr=0.0001, weight_decay=1e-5)
