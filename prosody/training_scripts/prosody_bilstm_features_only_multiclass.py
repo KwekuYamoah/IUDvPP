@@ -31,28 +31,27 @@ def get_corpus(data):
         corpus.append(words)
     return corpus
 
-def load_glove_embeddings(file_path, embedding_dim):
-    embeddings_index = {}
-    with open(file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            values = line.split()
-            word = values[0]
-            coefs = np.asarray(values[1:], dtype='float32')
-            embeddings_index[word] = coefs
-    return embeddings_index
+def load_data(json_path):
+    with open(json_path, 'r') as file:
+        data = json.load(file)
+    return data
 
-def create_embedding_matrix(word2idx, embeddings_index, embedding_dim):
-    vocab_size = len(word2idx) + 1  # +1 for the unknown token
-    embedding_matrix = np.zeros((vocab_size, embedding_dim))
-    for word, idx in word2idx.items():
-        embedding_vector = embeddings_index.get(word)
-        if embedding_vector is not None:
-            embedding_matrix[idx] = embedding_vector
-        else:
-            embedding_matrix[idx] = np.random.normal(scale=0.6, size=(embedding_dim,))
-    return embedding_matrix
-# Custom padding value (since your labels are 0 or 1, we'll use -1 for padding)
-PADDING_VALUE = -1
+def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
+    assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
+    total = len(data)
+    train_size = int(total * train_ratio)
+    val_size = int(total * val_ratio)
+    test_size = total - train_size - val_size
+    return random_split(list(data.items()), [train_size, val_size, test_size])
+
+def preprocess_text(words):
+    processed_words = []
+    for word in words:
+        processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
+    return processed_words
+
+# Custom padding value for labels
+PADDING_VALUE = -100  # Using -100 as it's the default ignore_index in CrossEntropyLoss
 
 class EarlyStopping:
     def __init__(self, patience=5, min_delta=0):
@@ -73,30 +72,8 @@ class EarlyStopping:
             if self.counter >= self.patience:
                 self.early_stop = True
 
-def load_data(json_path):
-    with open(json_path, 'r') as file:
-        data = json.load(file)
-    return data
-
-def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
-    assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
-    total = len(data)
-    train_size = int(total * train_ratio)
-    val_size = int(total * val_ratio)
-    test_size = total - train_size - val_size
-    return random_split(list(data.items()), [train_size, val_size, test_size])
-
-def preprocess_text(words):
-    processed_words = []
-    for word in words:
-        processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
-    return processed_words
-
 class ProsodyDataset(Dataset):
-    def __init__(self, data, word2idx, unk_idx):
-        self.data = data
-        self.word2idx = word2idx
-        self.unk_idx = unk_idx
+    def __init__(self, data):
         self.entries = list(data.items())
 
     def __len__(self):
@@ -105,25 +82,22 @@ class ProsodyDataset(Dataset):
     def __getitem__(self, idx):
         key, item = self.entries[idx]
         processed_words = preprocess_text(item['words'])
-        words = [self.word2idx.get(word, self.unk_idx) for word in processed_words]
         features = torch.tensor(item['features'], dtype=torch.float32)
-        labels = torch.tensor(item['labels'], dtype=torch.float32)
-        return torch.tensor(words, dtype=torch.long), features, labels
+        labels = torch.tensor(item['labels'], dtype=torch.long)  # Changed to torch.long for class indices
+        return processed_words, features, labels
 
-# Collate function with custom padding value (-1)
+# Collate function with custom padding value
 def collate_fn(batch):
-    words = [item[0] for item in batch]
+    words = [item[0] for item in batch]  # List of lists of words
     features = [item[1] for item in batch]
     labels = [item[2] for item in batch]
 
-    # Pad words with the padding index (PADDING_IDX)
-    words_padded = torch.nn.utils.rnn.pad_sequence(words, batch_first=True, padding_value=PADDING_VALUE)
     features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=0.0)
     labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=PADDING_VALUE)
 
-    lengths = torch.tensor([len(w) for w in words])
+    lengths = torch.tensor([len(f) for f in features])
 
-    return words_padded, features_padded, labels_padded, lengths
+    return words, features_padded, labels_padded, lengths
 
 # Attention layer with masking
 class AttentionLayer(nn.Module):
@@ -139,7 +113,7 @@ class AttentionLayer(nn.Module):
         attention = self.v(energy).squeeze(2)
 
         # Apply the mask to ignore padding positions
-        attention.masked_fill_(mask == 0, -1e10)
+        attention.masked_fill_(~mask, -1e10)
 
         return torch.softmax(attention, dim=1)
 
@@ -158,26 +132,19 @@ class MultiAttention(nn.Module):
 
 # Encoder with packing
 class Encoder(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, hidden_dim, num_layers, dropout, embeddings, feature_dim):
+    def __init__(self, feature_dim, hidden_dim, num_layers, dropout):
         super(Encoder, self).__init__()
-        self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=PADDING_IDX)  # Set padding_idx
-        self.embedding.weight = nn.Parameter(embeddings)
-        self.embedding.weight.requires_grad = True  # Set to True to allow fine-tuning
-        self.lstm = nn.LSTM(embedding_dim + feature_dim, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
+        self.lstm = nn.LSTM(feature_dim, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
 
-    def forward(self, words, features, lengths):
+    def forward(self, features, lengths):
         lengths_sorted, sorted_indices = lengths.sort(descending=True)
-        words = words[sorted_indices]
         features = features[sorted_indices]
 
-        embedded = self.embedding(words)
-        combined = torch.cat((embedded, features), dim=2)
-
-        packed_input = rnn_utils.pack_padded_sequence(combined, lengths_sorted.cpu(), batch_first=True, enforce_sorted=True)
+        packed_input = rnn_utils.pack_padded_sequence(features, lengths_sorted.cpu(), batch_first=True, enforce_sorted=True)
 
         packed_output, (hidden, cell) = self.lstm(packed_input)
 
-        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=PADDING_VALUE)
+        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=0.0)
 
         _, original_indices = sorted_indices.sort()
         outputs = outputs[original_indices]
@@ -193,16 +160,17 @@ class Decoder(nn.Module):
         self.hidden_dim = hidden_dim
         self.lstm = nn.LSTM(hidden_dim * 4, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
         self.fc = nn.Linear(hidden_dim * 2, output_dim)
-        self.sigmoid = nn.Sigmoid()
         self.attention = MultiAttention(hidden_dim, num_attention_layers)
 
     def forward(self, encoder_outputs, hidden, cell, mask):
         attn_weights = self.attention(hidden[-1], encoder_outputs, mask)
         context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs).squeeze(1)
 
-        lstm_input = torch.cat((context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2)
+        lstm_input = torch.cat(
+            (context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2
+        )
         outputs, (hidden, cell) = self.lstm(lstm_input, (hidden, cell))
-        predictions = self.sigmoid(self.fc(outputs))
+        predictions = self.fc(outputs)
 
         return predictions, (hidden, cell)
 
@@ -212,9 +180,12 @@ class Seq2Seq(nn.Module):
         self.encoder = encoder
         self.decoder = decoder
 
-    def forward(self, src, features, lengths):
-        encoder_outputs, hidden, cell = self.encoder(src, features, lengths)
-        mask = (src != PADDING_VALUE)
+    def forward(self, features, lengths):
+        encoder_outputs, hidden, cell = self.encoder(features, lengths)
+        max_len = encoder_outputs.size(1)
+        batch_size = encoder_outputs.size(0)
+        mask = torch.arange(max_len).unsqueeze(0).expand(batch_size, max_len).to(features.device)
+        mask = mask < lengths.unsqueeze(1)
         outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell, mask)
         return outputs
 
@@ -222,16 +193,20 @@ def train(model, iterator, optimizer, criterion):
     model.train()
     epoch_loss = 0
     for words, features, labels, lengths in iterator:
-        words = words.to(device)
         features = features.to(device)
         labels = labels.to(device)
         lengths = lengths.to(device)
 
         optimizer.zero_grad()
-        output = model(words, features, lengths)
-        output = output.view(-1)
-        labels = labels.view(-1).float()
+        output = model(features, lengths)
+        # output: [batch_size, seq_len, num_classes]
+        # labels: [batch_size, seq_len]
 
+        # Flatten outputs and labels
+        output = output.view(-1, num_classes)
+        labels = labels.view(-1)
+
+        # Mask padding positions
         mask = labels != PADDING_VALUE
         masked_output = output[mask]
         masked_labels = labels[mask]
@@ -251,15 +226,19 @@ def evaluate(model, iterator, criterion):
     all_preds = []
     with torch.no_grad():
         for words, features, labels, lengths in iterator:
-            words = words.to(device)
             features = features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
 
-            output = model(words, features, lengths)
-            output = output.view(-1)
-            labels = labels.view(-1).float()
+            output = model(features, lengths)
+            # output: [batch_size, seq_len, num_classes]
+            # labels: [batch_size, seq_len]
 
+            # Flatten outputs and labels
+            output = output.view(-1, num_classes)
+            labels = labels.view(-1)
+
+            # Mask padding positions
             mask = labels != PADDING_VALUE
             masked_output = output[mask]
             masked_labels = labels[mask]
@@ -267,7 +246,7 @@ def evaluate(model, iterator, criterion):
             loss = criterion(masked_output, masked_labels)
             epoch_loss += loss.item()
 
-            preds = (masked_output > 0.5).float()
+            preds = torch.argmax(masked_output, dim=1)
             all_labels.extend(masked_labels.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
 
@@ -278,37 +257,34 @@ def evaluate(model, iterator, criterion):
 
     return epoch_loss / len(iterator), accuracy, precision, recall, f1
 
-
-def test_model(model, iterator, word2idx):
+def test_model(model, iterator):
     model.eval()
     all_labels = []
     all_preds = []
-    word_list = list(word2idx.keys())
 
-    with open('./outputs/prosody_bilstm_embeddings_results.txt', 'w') as file:
+    with open('./outputs/prosody_bilstm_features_multiclass_results.txt', 'w') as file:
         file.write("")
-    
+
     with torch.no_grad():
         for words, features, labels, lengths in iterator:
-            words = words.to(device)
             features = features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
 
-            # Pass 'lengths' to the model along with words and features
-            output = model(words, features, lengths)
-            preds = (output > 0.4).float()
+            output = model(features, lengths)
+            preds = torch.argmax(output, dim=2)
 
-            for i in range(words.shape[0]):
-                word_indices = words[i].cpu().numpy()
-                word_sentence = [word_list[idx] if idx < len(word_list) else '<UNK>' for idx in word_indices]
+            for i in range(features.shape[0]):
+                word_sentence = words[i]  # List of words
                 gold_labels = labels[i].cpu().numpy().flatten()
                 pred_labels = preds[i].cpu().numpy().flatten()
 
-                # Clean up the sentence by excluding <UNK> tokens
-                cleaned_words, cleaned_gold_labels, cleaned_pred_labels = clean_up_sentence(word_sentence, gold_labels, pred_labels)
+                # Clean up the sentence by excluding padding positions
+                cleaned_words, cleaned_gold_labels, cleaned_pred_labels = clean_up_sentence(
+                    word_sentence, gold_labels, pred_labels
+                )
 
-                # Create DataFrame only with valid words (no '<UNK>')
+                # Create DataFrame
                 data = {
                     'Word': cleaned_words,
                     'Gold Label': cleaned_gold_labels,
@@ -316,29 +292,26 @@ def test_model(model, iterator, word2idx):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/prosody_bilstm_embeddings_results.txt', 'a') as file:
+                with open('./outputs/prosody_bilstm_features_multiclass_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
-            # Collect valid labels and predictions for metrics
-            all_labels.extend(cleaned_gold_labels)
-            all_preds.extend(cleaned_pred_labels)
+                # Collect valid labels and predictions for metrics
+                all_labels.extend(cleaned_gold_labels)
+                all_preds.extend(cleaned_pred_labels)
 
     # Calculate metrics using only valid labels and predictions
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
-    
+
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision:.2f}')
     print(f'Test Recall: {recall:.2f}')
     print(f'Test F1 Score: {f1:.2f}')
-    
+
     return all_labels, all_preds
-
-
-
 
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
     epochs = range(1, len(train_losses) + 1)
@@ -360,54 +333,34 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.plot(epochs, val_f1s, label='Validation F1 Score')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('./outputs/bilstm_embeddings_metrics.png')
+    plt.savefig('./outputs/bilstm_features_multiclass_metrics.png')
 
 def clean_up_sentence(words, gold_labels, pred_labels):
     filtered_words = []
     filtered_gold_labels = []
     filtered_pred_labels = []
-    
-    # Traverse the entire sequence
+
     for i in range(len(words)):
-        if words[i] != '<UNK>':  # Only keep non-<UNK> tokens
+        if gold_labels[i] != PADDING_VALUE:
             filtered_words.append(words[i])
-            filtered_gold_labels.append(gold_labels[i])
-            filtered_pred_labels.append(pred_labels[i])
+            filtered_gold_labels.append(int(gold_labels[i]))
+            filtered_pred_labels.append(int(pred_labels[i]))
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
 
-
 if __name__ == "__main__":
 
-    seed = 42 
+    seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/embedding_extracted_features.json'
+    json_path = '../prosody/multi_label_features.json'
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
-    combined_corpus = get_corpus(dict(train_data)) + get_corpus(dict(val_data)) + get_corpus(dict(test_data))
 
-    embedding_dim = 50
-    glove_path = '../prosody/glove_embeddings/glove.6B.50d.txt'
-    glove_embeddings = load_glove_embeddings(glove_path, embedding_dim)
-
-    vocab = list(glove_embeddings.keys())
-    word2idx = {word: idx for idx, word in enumerate(vocab)}
-    embedding_matrix = create_embedding_matrix(word2idx, glove_embeddings, embedding_dim)
-
-    # Set padding index to the last index of the embedding matrix (VOCAB_SIZE - 1)
-    PADDING_IDX = len(word2idx)  # The last index in the vocabulary
-    PADDING_VALUE = PADDING_IDX  # Padding with the last index in the vocabulary
-
-    # Adjust embedding matrix size to account for padding index
-    embedding_matrix = np.vstack((embedding_matrix, np.zeros((1, embedding_dim))))
-
-    unk_idx = len(vocab)
-
-    train_dataset = ProsodyDataset(dict(train_data), word2idx, unk_idx)
-    val_dataset = ProsodyDataset(dict(val_data), word2idx, unk_idx)
-    test_dataset = ProsodyDataset(dict(test_data), word2idx, unk_idx)
+    train_dataset = ProsodyDataset(dict(train_data))
+    val_dataset = ProsodyDataset(dict(val_data))
+    test_dataset = ProsodyDataset(dict(test_data))
 
     print(f'Train size: {len(train_dataset)}')
     print(f'Validation size: {len(val_dataset)}')
@@ -417,32 +370,38 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
-    VOCAB_SIZE = len(word2idx) + 1
-    EMBEDDING_DIM = 50
+    # Get feature dimension from the dataset
+    sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
+    feature_dim = sample_features.shape[2]
+
+    # Determine number of classes dynamically
+    all_labels = []
+    for _, _, labels in train_dataset:
+        all_labels.extend(labels.numpy().flatten())
+    num_classes = len(np.unique(all_labels))
+
     HIDDEN_DIM = 128
-    OUTPUT_DIM = 1
+    OUTPUT_DIM = num_classes  # Updated to num_classes
     NUM_LAYERS = 2
     DROPOUT = 0.5
     NUM_ATTENTION_LAYERS = 4
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    feature_dim = next(iter(train_loader))[1].shape[2]
 
-    embedding_tensor = torch.tensor(embedding_matrix, dtype=torch.float32)
-
-    encoder = Encoder(VOCAB_SIZE, EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, DROPOUT, embedding_tensor, feature_dim).to(device)
+    encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
+    # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
-    
-    sample_words, sample_features, sample_labels, sample_lengths= next(iter(train_loader))
-    # summary(model, input_data=(sample_words, sample_features), device=device)
+    optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
+    # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
+    # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
 
-    optimizer = optim.Adam(model.parameters(), lr= 0.001,weight_decay=1e-5)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
-    criterion = nn.BCELoss()
+
+    criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
 
     train_losses = []
     val_losses = []
@@ -468,12 +427,12 @@ if __name__ == "__main__":
         val_recalls.append(valid_recall)
         val_f1s.append(valid_f1)
 
-        # Update the learning rate based on the validation loss
+        # Update the learning rate scheduler
         scheduler.step(valid_loss)
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
-            torch.save(model.state_dict(), 'models/best-model-embeddings-version.pt')
+            torch.save(model.state_dict(), 'models/best-model-features-multiclass-version.pt')
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
@@ -484,7 +443,6 @@ if __name__ == "__main__":
             print("Early stopping")
             break
 
-
-    model.load_state_dict(torch.load('models/best-model-embeddings-version.pt'))
-    test_model(model, test_loader, word2idx)
+    model.load_state_dict(torch.load('models/best-model-features-multiclass-version.pt'))
+    test_model(model, test_loader)
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
