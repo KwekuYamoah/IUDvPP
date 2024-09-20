@@ -126,20 +126,21 @@ def apply_configuration(current_configuration, updating_part):
     return current_configuration
 
 
-'''
-The extract_word_information function splits a given array of signal values extracted from an audio file into sub-arrays where each sub-array represents the array of values associated with a particular 
-word in that audio file.
 
-Params:
-    signal_info(list[float]): This is a list where each value within that list represents an amplitude value within an audio signal at a particular time. 
-    filename (string): This is a string that represents the name of the input file.
-    language (string): This is a string that represents the language in which the audio files are spoken in.
-    word_info(list[list]): This is a list containing sub-lists where each sublist contains information about a word within an audio signal and the time values within which the word is spoken in the audio.
-
-Returns:
-    word_signal_info (list[list]): This is a list containing sub-lists where each sublist contains information about a word, its corresponding time values as well as its corresponding signal values.
-'''
 def extract_word_information(signal_info, filename, language, word_info):
+    '''
+    The extract_word_information function splits a given array of signal values extracted from an audio file into sub-arrays where each sub-array represents the array of values associated with a particular 
+    word in that audio file.
+
+    Params:
+        signal_info(list[float]): This is a list where each value within that list represents an amplitude value within an audio signal at a particular time. 
+        filename (string): This is a string that represents the name of the input file.
+        language (string): This is a string that represents the language in which the audio files are spoken in.
+        word_info(list[list]): This is a list containing sub-lists where each sublist contains information about a word within an audio signal and the time values within which the word is spoken in the audio.
+
+    Returns:
+        word_signal_info (list[list]): This is a list containing sub-lists where each sublist contains information about a word, its corresponding time values as well as its corresponding signal values.
+    '''
     #extract the filename
     filename = filename.split('/')[3].split('.')[0]
 
@@ -174,18 +175,20 @@ def extract_word_information(signal_info, filename, language, word_info):
 
     return word_signal_info
 
-'''
-The generate_gold_labels_dictionary function takes as parameters a language tag and the path to the gold labels for the words in the audio files and 
-populates a dictionary with that information.
 
-Params:
-    language_tag (string): This is a string that represents a particular language.
-    gold_label_path (string): This is a path to a textfile containing the gold labels for the words in the audio files.
-
-Returns:
-    None
-'''
 def generate_gold_labels_dictionary(language_tag, gold_label_path):
+    '''
+    The generate_gold_labels_dictionary function takes as parameters a language tag 
+    and the path to the gold labels for the words in the audio files and populates a 
+    dictionary with that information.
+
+    Params:
+        language_tag (string): This is a string that represents a particular language.
+        gold_label_path (string): This is a path to a textfile containing the gold labels for the words in the audio files.
+
+    Returns:
+        None
+    '''
     #open the file represented by the gold_label_path
     gold_label_file = open(gold_label_path, 'r').readlines()
     gold_label_file_words = [x.strip('\n') for x in gold_label_file]
@@ -215,8 +218,6 @@ def generate_gold_labels_dictionary(language_tag, gold_label_path):
     
     #place the populated dictionary into the global dictionary for keeping track of the words in the input audio files and their corresponding gold labels
     GOLD_LABEL_DICTIONARY[language_tag] = gold_label_dictionary
-
-
 
 
     return
