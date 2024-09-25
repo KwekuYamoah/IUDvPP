@@ -2,7 +2,7 @@ import json
 from difflib import SequenceMatcher
 
 # Load the JSON data
-with open('../prosody/reconstructed_extracted_features.json', encoding="utf-8") as f:
+with open('../prosody/data/extracted_audio_features.json', encoding="utf-8") as f:
     features_data = json.load(f)
 
 with open('../ltl/instructions_data.json', encoding="utf-8") as f:
@@ -50,7 +50,7 @@ for feature_id, feature in features_data.items():
             break
 
 # Save the modified features.json
-with open('multi_label_features.json', 'w') as f:
+with open('../prosody/data/multi_label_extracted_audio_featrures.json', 'w') as f:
     json.dump(features_data, f, indent=4)
 
 print("Labels updated and saved to modified_features.json")

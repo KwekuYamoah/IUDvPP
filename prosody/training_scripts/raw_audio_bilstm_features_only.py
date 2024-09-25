@@ -83,8 +83,10 @@ class ProsodyDataset(Dataset):
         key, item = self.entries[idx]
         processed_words = preprocess_text(item['words'])
         features = torch.tensor(item['features'], dtype=torch.float32)
-        labels = torch.tensor(item['labels'], dtype=torch.float32)
+        labels = torch.tensor(item['labels'], dtype=torch.long)  # Changed to torch.long for class indices
+        
         return processed_words, features, labels
+
 
 # Collate function with custom padding value (-1)
 def collate_fn(batch):
@@ -98,6 +100,7 @@ def collate_fn(batch):
     lengths = torch.tensor([len(f) for f in features])
 
     return words, features_padded, labels_padded, lengths
+
 
 # Attention layer with masking
 class AttentionLayer(nn.Module):
@@ -161,7 +164,6 @@ class Decoder(nn.Module):
         # Corrected input size from hidden_dim * 2 to hidden_dim * 4
         self.lstm = nn.LSTM(hidden_dim * 4, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
         self.fc = nn.Linear(hidden_dim * 2, output_dim)
-        self.sigmoid = nn.Sigmoid()
         self.attention = MultiAttention(hidden_dim, num_attention_layers)
 
     def forward(self, encoder_outputs, hidden, cell, mask):
@@ -173,7 +175,7 @@ class Decoder(nn.Module):
             (context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2
         )
         outputs, (hidden, cell) = self.lstm(lstm_input, (hidden, cell))
-        predictions = self.sigmoid(self.fc(outputs))
+        predictions = self.fc(outputs)
 
         return predictions, (hidden, cell)
 
@@ -202,8 +204,10 @@ def train(model, iterator, optimizer, criterion):
 
         optimizer.zero_grad()
         output = model(features, lengths)
-        output = output.view(-1)
-        labels = labels.view(-1).float()
+
+        # Flatten outputs and labels
+        output = output.view(-1, num_classes)
+        labels = labels.view(-1)
 
         mask = labels != PADDING_VALUE
         masked_output = output[mask]
@@ -229,8 +233,8 @@ def evaluate(model, iterator, criterion):
             lengths = lengths.to(device)
 
             output = model(features, lengths)
-            output = output.view(-1)
-            labels = labels.view(-1).float()
+            output = output.view(-1, num_classes)
+            labels = labels.view(-1)
 
             mask = labels != PADDING_VALUE
             masked_output = output[mask]
@@ -239,7 +243,7 @@ def evaluate(model, iterator, criterion):
             loss = criterion(masked_output, masked_labels)
             epoch_loss += loss.item()
 
-            preds = (masked_output > 0.4).float()
+            preds = torch.argmax(masked_output, dim=1)
             all_labels.extend(masked_labels.cpu().numpy())
             all_preds.extend(preds.cpu().numpy())
 
@@ -265,7 +269,7 @@ def test_model(model, iterator):
             lengths = lengths.to(device)
 
             output = model(features, lengths)
-            preds = (output > 0.4).float()
+            preds = torch.argmax(output, dim=2)
 
             for i in range(features.shape[0]):
                 word_sentence = words[i]  # List of words
@@ -300,9 +304,9 @@ def test_model(model, iterator):
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
 
     print(f'Test Accuracy: {accuracy*100:.2f}%')
-    print(f'Test Precision: {precision:.2f}')
-    print(f'Test Recall: {recall:.2f}')
-    print(f'Test F1 Score: {f1:.2f}')
+    print(f'Test Precision: {precision*100:.2f}')
+    print(f'Test Recall: {recall*100:.2f}')
+    print(f'Test F1 Score: {f1*100:.2f}')
 
     return all_labels, all_preds
 
@@ -342,7 +346,6 @@ def clean_up_sentence(words, gold_labels, pred_labels):
     return filtered_words, filtered_gold_labels, filtered_pred_labels
 
 if __name__ == "__main__":
-
     seed = 42
     set_seed(seed)
 
@@ -359,19 +362,29 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
+    # Create the DataLoader
     train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
-    # Get feature dimension from the dataset
+    # Get feature dimension from the dataset (after padding)
     sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
-    feature_dim = sample_features.shape[2]
+    feature_dim = sample_features.shape[2]  # Get feature dimension from padded features
 
+    # Number of classes (excluding padding)
+    all_labels = []
+    for _, _, labels in train_dataset:
+        all_labels.extend(labels.numpy().flatten())
+    num_classes = len(np.unique(all_labels))
+
+    print(f'Model Training with {num_classes} classes')
+
+    # Proceed with model creation and training
     HIDDEN_DIM = 128
-    OUTPUT_DIM = 1
+    OUTPUT_DIM = num_classes 
     NUM_LAYERS = 4
     DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 2
+    NUM_ATTENTION_LAYERS = 4
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -379,12 +392,15 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
+
     # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
+    optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay=1e-5)
+    # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.1, patience=10, verbose=True)
 
-    criterion = nn.BCELoss()
+
+    criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
 
     train_losses = []
     val_losses = []

@@ -2,6 +2,7 @@ import os
 import json
 import string
 import numpy as np
+import matplotlib.pyplot as plt
 import librosa
 from pydub import AudioSegment
 
@@ -29,19 +30,35 @@ def slice_audio(audio_file, start_time, end_time, tmp_folder):
     return temp_filename
 
 
-def extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder):
+def extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder, fixed_length=19074, target_sr=22050):
     # Slice the word's segment using pydub
     temp_word_file = slice_audio(audio_file, start_time, end_time, tmp_folder)
     
     # Load the sliced audio using librosa
-    y, sr = librosa.load(temp_word_file, sr=None)
+    y, sr = librosa.load(temp_word_file, sr=target_sr)
+
+    # Truncate or pad the audio signal to fixed_length
+    if len(y) > fixed_length:
+        y = y[:fixed_length]
+    elif len(y) < fixed_length:
+        y = np.pad(y, (0, fixed_length - len(y)), 'constant')
     
     # Return the raw waveform as the features
     return y  # The raw audio data (time-domain waveform)
 
+def get_audio_segment_length(audio_file, start_time, end_time):
+    # adjusting start and end times to expand context window
+    start_time = max(0, start_time - 0.010) # 10ms before the start time
+    end_time = float(end_time) + 0.025 # 25ms after the end time 
+
+    duration = float(end_time) - float(start_time)
+    y, sr = librosa.load(audio_file, sr=22050, offset=float(start_time), duration=duration)
+    return len(y)
+
 
 def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_folder):
     results = {}
+    all_lengths = []
 
     # Loop through the gold label text files
     for label_file in os.listdir(gold_labels_dir):
@@ -84,7 +101,7 @@ def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_fol
                                 label = gold_labels[sanitized_word]
                                 
                                 # Extract raw audio features for the word using librosa
-                                raw_features = extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder)
+                                raw_features = extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder)                               
                                 
                                 # Append data for this word
                                 file_data["words"].append(sanitized_word)

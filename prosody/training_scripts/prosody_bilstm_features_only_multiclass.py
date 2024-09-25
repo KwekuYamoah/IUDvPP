@@ -84,6 +84,7 @@ class ProsodyDataset(Dataset):
         processed_words = preprocess_text(item['words'])
         features = torch.tensor(item['features'], dtype=torch.float32)
         labels = torch.tensor(item['labels'], dtype=torch.long)  # Changed to torch.long for class indices
+        
         return processed_words, features, labels
 
 # Collate function with custom padding value
@@ -307,9 +308,9 @@ def test_model(model, iterator):
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
 
     print(f'Test Accuracy: {accuracy*100:.2f}%')
-    print(f'Test Precision: {precision:.2f}')
-    print(f'Test Recall: {recall:.2f}')
-    print(f'Test F1 Score: {f1:.2f}')
+    print(f'Test Precision: {precision*100:.2f}')
+    print(f'Test Recall: {recall*100:.2f}')
+    print(f'Test F1 Score: {f1*100:.2f}')
 
     return all_labels, all_preds
 
@@ -353,7 +354,7 @@ if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/multi_label_features.json'
+    json_path = '../prosody/data/reconstructed_extracted_features.json'
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
@@ -380,6 +381,8 @@ if __name__ == "__main__":
         all_labels.extend(labels.numpy().flatten())
     num_classes = len(np.unique(all_labels))
 
+    print(f'Model Training with {num_classes} classes')
+
     HIDDEN_DIM = 128
     OUTPUT_DIM = num_classes  # Updated to num_classes
     NUM_LAYERS = 2
@@ -394,7 +397,7 @@ if __name__ == "__main__":
 
     # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay=1e-5)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
@@ -428,7 +431,7 @@ if __name__ == "__main__":
         val_f1s.append(valid_f1)
 
         # Update the learning rate scheduler
-        scheduler.step(valid_loss)
+        # scheduler.step(valid_loss)
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss

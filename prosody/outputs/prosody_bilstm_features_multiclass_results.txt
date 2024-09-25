@@ -9,8 +9,8 @@ without           0                0
   going           0                0
    near           0                0
     the           0                0
-  trash           3                0
-    bin           3                0
+  trash           1                1
+    bin           1                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
       hey           0                0
@@ -25,7 +25,7 @@ without           0                0
     front           0                0
        of           0                0
       the           0                0
-bookshelf           2                0
+bookshelf           1                0
       can           0                0
       you           0                0
     bring           0                0
@@ -40,7 +40,7 @@ bookshelf           2                0
      left           0                0
        of           0                0
       the           0                0
-   fridge           2                0
+   fridge           1                1
 --------------------------------------------------
       Word  Gold Label  Predicted Label
         go           0                0
@@ -64,11 +64,11 @@ television           1                0
     laptop           1                0
         on           0                0
        the           0                0
-     table           2                0
+     table           1                0
     before           0                0
      doing           0                0
        all           0                0
-      that           0                0
+      that           0                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
       go           0                0
@@ -80,20 +80,20 @@ television           1                0
     pass           0                0
       by           0                0
      any           0                0
-computer           3                0
+computer           1                0
       to           0                0
      the           0                0
     left           0                0
       of           0                0
        a           0                0
-     red           2                0
-    sofa           2                0
+     red           1                1
+    sofa           1                1
 --------------------------------------------------
       Word  Gold Label  Predicted Label
      there           0                0
         is           0                0
          a           0                0
-   cabinet           3                0
+   cabinet           1                0
          a           0                0
 television           1                0
        and           0                0
@@ -133,7 +133,7 @@ television           1                0
         to           0                0
        the           0                0
     second           0                0
-      item           0                2
+      item           0                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
     try           0                0
@@ -146,8 +146,8 @@ without           0                0
   going           0                0
    near           0                0
     the           0                0
-  trash           3                0
-    bin           3                0
+  trash           1                1
+    bin           1                1
 --------------------------------------------------
   Word  Gold Label  Predicted Label
     go           0                0
@@ -160,15 +160,15 @@ without           0                0
    mug           1                0
 beside           0                0
    the           0                0
-coffee           2                0
- maker           2                0
+coffee           1                0
+ maker           1                0
   drop           0                0
     it           0                0
    off           0                0
     at           0                0
    the           0                0
-   red           1                0
-  sofa           1                0
+   red           1                1
+  sofa           1                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
      hey           0                0
@@ -189,8 +189,8 @@ coffee           2                0
    front           0                0
       of           0                0
      the           0                0
-   glass           2                0
-    door           2                0
+   glass           1                0
+    door           1                0
    bring           0                0
       it           0                0
       to           0                0
@@ -215,7 +215,7 @@ actually           0                0
       at           0                0
      the           0                0
     same           0                0
-   place           0                2
+   place           0                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
        go           0                0
@@ -231,13 +231,13 @@ actually           0                0
      sofa           1                0
     under           0                0
       the           0                0
-   poster           2                0
+   poster           1                0
       and           0                0
     bring           0                0
        it           0                0
        to           0                0
       the           0                0
-bookshelf           1                0
+bookshelf           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
  please           0                0
@@ -257,15 +257,15 @@ between           0                0
      it           0                0
      to           0                0
     the           0                0
-  white           1                0
-cabinet           1                0
+  white           1                1
+cabinet           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
   never           0                0
    pass           0                0
      by           0                0
       a           0                0
-  robot           3                0
+  robot           1                0
     but           0                0
       i           0                0
    need           0                0
@@ -276,10 +276,10 @@ cabinet           1                0
     bag           1                0
      on           0                0
     the           0                0
-  table           2                0
+  table           1                0
      to           0                0
-    the           0                0
-cabinet           1                0
+    the           0                1
+cabinet           1                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
     find           0                0
@@ -295,7 +295,7 @@ cabinet           1                0
     left           0                0
       of           0                0
      the           0                0
-computer           2                0
+computer           1                0
      and           0                0
    bring           0                0
       it           0                0
@@ -307,8 +307,8 @@ wardrobe           1                0
     next           0                0
       to           0                0
      the           0                0
-   glass           2                0
-    door           2                0
+   glass           1                0
+    door           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
    goes           0                0
@@ -320,8 +320,8 @@ between           0                0
    sofa           1                0
     and           0                0
     the           0                0
- yellow           0                0
-  robot           0                0
+ yellow           1                0
+  robot           1                0
      or           0                0
     the           0                0
 cabinet           1                0
@@ -331,7 +331,7 @@ cabinet           1                0
      of           0                0
     the           0                0
    blue           1                0
-   sofa           1                0
+   sofa           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
  please           0                0
@@ -351,8 +351,8 @@ between           0                0
      it           0                0
      to           0                0
     the           0                0
-  white           1                0
-cabinet           1                0
+  white           1                1
+cabinet           1                1
 --------------------------------------------------
        Word  Gold Label  Predicted Label
       visit           0                0
@@ -373,7 +373,7 @@ televisions           0                0
        left           0                0
          of           0                0
         the           0                0
-    cabinet           2                0
+    cabinet           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
    find           0                0
@@ -416,10 +416,10 @@ televisions           0                0
     but           0                0
   avoid           0                0
     the           0                0
- wooden           3                0
-   door           3                0
-   with           3                0
-postage           0                2
+ wooden           1                0
+   door           1                0
+   with           1                0
+postage           0                0
 --------------------------------------------------
      Word  Gold Label  Predicted Label
         i           0                0
@@ -434,8 +434,8 @@ postage           0                2
 bookshelf           1                0
       and           0                0
         a           0                0
-      red           3                0
-    chair           3                0
+      red           1                0
+    chair           1                0
    around           0                0
      here           0                0
 somewhere           0                0
@@ -465,13 +465,13 @@ mentioned           0                0
      item           0                0
        at           0                0
       all           0                0
-    costs           0                2
+    costs           0                0
 --------------------------------------------------
   Word  Gold Label  Predicted Label
   take           0                0
      a           0                0
   soda           1                0
-   can           1                1
+   can           1                0
     to           0                0
    the           0                0
 fridge           1                0
@@ -487,8 +487,8 @@ fridge           1                0
   left           0                0
     of           0                0
    the           0                0
-  blue           2                0
-  sofa           2                0
+  blue           1                0
+  sofa           1                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
        go           0                0
@@ -504,19 +504,19 @@ fridge           1                0
      sofa           1                0
     under           0                0
       the           0                0
-   poster           2                0
+   poster           1                0
       and           0                0
     bring           0                0
        it           0                0
        to           0                0
-      the           0                0
-bookshelf           1                0
+      the           0                1
+bookshelf           1                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
        go           0                0
        to           0                0
       the           0                0
-      red           1                1
+      red           1                0
      sofa           1                0
      then           0                0
       the           0                0
@@ -525,13 +525,13 @@ bookshelf           1                0
      next           0                0
        to           0                0
       the           0                0
-  cabinet           2                0
+  cabinet           1                0
       but           0                0
     first           0                0
      pass           0                0
        by           0                0
-      the           0                0
-bookshelf           0                0
+      the           0                1
+bookshelf           0                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
      hey           0                0
@@ -552,8 +552,8 @@ bookshelf           0                0
    front           0                0
       of           0                0
      the           0                0
-   glass           2                0
-    door           2                0
+   glass           1                0
+    door           1                0
    bring           0                0
       it           0                0
       to           0                0
@@ -577,8 +577,8 @@ actually           0                0
     it's           0                0
       at           0                0
      the           0                0
-    same           0                2
-   place           0                2
+    same           0                0
+   place           0                1
 --------------------------------------------------
       Word  Gold Label  Predicted Label
         go           0                0
@@ -587,8 +587,8 @@ actually           0                0
 television           1                0
        but           0                0
      avoid           0                0
-       the           0                0
-      tree           3                3
+       the           0                1
+      tree           1                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
     there           0                0
@@ -634,7 +634,7 @@ mentioned           0                0
       you           0                0
   haven't           0                0
   visited           0                0
-      yet           0                2
+      yet           0                0
 --------------------------------------------------
     Word  Gold Label  Predicted Label
       go           0                0
@@ -647,7 +647,7 @@ mentioned           0                0
     pass           0                0
       by           0                0
      any           0                0
-    door           3                0
+    door           1                0
     then           0                0
       go           0                0
       to           0                0
@@ -658,12 +658,12 @@ computer           1                0
       is           0                0
   behind           0                0
      the           0                0
-  pillar           2                0
+  pillar           1                0
      and           0                0
       on           0                0
      the           0                0
    right           0                0
-    side           0                0
+    side           0                1
 --------------------------------------------------
   Word  Gold Label  Predicted Label
  bring           0                0
@@ -688,7 +688,7 @@ robots           0                0
  front           0                0
     of           0                0
    the           0                0
-   toy           1                0
+   toy           1                1
 --------------------------------------------------
   Word  Gold Label  Predicted Label
     go           0                0
@@ -701,15 +701,15 @@ robots           0                0
    mug           1                0
 beside           0                0
    the           0                0
-coffee           2                0
- maker           2                0
+coffee           1                0
+ maker           1                0
   drop           0                0
     it           0                0
    off           0                0
     at           0                0
    the           0                0
-   red           1                0
-  sofa           1                0
+   red           1                1
+  sofa           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
    find           0                0
@@ -721,8 +721,8 @@ posters           1                0
   front           0                0
      of           0                0
     the           0                0
- yellow           2                0
- pillar           2                0
+ yellow           1                0
+ pillar           1                0
    then           0                0
      go           0                0
   stand           0                0
@@ -732,7 +732,7 @@ posters           1                0
     but           0                0
   avoid           0                0
     any           0                0
-   sofa           3                0
+   sofa           1                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
     find           0                0
@@ -748,7 +748,7 @@ posters           1                0
     left           0                0
       of           0                0
      the           0                0
-computer           2                0
+computer           1                0
      and           0                0
    bring           0                0
       it           0                0
@@ -760,8 +760,8 @@ wardrobe           1                0
     next           0                0
       to           0                0
      the           0                0
-   glass           2                0
-    door           2                0
+   glass           1                0
+    door           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
  please           0                0
@@ -781,8 +781,8 @@ between           0                0
      it           0                0
      to           0                0
     the           0                0
-  white           1                0
-cabinet           1                0
+  white           1                1
+cabinet           1                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
   please           0                0
@@ -802,8 +802,8 @@ cabinet           1                0
       it           0                0
       to           0                0
      the           0                0
-   white           1                0
-cabinets           0                0
+   white           1                1
+cabinets           0                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
         i           0                0
@@ -819,7 +819,7 @@ cabinets           0                0
  computer           1                0
        on           0                0
         a           0                0
-    table           2                0
+    table           1                0
       but           0                0
    before           0                0
       you           0                0
@@ -841,7 +841,7 @@ bookshelf           1                0
    return           0                0
        to           0                0
     brown           1                0
-    books           0                0
+    books           0                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
      go           0                0
@@ -867,7 +867,7 @@ bookshelf           1                0
   first           0                0
   thing           0                0
     you           0                0
-visited           0                0
+visited           0                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
     try           0                0
@@ -880,8 +880,8 @@ without           0                0
   going           0                0
    near           0                0
     the           0                0
-  trash           3                0
-    bin           3                0
+  trash           1                1
+    bin           1                1
 --------------------------------------------------
   Word  Gold Label  Predicted Label
   take           0                0
@@ -903,8 +903,8 @@ fridge           1                0
   left           0                0
     of           0                0
    the           0                0
-  blue           2                0
-  sofa           2                0
+  blue           1                0
+  sofa           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
      go           0                0
@@ -917,8 +917,8 @@ between           0                0
    sofa           1                0
     and           0                0
     the           0                0
-  brown           1                0
-    box           1                0
+  brown           1                1
+    box           1                1
 --------------------------------------------------
      Word  Gold Label  Predicted Label
     there           0                0
@@ -963,6 +963,6 @@ mentioned           0                0
     items           0                0
       you           0                0
   haven't           0                0
-  visited           0                2
-      yet           0                2
+  visited           0                0
+      yet           0                1
 --------------------------------------------------

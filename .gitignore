@@ -180,7 +180,7 @@ ltl/test_samples/
 
 # ignore large data files
 prosody/data/extracted_audio_features.json
-prosody/data/multi_label_extracted_audio_featrures.json
+prosody/data/multi_label_extracted_audio_features.json
 
 # ignore temp audio folder
 prosody/tmp_audio_slices/
