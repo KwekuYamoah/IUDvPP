@@ -403,7 +403,7 @@ if __name__ == "__main__":
     print(f'Test size: {len(test_dataset)}')
 
     # Create the DataLoader
-    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
@@ -419,17 +419,17 @@ if __name__ == "__main__":
     all_labels = []
     for _, _, _, labels in train_dataset:
         all_labels.extend(labels.numpy().flatten())
-        
+
     num_classes = len(np.unique(all_labels))
     print(f'Model Training with {num_classes} classes')
 
     # Define model parameters
-    PROJECTED_DIM = 256  # Dimension after projection
+    PROJECTED_DIM = 128  # Dimension after projection
     INPUT_DIM = PROJECTED_DIM * 2  # Because we're concatenating two projected feature sets
-    HIDDEN_DIM = 128
+    HIDDEN_DIM = 256
     OUTPUT_DIM = num_classes
-    NUM_LAYERS = 4
-    DROPOUT = 0.5
+    NUM_LAYERS = 16
+    DROPOUT = 0.2
     NUM_ATTENTION_LAYERS = 4
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
