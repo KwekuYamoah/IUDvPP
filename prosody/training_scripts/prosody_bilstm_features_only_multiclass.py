@@ -36,7 +36,7 @@ def load_data(json_path):
         data = json.load(file)
     return data
 
-def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
+def split_data(data, train_ratio=0.8, val_ratio=0.0, test_ratio=0.2):
     assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
     total = len(data)
     train_size = int(total * train_ratio)
@@ -367,9 +367,9 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
+    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
 
     # Get feature dimension from the dataset
     sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
@@ -383,13 +383,14 @@ if __name__ == "__main__":
 
     print(f'Model Training with {num_classes} classes')
 
-    HIDDEN_DIM = 128
+    HIDDEN_DIM = 256
     OUTPUT_DIM = num_classes  # Updated to num_classes
-    NUM_LAYERS = 2
-    DROPOUT = 0.5
-    NUM_ATTENTION_LAYERS = 4
+    NUM_LAYERS = 8
+    DROPOUT = 0.13234009854266668
+    NUM_ATTENTION_LAYERS = 8
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f'Using device: {device}')
 
     encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
@@ -397,7 +398,9 @@ if __name__ == "__main__":
 
     # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.01, weight_decay=1e-5)
+    optimizer = optim.Adam(model.parameters(), 
+                           lr=0.0005438229945889153, 
+                           weight_decay=1e-5)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
@@ -421,7 +424,7 @@ if __name__ == "__main__":
 
     for epoch in range(N_EPOCHS):
         train_loss = train(model, train_loader, optimizer, criterion)
-        valid_loss, valid_acc, valid_precision, valid_recall, valid_f1 = evaluate(model, val_loader, criterion)
+        valid_loss, valid_acc, valid_precision, valid_recall, valid_f1 = evaluate(model, test_loader, criterion)
 
         train_losses.append(train_loss)
         val_losses.append(valid_loss)
