@@ -50,7 +50,7 @@ for feature_id, feature in features_data.items():
             break
 
 # Save the modified features.json
-with open('../prosody/data/multi_label_extracted_audio_featrures.json', 'w') as f:
+with open('../prosody/data/multi_label_extracted_audio_features.json', 'w') as f:
     json.dump(features_data, f, indent=4)
 
 print("Labels updated and saved to modified_features.json")
