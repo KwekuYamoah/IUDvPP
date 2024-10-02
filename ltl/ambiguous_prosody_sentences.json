@@ -1,0 +1,1163 @@
+[
+    {
+        "instruction": "Move the box beside the table to the right.",
+        "all_referents": [
+            "box",
+            "table"
+        ],
+        "ambiguity": "Is the instruction to move the box that is beside the table to the right, or to move the box to a position beside the table to the right?",
+        "prosody_clarification": [
+            "Move the box beside the table / to the right.", 
+            "Move the box / beside the table to the right."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Move the box beside the table / to the right.",
+                "goal_intent_referents": ["box"],
+                "detail_intent_referents": ["table"],
+                "all_details": {
+                    "box": ["is_beside(table)", "move(to the right)"]
+                },
+                "LTL_representation": "F (is_beside(box, table) ∧ move(box, right))"
+            },
+            {
+                "prosody_variant": "Move the box / beside the table to the right.",
+                "goal_intent_referents": ["box"],
+                "detail_intent_referents": ["table"],
+                "all_details": {
+                    "box": ["move(beside(table) to the right)"]
+                },
+                "LTL_representation": "F (move(box, beside(table) ∧ right))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the book on the table with the red cover.",
+        "all_referents": [
+            "book",
+            "table",
+            "red cover"
+        ],
+        "ambiguity": "Is the book on the table with the red cover, or does the book have the red cover?",
+        "prosody_clarification": [
+            "Pick up the book on the table / with the red cover.",
+            "Pick up the book / on the table with the red cover."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Pick up the book on the table / with the red cover.",
+                "goal_intent_referents": ["book"],
+                "detail_intent_referents": ["table", "red cover"],
+                "all_details": {
+                    "book": ["is_on(table)", "has(red cover)"]
+                },
+                "LTL_representation": "F (pick_up(book) ∧ is_on(book, table) ∧ has(book, red_cover))"
+            },
+            {
+                "prosody_variant": "Pick up the book / on the table with the red cover.",
+                "goal_intent_referents": ["book"],
+                "detail_intent_referents": ["table", "red cover"],
+                "all_details": {
+                    "book": ["is_on(table)"],
+                    "table": ["has(red cover)"]
+                },
+                "LTL_representation": "F (pick_up(book) ∧ is_on(book, table) ∧ has(table, red_cover))"
+            }
+        ]
+    },
+    {
+        "instruction": "Go to the painting of the dog and the cat.",
+        "all_referents": [
+            "painting",
+            "dog",
+            "cat"
+        ],
+        "ambiguity": "Is there one painting of both a dog and a cat, or two separate paintings?",
+        "prosody_clarification": [
+            "Go to the painting of the dog and the cat.",
+            "Go to the painting of the dog, and the cat."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Go to the painting of the dog and the cat.",
+                "goal_intent_referents": ["painting"],
+                "detail_intent_referents": ["dog", "cat"],
+                "all_details": {
+                    "painting": ["features(dog)", "features(cat)"]
+                },
+                "LTL_representation": "F (reach(painting) ∧ features(painting, dog) ∧ features(painting, cat))"
+            },
+            {
+                "prosody_variant": "Go to the painting of the dog, and the cat.",
+                "goal_intent_referents": ["painting of dog", "painting of cat"],
+                "detail_intent_referents": ["dog", "cat"],
+                "all_details": {
+                    "painting of dog": ["features(dog)"],
+                    "painting of cat": ["features(cat)"]
+                },
+                "LTL_representation": "F (reach(painting of dog)) ∧ F (reach(painting of cat))"
+            }
+        ]
+    },
+    {
+        "instruction": "Place the vase on the table in the corner.",
+        "all_referents": [
+            "vase",
+            "table",
+            "corner"
+        ],
+        "ambiguity": "Is the vase to be placed on the table that's in the corner, or in the corner of the table?",
+        "prosody_clarification": [
+            "Place the vase on the table in the corner.",
+            "Place the vase / on the table / in the corner."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Place the vase on the table in the corner.",
+                "goal_intent_referents": ["vase"],
+                "detail_intent_referents": ["table", "corner"],
+                "all_details": {
+                    "vase": ["is_on(table)", "table_is_in(corner)"]
+                },
+                "LTL_representation": "F (place(vase) ∧ is_on(table) ∧ is_in(table, corner))"
+            },
+            {
+                "prosody_variant": "Place the vase / on the table / in the corner.",
+                "goal_intent_referents": ["vase"],
+                "detail_intent_referents": ["table", "corner"],
+                "all_details": {
+                    "vase": ["place_in(corner_of_table)"]
+                },
+                "LTL_representation": "F (place(vase) ∧ is_in(vase, corner_of(table)))"
+            }
+        ]
+    },
+    {
+        "instruction": "Take the plate from the shelf over the sink.",
+        "all_referents": [
+            "plate",
+            "shelf",
+            "sink"
+        ],
+        "ambiguity": "Is the shelf over the sink, or is the plate over the sink?",
+        "prosody_clarification": [
+            "Take the plate from the shelf over the sink.",
+            "Take the plate / from the shelf / over the sink."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Take the plate from the shelf over the sink.",
+                "goal_intent_referents": ["plate"],
+                "detail_intent_referents": ["shelf", "sink"],
+                "all_details": {
+                    "plate": ["is_from(shelf)", "shelf_is_over(sink)"]
+                },
+                "LTL_representation": "F (take(plate) ∧ is_from(shelf) ∧ is_over(shelf, sink))"
+            },
+            {
+                "prosody_variant": "Take the plate / from the shelf / over the sink.",
+                "goal_intent_referents": ["plate"],
+                "detail_intent_referents": ["shelf", "sink"],
+                "all_details": {
+                    "plate": ["is_over(sink)", "is_from(shelf)"]
+                },
+                "LTL_representation": "F (take(plate) ∧ is_from(shelf) ∧ is_over(plate, sink))"
+            }
+        ]
+    },
+    {
+        "instruction": "Fetch the keys on the counter by the door.",
+        "all_referents": [
+            "keys",
+            "counter",
+            "door"
+        ],
+        "ambiguity": "Are the keys on the counter that's by the door, or are the keys by the door on the counter?",
+        "prosody_clarification": [
+            "Fetch the keys on the counter by the door.",
+            "Fetch the keys / on the counter / by the door."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Fetch the keys on the counter by the door.",
+                "goal_intent_referents": ["keys"],
+                "detail_intent_referents": ["counter", "door"],
+                "all_details": {
+                    "keys": ["is_on(counter)", "counter_is_by(door)"]
+                },
+                "LTL_representation": "F (fetch(keys) ∧ is_on(counter) ∧ is_by(counter, door))"
+            },
+            {
+                "prosody_variant": "Fetch the keys / on the counter / by the door.",
+                "goal_intent_referents": ["keys"],
+                "detail_intent_referents": ["counter", "door"],
+                "all_details": {
+                    "keys": ["is_on(counter)", "is_by(door)"]
+                },
+                "LTL_representation": "F (fetch(keys) ∧ is_on(counter) ∧ is_by(keys, door))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the lamp from the bedroom upstairs.",
+        "all_referents": [
+            "lamp",
+            "bedroom",
+            "upstairs"
+        ],
+        "ambiguity": "Is the lamp from the bedroom that's upstairs, or should you bring the lamp upstairs from the bedroom?",
+        "prosody_clarification": [
+            "Bring the lamp from the bedroom upstairs.",
+            "Bring the lamp / from the bedroom / upstairs."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring the lamp from the bedroom upstairs.",
+                "goal_intent_referents": ["lamp"],
+                "detail_intent_referents": ["bedroom", "upstairs"],
+                "all_details": {
+                    "lamp": ["is_from(bedroom)", "bedroom_is_upstairs"]
+                },
+                "LTL_representation": "F (bring(lamp) ∧ is_from(bedroom) ∧ is_upstairs(bedroom))"
+            },
+            {
+                "prosody_variant": "Bring the lamp / from the bedroom / upstairs.",
+                "goal_intent_referents": ["lamp"],
+                "detail_intent_referents": ["bedroom", "upstairs"],
+                "all_details": {
+                    "lamp": ["is_from(bedroom)", "move_upstairs"]
+                },
+                "LTL_representation": "F (bring(lamp) ∧ is_from(bedroom) ∧ move_to(lamp, upstairs))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the notebook on the desk with the blue pen.",
+        "all_referents": [
+            "notebook",
+            "desk",
+            "blue pen"
+        ],
+        "ambiguity": "Does the notebook have the blue pen, or does the desk have the blue pen?",
+        "prosody_clarification": [
+            "Pick up the notebook on the desk / with the blue pen.",
+            "Pick up the notebook / on the desk with the blue pen."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Pick up the notebook on the desk / with the blue pen.",
+                "goal_intent_referents": ["notebook"],
+                "detail_intent_referents": ["desk", "blue pen"],
+                "all_details": {
+                    "notebook": ["is_on(desk)", "has(blue pen)"]
+                },
+                "LTL_representation": "F (pick_up(notebook) ∧ is_on(desk) ∧ has(notebook, blue pen))"
+            },
+            {
+                "prosody_variant": "Pick up the notebook / on the desk with the blue pen.",
+                "goal_intent_referents": ["notebook"],
+                "detail_intent_referents": ["desk", "blue pen"],
+                "all_details": {
+                    "notebook": ["is_on(desk_with(blue pen))"]
+                },
+                "LTL_representation": "F (pick_up(notebook) ∧ is_on(desk) ∧ has(desk, blue pen))"
+            }
+        ]
+    },
+    {
+        "instruction": "Put the cup on the table by the couch.",
+        "all_referents": [
+            "cup",
+            "table",
+            "couch"
+        ],
+        "ambiguity": "Is the table by the couch, or should you put the cup by the couch on the table?",
+        "prosody_clarification": [
+            "Put the cup on the table by the couch.",
+            "Put the cup / on the table / by the couch."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Put the cup on the table by the couch.",
+                "goal_intent_referents": ["cup"],
+                "detail_intent_referents": ["table", "couch"],
+                "all_details": {
+                    "cup": ["place_on(table)", "table_is_by(couch)"]
+                },
+                "LTL_representation": "F (put(cup) ∧ is_on(table) ∧ is_by(table, couch))"
+            },
+            {
+                "prosody_variant": "Put the cup / on the table / by the couch.",
+                "goal_intent_referents": ["cup"],
+                "detail_intent_referents": ["table", "couch"],
+                "all_details": {
+                    "cup": ["place_by(couch)", "is_on(table)"]
+                },
+                "LTL_representation": "F (put(cup) ∧ is_by(couch) ∧ is_on(table))"
+            }
+        ]
+    },
+    {
+        "instruction": "Move the picture frame on the shelf above the fireplace.",
+        "all_referents": [
+            "picture frame",
+            "shelf",
+            "fireplace"
+        ],
+        "ambiguity": "Is the shelf above the fireplace, or should you move the frame onto the shelf above the fireplace?",
+        "prosody_clarification": [
+            "Move the picture frame on the shelf above the fireplace.",
+            "Move the picture frame / on the shelf / above the fireplace."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Move the picture frame on the shelf above the fireplace.",
+                "goal_intent_referents": ["picture frame"],
+                "detail_intent_referents": ["shelf", "fireplace"],
+                "all_details": {
+                    "picture frame": ["is_on(shelf)", "shelf_is_above(fireplace)"]
+                },
+                "LTL_representation": "F (move(picture frame) ∧ is_on(shelf) ∧ is_above(shelf, fireplace))"
+            },
+            {
+                "prosody_variant": "Move the picture frame / on the shelf / above the fireplace.",
+                "goal_intent_referents": ["picture frame"],
+                "detail_intent_referents": ["shelf", "fireplace"],
+                "all_details": {
+                    "picture frame": ["move_above(fireplace)", "is_on(shelf)"]
+                },
+                "LTL_representation": "F (move(picture frame) ∧ is_above(picture frame, fireplace) ∧ is_on(shelf))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring me the book and the newspaper on the chair.",
+        "all_referents": [
+            "book",
+            "newspaper",
+            "chair"
+        ],
+        "ambiguity": "Are both the book and the newspaper on the chair, or only the newspaper?",
+        "prosody_clarification": [
+            "Bring me the book and the newspaper / on the chair.",
+            "Bring me the book / and the newspaper on the chair."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring me the book and the newspaper / on the chair.",
+                "goal_intent_referents": ["book", "newspaper"],
+                "detail_intent_referents": ["chair"],
+                "all_details": {
+                    "book": ["is_on(chair)"],
+                    "newspaper": ["is_on(chair)"]
+                },
+                "LTL_representation": "F (bring(book) ∧ is_on(chair)) ∧ F (bring(newspaper) ∧ is_on(chair))"
+            },
+            {
+                "prosody_variant": "Bring me the book / and the newspaper on the chair.",
+                "goal_intent_referents": ["book", "newspaper"],
+                "detail_intent_referents": ["chair"],
+                "all_details": {
+                    "book": [],
+                    "newspaper": ["is_on(chair)"]
+                },
+                "LTL_representation": "F (bring(book)) ∧ F (bring(newspaper) ∧ is_on(chair))"
+            }
+        ]
+    },
+    {
+        "instruction": "Get the box with the toys and games.",
+        "all_referents": [
+            "box",
+            "toys",
+            "games"
+        ],
+        "ambiguity": "Is it one box containing both toys and games, or separate boxes?",
+        "prosody_clarification": [
+            "Get the box with the toys and games.",
+            "Get the box / with the toys / and games."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Get the box with the toys and games.",
+                "goal_intent_referents": ["box"],
+                "detail_intent_referents": ["toys", "games"],
+                "all_details": {
+                    "box": ["contains(toys)", "contains(games)"]
+                },
+                "LTL_representation": "F (get(box) ∧ contains(box, toys) ∧ contains(box, games))"
+            },
+            {
+                "prosody_variant": "Get the box / with the toys / and games.",
+                "goal_intent_referents": ["box", "games"],
+                "detail_intent_referents": ["toys"],
+                "all_details": {
+                    "box": ["contains(toys)"],
+                    "games": []
+                },
+                "LTL_representation": "F (get(box) ∧ contains(box, toys)) ∧ F (get(games))"
+            }
+        ]
+    },
+    {
+        "instruction": "Place the rug in the room beside the kitchen.",
+        "all_referents": [
+            "rug",
+            "room",
+            "kitchen"
+        ],
+        "ambiguity": "Is the room beside the kitchen, or should you place the rug beside the kitchen in the room?",
+        "prosody_clarification": [
+            "Place the rug in the room beside the kitchen.",
+            "Place the rug / in the room / beside the kitchen."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Place the rug in the room beside the kitchen.",
+                "goal_intent_referents": ["rug"],
+                "detail_intent_referents": ["room", "kitchen"],
+                "all_details": {
+                    "rug": ["place_in(room)"],
+                    "room": ["is_beside(kitchen)"]
+                },
+                "LTL_representation": "F (place(rug) ∧ is_in(rug, room) ∧ is_beside(room, kitchen))"
+            },
+            {
+                "prosody_variant": "Place the rug / in the room / beside the kitchen.",
+                "goal_intent_referents": ["rug"],
+                "detail_intent_referents": ["room", "kitchen"],
+                "all_details": {
+                    "rug": ["place_beside(kitchen)", "is_in(room)"]
+                },
+                "LTL_representation": "F (place(rug) ∧ is_in(rug, room) ∧ is_beside(rug, kitchen))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the mug on the counter near the sink.",
+        "all_referents": [
+            "mug",
+            "counter",
+            "sink"
+        ],
+        "ambiguity": "Is the counter near the sink, or is the mug near the sink?",
+        "prosody_clarification": [
+            "Pick up the mug on the counter near the sink.",
+            "Pick up the mug / on the counter / near the sink."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Pick up the mug on the counter near the sink.",
+                "goal_intent_referents": ["mug"],
+                "detail_intent_referents": ["counter", "sink"],
+                "all_details": {
+                    "mug": ["is_on(counter)"],
+                    "counter": ["is_near(sink)"]
+                },
+                "LTL_representation": "F (pick_up(mug) ∧ is_on(mug, counter) ∧ is_near(counter, sink))"
+            },
+            {
+                "prosody_variant": "Pick up the mug / on the counter / near the sink.",
+                "goal_intent_referents": ["mug"],
+                "detail_intent_referents": ["counter", "sink"],
+                "all_details": {
+                    "mug": ["is_on(counter)", "is_near(sink)"]
+                },
+                "LTL_representation": "F (pick_up(mug) ∧ is_on(mug, counter) ∧ is_near(mug, sink))"
+            }
+        ]
+    },
+    {
+        "instruction": "Go to the window in the room with the yellow curtains.",
+        "all_referents": [
+            "window",
+            "room",
+            "yellow curtains"
+        ],
+        "ambiguity": "Does the room have yellow curtains, or does the window?",
+        "prosody_clarification": [
+            "Go to the window in the room with the yellow curtains.",
+            "Go to the window / in the room / with the yellow curtains."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Go to the window in the room with the yellow curtains.",
+                "goal_intent_referents": ["window"],
+                "detail_intent_referents": ["room", "yellow curtains"],
+                "all_details": {
+                    "window": ["is_in(room)"],
+                    "room": ["has(yellow curtains)"]
+                },
+                "LTL_representation": "F (go_to(window) ∧ is_in(window, room) ∧ has(room, yellow curtains))"
+            },
+            {
+                "prosody_variant": "Go to the window / in the room / with the yellow curtains.",
+                "goal_intent_referents": ["window"],
+                "detail_intent_referents": ["room", "yellow curtains"],
+                "all_details": {
+                    "window": ["is_in(room)", "has(yellow curtains)"]
+                },
+                "LTL_representation": "F (go_to(window) ∧ is_in(window, room) ∧ has(window, yellow curtains))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the letter from the table in the hallway.",
+        "all_referents": [
+            "letter",
+            "table",
+            "hallway"
+        ],
+        "ambiguity": "Is the table in the hallway, or is the letter in the hallway?",
+        "prosody_clarification": [
+            "Pick up the letter from the table in the hallway.",
+            "Pick up the letter / from the table / in the hallway."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Pick up the letter from the table in the hallway.",
+                "goal_intent_referents": ["letter"],
+                "detail_intent_referents": ["table", "hallway"],
+                "all_details": {
+                    "letter": ["is_from(table)"],
+                    "table": ["is_in(hallway)"]
+                },
+                "LTL_representation": "F (pick_up(letter) ∧ is_from(letter, table) ∧ is_in(table, hallway))"
+            },
+            {
+                "prosody_variant": "Pick up the letter / from the table / in the hallway.",
+                "goal_intent_referents": ["letter"],
+                "detail_intent_referents": ["table", "hallway"],
+                "all_details": {
+                    "letter": ["is_from(table)", "is_in(hallway)"]
+                },
+                "LTL_representation": "F (pick_up(letter) ∧ is_from(letter, table) ∧ is_in(letter, hallway))"
+            }
+        ]
+    },
+    {
+        "instruction": "Take the bottle from the fridge with the green label.",
+        "all_referents": [
+            "bottle",
+            "fridge",
+            "green label"
+        ],
+        "ambiguity": "Does the bottle have the green label, or does the fridge?",
+        "prosody_clarification": [
+            "Take the bottle from the fridge with the green label.",
+            "Take the bottle / from the fridge / with the green label."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Take the bottle from the fridge with the green label.",
+                "goal_intent_referents": ["bottle"],
+                "detail_intent_referents": ["fridge", "green label"],
+                "all_details": {
+                    "bottle": ["is_from(fridge)"],
+                    "fridge": ["has(green label)"]
+                },
+                "LTL_representation": "F (take(bottle) ∧ is_from(bottle, fridge) ∧ has(fridge, green label))"
+            },
+            {
+                "prosody_variant": "Take the bottle / from the fridge / with the green label.",
+                "goal_intent_referents": ["bottle"],
+                "detail_intent_referents": ["fridge", "green label"],
+                "all_details": {
+                    "bottle": ["is_from(fridge)", "has(green label)"]
+                },
+                "LTL_representation": "F (take(bottle) ∧ is_from(bottle, fridge) ∧ has(bottle, green label))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring me the pillow and the blanket on the chair.",
+        "all_referents": [
+            "pillow",
+            "blanket",
+            "chair"
+        ],
+        "ambiguity": "Are both items on the chair, or only the blanket?",
+        "prosody_clarification": [
+            "Bring me the pillow and the blanket / on the chair.",
+            "Bring me the pillow / and the blanket on the chair."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring me the pillow and the blanket / on the chair.",
+                "goal_intent_referents": ["pillow", "blanket"],
+                "detail_intent_referents": ["chair"],
+                "all_details": {
+                    "pillow": ["is_on(chair)"],
+                    "blanket": ["is_on(chair)"]
+                },
+                "LTL_representation": "F (bring(pillow) ∧ is_on(pillow, chair)) ∧ F (bring(blanket) ∧ is_on(blanket, chair))"
+            },
+            {
+                "prosody_variant": "Bring me the pillow / and the blanket on the chair.",
+                "goal_intent_referents": ["pillow", "blanket"],
+                "detail_intent_referents": ["chair"],
+                "all_details": {
+                    "pillow": [],
+                    "blanket": ["is_on(chair)"]
+                },
+                "LTL_representation": "F (bring(pillow)) ∧ F (bring(blanket) ∧ is_on(blanket, chair))"
+            }
+        ]
+    },
+    {
+        "instruction": "Move the table in the kitchen beside the refrigerator.",
+        "all_referents": [
+            "table",
+            "kitchen",
+            "refrigerator"
+        ],
+        "ambiguity": "Is the table already in the kitchen beside the refrigerator, or should you move it there?",
+        "prosody_clarification": [
+            "Move the table in the kitchen beside the refrigerator.",
+            "Move the table / in the kitchen / beside the refrigerator."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Move the table in the kitchen beside the refrigerator.",
+                "goal_intent_referents": ["table"],
+                "detail_intent_referents": ["kitchen", "refrigerator"],
+                "all_details": {
+                    "table": ["is_in(kitchen)", "is_beside(refrigerator)"]
+                },
+                "LTL_representation": "F (move(table) ∧ is_in(table, kitchen) ∧ is_beside(table, refrigerator))"
+            },
+            {
+                "prosody_variant": "Move the table / in the kitchen / beside the refrigerator.",
+                "goal_intent_referents": ["table"],
+                "detail_intent_referents": ["kitchen", "refrigerator"],
+                "all_details": {
+                    "table": ["move_to(beside(refrigerator))", "is_in(kitchen)"]
+                },
+                "LTL_representation": "F (move(table) ∧ move_to(table, beside(refrigerator)) ∧ is_in(table, kitchen))"
+            }
+        ]
+    },
+    {
+        "instruction": "Fetch the glasses on the shelf near the clock.",
+        "all_referents": [
+            "glasses",
+            "shelf",
+            "clock"
+        ],
+        "ambiguity": "Is the shelf near the clock, or are the glasses near the clock?",
+        "prosody_clarification": [
+            "Fetch the glasses on the shelf near the clock.",
+            "Fetch the glasses / on the shelf / near the clock."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Fetch the glasses on the shelf near the clock.",
+                "goal_intent_referents": ["glasses"],
+                "detail_intent_referents": ["shelf", "clock"],
+                "all_details": {
+                    "glasses": ["is_on(shelf)"],
+                    "shelf": ["is_near(clock)"]
+                },
+                "LTL_representation": "F (fetch(glasses) ∧ is_on(glasses, shelf) ∧ is_near(shelf, clock))"
+            },
+            {
+                "prosody_variant": "Fetch the glasses / on the shelf / near the clock.",
+                "goal_intent_referents": ["glasses"],
+                "detail_intent_referents": ["shelf", "clock"],
+                "all_details": {
+                    "glasses": ["is_on(shelf)", "is_near(clock)"]
+                },
+                "LTL_representation": "F (fetch(glasses) ∧ is_on(glasses, shelf) ∧ is_near(glasses, clock))"
+            }
+        ]
+    },
+    {
+        "instruction": "Get the folder on the desk with the red tab.",
+        "all_referents": [
+            "folder",
+            "desk",
+            "red tab"
+        ],
+        "ambiguity": "Does the folder have the red tab, or does the desk?",
+        "prosody_clarification": [
+            "Get the folder on the desk with the red tab.",
+            "Get the folder / on the desk / with the red tab."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Get the folder on the desk with the red tab.",
+                "goal_intent_referents": ["folder"],
+                "detail_intent_referents": ["desk", "red tab"],
+                "all_details": {
+                    "folder": ["is_on(desk)"],
+                    "desk": ["has(red tab)"]
+                },
+                "LTL_representation": "F (get(folder) ∧ is_on(folder, desk) ∧ has(desk, red tab))"
+            },
+            {
+                "prosody_variant": "Get the folder / on the desk / with the red tab.",
+                "goal_intent_referents": ["folder"],
+                "detail_intent_referents": ["desk", "red tab"],
+                "all_details": {
+                    "folder": ["is_on(desk)", "has(red tab)"]
+                },
+                "LTL_representation": "F (get(folder) ∧ is_on(folder, desk) ∧ has(folder, red tab))"
+            }
+        ]
+    },
+    {
+        "instruction": "Place the basket with the fruit on the counter.",
+        "all_referents": [
+            "basket",
+            "fruit",
+            "counter"
+        ],
+        "ambiguity": "Is the basket with the fruit to be placed on the counter, or is the fruit on the counter to be placed in the basket?",
+        "prosody_clarification": [
+            "Place the basket with the fruit / on the counter.",
+            "Place the basket / with the fruit on the counter."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Place the basket with the fruit / on the counter.",
+                "goal_intent_referents": ["basket"],
+                "detail_intent_referents": ["fruit", "counter"],
+                "all_details": {
+                    "basket": ["contains(fruit)", "place_on(counter)"]
+                },
+                "LTL_representation": "F (place(basket) ∧ contains(basket, fruit) ∧ is_on(basket, counter))"
+            },
+            {
+                "prosody_variant": "Place the basket / with the fruit on the counter.",
+                "goal_intent_referents": ["basket"],
+                "detail_intent_referents": ["fruit", "counter"],
+                "all_details": {
+                    "basket": ["contains(fruit_on(counter))"]
+                },
+                "LTL_representation": "F (place(basket) ∧ contains(basket, fruit) ∧ is_on(fruit, counter))"
+            }
+        ]
+    },
+    {
+        "instruction": "Take the painting from the wall in the office.",
+        "all_referents": [
+            "painting",
+            "wall",
+            "office"
+        ],
+        "ambiguity": "Is the wall in the office, or is the painting in the office?",
+        "prosody_clarification": [
+            "Take the painting from the wall in the office.",
+            "Take the painting / from the wall / in the office."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Take the painting from the wall in the office.",
+                "goal_intent_referents": ["painting"],
+                "detail_intent_referents": ["wall", "office"],
+                "all_details": {
+                    "painting": ["is_from(wall)"],
+                    "wall": ["is_in(office)"]
+                },
+                "LTL_representation": "F (take(painting) ∧ is_from(painting, wall) ∧ is_in(wall, office))"
+            },
+            {
+                "prosody_variant": "Take the painting / from the wall / in the office.",
+                "goal_intent_referents": ["painting"],
+                "detail_intent_referents": ["wall", "office"],
+                "all_details": {
+                    "painting": ["is_from(wall)", "is_in(office)"]
+                },
+                "LTL_representation": "F (take(painting) ∧ is_from(painting, wall) ∧ is_in(painting, office))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the guitar from the room next to the study.",
+        "all_referents": [
+            "guitar",
+            "room",
+            "study"
+        ],
+        "ambiguity": "Is the room next to the study, or is the guitar next to the study?",
+        "prosody_clarification": [
+            "Bring the guitar from the room next to the study.",
+            "Bring the guitar / from the room / next to the study."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring the guitar from the room next to the study.",
+                "goal_intent_referents": ["guitar"],
+                "detail_intent_referents": ["room", "study"],
+                "all_details": {
+                    "guitar": ["is_from(room)"],
+                    "room": ["is_next_to(study)"]
+                },
+                "LTL_representation": "F (bring(guitar) ∧ is_from(guitar, room) ∧ is_next_to(room, study))"
+            },
+            {
+                "prosody_variant": "Bring the guitar / from the room / next to the study.",
+                "goal_intent_referents": ["guitar"],
+                "detail_intent_referents": ["room", "study"],
+                "all_details": {
+                    "guitar": ["is_from(room)", "is_next_to(study)"]
+                },
+                "LTL_representation": "F (bring(guitar) ∧ is_from(guitar, room) ∧ is_next_to(guitar, study))"
+            }
+        ]
+    },
+    {
+        "instruction": "Move the plant on the table beside the window.",
+        "all_referents": [
+            "plant",
+            "table",
+            "window"
+        ],
+        "ambiguity": "Is the table beside the window, or is the plant beside the window?",
+        "prosody_clarification": [
+            "Move the plant on the table beside the window.",
+            "Move the plant / on the table / beside the window."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Move the plant on the table beside the window.",
+                "goal_intent_referents": ["plant"],
+                "detail_intent_referents": ["table", "window"],
+                "all_details": {
+                    "plant": ["is_on(table)"],
+                    "table": ["is_beside(window)"]
+                },
+                "LTL_representation": "F (move(plant) ∧ is_on(plant, table) ∧ is_beside(table, window))"
+            },
+            {
+                "prosody_variant": "Move the plant / on the table / beside the window.",
+                "goal_intent_referents": ["plant"],
+                "detail_intent_referents": ["table", "window"],
+                "all_details": {
+                    "plant": ["is_on(table)", "is_beside(window)"]
+                },
+                "LTL_representation": "F (move(plant) ∧ is_on(plant, table) ∧ is_beside(plant, window))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the towel from the bathroom upstairs.",
+        "all_referents": [
+            "towel",
+            "bathroom",
+            "upstairs"
+        ],
+        "ambiguity": "Is the bathroom upstairs, or should you bring the towel upstairs?",
+        "prosody_clarification": [
+            "Bring the towel from the bathroom upstairs.",
+            "Bring the towel / from the bathroom / upstairs."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring the towel from the bathroom upstairs.",
+                "goal_intent_referents": ["towel"],
+                "detail_intent_referents": ["bathroom", "upstairs"],
+                "all_details": {
+                    "towel": ["is_from(bathroom)"],
+                    "bathroom": ["is_upstairs"]
+                },
+                "LTL_representation": "F (bring(towel) ∧ is_from(towel, bathroom) ∧ is_upstairs(bathroom))"
+            },
+            {
+                "prosody_variant": "Bring the towel / from the bathroom / upstairs.",
+                "goal_intent_referents": ["towel"],
+                "detail_intent_referents": ["bathroom", "upstairs"],
+                "all_details": {
+                    "towel": ["is_from(bathroom)", "move_upstairs"]
+                },
+                "LTL_representation": "F (bring(towel) ∧ is_from(towel, bathroom) ∧ move_upstairs(towel))"
+            }
+        ]
+    },
+    {
+        "instruction": "Place the headphones on the shelf above the TV.",
+        "all_referents": [
+            "headphones",
+            "shelf",
+            "TV"
+        ],
+        "ambiguity": "Is the shelf above the TV, or are the headphones to be placed above the TV?",
+        "prosody_clarification": [
+            "Place the headphones on the shelf above the TV.",
+            "Place the headphones / on the shelf / above the TV."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Place the headphones on the shelf above the TV.",
+                "goal_intent_referents": ["headphones"],
+                "detail_intent_referents": ["shelf", "TV"],
+                "all_details": {
+                    "headphones": ["is_on(shelf)"],
+                    "shelf": ["is_above(TV)"]
+                },
+                "LTL_representation": "F (place(headphones) ∧ is_on(headphones, shelf) ∧ is_above(shelf, TV))"
+            },
+            {
+                "prosody_variant": "Place the headphones / on the shelf / above the TV.",
+                "goal_intent_referents": ["headphones"],
+                "detail_intent_referents": ["shelf", "TV"],
+                "all_details": {
+                    "headphones": ["is_on(shelf)", "is_above(TV)"]
+                },
+                "LTL_representation": "F (place(headphones) ∧ is_on(headphones, shelf) ∧ is_above(headphones, TV))"
+            }
+        ]
+    },
+    {
+        "instruction": "Place the book on the table with the flowers.",
+        "all_referents": [
+            "book",
+            "table",
+            "flowers"
+        ],
+        "ambiguity": "Does the table have the flowers, or does the book?",
+        "prosody_clarification": [
+            "Place the book on the table with the flowers.",
+            "Place the book / on the table / with the flowers."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Place the book on the table with the flowers.",
+                "goal_intent_referents": ["book"],
+                "detail_intent_referents": ["table", "flowers"],
+                "all_details": {
+                    "book": ["is_on(table)"],
+                    "table": ["has(flowers)"]
+                },
+                "LTL_representation": "F (place(book) ∧ is_on(book, table) ∧ has(table, flowers))"
+            },
+            {
+                "prosody_variant": "Place the book / on the table / with the flowers.",
+                "goal_intent_referents": ["book"],
+                "detail_intent_referents": ["table", "flowers"],
+                "all_details": {
+                    "book": ["is_on(table)", "has(flowers)"]
+                },
+                "LTL_representation": "F (place(book) ∧ is_on(book, table) ∧ has(book, flowers))"
+            }
+        ]
+    },
+    {
+        "instruction": "Take the cup from the table in the kitchen.",
+        "all_referents": [
+            "cup",
+            "table",
+            "kitchen"
+        ],
+        "ambiguity": "Is the table in the kitchen, or is the cup in the kitchen?",
+        "prosody_clarification": [
+            "Take the cup from the table in the kitchen.",
+            "Take the cup / from the table / in the kitchen."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Take the cup from the table in the kitchen.",
+                "goal_intent_referents": ["cup"],
+                "detail_intent_referents": ["table", "kitchen"],
+                "all_details": {
+                    "cup": ["is_from(table)"],
+                    "table": ["is_in(kitchen)"]
+                },
+                "LTL_representation": "F (take(cup) ∧ is_from(cup, table) ∧ is_in(table, kitchen))"
+            },
+            {
+                "prosody_variant": "Take the cup / from the table / in the kitchen.",
+                "goal_intent_referents": ["cup"],
+                "detail_intent_referents": ["table", "kitchen"],
+                "all_details": {
+                    "cup": ["is_from(table)", "is_in(kitchen)"]
+                },
+                "LTL_representation": "F (take(cup) ∧ is_from(cup, table) ∧ is_in(cup, kitchen))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the keys on the hook by the garage door.",
+        "all_referents": [
+            "keys",
+            "hook",
+            "garage door"
+        ],
+        "ambiguity": "Is the hook by the garage door, or are the keys by the garage door?",
+        "prosody_clarification": [
+            "Pick up the keys on the hook by the garage door.",
+            "Pick up the keys / on the hook / by the garage door."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Pick up the keys on the hook by the garage door.",
+                "goal_intent_referents": ["keys"],
+                "detail_intent_referents": ["hook", "garage door"],
+                "all_details": {
+                    "keys": ["is_on(hook)"],
+                    "hook": ["is_by(garage door)"]
+                },
+                "LTL_representation": "F (pick_up(keys) ∧ is_on(keys, hook) ∧ is_by(hook, garage door))"
+            },
+            {
+                "prosody_variant": "Pick up the keys / on the hook / by the garage door.",
+                "goal_intent_referents": ["keys"],
+                "detail_intent_referents": ["hook", "garage door"],
+                "all_details": {
+                    "keys": ["is_on(hook)", "is_by(garage door)"]
+                },
+                "LTL_representation": "F (pick_up(keys) ∧ is_on(keys, hook) ∧ is_by(keys, garage door))"
+            }
+        ]
+    },
+    {
+        "instruction": "Take the book and the magazine on the nightstand.",
+        "all_referents": [
+            "book",
+            "magazine",
+            "nightstand"
+        ],
+        "ambiguity": "Are both items on the nightstand, or only the magazine?",
+        "prosody_clarification": [
+            "Take the book and the magazine / on the nightstand.",
+            "Take the book / and the magazine on the nightstand."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Take the book and the magazine / on the nightstand.",
+                "goal_intent_referents": ["book", "magazine"],
+                "detail_intent_referents": ["nightstand"],
+                "all_details": {
+                    "book": ["is_on(nightstand)"],
+                    "magazine": ["is_on(nightstand)"]
+                },
+                "LTL_representation": "F (take(book) ∧ is_on(book, nightstand)) ∧ F (take(magazine) ∧ is_on(magazine, nightstand))"
+            },
+            {
+                "prosody_variant": "Take the book / and the magazine on the nightstand.",
+                "goal_intent_referents": ["book", "magazine"],
+                "detail_intent_referents": ["nightstand"],
+                "all_details": {
+                    "book": [],
+                    "magazine": ["is_on(nightstand)"]
+                },
+                "LTL_representation": "F (take(book)) ∧ F (take(magazine) ∧ is_on(magazine, nightstand))"
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the vase from the shelf with the photographs.",
+        "all_referents": [
+            "vase",
+            "shelf",
+            "photographs"
+        ],
+        "ambiguity": "Does the shelf have the photographs, or does the vase?",
+        "prosody_clarification": [
+            "Bring the vase from the shelf with the photographs.",
+            "Bring the vase / from the shelf / with the photographs."
+        ],
+        "interpretations": [
+            {
+                "prosody_variant": "Bring the vase from the shelf with the photographs.",
+                "goal_intent_referents": ["vase"],
+                "detail_intent_referents": ["shelf", "photographs"],
+                "all_details": {
+                    "vase": ["is_from(shelf)"],
+                    "shelf": ["has(photographs)"]
+                },
+                "LTL_representation": "F (bring(vase) ∧ is_from(vase, shelf) ∧ has(shelf, photographs))"
+            },
+            {
+                "prosody_variant": "Bring the vase / from the shelf / with the photographs.",
+                "goal_intent_referents": ["vase"],
+                "detail_intent_referents": ["shelf", "photographs"],
+                "all_details": {
+                    "vase": ["is_from(shelf)", "has(photographs)"]
+                },
+                "LTL_representation": "F (bring(vase) ∧ is_from(vase, shelf) ∧ has(vase, photographs))"
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the ball without touching the glass to the left.",
+        "all_referents": ["ball", "glass"],
+        "ambiguity": "Is the instruction to pick up the ball without touching the glass that is to the left (making the glass an avoidance referent), or to pick up the ball while moving to the left without touching any glass?",
+        "prosody_clarification": [
+          "Pick up the ball without touching the glass / to the left.",
+          "Pick up the ball / without touching the glass to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Pick up the ball without touching the glass / to the left.",
+            "goal_intent_referents": ["ball"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "ball": ["pick_up(to the left)", "avoid(touching glass)"]
+            }
+          },
+          {
+            "prosody_variant": "Pick up the ball / without touching the glass to the left.",
+            "goal_intent_referents": ["ball"],
+            "avoidance_intent_referents": ["glass"],
+            "all_details": {
+              "ball": ["pick_up()", "avoid(touching glass_on_left)"]
+            }
+          }
+        ]
+      },
+      {
+        "instruction": "Deliver the package avoiding the dog on the right.",
+        "all_referents": ["package", "dog"],
+        "ambiguity": "Is the instruction to deliver the package by avoiding the dog that is on the right (making the dog an avoidance referent), or to deliver the package while moving to the right, avoiding any dog?",
+        "prosody_clarification": [
+          "Deliver the package avoiding the dog / on the right.",
+          "Deliver the package / avoiding the dog on the right."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Deliver the package avoiding the dog / on the right.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "package": ["deliver(to the right)", "avoid(dog)"]
+            }
+          },
+          {
+            "prosody_variant": "Deliver the package / avoiding the dog on the right.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": ["dog"],
+            "all_details": {
+              "package": ["deliver()", "avoid(dog_on_right)"]
+            }
+          }
+        ]
+      },
+      {
+        "instruction": "Move the robot around the box to the left.",
+        "all_referents": ["robot", "box"],
+        "ambiguity": "Is the instruction to move the robot around the box that is to the left (making the box an avoidance referent), or to move the robot around the box by going to the left?",
+        "prosody_clarification": [
+          "Move the robot around the box / to the left.",
+          "Move the robot / around the box to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the robot around the box / to the left.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "robot": ["move(around(box) to the left)"]
+            }
+          },
+          {
+            "prosody_variant": "Move the robot / around the box to the left.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": ["box"],
+            "all_details": {
+              "robot": ["move(to the left)", "avoid(box)"]
+            }
+          }
+        ]
+      }
+]
