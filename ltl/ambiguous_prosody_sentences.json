@@ -1093,16 +1093,20 @@
             "goal_intent_referents": ["ball"],
             "avoidance_intent_referents": [],
             "all_details": {
-              "ball": ["pick_up(to the left)", "avoid(touching glass)"]
-            }
+              "ball": ["pick_up()", "move_to(left)"],
+              "glass": ["avoid(touching)"]
+            },
+            "LTL_representation": "F (pick_up(ball) ∧ move_to(ball, left) ∧ ¬touch(glass))"
           },
           {
             "prosody_variant": "Pick up the ball / without touching the glass to the left.",
             "goal_intent_referents": ["ball"],
             "avoidance_intent_referents": ["glass"],
             "all_details": {
-              "ball": ["pick_up()", "avoid(touching glass_on_left)"]
-            }
+              "ball": ["pick_up()"],
+              "glass": ["is_at(left)", "avoid(touching)"]
+            },
+            "LTL_representation": "F (pick_up(ball) ∧ ¬touch(glass) ∧ is_at(glass, left))"
           }
         ]
       },
@@ -1121,15 +1125,18 @@
             "avoidance_intent_referents": [],
             "all_details": {
               "package": ["deliver(to the right)", "avoid(dog)"]
-            }
+            },
+            "LTL_representation": "F (deliver(package) ∧ move_to(package, right) ∧ ¬encounter(dog))"
           },
           {
             "prosody_variant": "Deliver the package / avoiding the dog on the right.",
             "goal_intent_referents": ["package"],
             "avoidance_intent_referents": ["dog"],
             "all_details": {
-              "package": ["deliver()", "avoid(dog_on_right)"]
-            }
+              "package": ["deliver()"],
+              "dog": ["is_at(right)", "avoid()"]
+            },
+            "LTL_representation": "F (deliver(package) ∧ ¬encounter(dog) ∧ is_at(dog, right))"
           }
         ]
       },
@@ -1148,7 +1155,8 @@
             "avoidance_intent_referents": [],
             "all_details": {
               "robot": ["move(around(box) to the left)"]
-            }
+            },
+            "LTL_representation": "F (move_around(robot, box) ∧ move_to(robot, left))"
           },
           {
             "prosody_variant": "Move the robot / around the box to the left.",
@@ -1156,7 +1164,1929 @@
             "avoidance_intent_referents": ["box"],
             "all_details": {
               "robot": ["move(to the left)", "avoid(box)"]
-            }
+            },
+            "LTL_representation": "F (move_to(robot, left) ∧ ¬encounter(robot, box))"
+          }
+        ]
+      },
+      {
+        "instruction": "Navigate the drone over the tree to the north.",
+        "all_referents": ["drone", "tree"],
+        "ambiguity": "Is the instruction to navigate the drone over the tree that is to the north (making the tree an avoidance referent), or to navigate the drone to the north, flying over the tree?",
+        "prosody_clarification": [
+          "Navigate the drone over the tree / to the north.",
+          "Navigate the drone / over the tree to the north."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Navigate the drone over the tree / to the north.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "drone": ["navigate(over tree to the north)"],
+              "tree": ["is_at(north)"]
+            },
+            "LTL_representation": "F (navigate(drone) ∧ over(drone, tree) ∧ is_at(tree, north))"
+          },
+          {
+            "prosody_variant": "Navigate the drone / over the tree to the north.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": ["tree"],
+            "all_details": {
+              "drone": ["navigate(to the north)"],
+              "tree": ["avoid()"]
+            },
+            "LTL_representation": "F (navigate(drone) ∧ move_to(drone, north) ∧ ¬encounter(drone, tree))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the crate behind the barrier to the target.",
+        "all_referents": ["crate", "barrier", "target"],
+        "ambiguity": "Is the instruction to move the crate that is behind the barrier to the target (making the barrier an avoidance referent), or to move the crate to the target by going behind the barrier?",
+        "prosody_clarification": [
+          "Move the crate behind the barrier / to the target.",
+          "Move the crate / behind the barrier to the target."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the crate behind the barrier / to the target.",
+            "goal_intent_referents": ["crate"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "crate": ["move(behind barrier to the target)"]
+            },
+            "LTL_representation": "F (move(crate) ∧ path(crate, behind barrier) ∧ reach(crate, target))"
+          },
+          {
+            "prosody_variant": "Move the crate / behind the barrier to the target.",
+            "goal_intent_referents": ["crate"],
+            "avoidance_intent_referents": ["barrier"],
+            "all_details": {
+              "crate": ["move(to the target)", "avoid(barrier)"]
+            },
+            "LTL_representation": "F (move(crate) ∧ reach(crate, target) ∧ ¬encounter(crate, barrier))"
+          }
+        ]
+      },
+      {
+        "instruction": "Pick up the tool next to the magnet carefully.",
+        "all_referents": ["tool", "magnet"],
+        "ambiguity": "Is the instruction to pick up the tool that is next to the magnet carefully (making the magnet an avoidance referent), or to carefully pick up the tool next to the magnet?",
+        "prosody_clarification": [
+          "Pick up the tool next to the magnet / carefully.",
+          "Pick up the tool / next to the magnet carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Pick up the tool next to the magnet / carefully.",
+            "goal_intent_referents": ["tool"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "tool": ["pick_up(next to magnet)", "carefully()"]
+            },
+            "LTL_representation": "F (pick_up(tool) ∧ is_next_to(tool, magnet) ∧ carefully(tool))"
+          },
+          {
+            "prosody_variant": "Pick up the tool / next to the magnet carefully.",
+            "goal_intent_referents": ["tool"],
+            "avoidance_intent_referents": ["magnet"],
+            "all_details": {
+              "tool": ["pick_up()"],
+              "magnet": ["avoid()", "handle_carefully()"]
+            },
+            "LTL_representation": "F (pick_up(tool) ∧ ¬encounter(tool, magnet) ∧ carefully(magnet))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the cylinder under the beam to the left.",
+        "all_referents": ["cylinder", "beam"],
+        "ambiguity": "Is the instruction to place the cylinder under the beam that is to the left (making the beam an avoidance referent), or to place the cylinder to the left under the beam?",
+        "prosody_clarification": [
+          "Place the cylinder under the beam / to the left.",
+          "Place the cylinder / under the beam to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the cylinder under the beam / to the left.",
+            "goal_intent_referents": ["cylinder"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "cylinder": ["place(under beam to the left)"]
+            },
+            "LTL_representation": "F (place(cylinder) ∧ under(cylinder, beam) ∧ is_at(cylinder, left))"
+          },
+          {
+            "prosody_variant": "Place the cylinder / under the beam to the left.",
+            "goal_intent_referents": ["cylinder"],
+            "avoidance_intent_referents": ["beam"],
+            "all_details": {
+              "cylinder": ["place()"],
+              "beam": ["is_at(left)", "avoid()"]
+            },
+            "LTL_representation": "F (place(cylinder) ∧ ¬encounter(cylinder, beam) ∧ is_at(beam, left))"
+          }
+        ]
+      },
+      {
+        "instruction": "Deliver the parcel around the fence to the station.",
+        "all_referents": ["parcel", "fence"],
+        "ambiguity": "Is the instruction to deliver the parcel around the fence that is to the station (making the fence an avoidance referent), or to deliver the parcel to the station by going around the fence?",
+        "prosody_clarification": [
+          "Deliver the parcel around the fence / to the station.",
+          "Deliver the parcel / around the fence to the station."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Deliver the parcel around the fence / to the station.",
+            "goal_intent_referents": ["parcel"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "parcel": ["deliver(around fence to the station)"]
+            },
+            "LTL_representation": "F (deliver(parcel) ∧ path(parcel, around fence) ∧ reach(parcel, station))"
+          },
+          {
+            "prosody_variant": "Deliver the parcel / around the fence to the station.",
+            "goal_intent_referents": ["parcel"],
+            "avoidance_intent_referents": ["fence"],
+            "all_details": {
+              "parcel": ["deliver(to the station)", "avoid(fence)"]
+            },
+            "LTL_representation": "F (deliver(parcel) ∧ reach(parcel, station) ∧ ¬encounter(parcel, fence))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lift the box near the edge with caution.",
+        "all_referents": ["box", "edge"],
+        "ambiguity": "Is the instruction to lift the box that is near the edge with caution (making the edge an avoidance referent), or to lift the box with caution near the edge?",
+        "prosody_clarification": [
+          "Lift the box near the edge / with caution.",
+          "Lift the box / near the edge with caution."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lift the box near the edge / with caution.",
+            "goal_intent_referents": ["box"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "box": ["lift(near edge)", "with_caution()"]
+            },
+            "LTL_representation": "F (lift(box) ∧ is_near(box, edge) ∧ with_caution(box))"
+          },
+          {
+            "prosody_variant": "Lift the box / near the edge with caution.",
+            "goal_intent_referents": ["box"],
+            "avoidance_intent_referents": ["edge"],
+            "all_details": {
+              "box": ["lift()"],
+              "edge": ["avoid()", "approach_with_caution()"]
+            },
+            "LTL_representation": "F (lift(box) ∧ ¬approach(box, edge) ∧ with_caution(edge))"
+          }
+        ]
+      },
+      {
+        "instruction": "Scan the shelf without disturbing the items on top.",
+        "all_referents": ["shelf", "items"],
+        "ambiguity": "Is the instruction to scan the shelf without disturbing the items that are on top (making the items an avoidance referent), or to scan the shelf on top without disturbing any items?",
+        "prosody_clarification": [
+          "Scan the shelf without disturbing the items / on top.",
+          "Scan the shelf / without disturbing the items on top."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Scan the shelf without disturbing the items / on top.",
+            "goal_intent_referents": ["shelf"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "shelf": ["scan(on top)", "avoid(disturbing items)"]
+            },
+            "LTL_representation": "F (scan(shelf) ∧ position(shelf, on top) ∧ ¬disturb(items))"
+          },
+          {
+            "prosody_variant": "Scan the shelf / without disturbing the items on top.",
+            "goal_intent_referents": ["shelf"],
+            "avoidance_intent_referents": ["items"],
+            "all_details": {
+              "shelf": ["scan()"],
+              "items": ["is_on(top)", "avoid(disturbing)"]
+            },
+            "LTL_representation": "F (scan(shelf) ∧ ¬disturb(items) ∧ is_on(items, top))"
+          }
+        ]
+      },
+      {
+        "instruction": "Navigate the maze avoiding the traps ahead.",
+        "all_referents": ["maze", "traps"],
+        "ambiguity": "Is the instruction to navigate the maze avoiding the traps that are ahead (making the traps an avoidance referent), or to navigate the maze ahead avoiding any traps?",
+        "prosody_clarification": [
+          "Navigate the maze avoiding the traps / ahead.",
+          "Navigate the maze / avoiding the traps ahead."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Navigate the maze avoiding the traps / ahead.",
+            "goal_intent_referents": ["maze"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "maze": ["navigate(ahead)", "avoid(traps)"]
+            },
+            "LTL_representation": "F (navigate(maze) ∧ move_to(maze, ahead) ∧ ¬encounter(traps))"
+          },
+          {
+            "prosody_variant": "Navigate the maze / avoiding the traps ahead.",
+            "goal_intent_referents": ["maze"],
+            "avoidance_intent_referents": ["traps"],
+            "all_details": {
+              "maze": ["navigate()"],
+              "traps": ["is_ahead()", "avoid()"]
+            },
+            "LTL_representation": "F (navigate(maze) ∧ ¬encounter(traps) ∧ is_ahead(traps))"
+          }
+        ]
+      },
+      {
+        "instruction": "Rotate the arm over the table to the position.",
+        "all_referents": ["arm", "table", "position"],
+        "ambiguity": "Is the instruction to rotate the arm over the table that is to the position (making the table an avoidance referent), or to rotate the arm to the position over the table?",
+        "prosody_clarification": [
+          "Rotate the arm over the table / to the position.",
+          "Rotate the arm / over the table to the position."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Rotate the arm over the table / to the position.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "arm": ["rotate(over table to the position)"]
+            },
+            "LTL_representation": "F (rotate(arm) ∧ over(arm, table) ∧ reach(arm, position))"
+          },
+          {
+            "prosody_variant": "Rotate the arm / over the table to the position.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": ["table"],
+            "all_details": {
+              "arm": ["rotate(to the position)", "avoid(table)"]
+            },
+            "LTL_representation": "F (rotate(arm) ∧ reach(arm, position) ∧ ¬encounter(arm, table))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lower the crane near the wires slowly.",
+        "all_referents": ["crane", "wires"],
+        "ambiguity": "Is the instruction to lower the crane that is near the wires slowly (making the wires an avoidance referent), or to slowly lower the crane near the wires?",
+        "prosody_clarification": [
+          "Lower the crane near the wires / slowly.",
+          "Lower the crane / near the wires slowly."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lower the crane near the wires / slowly.",
+            "goal_intent_referents": ["crane"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "crane": ["lower(near wires)", "slowly()"]
+            },
+            "LTL_representation": "F (lower(crane) ∧ is_near(crane, wires) ∧ slowly(crane))"
+          },
+          {
+            "prosody_variant": "Lower the crane / near the wires slowly.",
+            "goal_intent_referents": ["crane"],
+            "avoidance_intent_referents": ["wires"],
+            "all_details": {
+              "crane": ["lower()"],
+              "wires": ["avoid()", "approach_slowly()"]
+            },
+            "LTL_representation": "F (lower(crane) ∧ ¬encounter(crane, wires) ∧ slowly(approach(crane, wires)))"
+          }
+        ]
+      },
+      {
+        "instruction": "Send the probe beyond the asteroid to the planet.",
+        "all_referents": ["probe", "asteroid", "planet"],
+        "ambiguity": "Is the instruction to send the probe beyond the asteroid that is to the planet (making the asteroid an avoidance referent), or to send the probe to the planet by going beyond the asteroid?",
+        "prosody_clarification": [
+          "Send the probe beyond the asteroid / to the planet.",
+          "Send the probe / beyond the asteroid to the planet."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Send the probe beyond the asteroid / to the planet.",
+            "goal_intent_referents": ["probe"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "probe": ["send(beyond asteroid to the planet)"]
+            },
+            "LTL_representation": "F (send(probe) ∧ path(probe, beyond asteroid) ∧ reach(probe, planet))"
+          },
+          {
+            "prosody_variant": "Send the probe / beyond the asteroid to the planet.",
+            "goal_intent_referents": ["probe"],
+            "avoidance_intent_referents": ["asteroid"],
+            "all_details": {
+              "probe": ["send(to the planet)", "avoid(asteroid)"]
+            },
+            "LTL_representation": "F (send(probe) ∧ reach(probe, planet) ∧ ¬encounter(probe, asteroid))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lift the container under the drone to the platform.",
+        "all_referents": ["container", "drone", "platform"],
+        "ambiguity": "Is the instruction to lift the container that is under the drone to the platform (making the drone an avoidance referent), or to lift the container to the platform by moving under the drone?",
+        "prosody_clarification": [
+          "Lift the container under the drone / to the platform.",
+          "Lift the container / under the drone to the platform."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lift the container under the drone / to the platform.",
+            "goal_intent_referents": ["container"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "container": ["lift(under drone to the platform)"]
+            },
+            "LTL_representation": "F (lift(container) ∧ under(container, drone) ∧ move_to(container, platform))"
+          },
+          {
+            "prosody_variant": "Lift the container / under the drone to the platform.",
+            "goal_intent_referents": ["container"],
+            "avoidance_intent_referents": ["drone"],
+            "all_details": {
+              "container": ["lift(to the platform)", "avoid(drone)"]
+            },
+            "LTL_representation": "F (lift(container) ∧ move_to(container, platform) ∧ ¬encounter(container, drone))"
+          }
+        ]
+      },
+      {
+        "instruction": "Transport the sample around the radiation area carefully.",
+        "all_referents": ["sample", "radiation area"],
+        "ambiguity": "Is the instruction to transport the sample around the radiation area carefully (making the radiation area an avoidance referent), or to carefully transport the sample around the radiation area?",
+        "prosody_clarification": [
+          "Transport the sample around the radiation area / carefully.",
+          "Transport the sample / around the radiation area carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Transport the sample around the radiation area / carefully.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sample": ["transport(around radiation area)", "carefully()"]
+            },
+            "LTL_representation": "F (transport(sample) ∧ path(sample, around radiation_area) ∧ carefully(sample))"
+          },
+          {
+            "prosody_variant": "Transport the sample / around the radiation area carefully.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": ["radiation area"],
+            "all_details": {
+              "sample": ["transport()"],
+              "radiation area": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (transport(sample) ∧ ¬enter(sample, radiation_area) ∧ carefully(radiation_area))"
+          }
+        ]
+      },
+      {
+        "instruction": "Align the sensor near the magnet to the mark.",
+        "all_referents": ["sensor", "magnet", "mark"],
+        "ambiguity": "Is the instruction to align the sensor that is near the magnet to the mark (making the magnet an avoidance referent), or to align the sensor to the mark by positioning near the magnet?",
+        "prosody_clarification": [
+          "Align the sensor near the magnet / to the mark.",
+          "Align the sensor / near the magnet to the mark."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Align the sensor near the magnet / to the mark.",
+            "goal_intent_referents": ["sensor"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sensor": ["align(near magnet to the mark)"]
+            },
+            "LTL_representation": "F (align(sensor) ∧ is_near(sensor, magnet) ∧ reach(sensor, mark))"
+          },
+          {
+            "prosody_variant": "Align the sensor / near the magnet to the mark.",
+            "goal_intent_referents": ["sensor"],
+            "avoidance_intent_referents": ["magnet"],
+            "all_details": {
+              "sensor": ["align(to the mark)", "avoid(magnet)"]
+            },
+            "LTL_representation": "F (align(sensor) ∧ reach(sensor, mark) ∧ ¬encounter(sensor, magnet))"
+          }
+        ]
+      },
+      {
+        "instruction": "Detach the module beside the reactor with care.",
+        "all_referents": ["module", "reactor"],
+        "ambiguity": "Is the instruction to detach the module that is beside the reactor with care (making the reactor an avoidance referent), or to carefully detach the module beside the reactor?",
+        "prosody_clarification": [
+          "Detach the module beside the reactor / with care.",
+          "Detach the module / beside the reactor with care."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Detach the module beside the reactor / with care.",
+            "goal_intent_referents": ["module"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "module": ["detach(beside reactor)", "with_care()"]
+            },
+            "LTL_representation": "F (detach(module) ∧ is_beside(module, reactor) ∧ with_care(module))"
+          },
+          {
+            "prosody_variant": "Detach the module / beside the reactor with care.",
+            "goal_intent_referents": ["module"],
+            "avoidance_intent_referents": ["reactor"],
+            "all_details": {
+              "module": ["detach()"],
+              "reactor": ["avoid()", "handle_with_care()"]
+            },
+            "LTL_representation": "F (detach(module) ∧ ¬encounter(module, reactor) ∧ with_care(reactor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Scan the object over the conveyor to the bin.",
+        "all_referents": ["object", "conveyor", "bin"],
+        "ambiguity": "Is the instruction to scan the object over the conveyor that is to the bin (making the conveyor an avoidance referent), or to scan the object to the bin by moving over the conveyor?",
+        "prosody_clarification": [
+          "Scan the object over the conveyor / to the bin.",
+          "Scan the object / over the conveyor to the bin."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Scan the object over the conveyor / to the bin.",
+            "goal_intent_referents": ["object"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "object": ["scan(over conveyor to the bin)"]
+            },
+            "LTL_representation": "F (scan(object) ∧ over(object, conveyor) ∧ move_to(object, bin))"
+          },
+          {
+            "prosody_variant": "Scan the object / over the conveyor to the bin.",
+            "goal_intent_referents": ["object"],
+            "avoidance_intent_referents": ["conveyor"],
+            "all_details": {
+              "object": ["scan(to the bin)", "avoid(conveyor)"]
+            },
+            "LTL_representation": "F (scan(object) ∧ move_to(object, bin) ∧ ¬encounter(object, conveyor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Adjust the antenna behind the tower carefully.",
+        "all_referents": ["antenna", "tower"],
+        "ambiguity": "Is the instruction to adjust the antenna that is behind the tower carefully (making the tower an avoidance referent), or to carefully adjust the antenna behind the tower?",
+        "prosody_clarification": [
+          "Adjust the antenna behind the tower / carefully.",
+          "Adjust the antenna / behind the tower carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Adjust the antenna behind the tower / carefully.",
+            "goal_intent_referents": ["antenna"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "antenna": ["adjust(behind tower)", "carefully()"]
+            },
+            "LTL_representation": "F (adjust(antenna) ∧ is_behind(antenna, tower) ∧ carefully(antenna))"
+          },
+          {
+            "prosody_variant": "Adjust the antenna / behind the tower carefully.",
+            "goal_intent_referents": ["antenna"],
+            "avoidance_intent_referents": ["tower"],
+            "all_details": {
+              "antenna": ["adjust()"],
+              "tower": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (adjust(antenna) ∧ ¬encounter(antenna, tower) ∧ carefully(tower))"
+          }
+        ]
+      },
+      {
+        "instruction": "Navigate the robot through the corridor to the lab.",
+        "all_referents": ["robot", "corridor", "lab"],
+        "ambiguity": "Is the instruction to navigate the robot through the corridor that is to the lab (making the corridor an avoidance referent), or to navigate the robot to the lab through the corridor?",
+        "prosody_clarification": [
+          "Navigate the robot through the corridor / to the lab.",
+          "Navigate the robot / through the corridor to the lab."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Navigate the robot through the corridor / to the lab.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "robot": ["navigate(through corridor to the lab)"]
+            },
+            "LTL_representation": "F (navigate(robot) ∧ path(robot, through corridor) ∧ reach(robot, lab))"
+          },
+          {
+            "prosody_variant": "Navigate the robot / through the corridor to the lab.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": ["corridor"],
+            "all_details": {
+              "robot": ["navigate(to the lab)", "avoid(corridor)"]
+            },
+            "LTL_representation": "F (navigate(robot) ∧ reach(robot, lab) ∧ ¬enter(robot, corridor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Secure the panel below the wires quickly.",
+        "all_referents": ["panel", "wires"],
+        "ambiguity": "Is the instruction to secure the panel that is below the wires quickly (making the wires an avoidance referent), or to quickly secure the panel below the wires?",
+        "prosody_clarification": [
+          "Secure the panel below the wires / quickly.",
+          "Secure the panel / below the wires quickly."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Secure the panel below the wires / quickly.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "panel": ["secure(below wires)", "quickly()"]
+            },
+            "LTL_representation": "F (secure(panel) ∧ is_below(panel, wires) ∧ quickly(panel))"
+          },
+          {
+            "prosody_variant": "Secure the panel / below the wires quickly.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": ["wires"],
+            "all_details": {
+              "panel": ["secure()"],
+              "wires": ["avoid()", "approach_quickly()"]
+            },
+            "LTL_representation": "F (secure(panel) ∧ ¬encounter(panel, wires) ∧ quickly(approach(panel, wires)))"
+          }
+        ]
+      },
+      {
+        "instruction": "Retrieve the sample past the laser to the chamber.",
+        "all_referents": ["sample", "laser", "chamber"],
+        "ambiguity": "Is the instruction to retrieve the sample past the laser that is to the chamber (making the laser an avoidance referent), or to retrieve the sample to the chamber by going past the laser?",
+        "prosody_clarification": [
+          "Retrieve the sample past the laser / to the chamber.",
+          "Retrieve the sample / past the laser to the chamber."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Retrieve the sample past the laser / to the chamber.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sample": ["retrieve(past laser to the chamber)"]
+            },
+            "LTL_representation": "F (retrieve(sample) ∧ path(sample, past laser) ∧ reach(sample, chamber))"
+          },
+          {
+            "prosody_variant": "Retrieve the sample / past the laser to the chamber.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": ["laser"],
+            "all_details": {
+              "sample": ["retrieve(to the chamber)", "avoid(laser)"]
+            },
+            "LTL_representation": "F (retrieve(sample) ∧ reach(sample, chamber) ∧ ¬encounter(sample, laser))"
+          }
+        ]
+      },
+      {
+        "instruction": "Inspect the circuit near the capacitor carefully.",
+        "all_referents": ["circuit", "capacitor"],
+        "ambiguity": "Is the instruction to inspect the circuit that is near the capacitor carefully (making the capacitor an avoidance referent), or to carefully inspect the circuit near the capacitor?",
+        "prosody_clarification": [
+          "Inspect the circuit near the capacitor / carefully.",
+          "Inspect the circuit / near the capacitor carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Inspect the circuit near the capacitor / carefully.",
+            "goal_intent_referents": ["circuit"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "circuit": ["inspect(near capacitor)", "carefully()"]
+            },
+            "LTL_representation": "F (inspect(circuit) ∧ is_near(circuit, capacitor) ∧ carefully(circuit))"
+          },
+          {
+            "prosody_variant": "Inspect the circuit / near the capacitor carefully.",
+            "goal_intent_referents": ["circuit"],
+            "avoidance_intent_referents": ["capacitor"],
+            "all_details": {
+              "circuit": ["inspect()"],
+              "capacitor": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (inspect(circuit) ∧ ¬encounter(circuit, capacitor) ∧ carefully(capacitor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the sensor beside the coil on the platform.",
+        "all_referents": ["sensor", "coil", "platform"],
+        "ambiguity": "Is the instruction to place the sensor that is beside the coil on the platform (making the coil an avoidance referent), or to place the sensor on the platform beside the coil?",
+        "prosody_clarification": [
+          "Place the sensor beside the coil / on the platform.",
+          "Place the sensor / beside the coil on the platform."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the sensor beside the coil / on the platform.",
+            "goal_intent_referents": ["sensor"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sensor": ["place(beside coil on the platform)"]
+            },
+            "LTL_representation": "F (place(sensor) ∧ is_beside(sensor, coil) ∧ is_on(sensor, platform))"
+          },
+          {
+            "prosody_variant": "Place the sensor / beside the coil on the platform.",
+            "goal_intent_referents": ["sensor"],
+            "avoidance_intent_referents": ["coil"],
+            "all_details": {
+              "sensor": ["place(on the platform)", "avoid(coil)"]
+            },
+            "LTL_representation": "F (place(sensor) ∧ is_on(sensor, platform) ∧ ¬encounter(sensor, coil))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the arm over the conveyor to the right.",
+        "all_referents": ["arm", "conveyor"],
+        "ambiguity": "Is the instruction to move the arm over the conveyor that is to the right (making the conveyor an avoidance referent), or to move the arm over the conveyor by going to the right?",
+        "prosody_clarification": [
+          "Move the arm over the conveyor / to the right.",
+          "Move the arm / over the conveyor to the right."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the arm over the conveyor / to the right.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "arm": ["move(over conveyor to the right)"]
+            },
+            "LTL_representation": "F (move(arm) ∧ over(arm, conveyor) ∧ move_to(arm, right))"
+          },
+          {
+            "prosody_variant": "Move the arm / over the conveyor to the right.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": ["conveyor"],
+            "all_details": {
+              "arm": ["move(to the right)", "avoid(conveyor)"]
+            },
+            "LTL_representation": "F (move(arm) ∧ move_to(arm, right) ∧ ¬encounter(arm, conveyor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the battery near the motor carefully.",
+        "all_referents": ["battery", "motor"],
+        "ambiguity": "Is the instruction to place the battery that is near the motor carefully (making the motor an avoidance referent), or to carefully place the battery near the motor?",
+        "prosody_clarification": [
+          "Place the battery near the motor / carefully.",
+          "Place the battery / near the motor carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the battery near the motor / carefully.",
+            "goal_intent_referents": ["battery"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "battery": ["place(near motor)", "carefully()"]
+            },
+            "LTL_representation": "F (place(battery) ∧ is_near(battery, motor) ∧ carefully(battery))"
+          },
+          {
+            "prosody_variant": "Place the battery / near the motor carefully.",
+            "goal_intent_referents": ["battery"],
+            "avoidance_intent_referents": ["motor"],
+            "all_details": {
+              "battery": ["place()"],
+              "motor": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (place(battery) ∧ ¬encounter(battery, motor) ∧ carefully(motor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Push the cart past the scanner to the dock.",
+        "all_referents": ["cart", "scanner", "dock"],
+        "ambiguity": "Is the instruction to push the cart past the scanner that is to the dock (making the scanner an avoidance referent), or to push the cart to the dock by going past the scanner?",
+        "prosody_clarification": [
+          "Push the cart past the scanner / to the dock.",
+          "Push the cart / past the scanner to the dock."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Push the cart past the scanner / to the dock.",
+            "goal_intent_referents": ["cart"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "cart": ["push(past scanner to the dock)"]
+            },
+            "LTL_representation": "F (push(cart) ∧ path(cart, past scanner) ∧ reach(cart, dock))"
+          },
+          {
+            "prosody_variant": "Push the cart / past the scanner to the dock.",
+            "goal_intent_referents": ["cart"],
+            "avoidance_intent_referents": ["scanner"],
+            "all_details": {
+              "cart": ["push(to the dock)", "avoid(scanner)"]
+            },
+            "LTL_representation": "F (push(cart) ∧ reach(cart, dock) ∧ ¬encounter(cart, scanner))"
+          }
+        ]
+      },
+      {
+        "instruction": "Rotate the camera below the drone to the position.",
+        "all_referents": ["camera", "drone", "position"],
+        "ambiguity": "Is the instruction to rotate the camera below the drone that is to the position (making the drone an avoidance referent), or to rotate the camera to the position below the drone?",
+        "prosody_clarification": [
+          "Rotate the camera below the drone / to the position.",
+          "Rotate the camera / below the drone to the position."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Rotate the camera below the drone / to the position.",
+            "goal_intent_referents": ["camera"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "camera": ["rotate(below drone to the position)"]
+            },
+            "LTL_representation": "F (rotate(camera) ∧ is_below(camera, drone) ∧ reach(camera, position))"
+          },
+          {
+            "prosody_variant": "Rotate the camera / below the drone to the position.",
+            "goal_intent_referents": ["camera"],
+            "avoidance_intent_referents": ["drone"],
+            "all_details": {
+              "camera": ["rotate(to the position)", "avoid(drone)"]
+            },
+            "LTL_representation": "F (rotate(camera) ∧ reach(camera, position) ∧ ¬encounter(camera, drone))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lower the arm over the package to the belt.",
+        "all_referents": ["arm", "package", "belt"],
+        "ambiguity": "Is the instruction to lower the arm over the package that is to the belt (making the package an avoidance referent), or to lower the arm to the belt by moving over the package?",
+        "prosody_clarification": [
+          "Lower the arm over the package / to the belt.",
+          "Lower the arm / over the package to the belt."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lower the arm over the package / to the belt.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "arm": ["lower(over package to the belt)"]
+            },
+            "LTL_representation": "F (lower(arm) ∧ over(arm, package) ∧ reach(arm, belt))"
+          },
+          {
+            "prosody_variant": "Lower the arm / over the package to the belt.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": ["package"],
+            "all_details": {
+              "arm": ["lower(to the belt)", "avoid(package)"]
+            },
+            "LTL_representation": "F (lower(arm) ∧ reach(arm, belt) ∧ ¬encounter(arm, package))"
+          }
+        ]
+      },
+      {
+        "instruction": "Transfer the component near the magnet slowly.",
+        "all_referents": ["component", "magnet"],
+        "ambiguity": "Is the instruction to transfer the component that is near the magnet slowly (making the magnet an avoidance referent), or to slowly transfer the component near the magnet?",
+        "prosody_clarification": [
+          "Transfer the component near the magnet / slowly.",
+          "Transfer the component / near the magnet slowly."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Transfer the component near the magnet / slowly.",
+            "goal_intent_referents": ["component"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "component": ["transfer(near magnet)", "slowly()"]
+            },
+            "LTL_representation": "F (transfer(component) ∧ is_near(component, magnet) ∧ slowly(component))"
+          },
+          {
+            "prosody_variant": "Transfer the component / near the magnet slowly.",
+            "goal_intent_referents": ["component"],
+            "avoidance_intent_referents": ["magnet"],
+            "all_details": {
+              "component": ["transfer()"],
+              "magnet": ["avoid()", "approach_slowly()"]
+            },
+            "LTL_representation": "F (transfer(component) ∧ ¬encounter(component, magnet) ∧ slowly(magnet))"
+          }
+        ]
+      },
+      {
+        "instruction": "Deliver the package around the obstacle to the station.",
+        "all_referents": ["package", "obstacle", "station"],
+        "ambiguity": "Is the instruction to deliver the package around the obstacle that is to the station (making the obstacle an avoidance referent), or to deliver the package to the station by going around the obstacle?",
+        "prosody_clarification": [
+          "Deliver the package around the obstacle / to the station.",
+          "Deliver the package / around the obstacle to the station."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Deliver the package around the obstacle / to the station.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "package": ["deliver(around obstacle to the station)"]
+            },
+            "LTL_representation": "F (deliver(package) ∧ path(package, around obstacle) ∧ reach(package, station))"
+          },
+          {
+            "prosody_variant": "Deliver the package / around the obstacle to the station.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": ["obstacle"],
+            "all_details": {
+              "package": ["deliver(to the station)", "avoid(obstacle)"]
+            },
+            "LTL_representation": "F (deliver(package) ∧ reach(package, station) ∧ ¬encounter(package, obstacle))"
+          }
+        ]
+      },
+      {
+        "instruction": "Inspect the device next to the coil carefully.",
+        "all_referents": ["device", "coil"],
+        "ambiguity": "Is the instruction to inspect the device that is next to the coil carefully (making the coil an avoidance referent), or to carefully inspect the device next to the coil?",
+        "prosody_clarification": [
+          "Inspect the device next to the coil / carefully.",
+          "Inspect the device / next to the coil carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Inspect the device next to the coil / carefully.",
+            "goal_intent_referents": ["device"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "device": ["inspect(next to coil)", "carefully()"]
+            },
+            "LTL_representation": "F (inspect(device) ∧ is_next_to(device, coil) ∧ carefully(device))"
+          },
+          {
+            "prosody_variant": "Inspect the device / next to the coil carefully.",
+            "goal_intent_referents": ["device"],
+            "avoidance_intent_referents": ["coil"],
+            "all_details": {
+              "device": ["inspect()"],
+              "coil": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (inspect(device) ∧ ¬encounter(device, coil) ∧ carefully(coil))"
+          }
+        ]
+      },
+      {
+        "instruction": "Guide the robot past the barrier to the goal.",
+        "all_referents": ["robot", "barrier", "goal"],
+        "ambiguity": "Is the instruction to guide the robot past the barrier that is to the goal (making the barrier an avoidance referent), or to guide the robot to the goal by going past the barrier?",
+        "prosody_clarification": [
+          "Guide the robot past the barrier / to the goal.",
+          "Guide the robot / past the barrier to the goal."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Guide the robot past the barrier / to the goal.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "robot": ["guide(past barrier to the goal)"]
+            },
+            "LTL_representation": "F (guide(robot) ∧ path(robot, past barrier) ∧ reach(robot, goal))"
+          },
+          {
+            "prosody_variant": "Guide the robot / past the barrier to the goal.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": ["barrier"],
+            "all_details": {
+              "robot": ["guide(to the goal)", "avoid(barrier)"]
+            },
+            "LTL_representation": "F (guide(robot) ∧ reach(robot, goal) ∧ ¬encounter(robot, barrier))"
+          }
+        ]
+      },
+      {
+        "instruction": "Pick up the container next to the laser carefully.",
+        "all_referents": ["container", "laser"],
+        "ambiguity": "Is the instruction to pick up the container that is next to the laser carefully (making the laser an avoidance referent), or to carefully pick up the container next to the laser?",
+        "prosody_clarification": [
+          "Pick up the container next to the laser / carefully.",
+          "Pick up the container / next to the laser carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Pick up the container next to the laser / carefully.",
+            "goal_intent_referents": ["container"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "container": ["pick_up(next to laser)", "carefully()"]
+            },
+            "LTL_representation": "F (pick_up(container) ∧ is_next_to(container, laser) ∧ carefully(container))"
+          },
+          {
+            "prosody_variant": "Pick up the container / next to the laser carefully.",
+            "goal_intent_referents": ["container"],
+            "avoidance_intent_referents": ["laser"],
+            "all_details": {
+              "container": ["pick_up()"],
+              "laser": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (pick_up(container) ∧ ¬encounter(container, laser) ∧ carefully(laser))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the probe over the obstacle to the marker.",
+        "all_referents": ["probe", "obstacle", "marker"],
+        "ambiguity": "Is the instruction to move the probe over the obstacle that is to the marker (making the obstacle an avoidance referent), or to move the probe to the marker by going over the obstacle?",
+        "prosody_clarification": [
+          "Move the probe over the obstacle / to the marker.",
+          "Move the probe / over the obstacle to the marker."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the probe over the obstacle / to the marker.",
+            "goal_intent_referents": ["probe"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "probe": ["move(over obstacle to the marker)"]
+            },
+            "LTL_representation": "F (move(probe) ∧ over(probe, obstacle) ∧ reach(probe, marker))"
+          },
+          {
+            "prosody_variant": "Move the probe / over the obstacle to the marker.",
+            "goal_intent_referents": ["probe"],
+            "avoidance_intent_referents": ["obstacle"],
+            "all_details": {
+              "probe": ["move(to the marker)", "avoid(obstacle)"]
+            },
+            "LTL_representation": "F (move(probe) ∧ reach(probe, marker) ∧ ¬encounter(probe, obstacle))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lift the panel above the wires to the rack.",
+        "all_referents": ["panel", "wires", "rack"],
+        "ambiguity": "Is the instruction to lift the panel above the wires that is to the rack (making the wires an avoidance referent), or to lift the panel to the rack by going above the wires?",
+        "prosody_clarification": [
+          "Lift the panel above the wires / to the rack.",
+          "Lift the panel / above the wires to the rack."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lift the panel above the wires / to the rack.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "panel": ["lift(above wires to the rack)"]
+            },
+            "LTL_representation": "F (lift(panel) ∧ above(panel, wires) ∧ move_to(panel, rack))"
+          },
+          {
+            "prosody_variant": "Lift the panel / above the wires to the rack.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": ["wires"],
+            "all_details": {
+              "panel": ["lift(to the rack)", "avoid(wires)"]
+            },
+            "LTL_representation": "F (lift(panel) ∧ move_to(panel, rack) ∧ ¬encounter(panel, wires))"
+          }
+        ]
+      },
+      {
+        "instruction": "Adjust the mirror near the laser carefully.",
+        "all_referents": ["mirror", "laser"],
+        "ambiguity": "Is the instruction to adjust the mirror that is near the laser carefully (making the laser an avoidance referent), or to carefully adjust the mirror near the laser?",
+        "prosody_clarification": [
+          "Adjust the mirror near the laser / carefully.",
+          "Adjust the mirror / near the laser carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Adjust the mirror near the laser / carefully.",
+            "goal_intent_referents": ["mirror"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "mirror": ["adjust(near laser)", "carefully()"]
+            },
+            "LTL_representation": "F (adjust(mirror) ∧ is_near(mirror, laser) ∧ carefully(mirror))"
+          },
+          {
+            "prosody_variant": "Adjust the mirror / near the laser carefully.",
+            "goal_intent_referents": ["mirror"],
+            "avoidance_intent_referents": ["laser"],
+            "all_details": {
+              "mirror": ["adjust()"],
+              "laser": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (adjust(mirror) ∧ ¬encounter(mirror, laser) ∧ carefully(laser))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lower the crane under the beam to the ground.",
+        "all_referents": ["crane", "beam"],
+        "ambiguity": "Is the instruction to lower the crane under the beam that is to the ground (making the beam an avoidance referent), or to lower the crane to the ground by moving under the beam?",
+        "prosody_clarification": [
+          "Lower the crane under the beam / to the ground.",
+          "Lower the crane / under the beam to the ground."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lower the crane under the beam / to the ground.",
+            "goal_intent_referents": ["crane"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "crane": ["lower(under beam to the ground)"]
+            },
+            "LTL_representation": "F (lower(crane) ∧ under(crane, beam) ∧ reach(crane, ground))"
+          },
+          {
+            "prosody_variant": "Lower the crane / under the beam to the ground.",
+            "goal_intent_referents": ["crane"],
+            "avoidance_intent_referents": ["beam"],
+            "all_details": {
+              "crane": ["lower(to the ground)", "avoid(beam)"]
+            },
+            "LTL_representation": "F (lower(crane) ∧ reach(crane, ground) ∧ ¬encounter(crane, beam))"
+          }
+        ]
+      },
+      {
+        "instruction": "Drive the vehicle around the pit to the station.",
+        "all_referents": ["vehicle", "pit", "station"],
+        "ambiguity": "Is the instruction to drive the vehicle around the pit that is to the station (making the pit an avoidance referent), or to drive the vehicle to the station by going around the pit?",
+        "prosody_clarification": [
+          "Drive the vehicle around the pit / to the station.",
+          "Drive the vehicle / around the pit to the station."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Drive the vehicle around the pit / to the station.",
+            "goal_intent_referents": ["vehicle"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "vehicle": ["drive(around pit to the station)"]
+            },
+            "LTL_representation": "F (drive(vehicle) ∧ path(vehicle, around pit) ∧ reach(vehicle, station))"
+          },
+          {
+            "prosody_variant": "Drive the vehicle / around the pit to the station.",
+            "goal_intent_referents": ["vehicle"],
+            "avoidance_intent_referents": ["pit"],
+            "all_details": {
+              "vehicle": ["drive(to the station)", "avoid(pit)"]
+            },
+            "LTL_representation": "F (drive(vehicle) ∧ reach(vehicle, station) ∧ ¬encounter(vehicle, pit))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the sample near the scanner gently.",
+        "all_referents": ["sample", "scanner"],
+        "ambiguity": "Is the instruction to place the sample that is near the scanner gently (making the scanner an avoidance referent), or to gently place the sample near the scanner?",
+        "prosody_clarification": [
+          "Place the sample near the scanner / gently.",
+          "Place the sample / near the scanner gently."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the sample near the scanner / gently.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sample": ["place(near scanner)", "gently()"]
+            },
+            "LTL_representation": "F (place(sample) ∧ is_near(sample, scanner) ∧ gently(sample))"
+          },
+          {
+            "prosody_variant": "Place the sample / near the scanner gently.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": ["scanner"],
+            "all_details": {
+              "sample": ["place()"],
+              "scanner": ["avoid()", "approach_gently()"]
+            },
+            "LTL_representation": "F (place(sample) ∧ ¬encounter(sample, scanner) ∧ gently(scanner))"
+          }
+        ]
+      },
+      {
+        "instruction": "Pull the lever behind the panel carefully.",
+        "all_referents": ["lever", "panel"],
+        "ambiguity": "Is the instruction to pull the lever that is behind the panel carefully (making the panel an avoidance referent), or to carefully pull the lever behind the panel?",
+        "prosody_clarification": [
+          "Pull the lever behind the panel / carefully.",
+          "Pull the lever / behind the panel carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Pull the lever behind the panel / carefully.",
+            "goal_intent_referents": ["lever"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "lever": ["pull(behind panel)", "carefully()"]
+            },
+            "LTL_representation": "F (pull(lever) ∧ is_behind(lever, panel) ∧ carefully(lever))"
+          },
+          {
+            "prosody_variant": "Pull the lever / behind the panel carefully.",
+            "goal_intent_referents": ["lever"],
+            "avoidance_intent_referents": ["panel"],
+            "all_details": {
+              "lever": ["pull()"],
+              "panel": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (pull(lever) ∧ ¬encounter(lever, panel) ∧ carefully(panel))"
+          }
+        ]
+      },
+      {
+        "instruction": "Activate the switch next to the coil cautiously.",
+        "all_referents": ["switch", "coil"],
+        "ambiguity": "Is the instruction to activate the switch that is next to the coil cautiously (making the coil an avoidance referent), or to cautiously activate the switch next to the coil?",
+        "prosody_clarification": [
+          "Activate the switch next to the coil / cautiously.",
+          "Activate the switch / next to the coil cautiously."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Activate the switch next to the coil / cautiously.",
+            "goal_intent_referents": ["switch"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "switch": ["activate(next to coil)", "cautiously()"]
+            },
+            "LTL_representation": "F (activate(switch) ∧ is_next_to(switch, coil) ∧ cautiously(switch))"
+          },
+          {
+            "prosody_variant": "Activate the switch / next to the coil cautiously.",
+            "goal_intent_referents": ["switch"],
+            "avoidance_intent_referents": ["coil"],
+            "all_details": {
+              "switch": ["activate()"],
+              "coil": ["avoid()", "approach_cautiously()"]
+            },
+            "LTL_representation": "F (activate(switch) ∧ ¬encounter(switch, coil) ∧ cautiously(coil))"
+          }
+        ]
+      },
+      {
+        "instruction": "Transport the crate over the bridge to the base.",
+        "all_referents": ["crate", "bridge", "base"],
+        "ambiguity": "Is the instruction to transport the crate over the bridge that is to the base (making the bridge an avoidance referent), or to transport the crate to the base by going over the bridge?",
+        "prosody_clarification": [
+          "Transport the crate over the bridge / to the base.",
+          "Transport the crate / over the bridge to the base."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Transport the crate over the bridge / to the base.",
+            "goal_intent_referents": ["crate"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "crate": ["transport(over bridge to the base)"]
+            },
+            "LTL_representation": "F (transport(crate) ∧ over(crate, bridge) ∧ reach(crate, base))"
+          },
+          {
+            "prosody_variant": "Transport the crate / over the bridge to the base.",
+            "goal_intent_referents": ["crate"],
+            "avoidance_intent_referents": ["bridge"],
+            "all_details": {
+              "crate": ["transport(to the base)", "avoid(bridge)"]
+            },
+            "LTL_representation": "F (transport(crate) ∧ reach(crate, base) ∧ ¬encounter(crate, bridge))"
+          }
+        ]
+      },
+      {
+        "instruction": "Guide the drone under the wires to the point.",
+        "all_referents": ["drone", "wires", "point"],
+        "ambiguity": "Is the instruction to guide the drone under the wires that is to the point (making the wires an avoidance referent), or to guide the drone to the point by flying under the wires?",
+        "prosody_clarification": [
+          "Guide the drone under the wires / to the point.",
+          "Guide the drone / under the wires to the point."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Guide the drone under the wires / to the point.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "drone": ["guide(under wires to the point)"]
+            },
+            "LTL_representation": "F (guide(drone) ∧ under(drone, wires) ∧ reach(drone, point))"
+          },
+          {
+            "prosody_variant": "Guide the drone / under the wires to the point.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": ["wires"],
+            "all_details": {
+              "drone": ["guide(to the point)", "avoid(wires)"]
+            },
+            "LTL_representation": "F (guide(drone) ∧ reach(drone, point) ∧ ¬encounter(drone, wires))"
+          }
+        ]
+      },
+      {
+        "instruction": "Adjust the arm near the flame carefully.",
+        "all_referents": ["arm", "flame"],
+        "ambiguity": "Is the instruction to adjust the arm that is near the flame carefully (making the flame an avoidance referent), or to carefully adjust the arm near the flame?",
+        "prosody_clarification": [
+          "Adjust the arm near the flame / carefully.",
+          "Adjust the arm / near the flame carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Adjust the arm near the flame / carefully.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "arm": ["adjust(near flame)", "carefully()"]
+            },
+            "LTL_representation": "F (adjust(arm) ∧ is_near(arm, flame) ∧ carefully(arm))"
+          },
+          {
+            "prosody_variant": "Adjust the arm / near the flame carefully.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": ["flame"],
+            "all_details": {
+              "arm": ["adjust()"],
+              "flame": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (adjust(arm) ∧ ¬encounter(arm, flame) ∧ carefully(flame))"
+          }
+        ]
+      },
+      {
+        "instruction": "Retrieve the package behind the barrier quickly.",
+        "all_referents": ["package", "barrier"],
+        "ambiguity": "Is the instruction to retrieve the package that is behind the barrier quickly (making the barrier an avoidance referent), or to quickly retrieve the package behind the barrier?",
+        "prosody_clarification": [
+          "Retrieve the package behind the barrier / quickly.",
+          "Retrieve the package / behind the barrier quickly."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Retrieve the package behind the barrier / quickly.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "package": ["retrieve(behind barrier)", "quickly()"]
+            },
+            "LTL_representation": "F (retrieve(package) ∧ is_behind(package, barrier) ∧ quickly(package))"
+          },
+          {
+            "prosody_variant": "Retrieve the package / behind the barrier quickly.",
+            "goal_intent_referents": ["package"],
+            "avoidance_intent_referents": ["barrier"],
+            "all_details": {
+              "package": ["retrieve()"],
+              "barrier": ["avoid()", "approach_quickly()"]
+            },
+            "LTL_representation": "F (retrieve(package) ∧ ¬encounter(package, barrier) ∧ quickly(barrier))"
+          }
+        ]
+      },
+      {
+        "instruction": "Inspect the module over the engine carefully.",
+        "all_referents": ["module", "engine"],
+        "ambiguity": "Is the instruction to inspect the module that is over the engine carefully (making the engine an avoidance referent), or to carefully inspect the module over the engine?",
+        "prosody_clarification": [
+          "Inspect the module over the engine / carefully.",
+          "Inspect the module / over the engine carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Inspect the module over the engine / carefully.",
+            "goal_intent_referents": ["module"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "module": ["inspect(over engine)", "carefully()"]
+            },
+            "LTL_representation": "F (inspect(module) ∧ over(module, engine) ∧ carefully(module))"
+          },
+          {
+            "prosody_variant": "Inspect the module / over the engine carefully.",
+            "goal_intent_referents": ["module"],
+            "avoidance_intent_referents": ["engine"],
+            "all_details": {
+              "module": ["inspect()"],
+              "engine": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (inspect(module) ∧ ¬encounter(module, engine) ∧ carefully(engine))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the robot past the wall to the charger.",
+        "all_referents": ["robot", "wall", "charger"],
+        "ambiguity": "Is the instruction to move the robot past the wall that is to the charger (making the wall an avoidance referent), or to move the robot to the charger by going past the wall?",
+        "prosody_clarification": [
+          "Move the robot past the wall / to the charger.",
+          "Move the robot / past the wall to the charger."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the robot past the wall / to the charger.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "robot": ["move(past wall to the charger)"]
+            },
+            "LTL_representation": "F (move(robot) ∧ path(robot, past wall) ∧ reach(robot, charger))"
+          },
+          {
+            "prosody_variant": "Move the robot / past the wall to the charger.",
+            "goal_intent_referents": ["robot"],
+            "avoidance_intent_referents": ["wall"],
+            "all_details": {
+              "robot": ["move(to the charger)", "avoid(wall)"]
+            },
+            "LTL_representation": "F (move(robot) ∧ reach(robot, charger) ∧ ¬encounter(robot, wall))"
+          }
+        ]
+      },
+      {
+        "instruction": "Scan the area beyond the fence carefully.",
+        "all_referents": ["area", "fence"],
+        "ambiguity": "Is the instruction to scan the area that is beyond the fence carefully (making the fence an avoidance referent), or to carefully scan the area beyond the fence?",
+        "prosody_clarification": [
+          "Scan the area beyond the fence / carefully.",
+          "Scan the area / beyond the fence carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Scan the area beyond the fence / carefully.",
+            "goal_intent_referents": ["area"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "area": ["scan(beyond fence)", "carefully()"]
+            },
+            "LTL_representation": "F (scan(area) ∧ beyond(area, fence) ∧ carefully(area))"
+          },
+          {
+            "prosody_variant": "Scan the area / beyond the fence carefully.",
+            "goal_intent_referents": ["area"],
+            "avoidance_intent_referents": ["fence"],
+            "all_details": {
+              "area": ["scan()"],
+              "fence": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (scan(area) ∧ ¬encounter(area, fence) ∧ carefully(fence))"
+          }
+        ]
+      },
+      {
+        "instruction": "Navigate the rover over the hill to the base.",
+        "all_referents": ["rover", "hill", "base"],
+        "ambiguity": "Is the instruction to navigate the rover over the hill that is to the base (making the hill an avoidance referent), or to navigate the rover to the base by going over the hill?",
+        "prosody_clarification": [
+          "Navigate the rover over the hill / to the base.",
+          "Navigate the rover / over the hill to the base."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Navigate the rover over the hill / to the base.",
+            "goal_intent_referents": ["rover"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "rover": ["navigate(over hill to the base)"]
+            },
+            "LTL_representation": "F (navigate(rover) ∧ over(rover, hill) ∧ reach(rover, base))"
+          },
+          {
+            "prosody_variant": "Navigate the rover / over the hill to the base.",
+            "goal_intent_referents": ["rover"],
+            "avoidance_intent_referents": ["hill"],
+            "all_details": {
+              "rover": ["navigate(to the base)", "avoid(hill)"]
+            },
+            "LTL_representation": "F (navigate(rover) ∧ reach(rover, base) ∧ ¬encounter(rover, hill))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the beacon near the antenna gently.",
+        "all_referents": ["beacon", "antenna"],
+        "ambiguity": "Is the instruction to place the beacon that is near the antenna gently (making the antenna an avoidance referent), or to gently place the beacon near the antenna?",
+        "prosody_clarification": [
+          "Place the beacon near the antenna / gently.",
+          "Place the beacon / near the antenna gently."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the beacon near the antenna / gently.",
+            "goal_intent_referents": ["beacon"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "beacon": ["place(near antenna)", "gently()"]
+            },
+            "LTL_representation": "F (place(beacon) ∧ is_near(beacon, antenna) ∧ gently(beacon))"
+          },
+          {
+            "prosody_variant": "Place the beacon / near the antenna gently.",
+            "goal_intent_referents": ["beacon"],
+            "avoidance_intent_referents": ["antenna"],
+            "all_details": {
+              "beacon": ["place()"],
+              "antenna": ["avoid()", "approach_gently()"]
+            },
+            "LTL_representation": "F (place(beacon) ∧ ¬encounter(beacon, antenna) ∧ gently(antenna))"
+          }
+        ]
+      },
+      {
+        "instruction": "Align the laser over the grid carefully.",
+        "all_referents": ["laser", "grid"],
+        "ambiguity": "Is the instruction to align the laser that is over the grid carefully (making the grid an avoidance referent), or to carefully align the laser over the grid?",
+        "prosody_clarification": [
+          "Align the laser over the grid / carefully.",
+          "Align the laser / over the grid carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Align the laser over the grid / carefully.",
+            "goal_intent_referents": ["laser"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "laser": ["align(over grid)", "carefully()"]
+            },
+            "LTL_representation": "F (align(laser) ∧ over(laser, grid) ∧ carefully(laser))"
+          },
+          {
+            "prosody_variant": "Align the laser / over the grid carefully.",
+            "goal_intent_referents": ["laser"],
+            "avoidance_intent_referents": ["grid"],
+            "all_details": {
+              "laser": ["align()"],
+              "grid": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (align(laser) ∧ ¬encounter(laser, grid) ∧ carefully(grid))"
+          }
+        ]
+      },
+      {
+        "instruction": "Install the panel below the vent to the left.",
+        "all_referents": ["panel", "vent"],
+        "ambiguity": "Is the instruction to install the panel below the vent that is to the left (making the vent an avoidance referent), or to install the panel to the left below the vent?",
+        "prosody_clarification": [
+          "Install the panel below the vent / to the left.",
+          "Install the panel / below the vent to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Install the panel below the vent / to the left.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "panel": ["install(below vent to the left)"]
+            },
+            "LTL_representation": "F (install(panel) ∧ below(panel, vent) ∧ is_at(panel, left))"
+          },
+          {
+            "prosody_variant": "Install the panel / below the vent to the left.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": ["vent"],
+            "all_details": {
+              "panel": ["install()"],
+              "vent": ["is_at(left)", "avoid()"]
+            },
+            "LTL_representation": "F (install(panel) ∧ ¬encounter(panel, vent) ∧ is_at(vent, left))"
+          }
+        ]
+      },
+      {
+        "instruction": "Guide the vehicle under the bridge to the depot.",
+        "all_referents": ["vehicle", "bridge", "depot"],
+        "ambiguity": "Is the instruction to guide the vehicle under the bridge that is to the depot (making the bridge an avoidance referent), or to guide the vehicle to the depot by going under the bridge?",
+        "prosody_clarification": [
+          "Guide the vehicle under the bridge / to the depot.",
+          "Guide the vehicle / under the bridge to the depot."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Guide the vehicle under the bridge / to the depot.",
+            "goal_intent_referents": ["vehicle"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "vehicle": ["guide(under bridge to the depot)"]
+            },
+            "LTL_representation": "F (guide(vehicle) ∧ under(vehicle, bridge) ∧ reach(vehicle, depot))"
+          },
+          {
+            "prosody_variant": "Guide the vehicle / under the bridge to the depot.",
+            "goal_intent_referents": ["vehicle"],
+            "avoidance_intent_referents": ["bridge"],
+            "all_details": {
+              "vehicle": ["guide(to the depot)", "avoid(bridge)"]
+            },
+            "LTL_representation": "F (guide(vehicle) ∧ reach(vehicle, depot) ∧ ¬encounter(vehicle, bridge))"
+          }
+        ]
+      },
+      {
+        "instruction": "Retrieve the disk beside the magnet carefully.",
+        "all_referents": ["disk", "magnet"],
+        "ambiguity": "Is the instruction to retrieve the disk that is beside the magnet carefully (making the magnet an avoidance referent), or to carefully retrieve the disk beside the magnet?",
+        "prosody_clarification": [
+          "Retrieve the disk beside the magnet / carefully.",
+          "Retrieve the disk / beside the magnet carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Retrieve the disk beside the magnet / carefully.",
+            "goal_intent_referents": ["disk"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "disk": ["retrieve(beside magnet)", "carefully()"]
+            },
+            "LTL_representation": "F (retrieve(disk) ∧ is_beside(disk, magnet) ∧ carefully(disk))"
+          },
+          {
+            "prosody_variant": "Retrieve the disk / beside the magnet carefully.",
+            "goal_intent_referents": ["disk"],
+            "avoidance_intent_referents": ["magnet"],
+            "all_details": {
+              "disk": ["retrieve()"],
+              "magnet": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (retrieve(disk) ∧ ¬encounter(disk, magnet) ∧ carefully(magnet))"
+          }
+        ]
+      },
+      {
+        "instruction": "Place the block over the pit to the right.",
+        "all_referents": ["block", "pit"],
+        "ambiguity": "Is the instruction to place the block over the pit that is to the right (making the pit an avoidance referent), or to place the block to the right by going over the pit?",
+        "prosody_clarification": [
+          "Place the block over the pit / to the right.",
+          "Place the block / over the pit to the right."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Place the block over the pit / to the right.",
+            "goal_intent_referents": ["block"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "block": ["place(over pit to the right)"]
+            },
+            "LTL_representation": "F (place(block) ∧ over(block, pit) ∧ is_at(block, right))"
+          },
+          {
+            "prosody_variant": "Place the block / over the pit to the right.",
+            "goal_intent_referents": ["block"],
+            "avoidance_intent_referents": ["pit"],
+            "all_details": {
+              "block": ["place(to the right)", "avoid(pit)"]
+            },
+            "LTL_representation": "F (place(block) ∧ is_at(block, right) ∧ ¬encounter(block, pit))"
+          }
+        ]
+      },
+      {
+        "instruction": "Inspect the cable near the generator cautiously.",
+        "all_referents": ["cable", "generator"],
+        "ambiguity": "Is the instruction to inspect the cable that is near the generator cautiously (making the generator an avoidance referent), or to cautiously inspect the cable near the generator?",
+        "prosody_clarification": [
+          "Inspect the cable near the generator / cautiously.",
+          "Inspect the cable / near the generator cautiously."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Inspect the cable near the generator / cautiously.",
+            "goal_intent_referents": ["cable"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "cable": ["inspect(near generator)", "cautiously()"]
+            },
+            "LTL_representation": "F (inspect(cable) ∧ is_near(cable, generator) ∧ cautiously(cable))"
+          },
+          {
+            "prosody_variant": "Inspect the cable / near the generator cautiously.",
+            "goal_intent_referents": ["cable"],
+            "avoidance_intent_referents": ["generator"],
+            "all_details": {
+              "cable": ["inspect()"],
+              "generator": ["avoid()", "approach_cautiously()"]
+            },
+            "LTL_representation": "F (inspect(cable) ∧ ¬encounter(cable, generator) ∧ cautiously(generator))"
+          }
+        ]
+      },
+      {
+        "instruction": "Activate the mechanism behind the shield carefully.",
+        "all_referents": ["mechanism", "shield"],
+        "ambiguity": "Is the instruction to activate the mechanism that is behind the shield carefully (making the shield an avoidance referent), or to carefully activate the mechanism behind the shield?",
+        "prosody_clarification": [
+          "Activate the mechanism behind the shield / carefully.",
+          "Activate the mechanism / behind the shield carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Activate the mechanism behind the shield / carefully.",
+            "goal_intent_referents": ["mechanism"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "mechanism": ["activate(behind shield)", "carefully()"]
+            },
+            "LTL_representation": "F (activate(mechanism) ∧ is_behind(mechanism, shield) ∧ carefully(mechanism))"
+          },
+          {
+            "prosody_variant": "Activate the mechanism / behind the shield carefully.",
+            "goal_intent_referents": ["mechanism"],
+            "avoidance_intent_referents": ["shield"],
+            "all_details": {
+              "mechanism": ["activate()"],
+              "shield": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (activate(mechanism) ∧ ¬encounter(mechanism, shield) ∧ carefully(shield))"
+          }
+        ]
+      },
+      {
+        "instruction": "Lift the load over the trench to the platform.",
+        "all_referents": ["load", "trench", "platform"],
+        "ambiguity": "Is the instruction to lift the load over the trench that is to the platform (making the trench an avoidance referent), or to lift the load to the platform by going over the trench?",
+        "prosody_clarification": [
+          "Lift the load over the trench / to the platform.",
+          "Lift the load / over the trench to the platform."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Lift the load over the trench / to the platform.",
+            "goal_intent_referents": ["load"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "load": ["lift(over trench to the platform)"]
+            },
+            "LTL_representation": "F (lift(load) ∧ over(load, trench) ∧ reach(load, platform))"
+          },
+          {
+            "prosody_variant": "Lift the load / over the trench to the platform.",
+            "goal_intent_referents": ["load"],
+            "avoidance_intent_referents": ["trench"],
+            "all_details": {
+              "load": ["lift(to the platform)", "avoid(trench)"]
+            },
+            "LTL_representation": "F (lift(load) ∧ reach(load, platform) ∧ ¬encounter(load, trench))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the arm around the obstacle to the left.",
+        "all_referents": ["arm", "obstacle"],
+        "ambiguity": "Is the instruction to move the arm around the obstacle that is to the left (making the obstacle an avoidance referent), or to move the arm to the left by going around the obstacle?",
+        "prosody_clarification": [
+          "Move the arm around the obstacle / to the left.",
+          "Move the arm / around the obstacle to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the arm around the obstacle / to the left.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "arm": ["move(around obstacle to the left)"]
+            },
+            "LTL_representation": "F (move(arm) ∧ path(arm, around obstacle) ∧ move_to(arm, left))"
+          },
+          {
+            "prosody_variant": "Move the arm / around the obstacle to the left.",
+            "goal_intent_referents": ["arm"],
+            "avoidance_intent_referents": ["obstacle"],
+            "all_details": {
+              "arm": ["move(to the left)", "avoid(obstacle)"]
+            },
+            "LTL_representation": "F (move(arm) ∧ move_to(arm, left) ∧ ¬encounter(arm, obstacle))"
+          }
+        ]
+      },
+      {
+        "instruction": "Transport the equipment below the platform to the site.",
+        "all_referents": ["equipment", "platform", "site"],
+        "ambiguity": "Is the instruction to transport the equipment below the platform that is to the site (making the platform an avoidance referent), or to transport the equipment to the site by moving below the platform?",
+        "prosody_clarification": [
+          "Transport the equipment below the platform / to the site.",
+          "Transport the equipment / below the platform to the site."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Transport the equipment below the platform / to the site.",
+            "goal_intent_referents": ["equipment"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "equipment": ["transport(below platform to the site)"]
+            },
+            "LTL_representation": "F (transport(equipment) ∧ below(equipment, platform) ∧ reach(equipment, site))"
+          },
+          {
+            "prosody_variant": "Transport the equipment / below the platform to the site.",
+            "goal_intent_referents": ["equipment"],
+            "avoidance_intent_referents": ["platform"],
+            "all_details": {
+              "equipment": ["transport(to the site)", "avoid(platform)"]
+            },
+            "LTL_representation": "F (transport(equipment) ∧ reach(equipment, site) ∧ ¬encounter(equipment, platform))"
+          }
+        ]
+      },
+      {
+        "instruction": "Secure the panel near the reactor carefully.",
+        "all_referents": ["panel", "reactor"],
+        "ambiguity": "Is the instruction to secure the panel that is near the reactor carefully (making the reactor an avoidance referent), or to carefully secure the panel near the reactor?",
+        "prosody_clarification": [
+          "Secure the panel near the reactor / carefully.",
+          "Secure the panel / near the reactor carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Secure the panel near the reactor / carefully.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "panel": ["secure(near reactor)", "carefully()"]
+            },
+            "LTL_representation": "F (secure(panel) ∧ is_near(panel, reactor) ∧ carefully(panel))"
+          },
+          {
+            "prosody_variant": "Secure the panel / near the reactor carefully.",
+            "goal_intent_referents": ["panel"],
+            "avoidance_intent_referents": ["reactor"],
+            "all_details": {
+              "panel": ["secure()"],
+              "reactor": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (secure(panel) ∧ ¬encounter(panel, reactor) ∧ carefully(reactor))"
+          }
+        ]
+      },
+      {
+        "instruction": "Send the drone over the building to the waypoint.",
+        "all_referents": ["drone", "building", "waypoint"],
+        "ambiguity": "Is the instruction to send the drone over the building that is to the waypoint (making the building an avoidance referent), or to send the drone to the waypoint by flying over the building?",
+        "prosody_clarification": [
+          "Send the drone over the building / to the waypoint.",
+          "Send the drone / over the building to the waypoint."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Send the drone over the building / to the waypoint.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "drone": ["send(over building to the waypoint)"]
+            },
+            "LTL_representation": "F (send(drone) ∧ over(drone, building) ∧ reach(drone, waypoint))"
+          },
+          {
+            "prosody_variant": "Send the drone / over the building to the waypoint.",
+            "goal_intent_referents": ["drone"],
+            "avoidance_intent_referents": ["building"],
+            "all_details": {
+              "drone": ["send(to the waypoint)", "avoid(building)"]
+            },
+            "LTL_representation": "F (send(drone) ∧ reach(drone, waypoint) ∧ ¬encounter(drone, building))"
+          }
+        ]
+      },
+      {
+        "instruction": "Collect the sample under the drone carefully.",
+        "all_referents": ["sample", "drone"],
+        "ambiguity": "Is the instruction to collect the sample that is under the drone carefully (making the drone an avoidance referent), or to carefully collect the sample under the drone?",
+        "prosody_clarification": [
+          "Collect the sample under the drone / carefully.",
+          "Collect the sample / under the drone carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Collect the sample under the drone / carefully.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "sample": ["collect(under drone)", "carefully()"]
+            },
+            "LTL_representation": "F (collect(sample) ∧ under(sample, drone) ∧ carefully(sample))"
+          },
+          {
+            "prosody_variant": "Collect the sample / under the drone carefully.",
+            "goal_intent_referents": ["sample"],
+            "avoidance_intent_referents": ["drone"],
+            "all_details": {
+              "sample": ["collect()"],
+              "drone": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (collect(sample) ∧ ¬encounter(sample, drone) ∧ carefully(drone))"
+          }
+        ]
+      },
+      {
+        "instruction": "Install the antenna above the platform to the right.",
+        "all_referents": ["antenna", "platform"],
+        "ambiguity": "Is the instruction to install the antenna above the platform that is to the right (making the platform an avoidance referent), or to install the antenna to the right above the platform?",
+        "prosody_clarification": [
+          "Install the antenna above the platform / to the right.",
+          "Install the antenna / above the platform to the right."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Install the antenna above the platform / to the right.",
+            "goal_intent_referents": ["antenna"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "antenna": ["install(above platform to the right)"]
+            },
+            "LTL_representation": "F (install(antenna) ∧ above(antenna, platform) ∧ is_at(antenna, right))"
+          },
+          {
+            "prosody_variant": "Install the antenna / above the platform to the right.",
+            "goal_intent_referents": ["antenna"],
+            "avoidance_intent_referents": ["platform"],
+            "all_details": {
+              "antenna": ["install()"],
+              "platform": ["is_at(right)", "avoid()"]
+            },
+            "LTL_representation": "F (install(antenna) ∧ ¬encounter(antenna, platform) ∧ is_at(platform, right))"
+          }
+        ]
+      },
+      {
+        "instruction": "Move the cart behind the obstacle carefully.",
+        "all_referents": ["cart", "obstacle"],
+        "ambiguity": "Is the instruction to move the cart that is behind the obstacle carefully (making the obstacle an avoidance referent), or to carefully move the cart behind the obstacle?",
+        "prosody_clarification": [
+          "Move the cart behind the obstacle / carefully.",
+          "Move the cart / behind the obstacle carefully."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Move the cart behind the obstacle / carefully.",
+            "goal_intent_referents": ["cart"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "cart": ["move(behind obstacle)", "carefully()"]
+            },
+            "LTL_representation": "F (move(cart) ∧ is_behind(cart, obstacle) ∧ carefully(cart))"
+          },
+          {
+            "prosody_variant": "Move the cart / behind the obstacle carefully.",
+            "goal_intent_referents": ["cart"],
+            "avoidance_intent_referents": ["obstacle"],
+            "all_details": {
+              "cart": ["move()"],
+              "obstacle": ["avoid()", "approach_carefully()"]
+            },
+            "LTL_representation": "F (move(cart) ∧ ¬encounter(cart, obstacle) ∧ carefully(obstacle))"
+          }
+        ]
+      },
+      {
+        "instruction": "Adjust the camera near the laser to the left.",
+        "all_referents": ["camera", "laser"],
+        "ambiguity": "Is the instruction to adjust the camera near the laser that is to the left (making the laser an avoidance referent), or to adjust the camera to the left near the laser?",
+        "prosody_clarification": [
+          "Adjust the camera near the laser / to the left.",
+          "Adjust the camera / near the laser to the left."
+        ],
+        "interpretations": [
+          {
+            "prosody_variant": "Adjust the camera near the laser / to the left.",
+            "goal_intent_referents": ["camera"],
+            "avoidance_intent_referents": [],
+            "all_details": {
+              "camera": ["adjust(near laser to the left)"]
+            },
+            "LTL_representation": "F (adjust(camera) ∧ is_near(camera, laser) ∧ is_at(camera, left))"
+          },
+          {
+            "prosody_variant": "Adjust the camera / near the laser to the left.",
+            "goal_intent_referents": ["camera"],
+            "avoidance_intent_referents": ["laser"],
+            "all_details": {
+              "camera": ["adjust(to the left)", "avoid(laser)"],
+              "laser": ["avoid()"]
+            },
+            "LTL_representation": "F (adjust(camera) ∧ is_at(camera, left) ∧ ¬encounter(camera, laser))"
           }
         ]
       }
