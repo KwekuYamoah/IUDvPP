@@ -114,7 +114,7 @@ def asr_pipeline_openai(audio_folder: str) -> str:
             transcriptions[audio_file] = transcription
             
     # Convert the dictionary to a json file
-    json_file = "asr/transcriptions_find_error.json"
+    json_file = "asr/transcriptions_ambiguous.json"
     with open(json_file, "w") as json_file:
         json.dump(transcriptions, json_file, indent=4)
     
