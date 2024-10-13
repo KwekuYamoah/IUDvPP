@@ -95,6 +95,7 @@ def asr_pipeline_openai(audio_folder: str) -> str:
     for root, _, files in os.walk(audio_folder):
         for audio_file in files:
             if audio_file.endswith(".m4a") or audio_file.endswith(".wav"):
+                print(f"Transcribing {audio_file}...")
                 # Get the audio file path
                 audio_file_path = os.path.join(root, audio_file)
                 # Transcribe the audio file
