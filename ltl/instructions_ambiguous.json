@@ -1,0 +1,1969 @@
+[
+    {
+        "instruction": "Place the rug in the basket beside the fridge.",
+        "all_referents": [
+            "rug",
+            "basket",
+            "fridge"
+        ],
+        "ambiguity": "Is the instruction to place the rug into the basket that is beside the fridge, or to place the rug (which is now in the basket), beside the fridge?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the rug into the basket that is beside the fridge.",
+                "prosody_cue": "No pause between 'the basket' and 'beside the fridge', with 'the basket beside the fridge' spoken as a single unit.",
+                "example": "Place the rug in **the basket beside the fridge**."
+            },
+            {
+                "interpretation": "Place the (rug which is now in the basket), beside the fridge.",
+                "prosody_cue": "Slight pause after 'basket', with stress on 'beside the fridge' indicating that 'beside the fridge' modifies where to place the rug",
+                "example": "Place the rug in the basket, **beside the fridge**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "rug",
+                    "basket"
+                ],
+                "detail_intent_referents": [
+                    "fridge"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "rug": [],
+                    "basket": [
+                        "isbeside(fridge)"
+                    ],
+                    "fridge": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "rug",
+                    "fridge"
+                ],
+                "detail_intent_referents": [
+                    "basket"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "rug": [
+                        "isinside(basket)"
+                    ],
+                    "basket": [],
+                    "fridge": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the box beside the table to the right of the chair",
+        "all_referents": [
+            "box",
+            "table",
+            "chair"
+        ],
+        "ambiguity": "Is the instruction to move the box (that is beside the table) to a position that is to the right of the chair, or to move the box (that is beside a table, and that table is to the right of the chair) and we dont yet know where to move the box to.",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the box (which is beside the table) to the right of the chair.",
+                "prosody_cue": "Stress on 'box beside the table' with a pause before 'to the right of the chair'.",
+                "example": "Move the **box beside the table**, to the **right of the chair**."
+            },
+            {
+                "interpretation": "Move the box (which is beside a table, and that table is to the right of the chair).",
+                "prosody_cue": "Slight pause after 'box beside' with the phrase 'table to the right of the chair' quickly spoken as a unit.",
+                "example": "Move the **box beside** the **table to the right of the chair**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "box",
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "all_details": {
+                    "box": [
+                        "isbeside(table)"
+                    ],
+                    "table": [],
+                    "chair": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "box"
+                ],
+                "detail_intent_referents": [
+                    "table",
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "box": [
+                        "isbeside(table::isrightof(chair))"
+                    ],
+                    "table": [
+                        "isrightof(chair)"
+                    ],
+                    "chair": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the book on the table with the red cover.",
+        "all_referents": [
+            "book",
+            "table",
+            "red cover"
+        ],
+        "ambiguity": "Is the instruction to pick up the book (that is on the table) and that book has a red cover, or to pick up the book (that is on the table with the red cover, i.e., the table has a red cover)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Pick up the book (which is on the table) and that book has a red cover.",
+                "prosody_cue": "Stress on 'book' and 'red cover' with a slight pause after 'table'.",
+                "example": "Pick up the **book on the table**, with the **red cover**."
+            },
+            {
+                "interpretation": "Pick up the book (that is on the table, and that table has a red cover).",
+                "prosody_cue": "Slight pause after 'book' with 'table with the red cover' spoken as a single unit.",
+                "example": "Pick up the **book**, on the **table with the red cover**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "book"
+                ],
+                "detail_intent_referents": [
+                    "table",
+                    "red cover"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [
+                        "has(red cover)",
+                        "ison(table)"
+                    ],
+                    "table": [],
+                    "red cover": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "book"
+                ],
+                "detail_intent_referents": [
+                    "table",
+                    "red cover"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [
+                        "ison(table::has(red cover))"
+                    ],
+                    "table": [
+                        "has(red cover)"
+                    ],
+                    "red cover": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Go to the painting of the dog and the cat.",
+        "all_referents": [
+            "painting",
+            "dog",
+            "cat"
+        ],
+        "ambiguity": "Is the instruction to go to the painting that depicts both the dog and the cat together, or to go to two separate paintings: one of the dog and one of the cat?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Go to the painting that depicts both the dog and the cat together.",
+                "prosody_cue": "No pause between 'dog and the cat', with 'painting of the dog and the cat' spoken as a single unit.",
+                "example": "Go to the **painting of the dog and the cat**."
+            },
+            {
+                "interpretation": "Go to the painting of the dog and the painting of the cat (two separate paintings).",
+                "prosody_cue": "Slight pause after 'dog' and stress on 'and the cat', indicating two separate items.",
+                "example": "Go to the **painting of the dog**, and the **cat**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "painting"
+                ],
+                "detail_intent_referents": [
+                    "dog",
+                    "cat"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "painting": [
+                        "depicts(dog)",
+                        "depicts(cat)"
+                    ],
+                    "dog": [],
+                    "cat": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "painting",
+                    "dog",
+                    "cat"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "painting": [],
+                    "dog": [],
+                    "cat": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the vase on the table in the corner.",
+        "all_referents": [
+            "vase",
+            "table",
+            "corner"
+        ],
+        "ambiguity": "Is the instruction to place the vase onto the table that is in the corner, or to place the vase (that is on the table) into the corner?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the vase onto the table that is in the corner.",
+                "prosody_cue": "Pause after vase and 'table in the corner' spoken as a single unit.",
+                "example": "Place the vase, on the **table in the corner**."
+            },
+            {
+                "interpretation": "Place the vase (that is on the table) into the corner.",
+                "prosody_cue": "Slight pause after 'table', with stress on 'in the corner'.",
+                "example": "Place the vase on the table, **in the corner**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "vase",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "corner"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vase": [],
+                    "table": [
+                        "isin(corner)"
+                    ],
+                    "corner": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "vase",
+                    "corner"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vase": [
+                        "ison(table)"
+                    ],
+                    "table": [],
+                    "corner": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the lamp from the bedroom upstairs.",
+        "all_referents": [
+            "lamp",
+            "bedroom",
+            "upstairs"
+        ],
+        "ambiguity": "Is the instruction to bring the lamp from the bedroom that is upstairs, or to bring the lamp from the bedroom to upstairs?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Bring the lamp from the bedroom that is upstairs.",
+                "prosody_cue": "No pause between 'bedroom' and 'upstairs', with 'bedroom upstairs' spoken as a single unit.",
+                "example": "Bring the lamp from the **bedroom upstairs**."
+            },
+            {
+                "interpretation": "Bring the lamp from the bedroom to upstairs.",
+                "prosody_cue": "Slight pause after 'bedroom', with stress on 'upstairs'.",
+                "example": "Bring the lamp from the **bedroom**, **upstairs**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "lamp",
+                    "bedroom"
+                ],
+                "detail_intent_referents": [
+                    "upstairs"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "lamp": [
+                        "isat(bedroom::isat(upstairs))"
+                    ],
+                    "bedroom": [
+                        "isat(upstairs)"
+                    ],
+                    "upstairs": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "lamp",
+                    "upstairs"
+                ],
+                "detail_intent_referents": [
+                    "bedroom"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "lamp": [
+                        "isat(bedroom)"
+                    ],
+                    "bedroom": [],
+                    "upstairs": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Put the cup on the table by the couch.",
+        "all_referents": [
+            "cup",
+            "table",
+            "couch"
+        ],
+        "ambiguity": "Is the instruction to put the cup onto the table that is by the couch, or to put the cup (which is on the table) by the couch?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Put the cup onto the table that is by the couch.",
+                "prosody_cue": "The 'table by the couch' should be stressed and spoken as a single unit.",
+                "example": "Put the cup on the **table by the couch**."
+            },
+            {
+                "interpretation": "Put the cup (which is on the table) by the couch",
+                "prosody_cue": "Pause after 'cup on the table' which is spoken as a signle unit",
+                "example": "Put the **cup on the table**, by the couch."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "cup",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "couch"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "cup": [],
+                    "table": [
+                        "isbeside(couch)"
+                    ],
+                    "couch": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "cup",
+                    "couch"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "cup": [
+                        "ison(table)"
+                    ],
+                    "couch": [],
+                    "table": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Bring me the book and the newspaper on the chair.",
+        "all_referents": [
+            "book",
+            "newspaper",
+            "chair"
+        ],
+        "ambiguity": "Is the instruction to bring me both the book and the newspaper that are on the chair, or to bring me the book (from elsewhere) and the newspaper that is on the chair?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Bring me both the book and the newspaper that are on the chair.",
+                "prosody_cue": "Slightly pause after 'book and the newspaper' which is spoken as a single unit.",
+                "example": "Bring me the **book and the newspaper**, on the chair."
+            },
+            {
+                "interpretation": "Bring me the book, and the newspaper that is on the chair.",
+                "prosody_cue": "Pause after 'book', with stress on 'newspaper on the chair'.",
+                "example": "Bring me the **book**, and the **newspaper on the chair**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "newspaper"
+                ],
+                "detail_intent_referents": [
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [
+                        "ison(chair)"
+                    ],
+                    "newspaper": [
+                        "ison(chair)"
+                    ],
+                    "chair": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "newspaper"
+                ],
+                "detail_intent_referents": [
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [],
+                    "newspaper": [
+                        "ison(chair)"
+                    ],
+                    "chair": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Pick up the mug on the coaster near the sink.",
+        "all_referents": [
+            "mug",
+            "coaster",
+            "sink"
+        ],
+        "ambiguity": "Is the instruction to pick up the mug that is on the coaster near the sink (meaning the coaster is near the sink), or to pick up the mug that is on the coaster, near the sink (meaning the mug itself is near the sink)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Pick up the mug that is on the coaster near the sink (the coaster is near the sink).",
+                "prosody_cue": "No pause between 'coaster' and 'near the sink', with 'coaster near the sink' spoken as a single unit.",
+                "example": "Pick up the mug on the **coaster near the sink**."
+            },
+            {
+                "interpretation": "Pick up the mug that is on the coaster, near the sink (the mug is near the sink).",
+                "prosody_cue": "Slight pause after 'coaster', with stress on 'near the sink'",
+                "example": "Pick up the mug on the **coaster**, **near the sink**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "mug"
+                ],
+                "detail_intent_referents": [
+                    "coaster",
+                    "sink"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "mug": [
+                        "ison(coaster::isnear(sink))"
+                    ],
+                    "coaster": [
+                        "isnear(sink)"
+                    ],
+                    "sink": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "mug"
+                ],
+                "detail_intent_referents": [
+                    "coaster",
+                    "sink"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "mug": [
+                        "ison(coaster)",
+                        "isnear(sink)"
+                    ],
+                    "coaster": [],
+                    "sink": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Bring me the pillow and the blanket on the chair.",
+        "all_referents": [
+            "pillow",
+            "blanket",
+            "chair"
+        ],
+        "ambiguity": "Is the instruction to bring both the pillow and the blanket that are on the chair, or to bring the pillow (from elsewhere) and the blanket that is on the chair?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Bring both the pillow and the blanket that are on the chair.",
+                "prosody_cue": "Slight pause after 'pillow and the blanket', spoken as a unit, indicating both items are on the chair.",
+                "example": "Bring me the **pillow and the blanket**, on the chair."
+            },
+            {
+                "interpretation": "Bring the pillow (from elsewhere) and the blanket that is on the chair.",
+                "prosody_cue": "Pause after 'pillow', with stress on 'blanket on the chair' to indicate that only the blanket is on the chair.",
+                "example": "Bring me the **pillow**, and the **blanket on the chair**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "pillow",
+                    "blanket"
+                ],
+                "detail_intent_referents": [
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "pillow": [
+                        "ison(chair)"
+                    ],
+                    "blanket": [
+                        "ison(chair)"
+                    ],
+                    "chair": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "pillow",
+                    "blanket"
+                ],
+                "detail_intent_referents": [
+                    "chair"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "pillow": [],
+                    "blanket": [
+                        "ison(chair)"
+                    ],
+                    "chair": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the table in the kitchen beside the refrigerator.",
+        "all_referents": [
+            "table",
+            "kitchen",
+            "refrigerator"
+        ],
+        "ambiguity": "Is the instruction to move the table (which is in the kitchen) beside the refrigerator, or to move the table (which is in the kitchen beside the refrigerator) to an unspecified location?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the table (which is in the kitchen) beside the refrigerator.",
+                "prosody_cue": "Pause after 'table in the kitchen', with stress on 'beside the refrigerator', indicating the final position of the table.",
+                "example": "Move the **table in the kitchen**, **beside the refrigerator**."
+            },
+            {
+                "interpretation": "Move the table (which is in the kitchen beside the refrigerator) to an unspecified location.",
+                "prosody_cue": "No pause between 'kitchen' and 'beside the refrigerator', with 'kitchen beside the refrigerator' spoken as a single unit.",
+                "example": "Move the **table in the kitchen beside the refrigerator**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "table",
+                    "refrigerator"
+                ],
+                "detail_intent_referents": [
+                    "kitchen"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "table": [
+                        "isin(kitchen)"
+                    ],
+                    "kitchen": [],
+                    "refrigerator": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "kitchen",
+                    "refrigerator"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "table": [
+                        "isin(kitchen::isbeside(refrigerator))"
+                    ],
+                    "kitchen": [
+                        "isbeside(refrigerator)"
+                    ],
+                    "refrigerator": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the basket with the fruits on the counter.",
+        "all_referents": [
+            "basket",
+            "fruits",
+            "counter"
+        ],
+        "ambiguity": "Is the instruction to place the basket (which contains the fruits) on the counter, or to place the basket (beside the fruits that are already on the counter)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the basket (which contains the fruits) on the counter.",
+                "prosody_cue": "No pause between 'basket with the fruits', indicating that the basket contains the fruits, and the final position is the counter.",
+                "example": "Place the **basket with the fruits**, on the counter."
+            },
+            {
+                "interpretation": "Place the basket (beside the fruits that are already on the counter).",
+                "prosody_cue": "Pause after 'basket', with stress on 'with the fruits on the counter', indicating that the fruits are already on the counter and the basket is to be placed with them.",
+                "example": "Place the **basket**, with the **fruits on the counter**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "basket",
+                    "counter"
+                ],
+                "detail_intent_referents": [
+                    "fruits"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "basket": [
+                        "contains(fruits)"
+                    ],
+                    "fruits": [],
+                    "counter": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "basket",
+                    "fruits"
+                ],
+                "detail_intent_referents": [
+                    "counter"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "basket": [],
+                    "fruits": [
+                        "ison(counter)"
+                    ],
+                    "counter": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the book and the magazine on the nightstand.",
+        "all_referents": [
+            "book",
+            "magazine",
+            "nightstand"
+        ],
+        "ambiguity": "Is the instruction to bring both the book and the magazine that are on the nightstand, or to bring the book (from elsewhere) and the magazine that is on the nightstand?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Bring both the book and the magazine that are on the nightstand.",
+                "prosody_cue": "Slight pause after 'book and the magazine', spoken as a single unit, indicating both items are on the nightstand.",
+                "example": "Bring the **book and the magazine**, on the nightstand."
+            },
+            {
+                "interpretation": "Bring the book (from elsewhere) and the magazine that is on the nightstand.",
+                "prosody_cue": "Pause after 'book', with stress on 'magazine on the nightstand', indicating only the magazine is on the nightstand.",
+                "example": "Bring the **book**, and the **magazine on the nightstand**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "magazine"
+                ],
+                "detail_intent_referents": [
+                    "nightstand"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [
+                        "ison(nightstand)"
+                    ],
+                    "magazine": [
+                        "ison(nightstand)"
+                    ],
+                    "nightstand": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "magazine"
+                ],
+                "detail_intent_referents": [
+                    "nightstand"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [],
+                    "magazine": [
+                        "ison(nightstand)"
+                    ],
+                    "nightstand": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the vase near the flowers on the table.",
+        "all_referents": [
+            "vase",
+            "flowers",
+            "table"
+        ],
+        "ambiguity": "Is the instruction to place the vase near the flowers (that are already on the table), or to place the vase (that is near the flowers) on the table?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the vase near the flowers (that are on the table).",
+                "prosody_cue": "No pause between 'flowers' and 'on the table', with 'flowers on the table' spoken as a unit to indicate the flowers are on the table.",
+                "example": "Place the vase near **the flowers on the table**."
+            },
+            {
+                "interpretation": "Place the vase (near the flowers) on the table.",
+                "prosody_cue": "Pause after 'flowers', with stress on 'on the table', indicating that the vase is being placed on the table",
+                "example": "Place the **vase near the flowers**, on the table."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "vase",
+                    "flowers"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vase": [],
+                    "flowers": [
+                        "ison(table)"
+                    ],
+                    "table": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "vase",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "flowers"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vase": [
+                        "isnear(flowers)"
+                    ],
+                    "flowers": [],
+                    "table": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Send the bottle behind the sofa to the television.",
+        "all_referents": [
+            "bottle",
+            "sofa",
+            "television"
+        ],
+        "ambiguity": "Is the instruction to send the bottle (that is behind the sofa) to the television, or to send the bottle (and place it behind the sofa, relative to the television)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Send the bottle (that is behind the sofa) to the television.",
+                "prosody_cue": "No pause between 'bottle behind the sofa', indicating the bottle is already behind the sofa and is to be sent to the television.",
+                "example": "Send the **bottle behind the sofa**, to the television."
+            },
+            {
+                "interpretation": "Send the bottle (and place it behind the sofa, relative to the television).",
+                "prosody_cue": "Pause after 'bottle', with stress on 'behind the sofa' to indicate that 'behind the sofa' is where the bottle should be placed relative to the television.",
+                "example": "Send the **bottle**, behind the **sofa to the television**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "bottle",
+                    "television"
+                ],
+                "detail_intent_referents": [
+                    "sofa"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "bottle": [
+                        "isbehind(sofa)"
+                    ],
+                    "sofa": [],
+                    "television": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "bottle",
+                    "sofa"
+                ],
+                "detail_intent_referents": [
+                    "television"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "bottle": [],
+                    "sofa": ["isnextto(television)"],
+                    "television": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the wire through the hoop to the socket.",
+        "all_referents": [
+            "wire",
+            "hoop",
+            "socket"
+        ],
+        "ambiguity": "Is the instruction to move the wire through the hoop and towards the socket, or to move the wire (already through the hoop) to the socket?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the wire through the hoop and towards the socket.",
+                "prosody_cue": "No pause between 'hoop' and 'to the socket', indicating that the wire must pass through the hoop on its way to the socket.",
+                "example": "Move the **wire through the hoop**, to the **socket**."
+            },
+            {
+                "interpretation": "Move the wire (which is already through the hoop) to the socket.",
+                "prosody_cue": "Pause after 'hoop', with stress on 'to the socket', indicating the wire is already through the hoop and now needs to be moved to the socket.",
+                "example": "Move the **wire through the hoop**, **to the socket**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "wire",
+                    "hoop",
+                    "socket"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "wire": [],
+                    "hoop": [],
+                    "socket": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "wire",
+                    "socket"
+                ],
+                "detail_intent_referents": [
+                    "hoop"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "wire": [
+                        "isthrough(hoop)"
+                    ],
+                    "hoop": [],
+                    "socket": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the coke can beside the pringles on the counter.",
+        "all_referents": [
+            "coke can",
+            "pringles",
+            "counter"
+        ],
+        "ambiguity": "Is the instruction to place the coke can (which is currently beside the pringles) on some counter, or to take the coke can (which is somewhere else) and place it beside the pringles (that are already on the counter)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the coke can (which is currently beside the pringles) on some counter.",
+                "prosody_cue": "No pause between 'coke can beside the pringles', with stress on 'on the counter', indicating that the whole phrase 'coke can beside the pringles' is treated as one unit and both are moved to the counter.",
+                "example": "Place the **coke can beside the pringles**, on the counter."
+            },
+            {
+                "interpretation": "Take the coke can (which is somewhere else) and place it beside the pringles (that are already on the counter).",
+                "prosody_cue": "Pause after 'coke can', with stress on 'beside the pringles on the counter', indicating that the pringles are already on the counter and the coke can is being placed beside them.",
+                "example": "Place the **coke can**, beside the **pringles on the counter**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "coke can",
+                    "counter"
+                ],
+                "detail_intent_referents": [
+                    "pringles"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "coke can": [
+                        "isbeside(pringles)"
+                    ],
+                    "pringles": [],
+                    "counter": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "coke can",
+                    "pringles"
+                ],
+                "detail_intent_referents": [
+                    "counter"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "coke can": [],
+                    "pringles": [
+                        "ison(counter)"
+                    ],
+                    "counter": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the coffee machine above the shelf to the right.",
+        "all_referents": [
+            "coffee machine",
+            "shelf",
+            "right"
+        ],
+        "ambiguity": "Is the instruction to move the coffee machine (which is currently above the shelf) to the right, or to move the coffee machine so that it is now above some shelf which is currently to the right?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the coffee machine (which is currently above the shelf) to the right.",
+                "prosody_cue": "No pause between 'above the shelf', indicating that the coffee machine is already positioned above the shelf and needs to be moved to the right.",
+                "example": "Move the **coffee machine above the shelf**, to the **right**."
+            },
+            {
+                "interpretation": "Move the coffee machine above some shelf (which is to the right).",
+                "prosody_cue": "Pause after 'coffee machine', with stress on 'the shelf to the right'",
+                "example": "Move the **coffee machine**, above the **shelf to the right**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "coffee machine"
+                ],
+                "detail_intent_referents": [
+                    "shelf"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "coffee machine": [
+                        "isabove(shelf)"
+                    ],
+                    "shelf": [],
+                    "right": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "coffee machine",
+                    "shelf"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "coffee machine": [],
+                    "shelf": [],
+                    "right": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Push the cart between the scanners to the door.",
+        "all_referents": [
+            "cart",
+            "scanners",
+            "door"
+        ],
+        "ambiguity": "Is the instruction to push the cart (which is already between the scanners) to the door, or to push the cart (by passing it between the scanners) to the door?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Push the cart (which is already between the scanners) to the door.",
+                "prosody_cue": "No pause between 'cart between the scanners', indicating the cart is already between the scanners and should now be moved to the door.",
+                "example": "Push the **cart between the scanners**, to the **door**."
+            },
+            {
+                "interpretation": "Push the cart (by passing it between the scanners) to the door.",
+                "prosody_cue": "Pause after 'cart', with stress on 'between the scanners', and pause afer 'scanners' indicating that the cart must pass between the scanners on its way to the door.",
+                "example": "Push the **cart**, between the **scanners** to the door."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "cart",
+                    "door"
+                ],
+                "detail_intent_referents": [
+                    "scanners"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "cart": [
+                        "isbetween(scanners)"
+                    ],
+                    "scanners": [],
+                    "door": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "cart",
+                    "scanners",
+                    "door"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "cart": [],
+                    "scanners": [],
+                    "door": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the camera below the drone near the pot.",
+        "all_referents": [
+            "camera",
+            "drone",
+            "pot"
+        ],
+        "ambiguity": "Is the instruction to place the camera (which is already below the drone) near the pot, or to place the camera below the drone, and this position (below the drone) is near the pot?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the camera (which is already below the drone) near the pot.",
+                "prosody_cue": "No pause between 'camera below the drone', indicating the camera is already positioned below the drone and now needs to be placed near the pot.",
+                "example": "Place the **camera below the drone**, near the **pot**."
+            },
+            {
+                "interpretation": "Place the camera below the drone, and that position (below the drone) is near the pot.",
+                "prosody_cue": "Pause after 'drone', with stress on 'near the pot', indicating that the camera should be placed below the drone, and this drone is near the pot.",
+                "example": "Place the **camera**, below the drone, near the pot."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "camera",
+                    "pot"
+                ],
+                "detail_intent_referents": [
+                    "drone"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "camera": [
+                        "isbelow(drone)"],
+                    "drone": [],
+                    "pot": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "camera",
+                    "drone"
+                ],
+                "detail_intent_referents": [
+                    "pot"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "camera": [],
+                    "drone": [
+                        "isnear(pot)"
+                    ],
+                    "pot": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the kettle over the sink to the fridge.",
+        "all_referents": [
+            "kettle",
+            "sink",
+            "fridge"
+        ],
+        "ambiguity": "Is the instruction to move the kettle (which is already positioned over the sink) to the fridge, or to move the kettle (by passing it over the sink) towards the fridge?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the kettle (which is already positioned over the sink) to the fridge.",
+                "prosody_cue": "No pause between 'kettle over the sink', indicating that the kettle is already positioned over the sink and needs to be moved to the fridge.",
+                "example": "Move the **kettle over the sink**, to the **fridge**."
+            },
+            {
+                "interpretation": "Move the kettle (by passing it over the sink) towards the fridge.",
+                "prosody_cue": "Pause after 'kettle', with stress on 'over the sink', indicating that the kettle must be passed over the sink on its way to the fridge.",
+                "example": "Move the **kettle**, **over the sink** to the fridge."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "kettle",
+                    "fridge"
+                ],
+                "detail_intent_referents": [
+                    "sink"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "kettle": [
+                        "isover(sink)"
+                    ],
+                    "sink": [],
+                    "fridge": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "kettle",
+                    "fridge"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "kettle": [],
+                    "sink": [],
+                    "fridge": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Drive the vehicle around the pit carefully to the station.",
+        "all_referents": [
+            "vehicle",
+            "pit",
+            "station"
+        ],
+        "ambiguity": "Is the instruction to drive the vehicle (which is already around the pit) carefully to the station, or to drive the vehicle (by going around the pit) carefully towards the station?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Drive the vehicle (which is already around the pit) carefully to the station.",
+                "prosody_cue": "No pause between 'vehicle around the pit', indicating that the vehicle is already positioned around the pit and now needs to be driven carefully to the station.",
+                "example": "Drive the **vehicle around the pit**, carefully to the **station**."
+            },
+            {
+                "interpretation": "Drive the vehicle (by going around the pit) carefully towards the station.",
+                "prosody_cue": "Pause after 'vehicle', with stress on 'around the pit', indicating that the vehicle needs to navigate around the pit as it is driven to the station.",
+                "example": "Drive the **vehicle**, around the **pit carefully**, to the **station**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "vehicle",
+                    "station"
+                ],
+                "detail_intent_referents": [
+                    "pit"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vehicle": [
+                        "isaround(pit)"
+                    ],
+                    "pit": [],
+                    "station": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "vehicle",
+                    "station"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": ["pit"],
+                "all_details": {
+                    "vehicle": [],
+                    "pit": [],
+                    "station": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the chair behind the cabinet carefully.",
+        "all_referents": [
+            "chair",
+            "cabinet"
+        ],
+        "ambiguity": "Is the instruction to move the chair (which is already behind the cabinet) carefully, or to move the chair (so that it ends up behind the cabinet) carefully?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the chair (which is already behind the cabinet) carefully.",
+                "prosody_cue": "No pause between 'chair behind the cabinet', indicating that the chair is already behind the cabinet and needs to be moved carefully from that position.",
+                "example": "Move the **chair behind the cabinet**, carefully."
+            },
+            {
+                "interpretation": "Move the chair (so that it ends up behind the cabinet) carefully.",
+                "prosody_cue": "Pause after 'chair', with stress on 'behind the cabinet', indicating that the chair should be moved to a position behind the cabinet carefully.",
+                "example": "Move the **chair**, behind the **cabinet carefully**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "chair"
+                ],
+                "detail_intent_referents": [
+                    "cabinet"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "chair": [
+                        "isbehind(cabinet)"
+                    ],
+                    "cabinet": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "chair",
+                    "cabinet"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "chair": [],
+                    "cabinet": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Send the drone over the green box to the lamp post.",
+        "all_referents": [
+            "drone",
+            "green box",
+            "lamp post"
+        ],
+        "ambiguity": "Is the instruction to send the drone (which is already positioned over the green box) to the lamp post, or to send the drone (by flying it over the green box) towards the lamp post?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Send the drone (which is already positioned over the green box) to the lamp post.",
+                "prosody_cue": "No pause between 'drone over the green box', indicating that the drone is already positioned over the green box and should now be sent to the lamp post.",
+                "example": "Send the **drone over the green box**, to the **lamp post**."
+            },
+            {
+                "interpretation": "Send the drone (by flying it over the green box) towards the lamp post.",
+                "prosody_cue": "Pause after 'drone', with stress on 'over the green box', indicating that the drone must pass over the green box on its way to the lamp post.",
+                "example": "Send the **drone**, over the **green box to the lamp post**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "drone",
+                    "lamp post"
+                ],
+                "detail_intent_referents": [
+                    "green box"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "drone": [
+                        "isover(green box)"
+                    ],
+                    "green box": [],
+                    "lamp post": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "drone",
+                    "lamp post"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "drone": [],
+                    "green box": [],
+                    "lamp post": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Transport the equipment below the platform to the site.",
+        "all_referents": [
+            "equipment",
+            "platform",
+            "site"
+        ],
+        "ambiguity": "Is the instruction to transport the equipment (which is already below the platform) to the site, or to transport the equipment (by moving it below the platform) to the site?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Transport the equipment (which is already below the platform) to the site.",
+                "prosody_cue": "No pause between 'equipment below the platform', indicating that the equipment is already positioned below the platform and now needs to be transported to the site.",
+                "example": "Transport the **equipment below the platform**, to the **site**."
+            },
+            {
+                "interpretation": "Transport the equipment (by moving it below the platform) to the site.",
+                "prosody_cue": "Pause after 'equipment', with stress on 'below the platform', indicating that the equipment needs to be transported by moving it below the platform on its way to the site.",
+                "example": "Transport the **equipment**, below the **platform** to the site."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "equipment",
+                    "site"
+                ],
+                "detail_intent_referents": [
+                    "platform"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "equipment": [
+                        "isbelow(platform)"
+                    ],
+                    "platform": [],
+                    "site": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "equipment",
+                    "site"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "equipment": [],
+                    "platform": [],
+                    "site": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Guide the vehicle under the bridge to the depot.",
+        "all_referents": [
+            "vehicle",
+            "bridge",
+            "depot"
+        ],
+        "ambiguity": "Is the instruction to guide the vehicle (which is already under the bridge) to the depot, or to guide the vehicle (by moving it under the bridge) towards the depot?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Guide the vehicle (which is already under the bridge) to the depot.",
+                "prosody_cue": "No pause between 'vehicle under the bridge', indicating the vehicle is already positioned under the bridge and should now be guided to the depot.",
+                "example": "Guide the **vehicle under the bridge**, to the **depot**."
+            },
+            {
+                "interpretation": "Guide the vehicle (by moving it under the bridge) towards the depot.",
+                "prosody_cue": "Pause after 'vehicle', with stress on 'under the bridge', indicating that the vehicle should be guided by passing it under the bridge on its way to the depot.",
+                "example": "Guide the **vehicle**, under the **bridge to the depot**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "vehicle",
+                    "depot"
+                ],
+                "detail_intent_referents": [
+                    "bridge"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vehicle": [
+                        "isunder(bridge)"
+                    ],
+                    "bridge": [],
+                    "depot": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "vehicle",
+                    "depot"
+                ],
+                "detail_intent_referents": [],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "vehicle": [],
+                    "bridge": [],
+                    "depot": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the sandwich near the drink on the table.",
+        "all_referents": [
+            "sandwich",
+            "drink",
+            "table"
+        ],
+        "ambiguity": "Is the instruction to place the sandwich near the drink (which is already on the table), or to place the sandwich (which is near the drink) on the table?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the sandwich near the drink (which is already on the table).",
+                "prosody_cue": "No pause between 'drink' and 'on the table', indicating that the drink is already on the table and the sandwich needs to be placed near it.",
+                "example": "Place the sandwich near the **drink on the table**."
+            },
+            {
+                "interpretation": "Place the sandwich (which is near the drink) on the table.",
+                "prosody_cue": "Pause after 'drink', with stress on 'on the table', indicating that the sandwich and the drink are near each other, and the sandwich needs to be placed on the table.",
+                "example": "Place the **sandwich near the drink**, on the table."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "sandwich",
+                    "drink"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "sandwich": [],
+                    "drink": [
+                        "ison(table)"
+                    ],
+                    "table": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "sandwich",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "drink"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "sandwich": [
+                        "isnear(drink)"
+                    ],
+                    "drink": [],
+                    "table": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the jar on the shelf near the door.",
+        "all_referents": [
+            "jar",
+            "shelf",
+            "door"
+        ],
+        "ambiguity": "Is the instruction to place the jar on the shelf that is near the door, or to place the jar (which is already on the shelf) near the door?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the jar on the shelf that is near the door.",
+                "prosody_cue": "No pause between 'shelf' and 'near the door', indicating that 'near the door' modifies the location of the shelf.",
+                "example": "Place the jar on the **shelf near the door**."
+            },
+            {
+                "interpretation": "Place the jar (which is already on the shelf) near the door.",
+                "prosody_cue": "Pause after 'shelf', with stress on 'near the door', indicating that the jar should be placed near the door, and it is already on the shelf.",
+                "example": "Place the jar on the **shelf**, near the **door**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "jar",
+                    "shelf"
+                ],
+                "detail_intent_referents": [
+                    "door"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "jar": [],
+                    "shelf": [
+                        "isnear(door)"
+                    ],
+                    "door": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "jar",
+                    "door"
+                ],
+                "detail_intent_referents": [
+                    "shelf"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "jar": [
+                        "ison(shelf)"
+                    ],
+                    "shelf": [],
+                    "door": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Put the keys under the book on the table.",
+        "all_referents": [
+            "keys",
+            "book",
+            "table"
+        ],
+        "ambiguity": "Is the instruction to put the keys under the book (which is already on the table), or to take the keys (which are currently under the book) and put them on the table?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Put the keys under the book (which is already on the table).",
+                "prosody_cue": "No pause between 'book' and 'on the table', indicating that the book is already on the table, and the keys need to be placed under it.",
+                "example": "Put the **keys under the book** on the **table**."
+            },
+            {
+                "interpretation": "Take the keys (which are currently under the book) and put them on the table.",
+                "prosody_cue": "Pause after 'book', with stress on 'on the table', indicating that the keys are currently under the book, and the goal is to place them on the table.",
+                "example": "Put the **keys**, under the **book**, on the **table**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "keys",
+                    "book"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "keys": [],
+                    "book": [
+                        "ison(table)"
+                    ],
+                    "table": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "keys",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "book"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "keys": ["isunder(book)"],
+                    "book": [],
+                    "table": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the chair beside the sofa close to the window.",
+        "all_referents": [
+            "chair",
+            "sofa",
+            "window"
+        ],
+        "ambiguity": "Is the instruction to move the chair (which is already beside the sofa) closer to the window, or to move the chair so that it is now beside the sofa (and the sofa is already close to the window)?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the chair (which is already beside the sofa) closer to the window.",
+                "prosody_cue": "No pause between 'sofa' and 'close to the window', indicating that the chair is beside the sofa and the entire unit needs to be moved closer to the window.",
+                "example": "Move the **chair beside the sofa**, closer to the **window**."
+            },
+            {
+                "interpretation": "Move the chair so that it is now beside the sofa (and the sofa is already close to the window).",
+                "prosody_cue": "Pause after 'chair', with stress on 'beside the sofa', indicating the chair is being moved beside the sofa, which is already close to the window.",
+                "example": "Move the **chair**, beside the **sofa close to the window**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "chair",
+                    "window"
+                ],
+                "detail_intent_referents": [
+                    "sofa"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "chair": [
+                        "isbeside(sofa)"
+                    ],
+                    "sofa": [],
+                    "window": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "chair",
+                    "sofa"
+                ],
+                "detail_intent_referents": [
+                    "window"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "chair": [],
+                    "sofa": [
+                        "isclose(to(window))"
+                    ],
+                    "window": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Place the lamp on the nightstand by the bed.",
+        "all_referents": [
+            "lamp",
+            "nightstand",
+            "bed"
+        ],
+        "ambiguity": "Is the instruction to place the lamp on the nightstand (which is already by the bed), or to place the lamp (which is already on the nightstand) next to the bed?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Place the lamp on the nightstand (which is already by the bed).",
+                "prosody_cue": "No pause between 'nightstand' and 'by the bed', indicating the nightstand is already positioned by the bed, and the lamp should be placed on it.",
+                "example": "Place the **lamp on the nightstand** by the **bed**."
+            },
+            {
+                "interpretation": "Place the lamp (which is already on the nightstand) next to the bed.",
+                "prosody_cue": "Pause after 'nightstand', with stress on 'by the bed', indicating that the lamp, already on the nightstand, should be moved together with the nightstand next to the bed.",
+                "example": "Place the **lamp on the nightstand**, by the **bed**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "lamp",
+                    "nightstand"
+                ],
+                "detail_intent_referents": [
+                    "bed"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "lamp": [],
+                    "nightstand": [
+                        "isby(bed)"
+                    ],
+                    "bed": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "lamp",
+                    "bed"
+                ],
+                "detail_intent_referents": [
+                    "nightstand"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "lamp": [
+                        "ison(nightstand)"
+                    ],
+                    "nightstand": [],
+                    "bed": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Bring the mug from the table near the sink.",
+        "all_referents": [
+            "mug",
+            "table",
+            "sink"
+        ],
+        "ambiguity": "Is the instruction to bring the mug from the table (which is already near the sink), or to bring the mug from the table and place it near the sink?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Bring the mug from the table (which is already near the sink).",
+                "prosody_cue": "No pause between 'table' and 'near the sink', indicating that the table is already near the sink and the mug is to be taken from that table.",
+                "example": "Bring the **mug from the table near the sink**."
+            },
+            {
+                "interpretation": "Bring the mug from the table and place it near the sink.",
+                "prosody_cue": "Pause after 'table', with stress on 'near the sink', indicating that the mug is being moved from the table and then placed near the sink.",
+                "example": "Bring the **mug from the table**, near the **sink**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "mug"
+                ],
+                "detail_intent_referents": [
+                    "table",
+                    "sink"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "mug": [
+                        "ison(table::isnear(sink))"
+                    ],
+                    "table": [
+                        "isnear(sink)"
+                    ],
+                    "sink": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "mug",
+                    "sink"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "mug": [
+                        "ison(table)"
+                    ],
+                    "table": [],
+                    "sink": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Hang the painting above the couch near the window.",
+        "all_referents": [
+            "painting",
+            "couch",
+            "window"
+        ],
+        "ambiguity": "Is the instruction to hang the painting (which is already above the couch) near the window, or to hang the painting above the couch that is currently positioned near the window?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Hang the painting (which is already above the couch) near the window.",
+                "prosody_cue": "Pause after 'painting', with stress on 'near the window', indicating that the painting is already above the couch and should be moved near the window.",
+                "example": "Hang the **painting**, near the **window**."
+            },
+            {
+                "interpretation": "Hang the painting above the couch that is currently positioned near the window.",
+                "prosody_cue": "No pause between 'couch' and 'near the window', indicating that the couch is near the window and the painting should be hung above it.",
+                "example": "Hang the **painting above the couch near the window**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "painting",
+                    "window"
+                ],
+                "detail_intent_referents": [
+                    "couch"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "painting": [
+                        "isabove(couch)"
+                    ],
+                    "couch": [],
+                    "window": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "painting",
+                    "couch"
+                ],
+                "detail_intent_referents": [
+                    "window"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "painting": [],
+                    "couch": [
+                        "isnear(window)"
+                    ],
+                    "window": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Move the book under the lamp near the shelf.",
+        "all_referents": [
+            "book",
+            "lamp",
+            "shelf"
+        ],
+        "ambiguity": "Is the instruction to move the book (which is already under the lamp) near the shelf, or to move the book under the lamp that is currently positioned near the shelf?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Move the book (which is already under the lamp) near the shelf.",
+                "prosody_cue": "Pause after 'book', with stress on 'near the shelf', indicating that the book (already under the lamp) should be moved near the shelf.",
+                "example": "Move the **book under the lamp**, near the shelf."
+            },
+            {
+                "interpretation": "Move the book under the lamp that is currently positioned near the shelf.",
+                "prosody_cue": "No pause between 'lamp' and 'near the shelf', indicating that the lamp is near the shelf, and the book should be placed under the lamp.",
+                "example": "Move the **book** under the **lamp near the shelf**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "shelf"
+                ],
+                "detail_intent_referents": [
+                    "lamp"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [
+                        "isunder(lamp)"
+                    ],
+                    "lamp": [],
+                    "shelf": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "book",
+                    "lamp"
+                ],
+                "detail_intent_referents": [
+                    "shelf"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "book": [],
+                    "lamp": [
+                        "isnear(shelf)"
+                    ],
+                    "shelf": []
+                }
+            }
+        ]
+    },
+    {
+        "instruction": "Push the sofa behind the table to the wall.",
+        "all_referents": [
+            "sofa",
+            "table",
+            "wall"
+        ],
+        "ambiguity": "Is the instruction to push the sofa (which is already behind the table) to the wall, or to push the sofa (so that it ends up behind the table) to the wall?",
+        "prosody_clarification": [
+            {
+                "interpretation": "Push the sofa (which is already behind the table) to the wall.",
+                "prosody_cue": "No pause between 'sofa behind the table', indicating that the sofa is already behind the table and now needs to be pushed to the wall.",
+                "example": "Push the **sofa behind the table**, to the **wall**."
+            },
+            {
+                "interpretation": "Push the sofa (so that it ends up behind the table) to the wall.",
+                "prosody_cue": "Pause after 'sofa', with stress on 'behind the table', indicating that the sofa should be moved to a position behind the table, and then both will be against the wall.",
+                "example": "Push the **sofa**, behind the **table to the wall**."
+            }
+        ],
+        "intent_groundtruth": [
+            {
+                "goal_intent_referents": [
+                    "sofa",
+                    "wall"
+                ],
+                "detail_intent_referents": [
+                    "table"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "sofa": [
+                        "isbehind(table)"
+                    ],
+                    "table": [],
+                    "wall": []
+                }
+            },
+            {
+                "goal_intent_referents": [
+                    "sofa",
+                    "table"
+                ],
+                "detail_intent_referents": [
+                    "wall"
+                ],
+                "avoidance_intent_referents": [],
+                "all_details": {
+                    "sofa": [],
+                    "table": ["isnextto(wall)"],
+                    "wall": []
+                }
+            }
+        ]
+    }
+]
