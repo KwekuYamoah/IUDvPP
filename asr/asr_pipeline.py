@@ -114,7 +114,7 @@ def asr_pipeline_openai(audio_folder: str) -> str:
             transcriptions[audio_file] = transcription
             
     # Convert the dictionary to a json file
-    json_file = "asr/transcriptions.json"
+    json_file = "asr/transcriptions_find_error.json"
     with open(json_file, "w") as json_file:
         json.dump(transcriptions, json_file, indent=4)
     
@@ -177,21 +177,21 @@ def main():
         None
     """
 
-    # parser = argparse.ArgumentParser(description="ASR Pipeline")
-    # parser.add_argument("--audio_folder", type=str, help="Path to the folder containing audio files")
-    # parser.add_argument("--mode", type=str, help="ASR mode: 'openai' or 'local'")
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="ASR Pipeline")
+    parser.add_argument("--audio_folder", type=str, help="Path to the folder containing audio files")
+    parser.add_argument("--mode", type=str, help="ASR mode: 'openai' or 'local'")
+    args = parser.parse_args()
 
-    # if args.mode == "openai":
-    #     json_file = asr_pipeline_openai(args.audio_folder)
-    #     print(f"Transcriptions from API endpoint: {json_file}")
-    # elif args.mode == "local":
-    #     json_file = asr_pipeline_local(args.audio_folder)
-    #     print(f"Transcriptions from local model: {json_file}")
-    # else:
-    #     print("Invalid mode. Please choose 'openai' or 'local'.")
+    if args.mode == "openai":
+        json_file = asr_pipeline_openai(args.audio_folder)
+        print(f"Transcriptions from API endpoint: {json_file}")
+    elif args.mode == "local":
+        json_file = asr_pipeline_local(args.audio_folder)
+        print(f"Transcriptions from local model: {json_file}")
+    else:
+        print("Invalid mode. Please choose 'openai' or 'local'.")
 
-    print(asr_infer_pipeline("./ltl/test_samples/test01.wav"))
+    # print(asr_infer_pipeline("./ltl/test_samples/test01.wav"))
 
 if __name__ == "__main__":
     main()

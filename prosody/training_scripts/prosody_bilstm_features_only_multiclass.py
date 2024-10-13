@@ -12,6 +12,8 @@ import pandas as pd
 import re
 import torch.nn.utils.rnn as rnn_utils
 
+
+
 # Set the random seeds for reproducibility
 def set_seed(seed):
     random.seed(seed)
@@ -354,7 +356,7 @@ if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/data/reconstructed_extracted_features.json'
+    json_path = '../prosody/data/multi_label_features.json'
     data = load_data(json_path)
 
     train_data, val_data, test_data = split_data(data)
@@ -367,9 +369,9 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
+    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
     # Get feature dimension from the dataset
     sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
@@ -386,8 +388,8 @@ if __name__ == "__main__":
     HIDDEN_DIM = 256
     OUTPUT_DIM = num_classes  # Updated to num_classes
     NUM_LAYERS = 8
-    DROPOUT = 0.13234009854266668
-    NUM_ATTENTION_LAYERS = 8
+    DROPOUT = 0.2558928063466464
+    NUM_ATTENTION_LAYERS = 4
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {device}')
@@ -396,15 +398,17 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
-    # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
+    summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
     optimizer = optim.Adam(model.parameters(), 
-                           lr=0.0005438229945889153, 
-                           weight_decay=1e-5)
+                           lr=0.0019472591083452308, 
+                           weight_decay=3.6994893422536516e-06)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
 
+
+    
 
 
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
@@ -434,11 +438,12 @@ if __name__ == "__main__":
         val_f1s.append(valid_f1)
 
         # Update the learning rate scheduler
-        # scheduler.step(valid_loss)
+        scheduler.step(valid_loss)
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
             torch.save(model.state_dict(), 'models/best-model-features-multiclass-version.pt')
+            # torch.onnx.export(model, (sample_features.to(device), sample_lengths.to(device)), 'models/prosodic_bilstm_features_multiclass.onnx', input_names=['features', 'lengths'], output_names=['class probabilities'])
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
