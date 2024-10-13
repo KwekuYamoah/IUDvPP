@@ -34,9 +34,9 @@ def rename_files(participant_folder, project_name, participant_id, gender, outpu
 
 if __name__ == "__main__":
     # Example usage
-    participant_folder = "pre_process_unamed/k_samples"  # Folder containing original audio files for the participant
+    participant_folder = "pre_process_unamed/c_samples"  # Folder containing original audio files for the participant
     project_name = "pid"  # Project name
-    participant_id = 4  # participant number
-    gender = "m"  # Female participant
+    participant_id = 8  # participant number
+    gender = "f"  # Female participant
 
     rename_files(participant_folder, project_name, participant_id, gender, output_folder=f'{project_name}_{gender}0{participant_id}')
