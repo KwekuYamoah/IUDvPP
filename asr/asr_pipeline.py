@@ -74,50 +74,49 @@ def asr_infer_pipeline(audio_file_path: str) -> str:
 
 
 
-
-
 def asr_pipeline_openai(audio_folder: str) -> str:
     """
-    Transcribes audio files in a given folder using OpenAI's Whisper ASR model.
+    Recursively transcribes audio files in a given folder and its subdirectories using OpenAI's Whisper ASR model.
 
     Args:
-        audio_folder (str): The path to the folder containing the audio files.
+        audio_folder (str): The path to the parent folder containing the audio files.
 
     Returns:
         str: The name of the JSON file containing the transcriptions.
 
     """
-
-    #create client object
+    # Create client object
     client = OpenAI(api_key=API_KEY)
 
-    #test for audio file example
-
-    #Adapt for multiple files in a folder
-    audio_files = os.listdir(audio_folder)
+    # Initialize an empty dictionary to store transcriptions
     transcriptions = {}
 
-    for audio_file in audio_files:
-        if audio_file.endswith(".m4a") or audio_file.endswith(".wav"):
-            # Get the audio file path
-            audio_file_path = os.path.join(audio_folder, audio_file)
-            # Transcribe the audio file
-            audio = open(audio_file_path, "rb")
-            transcription = client.audio.transcriptions.create(
-                model="whisper-1",
-                file=audio,
-                language= "en",
-                response_format= "text",
-            )
+    # Recursively find all audio files in the given folder and its subdirectories
+    for root, _, files in os.walk(audio_folder):
+        for audio_file in files:
+            if audio_file.endswith(".m4a") or audio_file.endswith(".wav"):
+                # Get the audio file path
+                audio_file_path = os.path.join(root, audio_file)
+                # Transcribe the audio file
+                with open(audio_file_path, "rb") as audio:
+                    transcription = client.audio.transcriptions.create(
+                        model="whisper-1",
+                        file=audio,
+                        language="en",
+                        response_format="text",
+                    )
+                    # Sanitize transcription by converting to lowercase and stripping newlines
+                    sanitized_transcription = transcription.lower().replace("\n", "").strip()
 
-            # Store the transcription in the dictionary
-            transcriptions[audio_file] = transcription
-            
-    # Convert the dictionary to a json file
-    json_file = "asr/transcriptions_ambiguous.json"
-    with open(json_file, "w") as json_file:
-        json.dump(transcriptions, json_file, indent=4)
-    
+                    # Store the sanitized transcription in the dictionary
+                    transcriptions[audio_file_path] = sanitized_transcription
+
+    # Convert the dictionary to a JSON file
+    json_file = "asr/transcriptions_ambiguous_instructions.json"
+    os.makedirs(os.path.dirname(json_file), exist_ok=True)
+    with open(json_file, "w") as json_file_obj:
+        json.dump(transcriptions, json_file_obj, indent=4)
+
     return json_file
 
 def asr_pipeline_local(audio_folder: str) -> str:
