@@ -34,107 +34,6 @@ def extract_prosody_features(audio_path):
 
     return prosody_features
 
-# def create_audio_slices(audio_path, textgrid_path, output_folder):
-#     # Load the audio file
-#     audio = AudioSegment.from_file(audio_path)
-#     print(audio)
-
-#     # Load the TextGrid file and read its contents
-#     with open(textgrid_path, 'r') as f:
-#         file_contents = f.readlines()
-
-#     # Iterate through each line in the TextGrid file
-#     for index, line in enumerate(file_contents):
-#         # Split the line into start time, end time, and word
-#         start_time_str, end_time_str, word = line.strip().split('\t')
-#         start_time = float(start_time_str)
-#         end_time = float(end_time_str)
-
-#         # Skip empty words
-#         if not word:
-#             continue
-
-#         # Create a buffer window around the word, except for the first word
-#         if index != 0:
-#             start_time = max(0, start_time - 0.010)  # Subtract 5 milliseconds
-#         end_time = end_time + 0.035  # Add 35 milliseconds
-
-#         # Create a slice of the original audio
-#         start_ms = int(start_time * 1000)  # Convert to milliseconds
-#         end_ms = int(end_time * 1000)  # Convert to milliseconds
-#         audio_slice = audio[start_ms:end_ms]
-
-#         # Construct the filename
-#         filename = f"{os.path.basename(audio_path).split('.')[0]}_{word}_{index}_{start_time:.3f}_{end_time:.3f}.wav"
-#         output_path = os.path.join(output_folder, filename)
-
-#         # Export the slice
-#         audio_slice.export(output_path, format="wav")
-#         print(f"Saved: {output_path}")
-
-
-# def prepare_features_json(input_folder, output_json_path):
-#     """
-#     Processes audio slices to extract prosodic features and save them in a JSON file.
-
-#     Args:
-#         input_folder (str): Folder containing sliced audio files.
-#         output_json_path (str): Path to save the JSON file.
-#     """
-#     # Create a dictionary to store the results
-#     results = {}
-
-#     # Iterate through each file in the input folder
-#     for filename in os.listdir(input_folder):
-#         if filename.endswith(".wav"):
-#             # Construct the full file path
-#             audio_path = os.path.join(input_folder, filename)
-
-#             # Extract the root name, word, and position from the filename
-#             parts = filename.split('_')
-#             #remove the first index in parts
-#             parts.pop(0)
-
-#             root_name = parts[0]
-#             word = parts[1]
-#             position = int(parts[2])
-#             start_time = float(parts[3])
-#             end_time = float(parts[4].replace('.wav', ''))
-
-#             # Extract prosodic features
-#             features = extract_prosody_features(audio_path)
-#             features[torch.isnan(features)] = 0
-
-#             # Convert the tensor to a list
-#             features_list = features.tolist()
-
-#             # get current directory
-#             current_dir = os.getcwd()
-
-#             # Prepare data structure for the file
-#             if root_name not in results:
-#                 results[root_name] = {
-#                     "filepath": os.path.join(current_dir, root_name + ".wav"),
-#                     "words": [],
-#                     "positions": [],
-#                     "features": []
-#                 }
-
-#             # Append the word, position, and features to the respective lists
-#             results[root_name]["words"].append((position, word))
-#             results[root_name]["positions"].append((position, position))
-#             results[root_name]["features"].append((position, features_list))
-
-#     # Sort the words, positions, and features by their positions
-#     for root_name, data in results.items():
-#         data["words"] = [word for position, word in sorted(data["words"])]
-#         data["positions"] = [position for position, _ in sorted(data["positions"])]
-#         data["features"] = [features for position, features in sorted(data["features"])]
-
-#     # Write the results to a JSON file
-#     with open(output_json_path, 'w') as json_file:
-#         json.dump(results, json_file, indent=4)
-#     print(f"Saved results to {output_json_path}")
 
 def construct_feature_json(previous_json_path, new_json_storage_path):
     '''
@@ -162,8 +61,6 @@ def construct_feature_json(previous_json_path, new_json_storage_path):
 
         new_json_file_contents.append({file_path: {'input_features': new_features.tolist(), 'labels': item[file_path]['labels'], 'words': item[file_path]['words']}})
     
-
-
 
     with open(new_json_storage_path, 'w') as output_file:
         json.dump(new_json_file_contents, output_file)
@@ -243,10 +140,6 @@ def restructure_json_objects(json_object_path):
     return
 
 
-#extract_prosody_features('/Users/dasa/Desktop/prosody_ltl/IUDvPP-main/language_files/en/pm04_in_003.wav')
-#construct_feature_json('./en_extracted_features.json', './new_en_extracted_features.json')
-# restructure_json_objects('./combined_extracted_features.json')
-
 
 
 # Utility functions
@@ -285,8 +178,8 @@ def create_audio_slices(audio_path, textgrid_path, output_folder):
 
         # Create a buffer window around the word, except for the first word
         if index != 0:
-            start_time = max(0, start_time - 0.005)  # Subtract 5 milliseconds
-        end_time = end_time + 0.050  # Add 35 milliseconds
+            start_time = max(0, start_time - 0.010)  # Subtract 5 milliseconds
+        end_time = end_time + 0.035  # Add 35 milliseconds
 
         # Create a slice of the original audio
         start_ms = int(start_time * 1000)  # Convert to milliseconds
