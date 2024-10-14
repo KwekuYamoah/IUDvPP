@@ -286,7 +286,7 @@ def create_audio_slices(audio_path, textgrid_path, output_folder):
         # Create a buffer window around the word, except for the first word
         if index != 0:
             start_time = max(0, start_time - 0.005)  # Subtract 5 milliseconds
-        end_time = end_time + 0.015  # Add 15 milliseconds
+        end_time = end_time + 0.050  # Add 35 milliseconds
 
         # Create a slice of the original audio
         start_ms = int(start_time * 1000)  # Convert to milliseconds
@@ -321,14 +321,13 @@ def prepare_features_json(input_folder, output_json_path, data):
 
             # Extract the root name, word, and position from the filename
             parts = filename.split('_')
-            # Remove the first index in parts
-            parts.pop(0)
+            
 
-            root_name = parts[0]
-            word = parts[1].rstrip('.')  # Remove full stop if it exists
-            position = int(parts[2])
-            start_time = float(parts[3])
-            end_time = float(parts[4].replace('.wav', ''))
+            root_name = '_'.join(parts[0:4]) # get root name from index 0-3
+            word = parts[4].rstrip('.')  # Remove full stop if it exists
+            position = int(parts[5])
+            start_time = float(parts[6])
+            end_time = float(parts[7].replace('.wav', ''))
 
             # Extract prosodic features
             features = extract_prosody_features(audio_path)
@@ -356,7 +355,7 @@ def prepare_features_json(input_folder, output_json_path, data):
             results[root_name]["features"].append((position, features_list))
 
             # Determine label based on JSON data
-            id = int(root_name.split('_')[1])  # Extract ID from root name
+            id = int(root_name.split('_')[2])  # Extract ID from root name
             interpretation_index = 0 if 'i1' in root_name else 1
             json_entry = next((entry for entry in data if entry['id'] == id), None)
             if json_entry:
@@ -416,6 +415,9 @@ def main():
 
     # Prepare features JSON from the sliced audio files
     prepare_features_json(temp_folder, output_json_path, data)
+
+    # Empty the temp folder
+    empty_temp_folder(temp_folder)
 
 if __name__ == "__main__":
     main()
