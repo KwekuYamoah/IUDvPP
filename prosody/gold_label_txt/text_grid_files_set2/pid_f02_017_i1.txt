@@ -1,7 +1,7 @@
 place 0
 the 0
 cork 0
-can 0
+can 1
 beside 0
 the 0
 pringles 2

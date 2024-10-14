@@ -1,7 +1,7 @@
 place 0
 the 0
-coke 0
-can 0
+coke 1
+can 1
 beside 0
 the 0
 pringles 1

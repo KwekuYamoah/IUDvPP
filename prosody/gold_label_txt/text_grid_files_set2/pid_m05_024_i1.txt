@@ -3,8 +3,8 @@ a 0
 drone 1
 over 0
 the 0
-green 0
-box 0
+green 2
+box 2
 to 0
 the 0
 lamp 0

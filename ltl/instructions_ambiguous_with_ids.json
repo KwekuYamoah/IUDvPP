@@ -1325,30 +1325,30 @@
         "id": 23
     },
     {
-        "instruction": "Send the drone over the green box to the lamp post.",
+        "instruction": "Send the drone over the green box to the lamppost.",
         "all_referents": [
             "drone",
             "green box",
-            "lamp post"
+            "lamppost"
         ],
-        "ambiguity": "Is the instruction to send the drone (which is already positioned over the green box) to the lamp post, or to send the drone (by flying it over the green box) towards the lamp post?",
+        "ambiguity": "Is the instruction to send the drone (which is already positioned over the green box) to the lamppost, or to send the drone (by flying it over the green box) towards the lamppost?",
         "prosody_clarification": [
             {
-                "interpretation": "Send the drone (which is already positioned over the green box) to the lamp post.",
-                "prosody_cue": "No pause between 'drone over the green box', indicating that the drone is already positioned over the green box and should now be sent to the lamp post.",
-                "example": "Send the **drone over the green box**, to the **lamp post**."
+                "interpretation": "Send the drone (which is already positioned over the green box) to the lamppost.",
+                "prosody_cue": "No pause between 'drone over the green box', indicating that the drone is already positioned over the green box and should now be sent to the lamppost.",
+                "example": "Send the **drone over the green box**, to the **lamppost**."
             },
             {
-                "interpretation": "Send the drone (by flying it over the green box) towards the lamp post.",
-                "prosody_cue": "Pause after 'drone', with stress on 'over the green box', indicating that the drone must pass over the green box on its way to the lamp post.",
-                "example": "Send the **drone**, over the **green box to the lamp post**."
+                "interpretation": "Send the drone (by flying it over the green box) towards the lamppost.",
+                "prosody_cue": "Pause after 'drone', with stress on 'over the green box', indicating that the drone must pass over the green box on its way to the lamppost.",
+                "example": "Send the **drone**, over the **green box to the lamppost**."
             }
         ],
         "intent_groundtruth": [
             {
                 "goal_intent_referents": [
                     "drone",
-                    "lamp post"
+                    "lamppost"
                 ],
                 "detail_intent_referents": [
                     "green box"
@@ -1359,20 +1359,20 @@
                         "isover(green box)"
                     ],
                     "green box": [],
-                    "lamp post": []
+                    "lamppost": []
                 }
             },
             {
                 "goal_intent_referents": [
                     "drone",
-                    "lamp post"
+                    "lamppost"
                 ],
                 "detail_intent_referents": [],
                 "avoidance_intent_referents": [],
                 "all_details": {
                     "drone": [],
                     "green box": [],
-                    "lamp post": []
+                    "lamppost": []
                 }
             }
         ],

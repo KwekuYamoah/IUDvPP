@@ -155,6 +155,14 @@ def empty_temp_folder(temp_folder):
         shutil.rmtree(temp_folder)
     os.makedirs(temp_folder)
 
+# Function to normalize and split words
+def normalize_and_split(word):
+    return word.lower().split(' ')
+
+# Function to check if a word belongs to a referent list
+def check_word_in_referents(word, referents):
+    return any(word in normalize_and_split(referent) for referent in referents)
+
 def create_audio_slices(audio_path, textgrid_path, output_folder):
     """Create audio slices from the TextGrid file."""
     # Load the audio file
@@ -253,11 +261,11 @@ def prepare_features_json(input_folder, output_json_path, data):
             json_entry = next((entry for entry in data if entry['id'] == id), None)
             if json_entry:
                 intent_groundtruth = json_entry['intent_groundtruth'][interpretation_index]
-                if word in intent_groundtruth['goal_intent_referents']:
+                if check_word_in_referents(word, intent_groundtruth['goal_intent_referents']):
                     label = 1
-                elif word in intent_groundtruth['detail_intent_referents']:
+                elif check_word_in_referents(word, intent_groundtruth['detail_intent_referents']):
                     label = 2
-                elif word in intent_groundtruth['avoidance_intent_referents']:
+                elif check_word_in_referents(word, intent_groundtruth['avoidance_intent_referents']):
                     label = 3
                 else:
                     label = 0

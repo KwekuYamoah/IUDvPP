@@ -7,5 +7,5 @@ the 0
 table 2
 with 0
 the 0
-red 0
-cover 0
+red 2
+cover 2
