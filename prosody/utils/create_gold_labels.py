@@ -49,6 +49,6 @@ def write_word_label_pairs(json_file, output_dir):
     print(f"Word-label pairs successfully written to {output_dir}")
 
 # Example usage
-json_file = '../prosody/data/reconstructed_extracted_features.json'
-output_dir = 'gold_label_txt'
+json_file = '../prosody/data/ambiguous_prosody_multi_label_features.json'
+output_dir = 'gold_label_txt/text_grid_files_set2'
 write_word_label_pairs(json_file, output_dir)

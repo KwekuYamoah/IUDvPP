@@ -1,0 +1,10 @@
+move 0
+the 0
+coffee 0
+machine 0
+above 0
+the 0
+shelf 1
+to 0
+the 0
+right 0

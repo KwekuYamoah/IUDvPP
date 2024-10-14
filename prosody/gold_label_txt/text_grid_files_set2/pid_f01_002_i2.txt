@@ -1,0 +1,13 @@
+move 0
+the 0
+bottom 0
+side 0
+of 0
+the 0
+table 2
+to 0
+the 0
+right 0
+of 0
+the 0
+chair 2

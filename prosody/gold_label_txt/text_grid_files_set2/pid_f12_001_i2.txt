@@ -1,0 +1,9 @@
+place 0
+the 0
+rug 1
+in 0
+the 0
+basket 2
+beside 0
+the 0
+fridge 1

@@ -1,0 +1,9 @@
+push 0
+the 0
+carts 0
+with 0
+windows 0
+canisters 0
+to 0
+the 0
+door 1

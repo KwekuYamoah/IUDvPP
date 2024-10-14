@@ -1,0 +1,10 @@
+place 0
+the 0
+cork 0
+can 0
+beside 0
+the 0
+pringles 2
+on 0
+the 0
+counter 1

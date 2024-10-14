@@ -1,0 +1,9 @@
+push 0
+the 0
+cut 0
+between 0
+the 0
+scanners 1
+to 0
+the 0
+door 1

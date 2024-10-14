@@ -1,0 +1,10 @@
+place 0
+the 0
+vase 1
+near 0
+the 0
+flowers 1
+on 0
+the 0
+tea 0
+wall 0

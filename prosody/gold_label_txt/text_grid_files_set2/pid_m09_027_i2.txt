@@ -1,0 +1,6 @@
+place 0
+the 0
+sandwich-near-the-drink 0
+on 0
+the 0
+table 1

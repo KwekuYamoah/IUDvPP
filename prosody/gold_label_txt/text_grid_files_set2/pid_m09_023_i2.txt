@@ -1,0 +1,7 @@
+move 0
+their 0
+chair 1
+behind 0
+their 0
+cabinets 0
+carefully 0

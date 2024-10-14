@@ -1,0 +1,10 @@
+send 0
+the 0
+drone 1
+over 0
+the 0
+green 0
+box 0
+in 0
+the 0
+lamppost 0

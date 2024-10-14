@@ -1,0 +1,9 @@
+push 0
+the 0
+sofa 1
+behind 0
+the 0
+table 1
+to 0
+the 0
+wall 2

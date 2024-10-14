@@ -30,7 +30,7 @@ def slice_audio(audio_file, start_time, end_time, tmp_folder):
     return temp_filename
 
 
-def extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder, fixed_length=19074, target_sr=22050):
+def extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder, fixed_length=28114, target_sr=22050):
     # Slice the word's segment using pydub
     temp_word_file = slice_audio(audio_file, start_time, end_time, tmp_folder)
     
@@ -49,7 +49,7 @@ def extract_raw_audio_features(audio_file, start_time, end_time, tmp_folder, fix
 def get_audio_segment_length(audio_file, start_time, end_time):
     # adjusting start and end times to expand context window
     start_time = max(0, start_time - 0.010) # 10ms before the start time
-    end_time = float(end_time) + 0.025 # 25ms after the end time 
+    end_time = float(end_time) + 0.035 # 35ms after the end time 
 
     duration = float(end_time) - float(start_time)
     y, sr = librosa.load(audio_file, sr=22050, offset=float(start_time), duration=duration)
@@ -65,7 +65,6 @@ def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_fol
         if label_file.endswith('.txt'):
             # Extract filename (without extension) and gold labels
             file_id = label_file.replace('.txt', '')  # The id without file extension
-            audio_filename = f"{file_id}.wav"
             gold_labels_file = os.path.join(gold_labels_dir, label_file)
             
             # Load the gold labels (word and corresponding label)
@@ -77,11 +76,17 @@ def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_fol
                         word, label = parts
                         gold_labels[word.lower().strip(string.punctuation)] = label  # Sanitize word
             
-            # Find corresponding TextGrid and audio file
+            # Find corresponding TextGrid and audio files
             textgrid_file = os.path.join(textgrid_dir, f"{file_id}.TextGrid")
-            audio_file = os.path.join(audio_dir, audio_filename)
             
-            if os.path.exists(textgrid_file) and os.path.exists(audio_file):
+            # Recursively find the audio file in the directory
+            audio_file = None
+            for root, _, files in os.walk(audio_dir):
+                if f"{file_id}.wav" in files:
+                    audio_file = os.path.join(root, f"{file_id}.wav")
+                    break
+            
+            if os.path.exists(textgrid_file) and audio_file and os.path.exists(audio_file):
                 # Initialize the data for this file
                 file_data = {
                     "words": [],
@@ -119,10 +124,10 @@ def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_fol
 
 
 if __name__ == "__main__":
-    text_grid_dir = "../prosody/text_grid_files_v2"
-    audio_dir = "../voice_samples"
-    gold_labels_dir = "../prosody/gold_label_txt"
-    output_file = "../prosody/data/extracted_audio_features.json"
+    text_grid_dir = "../prosody/text_grid_files_set2"
+    audio_dir = "../voice_sample_two_ways"
+    gold_labels_dir = "../prosody/gold_label_txt/text_grid_files_set2"
+    output_file = "../prosody/data/ambiguous_raw_extracted_audio_ml_features.json"
     tmp_folder = "./tmp_audio_slices"
 
     # Ensure the temporary folder exists

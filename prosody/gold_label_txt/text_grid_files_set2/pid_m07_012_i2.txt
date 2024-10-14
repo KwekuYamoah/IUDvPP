@@ -1,0 +1,9 @@
+place 0
+the 0
+basket 1
+with 0
+the 0
+fruits 1
+on 0
+the 0
+counter 2
