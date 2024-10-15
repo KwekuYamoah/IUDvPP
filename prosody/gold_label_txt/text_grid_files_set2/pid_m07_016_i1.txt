@@ -1,9 +1,0 @@
-move 0
-the 0
-wire 1
-through 0
-the 0
-hoop 1
-to 0
-the 0
-sockets 0

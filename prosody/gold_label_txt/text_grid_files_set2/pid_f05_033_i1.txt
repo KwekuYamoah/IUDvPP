@@ -1,9 +1,0 @@
-hung 0
-the 0
-painting 1
-above 0
-the 0
-couch 2
-near 0
-the 0
-window 1

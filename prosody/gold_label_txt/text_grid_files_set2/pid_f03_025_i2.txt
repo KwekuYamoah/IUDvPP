@@ -1,9 +1,0 @@
-transpose 0
-the 0
-equipment 1
-below 0
-the 0
-platform 0
-to 0
-the 0
-site 1

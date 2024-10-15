@@ -1,0 +1,9 @@
+ride 0
+the 0
+vehicle 1
+under 0
+the 0
+bridge 0
+to 0
+the 0
+depot 1

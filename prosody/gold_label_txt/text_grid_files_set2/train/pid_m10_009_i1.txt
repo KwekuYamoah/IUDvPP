@@ -1,0 +1,10 @@
+pick 0
+up 0
+the 0
+mark 0
+on 0
+the 0
+coaster 2
+near 0
+the 0
+sink 2

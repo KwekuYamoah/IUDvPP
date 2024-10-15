@@ -1,8 +1,0 @@
-place 0
-baskets 0
-with 0
-the 0
-fruits 2
-on 0
-the 0
-counter 1

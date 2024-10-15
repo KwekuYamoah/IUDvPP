@@ -1,9 +1,0 @@
-please 0
-a 0
-sandwich 1
-near 0
-the 0
-drink 2
-on 0
-the 0
-table 1

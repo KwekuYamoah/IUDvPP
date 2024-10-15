@@ -1,8 +1,0 @@
-the 0
-table 1
-in 0
-the 0
-kitchen 2
-beside 0
-the 0
-refrigerator 2

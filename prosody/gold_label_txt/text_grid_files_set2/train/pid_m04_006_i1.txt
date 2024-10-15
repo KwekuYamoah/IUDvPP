@@ -1,0 +1,7 @@
+bring 0
+the 0
+lump 0
+from 0
+the 0
+bedroom 1
+upstairs 2

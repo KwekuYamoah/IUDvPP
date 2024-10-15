@@ -1,9 +1,0 @@
-bring 0
-the 0
-mug 1
-from 0
-the 0
-table 2
-near 0
-the 0
-sink 1

@@ -1,0 +1,9 @@
+place 0
+the 0
+jaw 0
+on 0
+the 0
+shelf 2
+near 0
+the 0
+door 1

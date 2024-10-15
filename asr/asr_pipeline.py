@@ -61,6 +61,10 @@ def asr_infer_pipeline(audio_file_path: str) -> str:
             language="en",
             response_format="text",
         )
+        # Sanitize transcription by converting to lowercase and stripping newlines
+        sanitized_transcription = transcription.lower().replace("\n", "").strip()
+        print(f'New TS: {sanitized_transcription}')
+
 
     
     # Create the JSON file path
@@ -68,7 +72,7 @@ def asr_infer_pipeline(audio_file_path: str) -> str:
 
     # Save the transcription to the JSON file
     with open(json_file_path, "w") as json_file:
-        json.dump({audio_file_path: transcription}, json_file, indent=4)
+        json.dump({audio_file_path: sanitized_transcription}, json_file, indent=4)
 
     return transcription
 

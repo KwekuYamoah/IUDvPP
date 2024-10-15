@@ -1,0 +1,10 @@
+drag 0
+the 0
+vehicle 1
+around 0
+the 0
+pits 0
+carefully 0
+through 0
+the 0
+station 1

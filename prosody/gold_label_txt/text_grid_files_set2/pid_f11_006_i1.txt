@@ -1,7 +1,0 @@
-turning 0
-the 0
-lamp 1
-from 0
-the 0
-bedroom 1
-upstairs 2

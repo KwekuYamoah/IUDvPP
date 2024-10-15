@@ -1,0 +1,8 @@
+move 0
+book 1
+under 0
+the 0
+lamp 2
+near 0
+the 0
+shelf 1

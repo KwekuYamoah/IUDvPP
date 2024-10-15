@@ -1,9 +1,0 @@
-place 0
-the 0
-camera 1
-below 0
-the 0
-drone, 0
-near 0
-the 0
-pot 1

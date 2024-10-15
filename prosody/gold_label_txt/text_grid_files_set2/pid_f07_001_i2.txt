@@ -1,9 +1,0 @@
-place 0
-the 0
-rag 0
-in 0
-the 0
-basket 2
-beside 0
-the 0
-fridge 1

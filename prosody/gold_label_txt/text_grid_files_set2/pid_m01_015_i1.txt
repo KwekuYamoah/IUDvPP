@@ -1,9 +1,0 @@
-send 0
-the 0
-bottle 1
-behind 0
-the 0
-sofa 2
-to 0
-the 0
-television 1

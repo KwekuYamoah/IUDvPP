@@ -1,7 +1,0 @@
-move 0
-the 0
-chair 1
-behind 0
-the 0
-covenants, 0
-carefully 0

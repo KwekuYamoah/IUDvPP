@@ -1,9 +1,0 @@
-transport 0
-the 0
-equipment 1
-below 0
-the 0
-platform 2
-to 0
-the 0
-site 1
