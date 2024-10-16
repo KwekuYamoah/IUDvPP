@@ -45,58 +45,64 @@ Examples:
     Avoidance_intent: none
     Detail_intent: none
     Output: 
-    initial_referents_with_spatial_predicates = []
+    Explanation: By looking at the given goal_intent objects, I understand that orange_building, coffee_shop, parking_sign are the the objects i need to go. There are no avoidance_intent objects and no detail_intent objects. Based on the instruction i will fist go to the coffee_shop, then i will go to orange_building and then i will go to the parking_sign.
+    Resolved referents with spatial predicates: []
+    Task plan: 
     1. goto[coffee_shop] 
     2. goto[orange_building]
     3. goto[parking_sign]
-    Explanation: By looking at the given goal_intent objects, I understand that orange_building, coffee_shop, parking_sign are the the objects i need to go. There are no avoidance_intent objects and no detail_intent objects. Based on the instruction i will fist go to the coffee_shop, then i will go to orange_building and then i will go to the parking_sign.
 
     Input_instruction: Go to the blue sofa then the laptop, after that bring me the brown bag between the television and the kettle on the left of the green seat, I am standing by the sink.
     Goal_intents: blue_sofa, laptop, brown_bag, sink
     Avoidance_intent: none
     Detail_intent: television, kettle, green_seat    
     Output: 
-    initial_referents_with_spatial_predicates = ["brown_bag::isbetween(television,kettle::isleftof(green_seat))"]
-    In my plan I will always stick to "brown_bag::isbetween(television,kettle::isleftof(green_seat))" whenever i need to reference brown_bag
+    Explanation: By looking at the goal_intent objects I understand that i need to focus on the blue_sofa, laptop, brown_bag and sink. Based on the context of the instruction I can see that the brown_bag is qualified by the television and kettle detail intents and the kettle itself is also qualified by the green_seat. I will first visit the blue_sofa and then the laptop, then i will go to the brown_bag, pick it up and go place it on the sink. 
+    Resolved referents with spatial predicates: ["brown_bag::isbetween(television,kettle::isleftof(green_seat))"]
+    In my plan I will always stick to "brown_bag::isbetween(television,kettle::isleftof(green_seat))" whenever i need to reference brown_bag   
+    Task plan: 
     1. goto[blue_sofa]
     2. goto[laptop]
     3. goto[brown_bag::isbetween(television,kettle::isleftof(green_seat))] 
     4. pick[brown_bag::isbetween(television,kettle::isleftof(green_seat))] 
     5. goto[sink] 
     6. place[brown_bag::isbetween(television,kettle::isleftof(green_seat)),sink]
-    Explanation: By looking at the goal_intent objects I understand that i need to focus on the blue_sofa, laptop, brown_bag and sink. Based on the context of the instruction I can see that the brown_bag is qualified by the television and kettle detail intents and the kettle itself is also qualified by the green_seat. I will first visit the blue_sofa and then the laptop, then i will go to the brown_bag, pick it up and go place it on the sink. 
 
     Input_instruction: Hey need you to pass by chair between the sofa and bag, pick up the bag and go to the orange napkin on the right of the sofa.
     Goal_intents: chair, bag, orange_napkin
     Avoidance_intent: none
     Detail_intent: sofa, bag
     Output: 
-    initial_referents_with_spatial_predicates =  ["chair::isbetween(sofa,bag)", "orange_napkin::isrightof(sofa)"]
+    Explanation: Hmm, after thinking about this I will first fo to the chair goal intent object that is between the sofa and bag detail intent objects, then i will go to the bag to pick it up and send it to the orange_napkin goal object which is also qualified by the sofa detail intent object, there is nothing to avoid while i do this.
+    Resolved referents with spatial predicates:  ["chair::isbetween(sofa,bag)", "orange_napkin::isrightof(sofa)"]
     In my plan I will always stick to "chair::isbetween(sofa,bag)" whenever i need to reference chair
     In my plan I will always stick to "orange_napkin::isrightof(sofa)" whenever i need to reference orange_napkin
+    Task plan:
     1. goto[chair::isbetween(sofa,bag)] 
     2. goto[bag] 
     3. pick[bag]
     4. goto[orange_napkin::isrightof(sofa)]
-    Explanation: Hmm, after thinking about this I will first fo to the chair goal intent object that is between the sofa and bag detail intent objects, then i will go to the bag to pick it up and send it to the orange_napkin goal object which is also qualified by the sofa detail intent object, there is nothing to avoid while i do this.
-    
+
     Input_instruction:  Go to the chair between the green laptop and the yellow box underneath the play toy
     Goal_intents: chair
     Avoidance_intent: none
     Detail_intent: green_laptop, yellow_box, play_toy   
     Output: 
-    initial_referents_with_spatial_predicates =  ["chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))"]
-    In my plan I will always stick to "chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))" whenever i need to reference chair
-    1. goto[chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))]
     Explanation: I actually only need to go to the chair. That chair is between the green_laptop and the yellow_box which is below the play toy.
+    Resolved referents with spatial predicates:  ["chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))"]
+    In my plan I will always stick to "chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))" whenever i need to reference chair  
+    Task plan:
+    1. goto[chair::isbetween(green_laptop,yellow_box::isbelow(play_toy))]
 
     Input_instruction: Check the table behind the fridge and bring two beers to the couch one after the other
     Goal_intents: table, beer, couch
     Avoidance_intent: none
     Detail_intent: fridge    
     Output: 
-    initial_referents_with_spatial_predicates = ["table::isbehind(fridge)"]
+    Explanation: I understand from the given intent labels that i must focus on the table, the beer and the couch, the table i care about is behind the fridge. I will first go to the table, get the beer, go the couch and put it down and go back to the table for the last beer and return to the couch to put it down as well.
+    Resolved referents with spatial predicates: ["table::isbehind(fridge)"]
     In my plan I will always stick to "table::isbehind(fridge)" whenever i need to reference table
+    Task plan:
     1. goto[table::isbehind(fridge)] 
     2. pick[beer] 
     3. goto[couch] 
@@ -105,5 +111,4 @@ Examples:
     6. pick[beer] 
     7. goto[couch] 
     8. place[beer,couch]
-    Explanation: I understand from the given intent labels that i must focus on the table, the beer and the couch, the table i care about is behind the fridge. I will first go to the table, get the beer, go the couch and put it down and go back to the table for the last beer and return to the couch to put it down as well.
 '''
