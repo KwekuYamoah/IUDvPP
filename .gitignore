@@ -179,15 +179,17 @@ prosody/models/
 ltl/test_samples/
 
 # ignore large data files
-prosody/data/extracted_audio_features.json
-prosody/data/multi_label_extracted_audio_features.json
+prosody/data/extracted_raw_audio_features.json
+prosody/data/multi_label_extracted_raw_audio_features.json
 prosody/data/prosodic_raw_acoustic_features.json
 prosody/data/ambiguous_raw_extracted_audio_ml_features.json
+prosody/data/multi_label_prosodic_raw_acoustic_features.json
+
 
 # ignore temp audio folder
 prosody/tmp_audio_slices/
 
-# ignore .DS_Store files
+# ignore .DS_Store files in MacOS
 **/.DS_Store
 **/*/.DS_Store
 .DS_Store
