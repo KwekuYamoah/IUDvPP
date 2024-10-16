@@ -26,7 +26,7 @@ def compute_time(data_path):
     return total_time
 
 if __name__ == '__main__':
-    data_path = './voice_samples/'
+    data_path = '../voice_sample_two_ways/'
 
     print("Total time for audio files is",compute_time(data_path), "seconds")
     print("Total time for audio files is",compute_time(data_path)/60, "minutes")
