@@ -52,8 +52,8 @@ def limp_llm_plan(limp_plan_incontext_prompt, instruction, intent_dict, baseline
     if "intent_label" in baseline:
         prompt_meat = f'''
         Input_instruction:  {instruction}
-        Goal_intents: {intent_dict['Goal_intent']},
-        Avoidance_intent: {intent_dict['Avoidance_intent']},
+        Goal_intents: {intent_dict['Goal_intent']}
+        Avoidance_intent: {intent_dict['Avoidance_intent']}
         Detail_intent: {intent_dict['Detail_intent']}
         Output: '''
     elif "asr" in baseline:
