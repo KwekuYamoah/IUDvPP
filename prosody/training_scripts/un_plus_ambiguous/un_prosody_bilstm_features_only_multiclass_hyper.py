@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import re
 import torch.nn.utils.rnn as rnn_utils
+import optuna  # Import Optuna for hyperparameter optimization
 
 # Set the random seeds for reproducibility
 def set_seed(seed):
@@ -37,7 +38,7 @@ def load_data(json_path):
         data = json.load(file)
     return data
 
-def split_data(data, train_ratio=0.8, val_ratio=0.0, test_ratio=0.2):
+def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
     assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
     total = len(data)
     train_size = int(total * train_ratio)
@@ -308,12 +309,10 @@ def test_model(model, iterator):
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
 
-    print('*' * 45)
     print(f'Test Accuracy: {accuracy*100:.2f}%')
-    print(f'Test Precision: {precision*100:.2f}')
-    print(f'Test Recall: {recall*100:.2f}')
-    print(f'Test F1 Score: {f1*100:.2f}')
-    print('*' * 45)
+    print(f'Test Precision: {precision*100:.2f}%')
+    print(f'Test Recall: {recall*100:.2f}%')
+    print(f'Test F1 Score: {f1*100:.2f}%')
 
     return all_labels, all_preds
 
@@ -354,41 +353,92 @@ def clean_up_sentence(words, gold_labels, pred_labels):
             filtered_pred_labels.append(int(pred_labels[i]))
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
-
-def evaluate_new_set(model, new_dataset_path):
-    # Load new data
-    new_data = load_data(new_dataset_path)
-    new_dataset = ProsodyDataset(new_data)
-    new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
     
-    # Test the model on the new dataset and get predictions
-    print('\n\nEvaluation on Held Out Set Dataset:')
-    all_labels, all_preds = test_model(model, new_loader)
 
-    # # Print the metrics
-    # print('Evaluation on Held Out Set Dataset:')
-    # print(f'  Loss: {new_loss:.3f}')
-    # print(f'  Accuracy: {new_acc * 100:.2f}%')
-    # print(f'  Precision: {new_precision * 100:.2f}%')
-    # print(f'  Recall: {new_recall * 100:.2f}%')
-    # print(f'  F1 Score: {new_f1 * 100:.2f}%')
+# Define the objective function for Optuna
+def objective(trial):
+    # Suggest hyperparameters
+    HIDDEN_DIM = trial.suggest_categorical('HIDDEN_DIM', [128, 256, 512])
+    NUM_LAYERS = trial.suggest_int('NUM_LAYERS', 2, 8, step=2)
+    DROPOUT = trial.suggest_float('DROPOUT', 0.1, 0.5)
+    NUM_ATTENTION_LAYERS = trial.suggest_int('NUM_ATTENTION_LAYERS', 2, 8, step=2)
+    LR = trial.suggest_float('LR', 1e-5, 1e-2, log=True)
+    WEIGHT_DECAY = trial.suggest_float('WEIGHT_DECAY', 1e-6, 1e-3, log=True)
+    BATCH_SIZE = trial.suggest_categorical('BATCH_SIZE', [32, 64, 128])
 
-    return all_labels, all_preds
+    # Create data loaders with the suggested batch size
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_fn)
+
+    # Get feature dimension from the dataset
+    sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
+    feature_dim = sample_features.shape[2]
+
+    # Determine number of classes dynamically
+    all_labels = []
+
+    for _, _, labels in train_dataset:
+        all_labels.extend(labels.numpy().flatten())
+    global num_classes
+    num_classes = len(np.unique(all_labels))
+
+    global device
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    
+
+    encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
+    decoder = Decoder(HIDDEN_DIM, num_classes, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
+    model = Seq2Seq(encoder, decoder).to(device)
+
+    optimizer = optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=False)
+
+    criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
+
+    N_EPOCHS = 50
+    global CLIP
+    CLIP = 1
+
+
+    early_stopping = EarlyStopping(patience=10, min_delta=0.001)
+    best_valid_f1 = 0.0
+
+    for epoch in range(N_EPOCHS):
+        train_loss = train(model, train_loader, optimizer, criterion)
+        valid_loss, valid_acc, valid_precision, valid_recall, valid_f1 = evaluate(model, val_loader, criterion)
+
+        # Update the learning rate scheduler
+        scheduler.step(valid_loss)
+
+        if valid_f1 > best_valid_f1:
+            best_valid_f1 = valid_f1
+
+        early_stopping(valid_loss)
+        if early_stopping.early_stop:
+            break
+
+    return best_valid_f1  # Return validation F1 score to maximize
 
 if __name__ == "__main__":
 
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
-    data = load_data(json_path)
+    am_json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
+    un_json_path = '../prosody/data/prosody_multi_label_features_train.json'
+    am_data = load_data(am_json_path)
+    un_data = load_data(un_json_path)
 
+    # Combine the two datasets
+    data = {**am_data, **un_data}
     # Create a descriptive filename for the model
-    dataset_name = "ambiguous_instructions"
+    dataset_name = "un_ambiguous_instructions"
     task_name = "prosody_multiclass"
     best_model_filename = f"models/best-model-{dataset_name}-{task_name}.pt"
 
-    train_data, val_data, test_data = split_data(data,train_ratio=0.8, val_ratio=0.1, test_ratio=0.1) #train_ratio=0.8, val_ratio=0.1, test_ratio=0.1
+    # Split data with validation set
+    train_data, val_data, test_data = split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1)
 
     train_dataset = ProsodyDataset(dict(train_data))
     val_dataset = ProsodyDataset(dict(val_data))
@@ -398,9 +448,28 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
+    # Hyperparameter optimization with Optuna
+    study = optuna.create_study(direction='maximize')
+    study.optimize(objective, n_trials=200)  # Increase n_trials for more extensive search
+
+    print('Best trial:')
+    trial = study.best_trial
+    print(f'  F1 Score: {trial.value}')
+    print('  Params: ')
+    for key, value in trial.params.items():
+        print(f'    {key}: {value}')
+
+    # Use the best hyperparameters to retrain the model on the combined train and validation sets
+    best_params = trial.params
+
+    # Combine train and validation datasets
+    combined_data = train_dataset.entries + val_dataset.entries
+    combined_dataset = ProsodyDataset(dict(combined_data))
+
+    BATCH_SIZE = best_params['BATCH_SIZE']
+
+    train_loader = DataLoader(combined_dataset, batch_size=BATCH_SIZE, shuffle=True, collate_fn=collate_fn)
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_fn)
 
     # Get feature dimension from the dataset
     sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
@@ -412,31 +481,23 @@ if __name__ == "__main__":
         all_labels.extend(labels.numpy().flatten())
     num_classes = len(np.unique(all_labels))
 
-    print(f'Model Training with {num_classes} classes')
-
-    HIDDEN_DIM = 128
-    OUTPUT_DIM = num_classes  # Updated to num_classes
-    NUM_LAYERS = 2
-    DROPOUT = 0.46413941258903124
-    NUM_ATTENTION_LAYERS = 4
-
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {device}')
 
+    # Unpack best hyperparameters
+    HIDDEN_DIM = best_params['HIDDEN_DIM']
+    NUM_LAYERS = best_params['NUM_LAYERS']
+    DROPOUT = best_params['DROPOUT']
+    NUM_ATTENTION_LAYERS = best_params['NUM_ATTENTION_LAYERS']
+    LR = best_params['LR']
+    WEIGHT_DECAY = best_params['WEIGHT_DECAY']
+
     encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
-    decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
+    decoder = Decoder(HIDDEN_DIM, num_classes, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
-    summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
-
-    optimizer = optim.Adam(model.parameters(), 
-                           lr=0.001175385480166815, 
-                           weight_decay=1.3835287809131501e-05)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
-    # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
-    # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
-
-
+    optimizer = optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
 
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
 
@@ -447,7 +508,7 @@ if __name__ == "__main__":
     val_recalls = []
     val_f1s = []
 
-    N_EPOCHS = 500
+    N_EPOCHS = 100
     CLIP = 1
 
     early_stopping = EarlyStopping(patience=10, min_delta=0.001)
@@ -483,8 +544,3 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(best_model_filename))
     test_model(model, test_loader)
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
-
-    # Evaluate model on held out set
-    eval_json = "../prosody/data/ambiguous_prosody_multi_label_features_eval.json"
-    # Evaluate the model on the new dataset
-    evaluate_new_set(model, eval_json)

@@ -355,10 +355,9 @@ def clean_up_sentence(words, gold_labels, pred_labels):
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
 
-def evaluate_new_set(model, new_dataset_path):
+def evaluate_new_set(model, eval_data_dict):
     # Load new data
-    new_data = load_data(new_dataset_path)
-    new_dataset = ProsodyDataset(new_data)
+    new_dataset = ProsodyDataset(eval_data_dict)
     new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
     
     # Test the model on the new dataset and get predictions
@@ -380,11 +379,23 @@ if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
-    data = load_data(json_path)
+    am_json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
+    un_json_path = '../prosody/data/prosody_multi_label_features_train.json'
+    am_data = load_data(am_json_path)
+    un_data = load_data(un_json_path)
+
+    # Combine the two datasets
+    data = {**am_data, **un_data}
+    
+
+    # Sanity check
+    print(f'Total number of Unambiguous entries: {len(un_data)}')
+    print(f'Total number of Ambiguous entries: {len(am_data)}')
+    print(f'Total number of entries: {len(data)}')
+
 
     # Create a descriptive filename for the model
-    dataset_name = "ambiguous_instructions"
+    dataset_name = "un_ambiguous_instructions"
     task_name = "prosody_multiclass"
     best_model_filename = f"models/best-model-{dataset_name}-{task_name}.pt"
 
@@ -485,6 +496,10 @@ if __name__ == "__main__":
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    eval_json = "../prosody/data/ambiguous_prosody_multi_label_features_eval.json"
+    am_eval_json = "../prosody/data/ambiguous_prosody_multi_label_features_eval.json"
+    un_eval_json = "../prosody/data/prosody_multi_label_features_eval.json"
+
+    # combine the two datasets
+    eval_data = {**load_data(am_eval_json), **load_data(un_eval_json)}
     # Evaluate the model on the new dataset
-    evaluate_new_set(model, eval_json)
+    evaluate_new_set(model, eval_data)

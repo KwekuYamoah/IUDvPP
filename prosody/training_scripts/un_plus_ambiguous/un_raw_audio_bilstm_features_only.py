@@ -1,7 +1,7 @@
 import json
 import random
-import string
 import torch
+import string
 import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
@@ -37,7 +37,7 @@ def load_data(json_path):
         data = json.load(file)
     return data
 
-def split_data(data, train_ratio=0.8, val_ratio=0.0, test_ratio=0.2):
+def split_data(data, train_ratio=0.8, val_ratio=0, test_ratio=0.2):
     assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
     total = len(data)
     train_size = int(total * train_ratio)
@@ -51,8 +51,8 @@ def preprocess_text(words):
         processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
     return processed_words
 
-# Custom padding value for labels
-PADDING_VALUE = -100  # Using -100 as it's the default ignore_index in CrossEntropyLoss
+# Custom padding value (since your labels are 0 or 1, we'll use -1 for padding)
+PADDING_VALUE = -1
 
 class EarlyStopping:
     def __init__(self, patience=5, min_delta=0):
@@ -88,7 +88,8 @@ class ProsodyDataset(Dataset):
         
         return processed_words, features, labels
 
-# Collate function with custom padding value
+
+# Collate function with custom padding value (-1)
 def collate_fn(batch):
     words = [item[0] for item in batch]  # List of lists of words
     features = [item[1] for item in batch]
@@ -100,6 +101,7 @@ def collate_fn(batch):
     lengths = torch.tensor([len(f) for f in features])
 
     return words, features_padded, labels_padded, lengths
+
 
 # Attention layer with masking
 class AttentionLayer(nn.Module):
@@ -146,7 +148,7 @@ class Encoder(nn.Module):
 
         packed_output, (hidden, cell) = self.lstm(packed_input)
 
-        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=0.0)
+        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=PADDING_VALUE)
 
         _, original_indices = sorted_indices.sort()
         outputs = outputs[original_indices]
@@ -160,6 +162,7 @@ class Decoder(nn.Module):
     def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_attention_layers):
         super(Decoder, self).__init__()
         self.hidden_dim = hidden_dim
+        # Corrected input size from hidden_dim * 2 to hidden_dim * 4
         self.lstm = nn.LSTM(hidden_dim * 4, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
         self.fc = nn.Linear(hidden_dim * 2, output_dim)
         self.attention = MultiAttention(hidden_dim, num_attention_layers)
@@ -168,6 +171,7 @@ class Decoder(nn.Module):
         attn_weights = self.attention(hidden[-1], encoder_outputs, mask)
         context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs).squeeze(1)
 
+        # lstm_input size: [batch_size, seq_len, hidden_dim * 4]
         lstm_input = torch.cat(
             (context.unsqueeze(1).repeat(1, encoder_outputs.size(1), 1), encoder_outputs), dim=2
         )
@@ -201,14 +205,11 @@ def train(model, iterator, optimizer, criterion):
 
         optimizer.zero_grad()
         output = model(features, lengths)
-        # output: [batch_size, seq_len, num_classes]
-        # labels: [batch_size, seq_len]
 
         # Flatten outputs and labels
         output = output.view(-1, num_classes)
         labels = labels.view(-1)
 
-        # Mask padding positions
         mask = labels != PADDING_VALUE
         masked_output = output[mask]
         masked_labels = labels[mask]
@@ -233,14 +234,9 @@ def evaluate(model, iterator, criterion):
             lengths = lengths.to(device)
 
             output = model(features, lengths)
-            # output: [batch_size, seq_len, num_classes]
-            # labels: [batch_size, seq_len]
-
-            # Flatten outputs and labels
             output = output.view(-1, num_classes)
             labels = labels.view(-1)
 
-            # Mask padding positions
             mask = labels != PADDING_VALUE
             masked_output = output[mask]
             masked_labels = labels[mask]
@@ -264,7 +260,7 @@ def test_model(model, iterator):
     all_labels = []
     all_preds = []
 
-    with open('./outputs/prosody_bilstm_features_multiclass_results.txt', 'w') as file:
+    with open('./outputs/raw_audio_bilstm_features_results.txt', 'w') as file:
         file.write("")
 
     with torch.no_grad():
@@ -294,7 +290,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/prosody_bilstm_features_multiclass_results.txt', 'a') as file:
+                with open('./outputs/raw_audio_bilstm_features_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -307,14 +303,12 @@ def test_model(model, iterator):
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
-
     print('*' * 45)
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision*100:.2f}')
     print(f'Test Recall: {recall*100:.2f}')
     print(f'Test F1 Score: {f1*100:.2f}')
     print('*' * 45)
-
     return all_labels, all_preds
 
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
@@ -337,7 +331,7 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.plot(epochs, val_f1s, label='Validation F1 Score')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('./outputs/bilstm_features_multiclass_metrics.png')
+    plt.savefig('./outputs/raw_audio_bilstm_features_metrics.png')
 
 def clean_up_sentence(words, gold_labels, pred_labels):
     filtered_words = []
@@ -354,7 +348,7 @@ def clean_up_sentence(words, gold_labels, pred_labels):
             filtered_pred_labels.append(int(pred_labels[i]))
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
-
+    
 def evaluate_new_set(model, new_dataset_path):
     # Load new data
     new_data = load_data(new_dataset_path)
@@ -365,30 +359,20 @@ def evaluate_new_set(model, new_dataset_path):
     print('\n\nEvaluation on Held Out Set Dataset:')
     all_labels, all_preds = test_model(model, new_loader)
 
-    # # Print the metrics
-    # print('Evaluation on Held Out Set Dataset:')
-    # print(f'  Loss: {new_loss:.3f}')
-    # print(f'  Accuracy: {new_acc * 100:.2f}%')
-    # print(f'  Precision: {new_precision * 100:.2f}%')
-    # print(f'  Recall: {new_recall * 100:.2f}%')
-    # print(f'  F1 Score: {new_f1 * 100:.2f}%')
-
     return all_labels, all_preds
-
 if __name__ == "__main__":
-
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
+    json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features.json'
     data = load_data(json_path)
 
     # Create a descriptive filename for the model
     dataset_name = "ambiguous_instructions"
-    task_name = "prosody_multiclass"
+    task_name = "raw_audio_multiclass"
     best_model_filename = f"models/best-model-{dataset_name}-{task_name}.pt"
 
-    train_data, val_data, test_data = split_data(data,train_ratio=0.8, val_ratio=0.1, test_ratio=0.1) #train_ratio=0.8, val_ratio=0.1, test_ratio=0.1
+    train_data, val_data, test_data = split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1) #train_ratio=0.8, val_ratio=0.1, test_ratio=0.1
 
     train_dataset = ProsodyDataset(dict(train_data))
     val_dataset = ProsodyDataset(dict(val_data))
@@ -398,15 +382,16 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, collate_fn=collate_fn)
+    # Create the DataLoader
+    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
-    # Get feature dimension from the dataset
+    # Get feature dimension from the dataset (after padding)
     sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
-    feature_dim = sample_features.shape[2]
+    feature_dim = sample_features.shape[2]  # Get feature dimension from padded features
 
-    # Determine number of classes dynamically
+    # Number of classes (excluding padding)
     all_labels = []
     for _, _, labels in train_dataset:
         all_labels.extend(labels.numpy().flatten())
@@ -414,11 +399,12 @@ if __name__ == "__main__":
 
     print(f'Model Training with {num_classes} classes')
 
-    HIDDEN_DIM = 128
-    OUTPUT_DIM = num_classes  # Updated to num_classes
-    NUM_LAYERS = 2
-    DROPOUT = 0.46413941258903124
-    NUM_ATTENTION_LAYERS = 4
+    # Proceed with model creation and training
+    HIDDEN_DIM = 256
+    OUTPUT_DIM = num_classes 
+    NUM_LAYERS = 8
+    DROPOUT = 0.13234009854266668
+    NUM_ATTENTION_LAYERS = 8
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {device}')
@@ -427,15 +413,14 @@ if __name__ == "__main__":
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
     model = Seq2Seq(encoder, decoder).to(device)
 
+
     summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
     optimizer = optim.Adam(model.parameters(), 
-                           lr=0.001175385480166815, 
-                           weight_decay=1.3835287809131501e-05)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
-    # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
-    # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
-
+                           lr=0.0005438229945889153, 
+                           weight_decay=1e-5)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
+    # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.1, patience=10, verbose=True)
 
 
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
@@ -464,7 +449,7 @@ if __name__ == "__main__":
         val_recalls.append(valid_recall)
         val_f1s.append(valid_f1)
 
-        # Update the learning rate scheduler
+        # Update the learning rate based on the validation loss
         scheduler.step(valid_loss)
 
         if valid_loss < best_valid_loss:
@@ -485,6 +470,6 @@ if __name__ == "__main__":
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    eval_json = "../prosody/data/ambiguous_prosody_multi_label_features_eval.json"
+    eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json"
     # Evaluate the model on the new dataset
     evaluate_new_set(model, eval_json)
