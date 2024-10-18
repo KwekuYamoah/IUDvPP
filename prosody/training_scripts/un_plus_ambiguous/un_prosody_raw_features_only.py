@@ -19,7 +19,7 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU.
+    torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
 
@@ -37,7 +37,7 @@ def load_data(json_path):
         data = json.load(file)
     return data
 
-def split_data(data, train_ratio=0.8, val_ratio=0, test_ratio=0.2):
+def split_data(data, train_ratio=0.8, val_ratio=0.0, test_ratio=0.2):
     assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
     total = len(data)
     train_size = int(total * train_ratio)
@@ -55,7 +55,7 @@ def preprocess_text(words):
 PADDING_VALUE = -1
 
 class EarlyStopping:
-    def __init__(self, patience=5, min_delta=0):
+    def __init__(self, patience=10, min_delta=0.001):
         self.patience = patience
         self.min_delta = min_delta
         self.best_loss = None
@@ -83,37 +83,66 @@ class ProsodyDataset(Dataset):
     def __getitem__(self, idx):
         key, item = self.entries[idx]
         processed_words = preprocess_text(item['words'])
-        features = torch.tensor(item['features'], dtype=torch.float32)
-        labels = torch.tensor(item['labels'], dtype=torch.long)  # Changed to torch.long for class indices
-        
-        return processed_words, features, labels
-
+        # Extract both prosodic and raw acoustic features
+        prosodic_features = torch.tensor(item['prosodic_features'], dtype=torch.float32)
+        raw_acoustic_features = torch.tensor(item['raw_acoustic_features'], dtype=torch.float32)
+        labels = torch.tensor(item['labels'], dtype=torch.long)
+        return processed_words, prosodic_features, raw_acoustic_features, labels
 
 # Collate function with custom padding value (-1)
 def collate_fn(batch):
     words = [item[0] for item in batch]  # List of lists of words
-    features = [item[1] for item in batch]
-    labels = [item[2] for item in batch]
+    prosodic_features = [item[1] for item in batch]
+    raw_acoustic_features = [item[2] for item in batch]
+    labels = [item[3] for item in batch]
 
-    features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=0.0)
-    labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=PADDING_VALUE)
+    prosodic_features_padded = torch.nn.utils.rnn.pad_sequence(
+        prosodic_features, batch_first=True, padding_value=0.0
+    )
+    raw_acoustic_features_padded = torch.nn.utils.rnn.pad_sequence(
+        raw_acoustic_features, batch_first=True, padding_value=0.0
+    )
+    labels_padded = torch.nn.utils.rnn.pad_sequence(
+        labels, batch_first=True, padding_value=PADDING_VALUE
+    )
 
-    lengths = torch.tensor([len(f) for f in features])
+    lengths = torch.tensor([len(f) for f in prosodic_features])  # Assuming both have same lengths
 
-    return words, features_padded, labels_padded, lengths
+    return words, prosodic_features_padded, raw_acoustic_features_padded, labels_padded, lengths
 
+# Feature projection layer to reduce dimensions
+class FeatureProjection(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(FeatureProjection, self).__init__()
+        self.linear = nn.Linear(input_dim, output_dim)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        return self.relu(self.linear(x))
 
 # Attention layer with masking
 class AttentionLayer(nn.Module):
     def __init__(self, hidden_dim):
         super(AttentionLayer, self).__init__()
-        self.attn = nn.Linear(hidden_dim * 2 + hidden_dim, hidden_dim)
+        # Updated input dimension from hidden_dim * 4 to hidden_dim * 4
+        self.attn = nn.Linear(hidden_dim * 4, hidden_dim)
         self.v = nn.Linear(hidden_dim, 1, bias=False)
 
     def forward(self, hidden, encoder_outputs, mask):
         src_len = encoder_outputs.size(1)
-        hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)
-        energy = torch.tanh(self.attn(torch.cat((hidden, encoder_outputs), dim=2)))
+
+        # Concatenate the last forward and backward hidden states
+        hidden_forward = hidden[-2]  # Last layer forward hidden state
+        hidden_backward = hidden[-1]  # Last layer backward hidden state
+        hidden = torch.cat((hidden_forward, hidden_backward), dim=1)  # Shape: [batch_size, hidden_dim * 2]
+
+        hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)  # Shape: [batch_size, src_len, hidden_dim * 2]
+
+        # Concatenate hidden and encoder outputs
+        concatenated = torch.cat((hidden, encoder_outputs), dim=2)  # Shape: [batch_size, src_len, hidden_dim * 4]
+
+        # Apply attention
+        energy = torch.tanh(self.attn(concatenated))
         attention = self.v(energy).squeeze(2)
 
         # Apply the mask to ignore padding positions
@@ -148,7 +177,7 @@ class Encoder(nn.Module):
 
         packed_output, (hidden, cell) = self.lstm(packed_input)
 
-        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=PADDING_VALUE)
+        outputs, _ = rnn_utils.pad_packed_sequence(packed_output, batch_first=True, padding_value=0.0)
 
         _, original_indices = sorted_indices.sort()
         outputs = outputs[original_indices]
@@ -162,13 +191,18 @@ class Decoder(nn.Module):
     def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_attention_layers):
         super(Decoder, self).__init__()
         self.hidden_dim = hidden_dim
-        # Corrected input size from hidden_dim * 2 to hidden_dim * 4
         self.lstm = nn.LSTM(hidden_dim * 4, hidden_dim, num_layers, dropout=dropout, batch_first=True, bidirectional=True)
         self.fc = nn.Linear(hidden_dim * 2, output_dim)
         self.attention = MultiAttention(hidden_dim, num_attention_layers)
 
-    def forward(self, encoder_outputs, hidden, cell, mask):
-        attn_weights = self.attention(hidden[-1], encoder_outputs, mask)
+    def forward(self, encoder_outputs, hidden, cell, lengths):
+        max_len = encoder_outputs.size(1)
+        batch_size = encoder_outputs.size(0)
+        # Create mask based on lengths
+        mask = torch.arange(max_len).unsqueeze(0).expand(batch_size, max_len).to(encoder_outputs.device)
+        mask = mask < lengths.unsqueeze(1)
+
+        attn_weights = self.attention(hidden, encoder_outputs, mask)
         context = torch.bmm(attn_weights.unsqueeze(1), encoder_outputs).squeeze(1)
 
         # lstm_input size: [batch_size, seq_len, hidden_dim * 4]
@@ -181,30 +215,35 @@ class Decoder(nn.Module):
         return predictions, (hidden, cell)
 
 class Seq2Seq(nn.Module):
-    def __init__(self, encoder, decoder):
+    def __init__(self, encoder, decoder, prosodic_projection, acoustic_projection):
         super(Seq2Seq, self).__init__()
         self.encoder = encoder
         self.decoder = decoder
+        self.prosodic_projection = prosodic_projection
+        self.acoustic_projection = acoustic_projection
 
-    def forward(self, features, lengths):
+    def forward(self, prosodic_features, raw_acoustic_features, lengths):
+        # Project features
+        projected_prosodic = self.prosodic_projection(prosodic_features)
+        projected_acoustic = self.acoustic_projection(raw_acoustic_features)
+        # Concatenate along the feature dimension
+        features = torch.cat((projected_prosodic, projected_acoustic), dim=2)
+        # Pass through the encoder
         encoder_outputs, hidden, cell = self.encoder(features, lengths)
-        max_len = encoder_outputs.size(1)
-        batch_size = encoder_outputs.size(0)
-        mask = torch.arange(max_len).unsqueeze(0).expand(batch_size, max_len).to(features.device)
-        mask = mask < lengths.unsqueeze(1)
-        outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell, mask)
+        outputs, (hidden, cell) = self.decoder(encoder_outputs, hidden, cell, lengths)
         return outputs
 
 def train(model, iterator, optimizer, criterion):
     model.train()
     epoch_loss = 0
-    for words, features, labels, lengths in iterator:
-        features = features.to(device)
+    for words, prosodic_features, raw_acoustic_features, labels, lengths in iterator:
+        prosodic_features = prosodic_features.to(device)
+        raw_acoustic_features = raw_acoustic_features.to(device)
         labels = labels.to(device)
         lengths = lengths.to(device)
 
         optimizer.zero_grad()
-        output = model(features, lengths)
+        output = model(prosodic_features, raw_acoustic_features, lengths)
 
         # Flatten outputs and labels
         output = output.view(-1, num_classes)
@@ -228,12 +267,13 @@ def evaluate(model, iterator, criterion):
     all_labels = []
     all_preds = []
     with torch.no_grad():
-        for words, features, labels, lengths in iterator:
-            features = features.to(device)
+        for words, prosodic_features, raw_acoustic_features, labels, lengths in iterator:
+            prosodic_features = prosodic_features.to(device)
+            raw_acoustic_features = raw_acoustic_features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
 
-            output = model(features, lengths)
+            output = model(prosodic_features, raw_acoustic_features, lengths)
             output = output.view(-1, num_classes)
             labels = labels.view(-1)
 
@@ -260,19 +300,20 @@ def test_model(model, iterator):
     all_labels = []
     all_preds = []
 
-    with open('./outputs/raw_audio_bilstm_features_results.txt', 'w') as file:
+    with open('./outputs/un_prosody_raw_acoustic_results.txt', 'w') as file:
         file.write("")
 
     with torch.no_grad():
-        for words, features, labels, lengths in iterator:
-            features = features.to(device)
+        for words, prosodic_features, raw_acoustic_features, labels, lengths in iterator:
+            prosodic_features = prosodic_features.to(device)
+            raw_acoustic_features = raw_acoustic_features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
 
-            output = model(features, lengths)
+            output = model(prosodic_features, raw_acoustic_features, lengths)
             preds = torch.argmax(output, dim=2)
 
-            for i in range(features.shape[0]):
+            for i in range(prosodic_features.shape[0]):
                 word_sentence = words[i]  # List of words
                 gold_labels = labels[i].cpu().numpy().flatten()
                 pred_labels = preds[i].cpu().numpy().flatten()
@@ -290,7 +331,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/raw_audio_bilstm_features_results.txt', 'a') as file:
+                with open('./outputs/un_prosody_raw_acoustic_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -303,12 +344,14 @@ def test_model(model, iterator):
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
+    
     print('*' * 45)
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision*100:.2f}')
     print(f'Test Recall: {recall*100:.2f}')
     print(f'Test F1 Score: {f1*100:.2f}')
     print('*' * 45)
+
     return all_labels, all_preds
 
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
@@ -331,7 +374,7 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.plot(epochs, val_f1s, label='Validation F1 Score')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('./outputs/raw_audio_bilstm_features_metrics.png')
+    plt.savefig('./outputs/prosody_raw_acoustic_metrics.png')
 
 def clean_up_sentence(words, gold_labels, pred_labels):
     filtered_words = []
@@ -349,22 +392,24 @@ def clean_up_sentence(words, gold_labels, pred_labels):
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
     
-def evaluate_new_set(model, evaluation_json):
+def evaluate_new_set(model, eval_json):
     # Load new data
-    new_dataset = ProsodyDataset(evaluation_json)
+    
+    new_dataset = ProsodyDataset(eval_json)
     new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
     
     # Test the model on the new dataset and get predictions
     print('\n\nEvaluation on Held Out Set Dataset:')
     all_labels, all_preds = test_model(model, new_loader)
 
+
     return all_labels, all_preds
 if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    am_json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features.json'
-    un_json_path = '../prosody/data/multi_label_extracted_raw_audio_features_train.json'
+    am_json_path = '../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_eval.json'
+    un_json_path = '../prosody/data/multi_label_prosodic_raw_acoustic_features_train.json'
     am_data = load_data(am_json_path)
     un_data = load_data(un_json_path)
 
@@ -373,7 +418,7 @@ if __name__ == "__main__":
 
     # Create a descriptive filename for the model
     dataset_name = "un_ambiguous_instructions"
-    task_name = "raw_audio_multiclass"
+    task_name = "prosody_raw_multiclass"
     best_model_filename = f"models/best-model-{dataset_name}-{task_name}.pt"
 
     train_data, val_data, test_data = split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1) #train_ratio=0.8, val_ratio=0.1, test_ratio=0.1
@@ -387,48 +432,58 @@ if __name__ == "__main__":
     print(f'Test size: {len(test_dataset)}')
 
     # Create the DataLoader
-    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
+    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
 
-    # Get feature dimension from the dataset (after padding)
-    sample_words, sample_features, sample_labels, sample_lengths = next(iter(train_loader))
-    feature_dim = sample_features.shape[2]  # Get feature dimension from padded features
+    # Get feature dimensions from the dataset (after padding)
+    sample_batch = next(iter(train_loader))
+    sample_words, sample_prosodic_features, sample_raw_acoustic_features, sample_labels, sample_lengths = sample_batch
+    prosodic_features_dim = sample_prosodic_features.shape[2]
+    raw_acoustic_features_dim = sample_raw_acoustic_features.shape[2]
+    print(f"Prosodic features dimension: {prosodic_features_dim}")
+    print(f"Raw acoustic features dimension: {raw_acoustic_features_dim}")
 
     # Number of classes (excluding padding)
     all_labels = []
-    for _, _, labels in train_dataset:
+    for _, _, _, labels in train_dataset:
         all_labels.extend(labels.numpy().flatten())
-    num_classes = len(np.unique(all_labels))
 
+    num_classes = len(np.unique(all_labels))
     print(f'Model Training with {num_classes} classes')
 
-    # Proceed with model creation and training
+    # Define model parameters
+    PROJECTED_DIM = 128  # Dimension after projection
+    INPUT_DIM = PROJECTED_DIM * 2  # Because we're concatenating two projected feature sets
     HIDDEN_DIM = 256
-    OUTPUT_DIM = num_classes 
+    OUTPUT_DIM = num_classes
     NUM_LAYERS = 8
     DROPOUT = 0.13234009854266668
     NUM_ATTENTION_LAYERS = 8
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print(f'Using device: {device}')
+    print(f'Using Device: {device}')
 
-    encoder = Encoder(feature_dim, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
+    # Instantiate the projection layers
+    prosodic_projection = FeatureProjection(prosodic_features_dim, PROJECTED_DIM).to(device)
+    acoustic_projection = FeatureProjection(raw_acoustic_features_dim, PROJECTED_DIM).to(device)
+
+    # Instantiate the encoder and decoder
+    encoder = Encoder(INPUT_DIM, HIDDEN_DIM, NUM_LAYERS, DROPOUT).to(device)
     decoder = Decoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, NUM_ATTENTION_LAYERS).to(device)
-    model = Seq2Seq(encoder, decoder).to(device)
+    model = Seq2Seq(encoder, decoder, prosodic_projection, acoustic_projection).to(device)
 
-
-    summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
+    summary(model, input_data=(sample_prosodic_features.to(device), sample_raw_acoustic_features.to(device), sample_lengths.to(device)), device=device)
 
     optimizer = optim.Adam(model.parameters(), 
                            lr=0.0005438229945889153, 
                            weight_decay=1e-5)
     scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
     # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.1, patience=10, verbose=True)
-
-
+    
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
 
+    # Initialize metrics lists
     train_losses = []
     val_losses = []
     val_accuracies = []
@@ -462,20 +517,23 @@ if __name__ == "__main__":
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
-        print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}% |  Precision: {valid_precision:.2f} |  Recall: {valid_recall:.2f} |  F1 Score: {valid_f1:.2f}')
+        print(f'\tVal. Loss: {valid_loss:.3f} | Val. Acc: {valid_acc*100:.2f}%')
+        print(f'\tPrecision: {valid_precision:.2f} | Recall: {valid_recall:.2f} | F1 Score: {valid_f1:.2f}')
 
         early_stopping(valid_loss)
         if early_stopping.early_stop:
             print("Early stopping")
             break
 
+    # Load the best model and test
     model.load_state_dict(torch.load(best_model_filename))
     test_model(model, test_loader)
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    am_eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features"
-    un_eval_json = "../prosody/data/multi_label_extracted_raw_audio_features_eval.json"
+    am_eval_json = '../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_eval.json'
+    un_eval_json = '../prosody/data/multi_label_prosodic_raw_acoustic_features_eval.json'
+
 
     # combine the two datasets
     eval_data = {**load_data(am_eval_json), **load_data(un_eval_json)}
