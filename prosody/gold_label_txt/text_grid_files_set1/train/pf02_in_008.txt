@@ -1,0 +1,10 @@
+go 0
+to 0
+any 0
+trash 1
+bin 1
+but 0
+not 0
+the 0
+yellow 3
+one 0
