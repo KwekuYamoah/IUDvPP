@@ -197,3 +197,5 @@ prosody/tmp_audio_slices/
 **/.DS_Store
 **/*/.DS_Store
 .DS_Store
+
+kaldi/*
