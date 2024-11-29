@@ -1,0 +1,130 @@
+{
+  "1": {
+    "Instruction": "Pick up the book on the table with the red cover.",
+    "Interpretations": [
+      {
+        "Interpretation": "Pick up the book (which is on the table) and that book has a red cover.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to pick up the **book**. The **book** is on the **table** and has a **red cover**, as indicated by the detail intents. There are no avoidance intents. Based on the instruction, I will go to the **book** that is on the **table** and has a **red cover**, and pick it up.",
+        "ResolvedReferents": ["book::has(red cover)::isOn(table)"],
+        "TaskPlan": [
+          "goto[book::has(red cover)::isOn(table)]",
+          "pick[book::has(red cover)::isOn(table)]"
+        ]
+      },
+      {
+        "Interpretation": "Pick up the book (that is on the table, and that table has a red cover).",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to pick up the **book**. The **book** is on the **table** that has a **red cover**, as indicated by the detail intents. There are no avoidance intents. Based on the instruction, I will go to the **book** that is on the **table** with a **red cover**, and pick it up.",
+        "ResolvedReferents": ["book::isOn(table::has(red cover))"],
+        "TaskPlan": [
+          "goto[book::isOn(table::has(red cover))]",
+          "pick[book::isOn(table::has(red cover))]"
+        ]
+      }
+    ]
+  },
+  "2": {
+    "Instruction": "Place the vase near the flowers on the table.",
+    "Interpretations": [
+      {
+        "Interpretation": "Place the vase near the flowers (that are on the table).",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to place the **vase** near the **flowers**. The **flowers** are on the **table**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **vase**, pick it up, go to the **flowers** that are on the **table**, and place the **vase** near them.",
+        "ResolvedReferents": ["flowers::isOn(table)"],
+        "TaskPlan": [
+          "goto[vase]",
+          "pick[vase]",
+          "goto[flowers::isOn(table)]",
+          "place[vase, near flowers::isOn(table)]"
+        ]
+      },
+      {
+        "Interpretation": "Place the vase (near the flowers) on the table.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to place the **vase** on the **table**. The **vase** is near the **flowers**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **vase** that is near the **flowers**, pick it up, and place it on the **table**.",
+        "ResolvedReferents": ["vase::isNear(flowers)"],
+        "TaskPlan": [
+          "goto[vase::isNear(flowers)]",
+          "pick[vase::isNear(flowers)]",
+          "goto[table]",
+          "place[vase::isNear(flowers), table]"
+        ]
+      }
+    ]
+  },
+  "3": {
+    "Instruction": "Place the coke can beside the pringles on the counter.",
+    "Interpretations": [
+      {
+        "Interpretation": "Place the coke can (which is currently beside the pringles) on some counter.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to place the **coke can** on the **counter**. The **coke can** is beside the **pringles**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **coke can** that is beside the **pringles**, pick it up, and place it on the **counter**.",
+        "ResolvedReferents": ["coke_can::isBeside(pringles)"],
+        "TaskPlan": [
+          "goto[coke_can::isBeside(pringles)]",
+          "pick[coke_can::isBeside(pringles)]",
+          "goto[counter]",
+          "place[coke_can::isBeside(pringles), counter]"
+        ]
+      },
+      {
+        "Interpretation": "Take the coke can (which is somewhere else) and place it beside the pringles (that are already on the counter).",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to place the **coke can** beside the **pringles**. The **pringles** are on the **counter**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **coke can**, pick it up, go to the **pringles** that are on the **counter**, and place the **coke can** beside them.",
+        "ResolvedReferents": ["pringles::isOn(counter)"],
+        "TaskPlan": [
+          "goto[coke_can]",
+          "pick[coke_can]",
+          "goto[pringles::isOn(counter)]",
+          "place[coke_can, beside pringles::isOn(counter)]"
+        ]
+      }
+    ]
+  },
+  "4": {
+    "Instruction": "Bring the book and the magazine on the nightstand.",
+    "Interpretations": [
+      {
+        "Interpretation": "Bring both the book and the magazine that are on the nightstand.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to bring both the **book** and the **magazine**. Both items are on the **nightstand**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **nightstand**, pick up both the **book** and the **magazine**, and bring them.",
+        "ResolvedReferents": ["book::isOn(nightstand)", "magazine::isOn(nightstand)"],
+        "TaskPlan": [
+          "goto[nightstand]",
+          "pick[book::isOn(nightstand)]",
+          "pick[magazine::isOn(nightstand)]"
+        ]
+      },
+      {
+        "Interpretation": "Bring the book (from elsewhere) and the magazine that is on the nightstand.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to bring the **book** and the **magazine**. The **magazine** is on the **nightstand**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **book**, pick it up, then go to the **magazine** on the **nightstand**, pick it up, and bring both items.",
+        "ResolvedReferents": ["magazine::isOn(nightstand)"],
+        "TaskPlan": [
+          "goto[book]",
+          "pick[book]",
+          "goto[magazine::isOn(nightstand)]",
+          "pick[magazine::isOn(nightstand)]"
+        ]
+      }
+    ]
+  },
+  "5": {
+    "Instruction": "Bring the mug from the table near the sink.",
+    "Interpretations": [
+      {
+        "Interpretation": "Bring the mug from the table (which is already near the sink).",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to bring the **mug**. The **mug** is on the **table** that is near the **sink**, as indicated by the detail intents. There are no avoidance intents. Based on the instruction, I will go to the **mug** on the **table near the sink**, pick it up, and bring it.",
+        "ResolvedReferents": ["mug::isOn(table::isNear(sink))"],
+        "TaskPlan": [
+          "goto[mug::isOn(table::isNear(sink))]",
+          "pick[mug::isOn(table::isNear(sink))]"
+        ]
+      },
+      {
+        "Interpretation": "Bring the mug from the table and place it near the sink.",
+        "Explanation": "By looking at the given goal intent referents, I understand that I need to bring the **mug** and place it near the **sink**. The **mug** is on the **table**, as indicated by the detail intent. There are no avoidance intents. Based on the instruction, I will go to the **mug** on the **table**, pick it up, and place it near the **sink**.",
+        "ResolvedReferents": ["mug::isOn(table)"],
+        "TaskPlan": [
+          "goto[mug::isOn(table)]",
+          "pick[mug::isOn(table)]",
+          "goto[sink]",
+          "place[mug::isOn(table), near sink]"
+        ]
+      }
+    ]
+  }
+}
