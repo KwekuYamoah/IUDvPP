@@ -1,975 +1,2558 @@
-   Word  Gold Label  Predicted Label
-   find           0                0
-    the           0                0
- yellow           1                0
-  trash           1                0
-    bin           1                0
-    and           0                0
-     go           0                0
-     to           0                0
-     it           0                0
-   then           0                0
-     go           0                0
-     by           0                0
-    the           0                0
-  white           1                0
-  table           1                0
-    but           0                0
- before           0                0
-  doing           0                0
-    the           0                0
-  first           0                0
-  thing           0                0
-  visit           0                0
-  where           0                0
-    the           0                0
- fridge           1                0
-     is           0                0
-   then           0                0
-  after           0                0
-    the           0                0
-   last           0                0
-  thing           0                0
-   stop           0                0
-     by           0                0
-    the           0                0
-    red           1                0
-   sofa           1                0
-    but           0                0
-  avoid           0                0
-    the           0                0
- wooden           1                0
-   door           1                0
-   with           1                0
-posters           1                0
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
 --------------------------------------------------
    Word  Gold Label  Predicted Label
-  never           0                0
-   pass           0                0
-     by           0                0
-      a           0                0
-  robot           1                0
-    but           0                0
-      i           0                0
-   need           0                0
-    you           0                0
-     to           0                0
-  bring           0                0
+  place           0                0
     the           0                0
-    bag           1                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
      on           0                0
     the           0                0
-  table           1                0
-     to           0                0
-    the           0                0
-cabinet           1                1
---------------------------------------------------
-   Word  Gold Label  Predicted Label
-     go           0                0
-     to           0                0
-    the           0                0
-cabinet           1                1
-between           0                0
-    the           0                0
-   blue           1                0
-   sofa           1                0
-    and           0                0
-    the           0                0
-  brown           1                1
-    box           1                1
---------------------------------------------------
-   Word  Gold Label  Predicted Label
-   find           0                0
-    the           0                0
-   door           1                0
-   with           1                0
-posters           1                0
-     in           0                0
-  front           0                0
-     of           0                0
-    the           0                0
- yellow           1                0
- pillar           1                0
-   then           0                0
-     go           0                0
-  stand           0                0
-     by           0                0
-    the           0                0
-   tree           1                0
-    but           0                0
-  avoid           0                0
-    any           0                0
-   sofa           1                1
---------------------------------------------------
-   Word  Gold Label  Predicted Label
-   find           0                0
-    the           0                0
-   door           1                0
-   with           1                0
-posters           1                0
-     in           0                0
-  front           0                0
-     of           0                0
-    the           0                0
- yellow           1                0
- pillow           0                0
-   then           0                0
-     go           0                0
-  stand           0                0
-     by           0                0
-    the           0                0
-   tree           1                0
-    and           0                0
-  avoid           0                0
-    any           0                0
-   sofa           1                0
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-       go           0                0
-     take           0                0
-      the           0                0
-    green           1                0
-      toy           1                0
-     that           0                0
-       is           0                0
-     next           0                0
-       to           0                0
-      the           0                0
-     sofa           1                0
-    under           0                0
-      the           0                0
-   poster           1                0
-      and           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                1
-bookshelf           1                1
---------------------------------------------------
-   Word  Gold Label  Predicted Label
-     go           0                0
-     to           0                0
-    the           0                0
-   sink           1                0
-   then           0                0
-    the           0                0
-    red           1                0
-   sofa           1                0
-   then           0                0
-    the           0                0
- guitar           1                0
-  after           0                0
-   that           0                0
-      i           0                0
-   want           0                0
-    you           0                0
-     to           0                0
- return           0                0
-     to           0                0
-    the           0                0
-  first           0                0
-  thing           0                0
-    you           0                0
-visited           0                0
+  table           2                1
 --------------------------------------------------
       Word  Gold Label  Predicted Label
-        go           0                0
-        to           0                0
-       the           0                0
-     green           1                0
-   curtain           1                0
-     after           0                0
-      that           0                0
-       the           0                0
-     large           1                0
-television           1                0
-       but           0                0
-       try           0                0
-       not           0                0
-        to           0                0
-        go           0                0
-      near           0                0
-       the           0                0
-       red           1                0
-      sofa           1                1
---------------------------------------------------
-   Word  Gold Label  Predicted Label
-   find           0                0
-    the           0                0
-   door           1                0
-   with           1                0
-posters           1                0
-     in           0                0
-  front           0                0
-     of           0                0
-    the           0                0
- yellow           1                0
- pillar           1                0
-   then           0                0
-     go           0                0
-  stand           0                0
-     by           0                0
-    the           0                0
-   tree           1                0
-    but           0                0
-  avoid           0                0
-    any           0                1
-   sofa           1                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-        i           0                0
-     need           0                0
-      you           0                0
-       to           0                0
-       go           0                0
-       to           0                0
-      the           0                0
-     sink           1                0
-     then           0                0
-      any           0                0
- computer           1                0
-       on           0                0
-        a           0                0
-    table           1                0
-      but           0                0
-   before           0                0
-      you           0                0
-    start           0                0
-     that           0                0
-      can           0                0
-      you           0                0
-       go           0                0
-    first           0                0
-       to           0                0
-      the           0                0
-bookshelf           1                0
-     when           0                0
-      you           0                0
-      are           0                0
-     done           0                0
-     with           0                0
-      all           0                0
-     that           0                0
-   return           0                0
-       to           0                0
-      the           0                0
-    brown           1                0
-      box           1                0
---------------------------------------------------
-    Word  Gold Label  Predicted Label
-      go           0                0
-      to           0                0
-     the           0                0
-   water           1                1
-  filter           1                0
-   don't           0                0
-    pass           0                0
-      by           0                0
-     any           0                0
-computer           1                0
-      to           0                0
-     the           0                0
-    left           0                0
-      of           0                0
-     the           0                0
-     red           1                1
-    sofa           1                1
---------------------------------------------------
-      Word  Gold Label  Predicted Label
-       hey           0                0
-         i           0                0
-        am           0                0
-  standing           0                0
-        by           0                0
-       the           0                0
-whiteboard           1                0
-        in           0                0
-     front           0                0
-        of           0                0
-       the           0                0
- bookshelf           1                0
-       can           0                0
-       you           0                0
      bring           0                0
-        me           0                0
        the           0                0
-       mug           1                0
-      from           0                0
-       the           0                0
-     table           1                0
-        to           0                0
-       the           0                0
-      left           0                0
-        of           0                0
-       the           0                0
-    fridge           1                1
---------------------------------------------------
-  Word  Gold Label  Predicted Label
-   you           0                0
-   can           0                0
-either           0                0
-    go           0                0
-    as           0                0
- close           0                0
-    as           0                0
-   you           0                0
-   can           0                0
-    to           0                0
-   the           0                0
-  sink           1                0
-    or           0                0
-   the           0                0
- plant           1                0
-   pot           1                0
-   but           0                0
- don't           0                0
-    go           0                0
-  near           0                0
-   the           0                0
-yellow           1                0
-rubber           0                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-       go           0                0
-     take           0                0
-      the           0                0
-    green           1                0
-      toy           1                0
-     that           0                0
-       is           0                0
-     next           0                0
-       to           0                0
-      the           0                0
-     sofa           1                0
-    under           0                0
-      the           0                0
-   poster           1                0
-      and           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                0
-bookshelf           1                1
---------------------------------------------------
-    Word  Gold Label  Predicted Label
-   avoid           0                0
-     any           0                0
-cabinets           0                0
-     but           0                0
-      go           0                0
-     get           0                0
-     the           0                0
-     mug           1                0
-      on           0                0
-     the           0                0
-    blue           1                0
-    sofa           1                0
-     and           0                0
-    take           0                0
-      it           0                0
-      to           0                0
-     the           0                0
-     red           1                0
-     one           0                0
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-       go           0                0
-       to           0                0
-      the           0                0
-      red           1                0
-     sofa           1                0
-     then           0                0
-      the           0                0
-     blue           1                0
-      one           0                0
-     next           0                0
-       to           0                0
-      the           0                0
-  cabinet           1                0
-      but           0                0
-    first           0                0
-     pass           0                0
-       by           0                0
-      the           0                0
-bookshelf           0                1
---------------------------------------------------
-  Word  Gold Label  Predicted Label
-  take           0                0
-     a           0                0
-  soda           1                0
-   mug           0                0
-    to           0                0
-   the           0                0
-fridge           1                0
-   you           0                0
-   can           1                0
-  find           0                0
-   one           0                0
-    on           0                0
-   the           0                0
- table           1                0
-    to           0                0
-   the           0                0
-  left           0                0
-    of           0                0
-   the           0                0
-  blue           1                1
-  sofa           1                1
---------------------------------------------------
-      Word  Gold Label  Predicted Label
-       can           0                0
-       you           0                0
-      pick           0                0
-        up           0                0
-        my           0                0
-      book           1                0
-      from           0                0
-       the           0                0
-      left           0                0
-      side           0                0
-        of           0                0
-       the           0                0
-television           1                0
+      book           1                1
        and           0                0
-     bring           0                0
-        it           0                0
-        to           0                0
-        me           0                0
-         i           0                0
-        am           0                0
-   sitting           0                0
+       the           0                0
+  magazine           1                0
         on           0                0
        the           0                0
-     couch           1                0
-     which           0                0
-        is           0                0
-        to           0                0
-       the           0                0
-     right           0                0
-        of           0                0
-       the           0                0
-      door           1                0
-      with           1                0
-   posters           1                0
-      make           0                0
-      sure           0                0
-        to           0                0
-     never           0                0
-        go           0                0
-      near           0                0
-       the           0                0
-     trash           0                0
-       bin           0                0
-     while           0                0
-     doing           0                0
-       all           0                0
-      this           0                0
-        it           0                0
-        is           0                0
-        on           0                0
-       the           0                0
-    yellow           1                1
-     table           1                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-    there           0                0
-      are           0                0
-        a           0                0
-   couple           0                0
-       of           0                0
-   things           0                0
-       in           0                0
-     this           0                0
-     room           0                0
-        a           0                0
-   coffee           1                0
-  machine           1                0
-        a           0                0
-    robot           1                0
-        a           0                0
- computer           1                0
-      and           0                0
-        a           0                0
-    plant           1                0
-      pot           1                0
-    visit           0                0
-      the           0                0
-   second           0                0
-     item           0                0
-        i           0                0
-mentioned           0                0
-     then           0                0
-      the           0                0
-    first           0                0
-    after           0                0
-     that           0                0
-    visit           0                0
-      the           0                0
-    brown           1                0
-      box           1                0
-     then           0                0
-       go           0                0
-       to           0                0
-      the           0                0
-    items           0                0
-      you           0                0
-  haven't           0                0
-  visited           0                0
-      yet           0                0
+nightstand           2                1
 --------------------------------------------------
     Word  Gold Label  Predicted Label
-      go           0                0
-      to           0                0
-   water           1                0
-  filter           1                1
-   don't           0                0
-    pass           0                0
-      by           0                0
-     any           0                0
-computer           1                0
-      to           0                0
+   place           0                0
      the           0                0
-    left           0                0
-      of           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
      the           0                0
-     red           1                0
-    sofa           1                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-    there           0                0
-      are           0                0
-        a           0                0
-   couple           0                0
-       of           0                0
-   things           0                0
-       in           0                0
-     this           0                0
-     room           0                0
-        a           0                0
-   coffee           1                0
-  machine           1                0
-        a           0                0
-    robot           1                0
-        a           0                0
- computer           1                0
-      and           0                0
-        a           0                0
-    plant           1                0
-      pot           1                0
-    visit           0                0
-      the           0                0
-   second           0                0
-     item           0                0
-        i           0                0
-mentioned           0                0
-     then           0                0
-      the           0                0
-    first           0                0
-    after           0                0
-     that           0                0
-    visit           0                0
-      the           0                0
-    brown           1                0
-      box           1                0
-     then           0                0
-       go           0                0
-       to           0                0
-      the           0                0
-    items           0                0
-      you           0                1
-  haven't           0                1
-  visited           0                1
+ counter           2                2
 --------------------------------------------------
       Word  Gold Label  Predicted Label
-        go           0                0
-        to           0                0
+     bring           0                0
        the           0                0
-     trash           1                0
-       bin           1                0
-     after           0                0
-      that           0                0
-        go           0                0
-        to           0                0
+      book           1                1
+       and           0                0
        the           0                0
-     large           1                0
-television           1                0
-  actually           0                0
-       can           0                0
-       you           0                0
-        go           0                0
-        to           0                0
-       the           0                0
-    laptop           1                0
+  magazine           1                2
         on           0                0
        the           0                0
-     table           1                0
-    before           0                0
-     doing           0                0
-       all           0                0
-      that           0                1
+nightstand           2                1
 --------------------------------------------------
-     Word  Gold Label  Predicted Label
-       go           0                0
-     take           0                0
-      the           0                0
-    green           1                0
-      toy           1                0
-     that           0                0
-       is           0                0
-     next           0                0
-       to           0                0
-      the           0                0
-     sofa           1                0
-    under           0                0
-      the           0                0
-   poster           1                0
-      and           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                1
-bookshelf           1                1
---------------------------------------------------
-    Word  Gold Label  Predicted Label
-       i           0                0
-    need           0                0
-     you           0                0
-      to           0                1
-      go           0                0
-      to           0                0
-     the           0                0
-    rest           0                0
-    sofa           1                0
-     but           0                0
-   don't           0                0
-      go           0                0
-anywhere           0                0
-    near           0                0
-     the           0                1
-    sink           1                1
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
 --------------------------------------------------
    Word  Gold Label  Predicted Label
-  never           0                0
-   pass           0                0
-     by           0                0
-      a           0                0
-  robot           1                0
-    but           0                0
-      i           0                0
-   need           0                0
-    you           0                0
-     to           0                0
-  bring           0                0
+  place           0                0
     the           0                0
-    bag           1                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                1
+  beside           0                0
+     the           0                0
+pringles           1                2
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+  cooked           0                1
+    corn           0                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+ book           1                1
+  and           0                0
+  the           0                0
+marks           0                0
+   in           0                0
+   on           0                0
+  the           0                0
+  9th           0                0
+stand           0                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                0
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   bring           0                0
+     the           0                0
+    book           1                1
+     and           0                1
+     the           0                0
+magazine           1                0
+      on           0                2
+     the           0                0
+     9th           0                0
+   stand           0                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                0
+     on           0                0
+    the           0                0
+  table           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           0                0
      on           0                0
     the           0                0
   table           1                0
-     to           0                0
-    the           0                0
-cabinet           1                0
 --------------------------------------------------
-    Word  Gold Label  Predicted Label
-   avoid           0                0
-     any           0                0
-cabinets           0                0
-     but           0                0
-      go           0                0
-     get           0                0
-     the           0                0
-     mug           1                0
-      on           0                0
-     the           0                0
-    blue           1                0
-    sofa           1                0
-     and           0                0
-    take           0                0
-      it           0                0
-      to           0                0
-     the           0                0
-     red           1                1
-     one           0                1
---------------------------------------------------
-    Word  Gold Label  Predicted Label
-      go           0                0
-      to           0                0
-     the           0                0
-cabinets           0                1
- between           0                0
-     the           0                0
-    blue           1                0
-    sofa           1                0
-     and           0                0
-     the           0                0
-   brown           1                0
-     box           1                1
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                0
 --------------------------------------------------
    Word  Gold Label  Predicted Label
- please           0                0
-    get           0                0
-     me           0                0
-     my           0                0
-  plant           1                0
-    pot           1                0
-   from           0                0
-between           0                0
+  place           0                0
     the           0                0
-   sofa           1                0
-    and           0                0
+   vase           1                1
+   near           0                0
     the           0                0
-   sink           1                0
-    and           0                0
-  bring           0                0
-     it           0                0
-     to           0                0
+flowers           2                2
+     on           0                0
     the           0                0
-  white           1                1
-cabinet           1                1
---------------------------------------------------
-  Word  Gold Label  Predicted Label
-  take           0                0
-     a           0                0
-  soda           1                0
-   can           1                0
-    to           0                0
-   the           0                0
-fridge           1                0
-   you           0                0
-   can           1                0
-  find           0                0
-   one           0                0
-    on           0                0
-   the           0                0
- table           1                0
-    to           0                0
-   the           0                0
-  left           0                0
-    of           0                0
-   the           0                0
-  blue           1                0
-  sofa           1                1
---------------------------------------------------
-  Word  Gold Label  Predicted Label
-    go           0                0
-    to           0                0
-   any           0                0
- trash           1                1
-   bin           1                0
-   but           0                0
-   not           0                0
-   the           0                0
-yellow           1                0
-   one           0                0
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-        i           0                0
-     have           0                0
-        a           0                0
-    white           1                0
-  cabinet           1                0
-        a           0                0
-    green           1                0
-      toy           1                0
-        a           0                0
-bookshelf           1                0
-      and           0                0
-        a           0                0
-      red           1                0
-    chair           1                0
-   around           0                0
-     here           0                0
-somewhere           0                0
-     take           0                0
-      the           0                0
-   second           0                0
-     item           0                0
-        i           0                0
-mentioned           0                0
-     from           0                0
-  between           0                0
-      the           0                0
-    first           0                0
-     item           0                0
-      and           0                0
-      the           0                0
-    third           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                0
-  cabinet           1                0
-      but           0                0
-    avoid           0                0
-      the           0                0
-     last           0                0
-     item           0                0
-       at           0                0
-      all           0                1
-    costs           0                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-        i           0                0
-     have           0                0
-        a           0                0
-    white           1                0
-  cabinet           1                0
-        a           0                0
-    green           1                0
-      toy           1                0
-        a           0                0
-bookshelf           1                0
-      and           0                0
-        a           0                0
-      red           1                0
-    chair           1                0
-   around           0                0
-     here           0                0
-somewhere           0                0
-     take           0                0
-      the           0                0
-   second           0                0
-     item           0                0
-        i           0                0
-mentioned           0                0
-     from           0                0
-  between           0                0
-      the           0                0
-    first           0                0
-     item           0                0
-      and           0                0
-      the           0                0
-    third           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                0
-  cabinet           1                0
-      but           0                0
-    avoid           0                0
-      the           0                0
-     last           0                0
-     item           0                0
-       at           0                0
-      all           0                1
-    costs           0                1
+  table           1                0
 --------------------------------------------------
     Word  Gold Label  Predicted Label
-      go           0                0
-      to           0                0
+   place           0                0
      the           0                0
-   water           1                1
-  filter           1                0
-     but           0                0
-   don't           0                0
-    pass           0                0
-      by           0                0
-     any           0                0
-computer           1                0
-      to           0                0
+    coke           1                1
+     can           1                1
+  beside           0                0
      the           0                0
-    left           0                0
-      of           0                0
-     the           0                0
-     red           1                0
-    sofa           1                1
---------------------------------------------------
-     Word  Gold Label  Predicted Label
-        i           0                0
-     have           0                0
-        a           0                0
-    white           1                0
-  cabinet           1                0
-        a           0                0
-    green           1                0
-      toy           1                0
-        a           0                0
-bookshelf           1                0
-      and           0                0
-        a           0                0
-      red           1                0
-    chair           1                0
-   around           0                0
-     here           0                0
-somewhere           0                0
-     take           0                0
-     that           0                0
-   second           0                0
-     item           0                0
-        i           0                0
-mentioned           0                0
-     from           0                0
-  between           0                0
-      the           0                0
-    first           0                0
-     item           0                0
-      and           0                0
-      the           0                0
-    third           0                0
-    bring           0                0
-       it           0                0
-       to           0                0
-      the           0                0
-  cabinet           1                0
-      but           0                0
-    avoid           0                0
-      the           0                0
-     last           0                0
-     item           0                0
-       at           0                0
-      all           0                0
-    costs           0                0
---------------------------------------------------
-    Word  Gold Label  Predicted Label
-      go           0                0
-      to           0                0
-     the           0                0
-     red           1                0
-    sofa           1                0
-     but           0                0
-   don't           0                0
-    pass           0                0
-      by           0                0
-     any           0                0
-    door           1                0
-    then           0                0
-      go           0                0
-      to           0                0
-     the           0                0
-computer           1                0
-     the           0                0
-    sofa           1                0
-      is           0                0
-  behind           0                0
-     the           0                0
-  pillar           1                0
-     and           0                0
+pringles           2                2
       on           0                0
      the           0                0
-   right           0                0
-    side           0                1
+ counter           1                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                0
 --------------------------------------------------
     Word  Gold Label  Predicted Label
-     you           0                0
-     can           0                0
-  either           0                0
-      go           0                0
-      as           0                0
-   close           0                0
-      as           0                0
-     you           0                0
-     can           0                0
-      to           0                0
+   place           0                0
      the           0                0
-    sink           1                0
-      or           0                0
+    cool           0                1
+     can           1                0
+  beside           0                0
      the           0                0
-   plant           1                0
-    pots           0                0
-     but           0                0
-   don't           0                0
-      go           0                0
-    near           0                0
+pringles           1                0
+      on           0                0
      the           0                0
-  yellow           1                0
-rowboats           0                1
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+ coconut           0                1
+  beside           0                0
+     the           0                0
+pringles           2                2
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                1
+  beside           0                0
+     the           0                0
+pringles           1                2
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+  here's           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+ here's           0                0
+    the           0                0
+   bees           0                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+     tv           0                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                0
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+ mark           0                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+    tea           0                0
+   wall           0                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+       a           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+ wreath           0                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                2
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+ book           1                1
+  and           0                0
+  the           0                0
+marks           0                0
+   in           0                0
+   on           0                0
+  the           0                0
+  9th           0                0
+stand           0                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+  cooker           0                1
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                1
+  beside           0                0
+     the           0                0
+pringles           1                2
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+     is           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           0                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                1
+  beside           0                0
+     the           0                0
+pringles           2                2
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+    camp           0                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+   their           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+      on           0                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                2
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                0
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                0
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                0
+     on           0                0
+    the           0                0
+  table           1                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                0
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   bring           0                0
+     the           0                0
+    book           1                1
+     and           0                0
+     the           0                0
+magazine           1                0
+      on           0                0
+     the           0                0
+     9th           0                0
+   stand           0                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   bring           0                0
+     the           0                0
+    book           1                1
+     and           0                0
+     the           0                0
+magazine           1                0
+      on           0                0
+     the           0                0
+     9th           0                0
+   stand           0                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cork           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+  cooked           0                1
+    corn           0                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                1
+    the           0                0
+flowers           2                0
+     on           0                2
+    the           0                0
+  table           1                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  man           0                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                1
+       the           0                0
+  magazine           1                0
+        on           0                2
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+       a           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           1                0
+      on           0                0
+     the           0                0
+ counter           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                0
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+       the           0                0
+      book           1                0
+       and           0                1
+       the           0                0
+  magazine           1                0
+        on           0                2
+       the           0                0
+nightstand           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+  vasne           0                1
+     of           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+    tea           0                0
+   wall           0                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                1
+   on           0                0
+  the           0                0
+table           2                2
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                1
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    cook           0                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+ pick           0                0
+   up           0                0
+  the           0                1
+ book           1                0
+   on           0                0
+  the           0                0
+table           2                0
+ with           0                0
+  the           0                0
+  red           2                0
+cover           2                0
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                0
+        on           0                0
+       the           0                0
+nightstand           2                1
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                1
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                2
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                2
+pringles           2                0
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                0
+     on           0                0
+    the           0                0
+  table           1                0
+--------------------------------------------------
+    Word  Gold Label  Predicted Label
+   place           0                0
+     the           0                0
+    coke           1                1
+     can           1                0
+  beside           0                0
+     the           0                0
+pringles           2                2
+      on           0                0
+     the           0                0
+ counter           1                2
+--------------------------------------------------
+      Word  Gold Label  Predicted Label
+     bring           0                0
+       the           0                0
+      book           1                1
+       and           0                0
+       the           0                0
+  magazine           1                2
+        on           0                0
+       the           0                0
+nightstand           2                2
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+ mark           0                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           2                0
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           2                2
+     on           0                0
+    the           0                0
+  table           1                2
+--------------------------------------------------
+   Word  Gold Label  Predicted Label
+  place           0                0
+    the           0                0
+   vase           1                1
+   near           0                0
+    the           0                0
+flowers           1                2
+     on           0                0
+    the           0                0
+  table           2                0
+--------------------------------------------------
+ Word  Gold Label  Predicted Label
+bring           0                0
+  the           0                0
+  mug           1                1
+ from           0                0
+  the           0                0
+table           2                2
+ near           0                0
+  the           0                0
+ sink           1                0
 --------------------------------------------------

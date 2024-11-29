@@ -1,6 +1,7 @@
 import json
 import random
 import torch
+import string
 import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
@@ -302,12 +303,12 @@ def test_model(model, iterator):
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
-
+    print('*' * 45)
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision*100:.2f}')
     print(f'Test Recall: {recall*100:.2f}')
     print(f'Test F1 Score: {f1*100:.2f}')
-
+    print('*' * 45)
     return all_labels, all_preds
 
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
@@ -336,23 +337,42 @@ def clean_up_sentence(words, gold_labels, pred_labels):
     filtered_words = []
     filtered_gold_labels = []
     filtered_pred_labels = []
-
+    
+    # Remove punctuation from words list
+    words = [word for word in words if word not in string.punctuation]
     for i in range(len(words)):
+       
         if gold_labels[i] != PADDING_VALUE:
             filtered_words.append(words[i])
             filtered_gold_labels.append(int(gold_labels[i]))
             filtered_pred_labels.append(int(pred_labels[i]))
 
     return filtered_words, filtered_gold_labels, filtered_pred_labels
+    
+def evaluate_new_set(model, new_dataset_path):
+    # Load new data
+    new_data = load_data(new_dataset_path)
+    new_dataset = ProsodyDataset(new_data)
+    new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
+    
+    # Test the model on the new dataset and get predictions
+    print('\n\nEvaluation on Held Out Set Dataset:')
+    all_labels, all_preds = test_model(model, new_loader)
 
+    return all_labels, all_preds
 if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    json_path = '../prosody/data/extracted_audio_features.json'
+    json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features.json'
     data = load_data(json_path)
 
-    train_data, val_data, test_data = split_data(data)
+    # Create a descriptive filename for the model
+    dataset_name = "ambiguous_instructions"
+    task_name = "raw_audio_multiclass"
+    best_model_filename = f"models/best-model-{dataset_name}-{task_name}.pt"
+
+    train_data, val_data, test_data = split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1) #train_ratio=0.8, val_ratio=0.1, test_ratio=0.1
 
     train_dataset = ProsodyDataset(dict(train_data))
     val_dataset = ProsodyDataset(dict(val_data))
@@ -394,13 +414,13 @@ if __name__ == "__main__":
     model = Seq2Seq(encoder, decoder).to(device)
 
 
-    # summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
+    summary(model, input_data=(sample_features.to(device), sample_lengths.to(device)), device=device)
 
     optimizer = optim.Adam(model.parameters(), 
                            lr=0.0005438229945889153, 
                            weight_decay=1e-5)
-    # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.1, patience=10, verbose=True)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
+    # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.1, patience=10, verbose=True)
 
 
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
@@ -434,7 +454,7 @@ if __name__ == "__main__":
 
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
-            torch.save(model.state_dict(), 'models/best-model-raw-audio-features-version.pt')
+            torch.save(model.state_dict(), best_model_filename)
 
         print(f'Epoch: {epoch+1:02}')
         print(f'\tTrain Loss: {train_loss:.3f}')
@@ -445,6 +465,11 @@ if __name__ == "__main__":
             print("Early stopping")
             break
 
-    model.load_state_dict(torch.load('models/best-model-raw-audio-features-version.pt'))
+    model.load_state_dict(torch.load(best_model_filename))
     test_model(model, test_loader)
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
+
+    # Evaluate model on held out set
+    eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json"
+    # Evaluate the model on the new dataset
+    evaluate_new_set(model, eval_json)

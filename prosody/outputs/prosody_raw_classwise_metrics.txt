@@ -1,0 +1,18 @@
+0:
+  Precision: 0.8851
+  Recall: 0.9364
+  F1-Score: 0.9100
+  Support (True instances in eval data): 1415
+----------------------------------------
+1:
+  Precision: 0.6718
+  Recall: 0.5696
+  F1-Score: 0.6165
+  Support (True instances in eval data): 381
+----------------------------------------
+2:
+  Precision: 0.6846
+  Recall: 0.6335
+  F1-Score: 0.6581
+  Support (True instances in eval data): 322
+----------------------------------------

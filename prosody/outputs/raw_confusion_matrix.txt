@@ -1,0 +1,39 @@
+
+Confusion Matrix for 0:
+True Negatives (TN): 703
+False Positives (FP): 0
+False Negatives (FN): 0
+True Positives (TP): 1415
+
+Interpretation:
+  - The model correctly predicted that '0' is NOT present 703 times (TN).
+  - The model incorrectly predicted that '0' is present 0 times when it was actually NOT present (FP).
+  - The model incorrectly predicted that '0' is NOT present 0 times when it was actually present (FN).
+  - The model correctly predicted that '0' is present 1415 times (TP).
+----------------------------------------
+
+Confusion Matrix for 1:
+True Negatives (TN): 1737
+False Positives (FP): 0
+False Negatives (FN): 0
+True Positives (TP): 381
+
+Interpretation:
+  - The model correctly predicted that '1' is NOT present 1737 times (TN).
+  - The model incorrectly predicted that '1' is present 0 times when it was actually NOT present (FP).
+  - The model incorrectly predicted that '1' is NOT present 0 times when it was actually present (FN).
+  - The model correctly predicted that '1' is present 381 times (TP).
+----------------------------------------
+
+Confusion Matrix for 2:
+True Negatives (TN): 1796
+False Positives (FP): 0
+False Negatives (FN): 0
+True Positives (TP): 322
+
+Interpretation:
+  - The model correctly predicted that '2' is NOT present 1796 times (TN).
+  - The model incorrectly predicted that '2' is present 0 times when it was actually NOT present (FP).
+  - The model incorrectly predicted that '2' is NOT present 0 times when it was actually present (FN).
+  - The model correctly predicted that '2' is present 322 times (TP).
+----------------------------------------

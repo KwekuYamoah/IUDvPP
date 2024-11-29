@@ -260,7 +260,7 @@ def test_model(model, iterator):
     all_labels = []
     all_preds = []
 
-    with open('./outputs/raw_audio_bilstm_features_results.txt', 'w') as file:
+    with open('./outputs/un_raw_audio_bilstm_features_results.txt', 'w') as file:
         file.write("")
 
     with torch.no_grad():
@@ -290,7 +290,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/raw_audio_bilstm_features_results.txt', 'a') as file:
+                with open('./outputs/un_raw_audio_bilstm_features_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -331,7 +331,7 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.plot(epochs, val_f1s, label='Validation F1 Score')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('./outputs/raw_audio_bilstm_features_metrics.png')
+    plt.savefig('./outputs/un_raw_audio_bilstm_features_metrics.png')
 
 def clean_up_sentence(words, gold_labels, pred_labels):
     filtered_words = []
@@ -363,7 +363,7 @@ if __name__ == "__main__":
     seed = 42
     set_seed(seed)
 
-    am_json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features.json'
+    am_json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features_train.json'
     un_json_path = '../prosody/data/multi_label_extracted_raw_audio_features_train.json'
     am_data = load_data(am_json_path)
     un_data = load_data(un_json_path)
@@ -474,7 +474,7 @@ if __name__ == "__main__":
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    am_eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features"
+    am_eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json"
     un_eval_json = "../prosody/data/multi_label_extracted_raw_audio_features_eval.json"
 
     # combine the two datasets

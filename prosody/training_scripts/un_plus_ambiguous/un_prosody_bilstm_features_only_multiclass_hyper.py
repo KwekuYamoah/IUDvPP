@@ -497,7 +497,7 @@ if __name__ == "__main__":
     model = Seq2Seq(encoder, decoder).to(device)
 
     optimizer = optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, verbose=True)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
 
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
 
