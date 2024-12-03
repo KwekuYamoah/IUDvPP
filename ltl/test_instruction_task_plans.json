@@ -1,5 +1,5 @@
 {
-  "1": {
+  "003": {
     "Instruction": "Pick up the book on the table with the red cover.",
     "Interpretations": [
       {
@@ -22,7 +22,7 @@
       }
     ]
   },
-  "2": {
+  "014": {
     "Instruction": "Place the vase near the flowers on the table.",
     "Interpretations": [
       {
@@ -49,7 +49,7 @@
       }
     ]
   },
-  "3": {
+  "017": {
     "Instruction": "Place the coke can beside the pringles on the counter.",
     "Interpretations": [
       {
@@ -76,7 +76,7 @@
       }
     ]
   },
-  "4": {
+  "013": {
     "Instruction": "Bring the book and the magazine on the nightstand.",
     "Interpretations": [
       {
@@ -102,7 +102,7 @@
       }
     ]
   },
-  "5": {
+  "032": {
     "Instruction": "Bring the mug from the table near the sink.",
     "Interpretations": [
       {
