@@ -18,7 +18,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_017_i2",
@@ -39,7 +49,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coke",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_014_i2",
@@ -60,7 +80,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_014_i1",
@@ -81,7 +111,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_003_i1",
@@ -92,12 +132,24 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m05_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f11_017_i1",
@@ -118,7 +170,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_032_i2",
@@ -139,7 +201,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_013_i2",
@@ -160,7 +232,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f08_014_i2",
@@ -181,7 +262,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_032_i2",
@@ -202,12 +293,27 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f04_032_i1",
@@ -228,12 +334,26 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mark",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m10_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m03_032_i1",
@@ -254,7 +374,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_017_i1",
@@ -275,7 +405,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coke",
+                "counter"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles"
+            ]
+        }
     },
     {
         "audio_file": "pid_f01_017_i2",
@@ -291,7 +431,16 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_032_i1",
@@ -312,7 +461,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "sink"
+            ]
+        }
     },
     {
         "audio_file": "pid_f10_017_i2",
@@ -333,7 +492,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f12_017_i1",
@@ -354,7 +523,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_032_i1",
@@ -375,7 +554,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m06_032_i1",
@@ -396,7 +584,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_014_i1",
@@ -417,7 +615,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_017_i1",
@@ -433,7 +641,15 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_017_i1",
@@ -454,7 +670,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_017_i2",
@@ -475,7 +701,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_013_i2",
@@ -496,7 +732,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f10_017_i1",
@@ -517,12 +762,27 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f05_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f01_032_i2",
@@ -543,7 +803,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m04_017_i1",
@@ -564,7 +834,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_032_i1",
@@ -585,7 +865,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_003_i2",
@@ -596,12 +885,24 @@
                 "gold_label": 0,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f06_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m02_014_i2",
@@ -622,7 +923,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_013_i1",
@@ -643,7 +954,17 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "and",
+                "on"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "stand"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_032_i2",
@@ -664,17 +985,37 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f01_013_i1",
         "sentence": "bring the book and the marks in on the 9th stand",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m06_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f12_013_i2",
@@ -695,7 +1036,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_013_i1",
@@ -716,7 +1067,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_013_i2",
@@ -737,7 +1098,17 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "and",
+                "on"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "stand"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_014_i2",
@@ -758,12 +1129,27 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m07_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m03_013_i1",
@@ -784,7 +1170,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_003_i2",
@@ -795,7 +1191,14 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "cover"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_014_i1",
@@ -816,7 +1219,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_014_i1",
@@ -837,12 +1250,27 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f12_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_013_i1",
@@ -863,7 +1291,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m07_032_i1",
@@ -884,7 +1322,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m06_017_i1",
@@ -905,7 +1353,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m06_032_i2",
@@ -926,7 +1384,16 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_014_i2",
@@ -947,17 +1414,37 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m09_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m07_013_i2",
@@ -978,7 +1465,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f10_014_i2",
@@ -999,12 +1496,27 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f02_013_i2",
@@ -1025,12 +1537,26 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f05_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f03_003_i1",
@@ -1046,12 +1572,26 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m10_032_i2",
@@ -1072,7 +1612,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_032_i1",
@@ -1093,7 +1643,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f05_013_i2",
@@ -1114,12 +1673,27 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m02_003_i1",
@@ -1135,7 +1709,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_013_i1",
@@ -1156,7 +1739,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m04_017_i2",
@@ -1177,12 +1770,27 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "on",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m07_014_i2",
@@ -1203,12 +1811,26 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f08_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_032_i1",
@@ -1229,7 +1851,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_017_i2",
@@ -1250,12 +1882,27 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f10_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_014_i1",
@@ -1276,7 +1923,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_013_i1",
@@ -1297,7 +1953,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_013_i2",
@@ -1318,7 +1984,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_032_i1",
@@ -1339,7 +2015,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mark",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "sink"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_014_i2",
@@ -1360,7 +2046,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_014_i1",
@@ -1381,7 +2077,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_014_i1",
@@ -1402,7 +2108,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f05_032_i1",
@@ -1423,7 +2138,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f10_013_i2",
@@ -1444,7 +2168,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_013_i2",
@@ -1465,7 +2199,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f12_013_i1",
@@ -1486,7 +2229,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_017_i2",
@@ -1507,7 +2260,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m07_017_i2",
@@ -1528,7 +2291,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_014_i2",
@@ -1549,7 +2322,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_013_i2",
@@ -1570,12 +2353,27 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m07_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m07_017_i1",
@@ -1586,7 +2384,14 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_017_i2",
@@ -1602,7 +2407,16 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f10_013_i1",
@@ -1623,7 +2437,17 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "and",
+                "on"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "stand"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_013_i1",
@@ -1644,7 +2468,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_014_i2",
@@ -1665,7 +2499,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_014_i2",
@@ -1686,7 +2530,16 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f05_014_i2",
@@ -1702,12 +2555,26 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vasne"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "wall"
+            ]
+        }
     },
     {
         "audio_file": "pid_f01_013_i2",
         "sentence": "bring the book and the marks in on the 9th stand",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m06_017_i2",
@@ -1728,7 +2595,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_013_i1",
@@ -1749,7 +2626,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f01_017_i1",
@@ -1770,7 +2656,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_017_i1",
@@ -1791,17 +2687,37 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f08_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m09_017_i1",
@@ -1822,7 +2738,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_014_i2",
@@ -1843,7 +2769,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_014_i2",
@@ -1864,12 +2800,27 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m06_014_i2",
@@ -1890,7 +2841,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f05_032_i2",
@@ -1911,7 +2872,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f10_032_i1",
@@ -1932,7 +2903,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_014_i2",
@@ -1953,7 +2933,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_014_i2",
@@ -1974,7 +2964,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_032_i2",
@@ -1995,7 +2995,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m04_013_i2",
@@ -2016,7 +3026,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_003_i1",
@@ -2032,7 +3052,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_m04_003_i1",
@@ -2048,7 +3077,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_013_i2",
@@ -2069,7 +3107,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m07_032_i2",
@@ -2090,7 +3138,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_032_i1",
@@ -2111,7 +3169,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f04_014_i1",
@@ -2132,7 +3199,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f01_014_i1",
@@ -2153,7 +3229,17 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "near",
+                "on"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "wall"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_032_i2",
@@ -2174,7 +3260,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_013_i2",
@@ -2195,12 +3291,26 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m01_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m10_032_i1",
@@ -2221,7 +3331,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_032_i2",
@@ -2242,12 +3362,27 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_032_i1",
@@ -2268,7 +3403,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m06_014_i1",
@@ -2289,7 +3433,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_032_i2",
@@ -2310,7 +3463,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_017_i1",
@@ -2321,7 +3484,14 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_013_i1",
@@ -2342,7 +3512,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_017_i2",
@@ -2363,7 +3543,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "corn",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_014_i1",
@@ -2384,12 +3574,26 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m03_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f10_003_i2",
@@ -2405,7 +3609,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_032_i2",
@@ -2426,7 +3639,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_013_i1",
@@ -2447,7 +3670,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_032_i2",
@@ -2468,7 +3701,16 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f10_014_i1",
@@ -2489,7 +3731,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f12_017_i2",
@@ -2515,7 +3767,18 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "cook",
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_017_i1",
@@ -2536,7 +3799,16 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coconut",
+                "pringles",
+                "counter"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m07_013_i1",
@@ -2557,12 +3829,27 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f12_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f09_014_i2",
@@ -2583,7 +3870,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_014_i1",
@@ -2604,7 +3901,16 @@
                 "gold_label": 0,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_013_i2",
@@ -2625,7 +3931,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_013_i1",
@@ -2646,7 +3962,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_032_i2",
@@ -2667,7 +3993,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_003_i2",
@@ -2678,12 +4014,24 @@
                 "gold_label": 0,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f01_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f09_017_i2",
@@ -2704,7 +4052,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_017_i1",
@@ -2725,7 +4083,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_017_i1",
@@ -2746,7 +4114,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_013_i1",
@@ -2767,12 +4145,27 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f01_032_i1",
@@ -2793,7 +4186,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f12_014_i2",
@@ -2814,7 +4216,16 @@
                 "gold_label": 0,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "bees",
+                "flowers",
+                "tv"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m04_032_i2",
@@ -2835,12 +4246,27 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "man",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_003_i2",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m07_014_i1",
@@ -2861,7 +4287,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f06_013_i2",
@@ -2882,7 +4317,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m01_032_i1",
@@ -2903,7 +4347,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_014_i2",
@@ -2924,7 +4378,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_032_i1",
@@ -2945,7 +4409,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m03_014_i1",
@@ -2966,7 +4440,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m09_017_i2",
@@ -2987,7 +4470,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_003_i2",
@@ -2998,7 +4491,14 @@
                 "gold_label": 0,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f05_014_i1",
@@ -3019,7 +4519,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_013_i1",
@@ -3040,7 +4550,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m05_014_i1",
@@ -3061,7 +4581,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_032_i1",
@@ -3082,7 +4612,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f09_014_i1",
@@ -3103,7 +4642,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_003_i2",
@@ -3119,7 +4667,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_m01_017_i2",
@@ -3140,7 +4697,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_017_i2",
@@ -3161,7 +4728,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_013_i2",
@@ -3182,7 +4759,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m10_017_i1",
@@ -3203,12 +4789,27 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f03_014_i1",
@@ -3229,7 +4830,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f03_014_i2",
@@ -3250,7 +4861,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_017_i2",
@@ -3266,7 +4887,15 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f06_013_i1",
@@ -3287,7 +4916,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m06_013_i2",
@@ -3308,7 +4947,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f02_017_i1",
@@ -3329,7 +4977,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_003_i2",
@@ -3345,7 +5003,16 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_f01_014_i2",
@@ -3366,7 +5033,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_017_i1",
@@ -3387,7 +5064,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f09_032_i1",
@@ -3408,7 +5095,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f05_017_i2",
@@ -3424,12 +5121,26 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coke"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m08_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m09_032_i2",
@@ -3450,7 +5161,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f05_017_i1",
@@ -3471,7 +5192,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_032_i1",
@@ -3492,7 +5223,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f12_014_i1",
@@ -3513,7 +5253,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "wreath",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_013_i2",
@@ -3524,7 +5274,14 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "nightstand"
+            ]
+        }
     },
     {
         "audio_file": "pid_f11_013_i1",
@@ -3545,7 +5302,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_f12_032_i2",
@@ -3566,7 +5333,16 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "table",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f10_032_i2",
@@ -3587,7 +5363,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_032_i2",
@@ -3608,7 +5394,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_m09_013_i2",
@@ -3629,7 +5425,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f07_017_i2",
@@ -3650,7 +5455,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "cooker",
+                "pringles",
+                "counter"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_f11_017_i2",
@@ -3671,7 +5485,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f04_013_i2",
@@ -3692,7 +5516,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "nightstand"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_017_i1",
@@ -3708,7 +5542,16 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coke"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles"
+            ]
+        }
     },
     {
         "audio_file": "pid_m10_014_i1",
@@ -3729,7 +5572,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m08_032_i2",
@@ -3750,7 +5602,17 @@
                 "gold_label": 1,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug",
+                "sink"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
     },
     {
         "audio_file": "pid_f08_017_i2",
@@ -3771,7 +5633,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_m06_003_i1",
@@ -3787,12 +5659,26 @@
                 "gold_label": 0,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     },
     {
         "audio_file": "pid_f01_003_i1",
         "sentence": "pick up the book on the table with the red cover",
-        "words_info": []
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
     },
     {
         "audio_file": "pid_m05_017_i1",
@@ -3813,7 +5699,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f05_013_i1",
@@ -3834,7 +5730,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m05_017_i2",
@@ -3855,7 +5761,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "can",
+                "pringles"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "counter"
+            ]
+        }
     },
     {
         "audio_file": "pid_f02_013_i1",
@@ -3876,7 +5792,17 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "nightstand"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine"
+            ]
+        }
     },
     {
         "audio_file": "pid_m02_032_i2",
@@ -3897,7 +5823,17 @@
                 "gold_label": 1,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
     },
     {
         "audio_file": "pid_m06_013_i1",
@@ -3918,7 +5854,17 @@
                 "gold_label": 2,
                 "predicted_label": 2
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "magazine",
+                "nightstand"
+            ]
+        }
     },
     {
         "audio_file": "pid_f07_014_i1",
@@ -3939,6 +5885,16 @@
                 "gold_label": 2,
                 "predicted_label": 1
             }
-        ]
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "table"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "flowers"
+            ]
+        }
     }
 ]
