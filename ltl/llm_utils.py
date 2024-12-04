@@ -76,14 +76,14 @@ def generate_json_with_gpt(model_output, deterministic=True):
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of resolved referents with their attributes."
+                        "description": "A list of resolved referents with their attributes. Example ['mug::ison(table::isnear(sink))']"
                     },
                     "TaskPlan": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "A sequence of tasks to achieve the goal."
+                        "description": "A sequence of tasks to achieve the goal. Example:[ ‘goto[mug::ison(table::isnear(sink))]’, ‘pick[mug::ison(table::isnear(sink))]’, ‘move[mug::ison(table::isnear(sink))] to new location’ ]"
                     }
                 },
                 "required": ["Interpretation", "Explanation", "ResolvedReferents", "TaskPlan"],
