@@ -49,32 +49,6 @@ def reconstruct_json(original_data):
     
     return reconstructed
 
-def build_new_json(input_json_file):
-    # Processed JSON
-    processed_data = {}
-
-    for key, value in data.items():
-        # Split the key into components
-        parts = key.split("_")
-        pid, speaker, instruction_id, interpretation_id = parts[0], parts[1], parts[2], parts[3]
-        
-        # Create the structure if it doesn't exist
-        if instruction_id not in processed_data:
-            processed_data[instruction_id] = []
-        
-        # Add the entry
-        processed_data[instruction_id].append({
-            "speaker": speaker,
-            "instruction": value["instruction"],
-            "interpretation_id": interpretation_id,
-            "baseline_choice": "intent label",
-            "task_plan": value["task_plan"]
-        })
-
-    # Display the processed JSON
-    processed_json = json.dumps(processed_data, indent=4)
-    print(processed_json)
-
 
 def main():
     # Load the original JSON data
