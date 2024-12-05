@@ -18,7 +18,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table)\"]\nIn my plan I will always stick to \"book::ison(table)\" whenever i need to reference book\n1. goto[book::ison(table)]\n2. pick[book::ison(table)]\nExplanation: I understand that I need to focus on the book which is on the table. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]"
+            ]
         },
         {
             "speaker": "m05",
@@ -38,7 +42,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -58,7 +67,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -78,7 +92,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f05",
@@ -98,7 +117,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m04",
@@ -118,7 +142,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f06",
@@ -138,7 +167,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to pick up the book that is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m06",
@@ -158,7 +192,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -178,7 +217,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]"
+            ]
         },
         {
             "speaker": "f07",
@@ -198,7 +241,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -218,7 +266,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -238,7 +291,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -258,7 +316,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -278,7 +341,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]"
+            ]
         },
         {
             "speaker": "f05",
@@ -298,7 +365,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -318,7 +390,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -338,7 +415,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -358,7 +440,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -378,7 +465,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]"
+            ]
         },
         {
             "speaker": "f06",
@@ -398,7 +489,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -418,7 +514,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -438,7 +539,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -458,7 +564,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f07",
@@ -478,7 +589,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book that is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -498,7 +614,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -518,7 +639,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -538,7 +664,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]"
+            ]
         },
         {
             "speaker": "m04",
@@ -558,7 +688,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -578,7 +713,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -598,7 +738,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -618,7 +763,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -638,7 +788,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -658,7 +813,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -678,7 +838,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -698,7 +863,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -718,7 +888,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -738,7 +913,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -758,7 +938,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m05",
@@ -778,7 +963,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -798,7 +988,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -818,7 +1013,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -838,7 +1038,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "m06",
@@ -858,7 +1063,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -878,7 +1088,12 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(table::isbeside(red_cover))\"]\nIn my plan I will always stick to \"book::ison(table::isbeside(red_cover))\" whenever i need to reference book\n1. goto[book::ison(table::isbeside(red_cover))]\n2. pick[book::ison(table::isbeside(red_cover))]\nExplanation: I understand that I need to focus on the book which is on the table with the red cover. I will first go to the book and then pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(table::isbeside(red_cover))]",
+                "2. pick[book::ison(table::isbeside(red_cover))]",
+                ""
+            ]
         }
     ],
     "014": [
@@ -898,7 +1113,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f06",
@@ -916,7 +1138,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -934,7 +1163,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -952,7 +1188,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -970,7 +1213,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -988,7 +1238,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -1006,7 +1263,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -1024,7 +1288,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "m04",
@@ -1042,7 +1313,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -1060,7 +1338,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -1078,7 +1363,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)), flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m04",
@@ -1096,7 +1388,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -1114,7 +1413,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever I need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -1132,7 +1438,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -1150,7 +1463,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -1168,7 +1488,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -1186,7 +1513,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -1204,7 +1538,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "f05",
@@ -1223,7 +1564,13 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[vasne_of_the_flowers]\n2. pick[vasne_of_the_flowers]\n3. goto[tea_wall]\n4. place[vasne_of_the_flowers,tea_wall]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vasne_of_the_flowers]",
+                "2. pick[vasne_of_the_flowers]",
+                "3. goto[tea_wall]",
+                "4. place[vasne_of_the_flowers,tea_wall]"
+            ]
         },
         {
             "speaker": "f06",
@@ -1241,7 +1588,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -1259,7 +1613,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m06",
@@ -1277,7 +1638,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers)\"]\nIn my plan I will always stick to \"vase::isnear(flowers)\" whenever i need to reference vase\n1. goto[vase::isnear(flowers)]\n2. pick[vase::isnear(flowers)]\n3. goto[table]\n4. place[vase::isnear(flowers),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers)]",
+                "2. pick[vase::isnear(flowers)]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers),table]",
+                ""
+            ]
         },
         {
             "speaker": "m05",
@@ -1295,7 +1663,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -1313,7 +1688,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -1331,7 +1713,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -1350,7 +1739,13 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::isnextto(tea_wall))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::isnextto(tea_wall))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::isnextto(tea_wall))]\n2. pick[vase::isnear(flowers::isnextto(tea_wall))]\n3. goto[flowers::isnextto(tea_wall)]\n4. place[vase::isnear(flowers::isnextto(tea_wall)),flowers::isnextto(tea_wall)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::isnextto(tea_wall))]",
+                "2. pick[vase::isnear(flowers::isnextto(tea_wall))]",
+                "3. goto[flowers::isnextto(tea_wall)]",
+                "4. place[vase::isnear(flowers::isnextto(tea_wall)), flowers::isnextto(tea_wall)]"
+            ]
         },
         {
             "speaker": "m06",
@@ -1368,7 +1763,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -1386,7 +1788,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -1404,7 +1813,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -1422,7 +1838,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                "```"
+            ]
         },
         {
             "speaker": "m09",
@@ -1440,7 +1863,11 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\nExplanation: I need to check if the vase is near the flowers that are on the table. I will go to the vase that is near the flowers on the table.\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -1458,7 +1885,11 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"bees::isnear(flowers::ison(tv))\"]\nIn my plan I will always stick to \"bees::isnear(flowers::ison(tv))\" whenever i need to reference bees\n1. goto[bees::isnear(flowers::ison(tv))]\nExplanation: I understand that I need to go to the bees, which are near the flowers that are on the tv.\n```"
+            "llm_output": [
+                "",
+                "1. goto[bees::isnear(flowers::ison(tv))]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -1476,7 +1907,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -1494,7 +1932,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -1512,7 +1957,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f05",
@@ -1530,7 +1982,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m05",
@@ -1548,7 +2007,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -1566,7 +2032,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -1584,7 +2057,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -1602,7 +2082,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -1620,7 +2107,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -1638,7 +2132,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"wreath::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"wreath::isnear(flowers::ison(table))\" whenever i need to reference wreath\n1. goto[wreath::isnear(flowers::ison(table))]\n2. pick[wreath::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[wreath::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[wreath::isnear(flowers::ison(table))]",
+                "2. pick[wreath::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[wreath::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -1656,7 +2157,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[table]\n4. place[vase::isnear(flowers::ison(table)),table]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[flowers::ison(table)]",
+                "4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]",
+                ""
+            ]
         },
         {
             "speaker": "f07",
@@ -1674,7 +2182,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"vase::isnear(flowers::ison(table))\"]\nIn my plan I will always stick to \"vase::isnear(flowers::ison(table))\" whenever i need to reference vase\n1. goto[vase::isnear(flowers::ison(table))]\n2. pick[vase::isnear(flowers::ison(table))]\n3. goto[flowers::ison(table)]\n4. place[vase::isnear(flowers::ison(table)),flowers::ison(table)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[vase::isnear(flowers::ison(table))]",
+                "2. pick[vase::isnear(flowers::ison(table))]",
+                "3. goto[table]",
+                "4. place[vase::isnear(flowers::ison(table)),table]",
+                ""
+            ]
         }
     ],
     "017": [
@@ -1695,7 +2210,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -1714,7 +2236,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -1733,7 +2262,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -1752,7 +2288,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -1771,7 +2314,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cool_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cool_can::isbeside(pringles::ison(counter))\" whenever i need to reference cool_can\n1. goto[cool_can::isbeside(pringles::ison(counter))]\n2. pick[cool_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[cool_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cool_can]",
+                "2. pick[cool_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cool_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -1790,7 +2340,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m02",
@@ -1809,7 +2365,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_camp::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_camp::isbeside(pringles::ison(counter))\" whenever i need to reference cook_camp\n1. goto[cook_camp::isbeside(pringles::ison(counter))]\n2. pick[cook_camp::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[cook_camp::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_camp]",
+                "2. pick[cook_camp]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_camp,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -1828,7 +2391,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "f06",
@@ -1847,7 +2416,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -1866,7 +2442,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m04",
@@ -1885,7 +2467,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m06",
@@ -1904,7 +2493,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m04",
@@ -1923,7 +2519,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"pringles::ison(counter)\"]\nIn my plan I will always stick to \"pringles::ison(counter)\" whenever i need to reference pringles\n1. goto[cook]\n2. pick[cook]\n3. goto[pringles::ison(counter)]\n4. place[cook,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook]",
+                "2. pick[cook]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -1942,7 +2545,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -1961,7 +2571,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -1980,7 +2597,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -1999,7 +2623,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "f03",
@@ -2018,7 +2648,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m06",
@@ -2037,7 +2673,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[counter]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),counter]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -2056,7 +2699,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[counter]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),counter]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -2075,7 +2725,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m09",
@@ -2094,7 +2750,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can,pringles::ison(counter)]\nExplanation: I understand that I need to place the cook_can beside the pringles which are on the counter. I will first go to the cook_can, pick it up, then go to the pringles on the counter and place the cook_can beside it.\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -2113,7 +2776,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m10",
@@ -2132,7 +2801,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cooked_corn::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cooked_corn::isbeside(pringles::ison(counter))\" whenever i need to reference cooked_corn\n1. goto[cooked_corn]\n2. pick[cooked_corn]\n3. goto[pringles::ison(counter)]\n4. place[cooked_corn::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cooked_corn]",
+                "2. pick[cooked_corn]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cooked_corn::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f12",
@@ -2151,7 +2827,11 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can::isbeside(pringles::ison(counter))]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can::isbeside(pringles::ison(counter))]",
+                ""
+            ]
         },
         {
             "speaker": "f06",
@@ -2169,7 +2849,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coconut::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coconut::isbeside(pringles::ison(counter))\" whenever i need to reference coconut\n1. goto[coconut]\n2. pick[coconut]\n3. goto[pringles::ison(counter)]\n4. place[coconut,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coconut]",
+                "2. pick[coconut]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coconut,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -2188,7 +2875,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f09",
@@ -2207,7 +2901,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -2226,7 +2927,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can]\n2. pick[coke_can]\n3. goto[pringles::ison(counter)]\n4. place[coke_can,pringles::ison(counter)]\nExplanation: I understand that I need to place the coke_can beside the pringles which are on the counter. I will first go to the coke_can, pick it up, then go to the pringles on the counter and place the coke_can beside it.\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -2245,7 +2953,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m01",
@@ -2264,7 +2978,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -2283,7 +3004,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -2302,7 +3030,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can::isbeside(pringles::ison(counter))]\n2. pick[cook_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[cook_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -2321,7 +3056,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cooked_corn::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cooked_corn::isbeside(pringles::ison(counter))\" whenever i need to reference cooked_corn\n1. goto[cooked_corn]\n2. pick[cooked_corn]\n3. goto[pringles::ison(counter)]\n4. place[cooked_corn::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cooked_corn]",
+                "2. pick[cooked_corn]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cooked_corn,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -2340,7 +3082,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cork_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cork_can::isbeside(pringles::ison(counter))\" whenever i need to reference cork_can\n1. goto[cork_can::isbeside(pringles::ison(counter))]\n2. pick[cork_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[cork_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cork_can]",
+                "2. pick[cork_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cork_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -2359,7 +3108,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[counter]\n4. place[coke_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can::isbeside(pringles::ison(counter))]",
+                "2. pick[coke_can::isbeside(pringles::ison(counter))]",
+                "3. goto[counter]",
+                "4. place[coke_can::isbeside(pringles::ison(counter)),counter]",
+                ""
+            ]
         },
         {
             "speaker": "f05",
@@ -2378,7 +3134,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "f05",
@@ -2397,7 +3159,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[counter]\n4. place[cook_can::isbeside(pringles::ison(counter)),counter]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f07",
@@ -2415,7 +3184,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cooker::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cooker::isbeside(pringles::ison(counter))\" whenever i need to reference cooker\n1. goto[cooker]\n2. pick[cooker]\n3. goto[pringles::ison(counter)]\n4. place[cooker,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cooker]",
+                "2. pick[cooker]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cooker,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -2434,7 +3210,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "f07",
@@ -2453,7 +3235,12 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[pringles::ison(counter)]\n2. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[pringles::ison(counter)]",
+                "2. place[coke_can,pringles::ison(counter)]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -2472,7 +3259,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"coke_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"coke_can::isbeside(pringles::ison(counter))\" whenever i need to reference coke_can\n1. goto[coke_can::isbeside(pringles::ison(counter))]\n2. pick[coke_can::isbeside(pringles::ison(counter))]\n3. goto[pringles::ison(counter)]\n4. place[coke_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[coke_can]",
+                "2. pick[coke_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[coke_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m05",
@@ -2491,7 +3284,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can::isbeside(pringles::ison(counter)),pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]"
+            ]
         },
         {
             "speaker": "m05",
@@ -2510,7 +3309,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"cook_can::isbeside(pringles::ison(counter))\"]\nIn my plan I will always stick to \"cook_can::isbeside(pringles::ison(counter))\" whenever i need to reference cook_can\n1. goto[cook_can]\n2. pick[cook_can]\n3. goto[pringles::ison(counter)]\n4. place[cook_can,pringles::ison(counter)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[cook_can]",
+                "2. pick[cook_can]",
+                "3. goto[pringles::ison(counter)]",
+                "4. place[cook_can,pringles::ison(counter)]",
+                ""
+            ]
         }
     ],
     "013": [
@@ -2530,7 +3336,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(nightstand)\", \"magazine::ison(nightstand)\"]\nIn my plan I will always stick to \"book::ison(nightstand)\" whenever i need to reference book\nIn my plan I will always stick to \"magazine::ison(nightstand)\" whenever i need to reference magazine\n1. goto[nightstand]\n2. pick[book::ison(nightstand)]\n3. goto[nightstand]\n4. pick[magazine::ison(nightstand)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f08",
@@ -2548,7 +3360,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -2567,7 +3386,13 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(9th_stand)\", \"magazine::ison(9th_stand)\"]\nIn my plan I will always stick to \"book::ison(9th_stand)\" whenever i need to reference book\nIn my plan I will always stick to \"magazine::ison(9th_stand)\" whenever i need to reference magazine\n1. goto[9th_stand]\n2. pick[book::ison(9th_stand)]\n3. goto[9th_stand]\n4. pick[magazine::ison(9th_stand)]\nExplanation: I understand that I need to bring both the book and the magazine, which are both on the 9th stand. I will first go to the 9th stand, pick the book, then return to the 9th stand to pick the magazine.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(9th_stand)]",
+                "2. pick[book::ison(9th_stand)]",
+                "3. goto[magazine::ison(9th_stand)]",
+                "4. pick[magazine::ison(9th_stand)]"
+            ]
         },
         {
             "speaker": "f01",
@@ -2587,7 +3412,14 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"marks::ison(9th_stand)\"]\nIn my plan I will always stick to \"marks::ison(9th_stand)\" whenever i need to reference marks\n1. goto[book]\n2. pick[book]\n3. goto[marks::ison(9th_stand)]\n4. pick[marks::ison(9th_stand)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book]",
+                "2. pick[book]",
+                "3. goto[marks::ison(9th_stand)]",
+                "4. pick[marks::ison(9th_stand)]",
+                "```"
+            ]
         },
         {
             "speaker": "f12",
@@ -2605,7 +3437,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m01",
@@ -2623,7 +3461,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f03",
@@ -2642,7 +3486,14 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(9th_stand)\", \"magazine::ison(9th_stand)\"]\nIn my plan I will always stick to \"book::ison(9th_stand)\" whenever i need to reference book\nIn my plan I will always stick to \"magazine::ison(9th_stand)\" whenever i need to reference magazine\n1. goto[book::ison(9th_stand)]\n2. pick[book::ison(9th_stand)]\n3. goto[magazine::ison(9th_stand)]\n4. pick[magazine::ison(9th_stand)]\nExplanation: I understand that I need to focus on the book and the magazine, both of which are on the 9th stand. I will first go to the book, pick it up, then go to the magazine and pick it up as well.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(9th_stand)]",
+                "2. pick[book::ison(9th_stand)]",
+                "3. goto[magazine::ison(9th_stand)]",
+                "4. pick[magazine::ison(9th_stand)]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -2660,7 +3511,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m05",
@@ -2678,7 +3535,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "m07",
@@ -2696,7 +3560,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                "```"
+            ]
         },
         {
             "speaker": "f02",
@@ -2714,7 +3585,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f05",
@@ -2732,7 +3610,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f07",
@@ -2750,7 +3635,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m04",
@@ -2768,7 +3659,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m08",
@@ -2786,7 +3683,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -2804,7 +3708,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m03",
@@ -2822,7 +3732,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f12",
@@ -2840,7 +3756,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[nightstand]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[nightstand]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m02",
@@ -2858,7 +3780,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f10",
@@ -2877,7 +3806,13 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(9th_stand)\", \"magazine::ison(9th_stand)\"]\nIn my plan I will always stick to \"book::ison(9th_stand)\" whenever I need to reference book\nIn my plan I will always stick to \"magazine::ison(9th_stand)\" whenever I need to reference magazine\n1. goto[book::ison(9th_stand)]\n2. pick[book::ison(9th_stand)]\n3. goto[magazine::ison(9th_stand)]\n4. pick[magazine::ison(9th_stand)]\nExplanation: I understand that I need to focus on the book and the magazine, both of which are on the 9th stand. I will first go to the book on the 9th stand, pick it up, then go to the magazine on the 9th stand and pick it up.\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(9th_stand)]",
+                "2. pick[book::ison(9th_stand)]",
+                "3. goto[magazine::ison(9th_stand)]",
+                "4. pick[magazine::ison(9th_stand)]"
+            ]
         },
         {
             "speaker": "m08",
@@ -2895,7 +3830,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -2915,7 +3857,14 @@
                 0
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"marks::ison(9th_stand)\"]\nIn my plan I will always stick to \"marks::ison(9th_stand)\" whenever i need to reference marks\n1. goto[book]\n2. pick[book]\n3. goto[marks::ison(9th_stand)]\n4. pick[marks::ison(9th_stand)]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book]",
+                "2. pick[book]",
+                "3. goto[marks::ison(9th_stand)]",
+                "4. pick[marks::ison(9th_stand)]",
+                "```"
+            ]
         },
         {
             "speaker": "m09",
@@ -2933,7 +3882,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m04",
@@ -2951,7 +3906,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -2969,7 +3931,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f09",
@@ -2987,7 +3955,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -3005,7 +3980,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f08",
@@ -3023,7 +4004,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m07",
@@ -3041,7 +4028,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[nightstand]",
+                "2. pick[book]",
+                "3. goto[nightstand]",
+                "4. pick[magazine]",
+                "```"
+            ]
         },
         {
             "speaker": "m05",
@@ -3059,7 +4053,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f09",
@@ -3077,7 +4077,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m02",
@@ -3095,7 +4101,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f06",
@@ -3113,7 +4126,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f03",
@@ -3131,7 +4150,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f07",
@@ -3149,7 +4174,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f06",
@@ -3167,7 +4199,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "m06",
@@ -3185,7 +4224,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -3202,7 +4248,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"book::ison(nightstand)\", \"magazine::ison(nightstand)\"]\nIn my plan I will always stick to \"book::ison(nightstand)\" whenever I need to reference book\nIn my plan I will always stick to \"magazine::ison(nightstand)\" whenever I need to reference magazine\n1. goto[book::ison(nightstand)]\n2. pick[book::ison(nightstand)]\n3. goto[magazine::ison(nightstand)]\n4. pick[magazine::ison(nightstand)]\n```\n"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -3220,7 +4273,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -3238,7 +4298,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -3256,7 +4323,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "f05",
@@ -3274,7 +4347,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[nightstand]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[nightstand]",
+                "4. pick[magazine::ison(nightstand)]",
+                "```"
+            ]
         },
         {
             "speaker": "f02",
@@ -3292,7 +4372,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]"
+            ]
         },
         {
             "speaker": "m06",
@@ -3310,7 +4396,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = []\n1. goto[nightstand]\n2. pick[book]\n3. goto[nightstand]\n4. pick[magazine]\n```"
+            "llm_output": [
+                "",
+                "1. goto[book::ison(nightstand)]",
+                "2. pick[book::ison(nightstand)]",
+                "3. goto[magazine::ison(nightstand)]",
+                "4. pick[magazine::ison(nightstand)]",
+                ""
+            ]
         }
     ],
     "032": [
@@ -3330,7 +4423,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "f09",
@@ -3348,7 +4447,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -3366,7 +4472,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f04",
@@ -3384,7 +4497,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "initial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever I need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mark]\n3. goto[sink]\n4. place[mark,sink]"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mark]",
+                "3. goto[destination] ",
+                "4. place[mark,destination]"
+            ]
         },
         {
             "speaker": "m03",
@@ -3402,7 +4521,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m02",
@@ -3420,7 +4545,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination]  # Assuming a destination is implied but not specified",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m08",
@@ -3438,7 +4569,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m06",
@@ -3456,7 +4593,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f01",
@@ -3474,7 +4618,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f02",
@@ -3492,7 +4642,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "f08",
@@ -3510,7 +4666,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "initial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever I need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "m07",
@@ -3528,7 +4690,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "m06",
@@ -3546,7 +4714,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever I need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -3564,7 +4739,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -3582,7 +4764,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m04",
@@ -3600,7 +4788,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f07",
@@ -3618,7 +4813,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mark]\n3. goto[sink]\n4. place[mark,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mark]",
+                "3. goto[sink]",
+                "4. place[mark,sink]"
+            ]
         },
         {
             "speaker": "f05",
@@ -3636,7 +4837,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "f05",
@@ -3654,7 +4861,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f10",
@@ -3672,7 +4885,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -3690,7 +4910,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m07",
@@ -3708,7 +4934,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         },
         {
             "speaker": "f06",
@@ -3726,7 +4958,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever I need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f03",
@@ -3744,7 +4983,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m10",
@@ -3762,7 +5008,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]",
+                ""
+            ]
         },
         {
             "speaker": "f02",
@@ -3780,7 +5033,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination]  # Assuming a destination is implied but not specified",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m05",
@@ -3798,7 +5057,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m05",
@@ -3816,7 +5081,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination]  # Assuming a destination is implied but not specified",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f06",
@@ -3834,7 +5105,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -3852,7 +5130,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m03",
@@ -3870,7 +5155,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination]  # Assuming a destination is implied but not specified",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f01",
@@ -3888,7 +5179,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m04",
@@ -3906,7 +5203,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[man]\n3. goto[destination] \n4. place[man,destination]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[man]",
+                "3. goto[destination]",
+                "4. place[man,destination]",
+                ""
+            ]
         },
         {
             "speaker": "m01",
@@ -3924,7 +5228,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "f08",
@@ -3942,7 +5253,14 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]",
+                ""
+            ]
         },
         {
             "speaker": "f11",
@@ -3960,7 +5278,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever I need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f09",
@@ -3978,7 +5302,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "m09",
@@ -3996,7 +5326,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]",
+                ""
+            ]
         },
         {
             "speaker": "m09",
@@ -4014,7 +5351,13 @@
                 2
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f12",
@@ -4032,7 +5375,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                "```"
+            ]
         },
         {
             "speaker": "f10",
@@ -4050,7 +5400,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[destination] ",
+                "4. place[mug,destination]"
+            ]
         },
         {
             "speaker": "f07",
@@ -4068,7 +5424,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m08",
@@ -4086,7 +5449,14 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]",
+                ""
+            ]
         },
         {
             "speaker": "m02",
@@ -4104,7 +5474,13 @@
                 1
             ],
             "baseline_choice": "asr",
-            "llm_output": "```\ninitial_referents_with_spatial_predicates = [\"table::isnear(sink)\"]\nIn my plan I will always stick to \"table::isnear(sink)\" whenever i need to reference table\n1. goto[table::isnear(sink)]\n2. pick[mug]\n3. goto[sink]\n4. place[mug,sink]\n```"
+            "llm_output": [
+                "",
+                "1. goto[table::isnear(sink)]",
+                "2. pick[mug]",
+                "3. goto[sink]",
+                "4. place[mug,sink]"
+            ]
         }
     ]
 }
