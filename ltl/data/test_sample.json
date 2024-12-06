@@ -122,5 +122,40 @@
                 "flowers"
             ]
         }
+    },
+    {
+        "audio_file": "pid_m10_003_i1",
+        "sentence": "pick up the book on the table with the red cover",
+        "words_info": [],
+        "intent_dict": {
+            "Goal_intent": [],
+            "Avoidance_intent": [],
+            "Detail_intent": []
+        }
+    },
+    {
+        "audio_file": "pid_f11_003_i1",
+        "sentence": "pick up the book on the table with the red cover",
+        "words_info": [
+            {
+                "word": "the",
+                "gold_label": 0,
+                "predicted_label": 1
+            },
+            {
+                "word": "the",
+                "gold_label": 0,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "the"
+            ]
+        }
     }
 ]

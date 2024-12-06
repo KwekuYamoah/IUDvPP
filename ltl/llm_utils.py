@@ -1,4 +1,6 @@
 import re
+import json
+from jsonschema import validate, ValidationError
 import os
 import openai
 from openai import OpenAI
@@ -54,6 +56,95 @@ def generate_response_from_gpt4(user_prompt=None, deterministic=True):
     response = completion.choices[0].message.content
     return response
 
+# def generate_json_with_gpt(model_output, deterministic=True):
+#     # use 4o variant of gpt
+#     gpt_model = "gpt-4o"
+#     print(f"\t\tModel: {gpt_model} || Deterministic?: {deterministic}")
+
+#     # define json schema
+#     task_schema = {
+#                 "type": "object",
+#                 "properties": {
+#                     "Interpretation": {
+#                         "type": "string",
+#                         "description": "A natural language interpretation of the task."
+#                     },
+#                     "Explanation": {
+#                         "type": "string",
+#                         "description": "A detailed explanation of how the interpretation was derived."
+#                     },
+#                     "ResolvedReferents": {
+#                         "type": "array",
+#                         "items": {
+#                             "type": "string"
+#                         },
+#                         "description": "A list of resolved referents with their attributes."
+#                     },
+#                     "TaskPlan": {
+#                         "type": "array",
+#                         "items": {
+#                             "type": "string"
+#                         },
+#                         "description": "A sequence of tasks to achieve the goal."
+#                     }
+#                 },
+#                 "required": ["Interpretation", "Explanation", "ResolvedReferents", "TaskPlan"],
+#                 "additionalProperties": False
+#             }
+#     if deterministic == True:
+#         completion = client.chat.completions.create(
+#             model=gpt_model,
+#             messages=[
+#                 {
+#                     "role": "system",
+#                     "content": "You are an intelligent assistant specialized in interpreting tasks and generating structured task plans. Your responses must strictly adhere to the provided JSON schema without adding any extra information, explanations, or deviations. Ensure that all required fields are present and formatted as per the schema correctly."
+#                 },
+#                 {
+#                     "role": "user",
+#                     "content": model_output
+#                 }
+#             ],
+#             temperature=0,  # use deterministic greedy token decoding during evaluation experiments however deterministic decoding is not guaranteed, hence peform multiple runs and get mode of the responses
+#             max_tokens=2000,
+#             response_format={
+#                 "type": "json_schema",
+#                 "json_schema": {
+#                     "name": "task_planner_schema",
+#                     "schema": task_schema,
+#                     "strict": True
+#                 }
+#             }
+            
+#         )
+#     else:
+#         completion = client.chat.completions.create(
+#             model=gpt_model,
+#             messages=[
+#                 {
+#                     "role": "system",
+#                     "content": "You are an intelligent assistant specialized in interpreting tasks and generating structured task plans. Your responses must strictly adhere to the provided JSON schema without adding any extra information, explanations, or deviations. Ensure that all required fields are present and formatted as per the schema."
+#                 },
+#                 {
+#                     "role": "user",
+#                     "content": "Pick up the book (which is on the table) and that book has a red cover."
+#                 }
+#             ],
+#             temperature=0.3,
+#             top_p=1,
+#             max_tokens=2000,
+#             response_format={
+#                 "type": "json_schema",
+#                 "json_schema": {
+#                     "name": "task_planner_schema",
+#                     "schema": task_schema,
+#                     "strict": True
+#                 }
+#             }
+#         )
+    
+#     response = completion.choices[0].message.content
+#     return response
+
 def generate_json_with_gpt(model_output, deterministic=True):
     # use 4o variant of gpt
     gpt_model = "gpt-4o"
@@ -76,33 +167,44 @@ def generate_json_with_gpt(model_output, deterministic=True):
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of resolved referents with their attributes. Example ['mug::ison(table::isnear(sink))']"
+                        "description": "A list of resolved referents with their attributes."
                     },
                     "TaskPlan": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "A sequence of tasks to achieve the goal. Example:[ ‘goto[mug::ison(table::isnear(sink))]’, ‘pick[mug::ison(table::isnear(sink))]’, ‘move[mug::ison(table::isnear(sink))] to new location’ ]"
+                        "description": "A sequence of tasks to achieve the goal."
                     }
                 },
                 "required": ["Interpretation", "Explanation", "ResolvedReferents", "TaskPlan"],
                 "additionalProperties": False
             }
-    if deterministic == True:
+    
+    # More specific system message to prevent hallucination
+    system_message = (
+        "You are an intelligent assistant specialized in interpreting tasks and generating structured task plans. "
+        "Your responses must strictly adhere to the provided JSON schema without adding any extra information, explanations, or deviations. "
+        "Do not include anything outside of the JSON schema, and make sure all fields are present. "
+        "The model output has all the information needed to create the JSON schema, so outside of this, nothing extra should be added. "
+        "If you do not have enough information to complete a field, return an empty string for that field instead of guessing or hallucinating. "
+        "Be concise and precise, and do not add any extraneous information."
+    )
+
+    if deterministic:
         completion = client.chat.completions.create(
             model=gpt_model,
             messages=[
                 {
                     "role": "system",
-                    "content": "You are an intelligent assistant specialized in interpreting tasks and generating structured task plans. Your responses must strictly adhere to the provided JSON schema without adding any extra information, explanations, or deviations. Ensure that all required fields are present and correctly formatted as per the schema."
+                    "content": system_message
                 },
                 {
                     "role": "user",
                     "content": model_output
                 }
             ],
-            temperature=0,  # use deterministic greedy token decoding during evaluation experiments however deterministic decoding is not guaranteed, hence peform multiple runs and get mode of the responses
+            temperature=0,  # Lower temperature for deterministic output
             max_tokens=2000,
             response_format={
                 "type": "json_schema",
@@ -112,7 +214,6 @@ def generate_json_with_gpt(model_output, deterministic=True):
                     "strict": True
                 }
             }
-            
         )
     else:
         completion = client.chat.completions.create(
@@ -120,15 +221,15 @@ def generate_json_with_gpt(model_output, deterministic=True):
             messages=[
                 {
                     "role": "system",
-                    "content": "You are an intelligent assistant specialized in interpreting tasks and generating structured task plans. Your responses must strictly adhere to the provided JSON schema without adding any extra information, explanations, or deviations. Ensure that all required fields are present and correctly formatted as per the schema."
+                    "content": system_message
                 },
                 {
                     "role": "user",
-                    "content": "Pick up the book (which is on the table) and that book has a red cover."
+                    "content": model_output
                 }
             ],
-            temperature=0.3,
-            top_p=1,
+            temperature=0.3,  # Slightly higher temperature for creativity, but still controlled
+            top_p=0.9,  # Adjust top_p to reduce the chance of hallucinations
             max_tokens=2000,
             response_format={
                 "type": "json_schema",
@@ -142,6 +243,8 @@ def generate_json_with_gpt(model_output, deterministic=True):
     
     response = completion.choices[0].message.content
     return response
+
+
 
 def limp_llm_plan(limp_plan_incontext_prompt, instruction, intent_dict, baseline=None, verbose=False):
     print(f"Executing Baseline: {baseline}")
