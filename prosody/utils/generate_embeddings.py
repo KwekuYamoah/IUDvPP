@@ -130,12 +130,12 @@ def write_json(data, file_path='../prosody/data/ambiguous_prosody_multi_label_fe
 if __name__ == "__main__":
 
     # load the json file
-    data = load_json()
+    data = load_json(file_path='../prosody/data/ambiguous_prosody_multi_label_features_eval.json')
 
     # generate embeddings
     new_data = generate_embeddings(data)
 
     # write the new data to a file
-    write_json(new_data)
+    write_json(new_data, file_path='../prosody/data/ambiguous_prosody_multi_label_features_eval_embeddings.json')
 
     print("New JSON file saved as ambiguous_prosody_multi_label_features_train_embeddings.json")
