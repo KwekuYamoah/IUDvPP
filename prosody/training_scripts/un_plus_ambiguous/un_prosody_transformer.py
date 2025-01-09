@@ -152,31 +152,6 @@ def preprocess_text(words):
         processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
     return processed_words
 
-# Clean up sentence by removing padding
-# def clean_up_sentence(words, gold_labels, pred_labels, padding_value):
-#     """
-#     Remove padding from words, gold labels, and predicted labels.
-
-#     Args:
-#         words (list): A list of words.
-#         gold_labels (list): A list of gold labels.
-#         pred_labels (list): A list of predicted labels.
-#         padding_value (int): The padding value to ignore.
-
-#     Returns:
-#         tuple: A tuple containing filtered words, gold labels, and predicted labels.
-#     """
-#     filtered_words = []
-#     filtered_gold_labels = []
-#     filtered_pred_labels = []
-
-#     for i in range(len(words)):
-#         if gold_labels[i] != padding_value:
-#             filtered_words.append(words[i])
-#             filtered_gold_labels.append(int(gold_labels[i]))
-#             filtered_pred_labels.append(int(pred_labels[i]))
-#     return filtered_words, filtered_gold_labels, filtered_pred_labels
-
 def clean_up_sentence(words, gold_labels, pred_labels, padding_value):
     """
     Remove padding from words, gold labels, and predicted labels.

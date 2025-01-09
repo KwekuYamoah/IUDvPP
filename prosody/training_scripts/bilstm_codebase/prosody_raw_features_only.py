@@ -22,6 +22,7 @@ Date: 2024-04-27
 import json
 import random
 import torch
+import os
 import string
 import numpy as np
 from torch.utils.data import Dataset, DataLoader, random_split
@@ -29,6 +30,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchinfo import summary
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import multilabel_confusion_matrix, precision_recall_fscore_support
 import matplotlib.pyplot as plt
 import pandas as pd
 import re
@@ -37,7 +39,7 @@ import torch.nn.utils.rnn as rnn_utils
 # ==============================
 # Utility Functions
 # ==============================
-
+PADDING_VALUE = -100  # Using -100 as it's the default ignore_index in CrossEntropyLoss
 def set_seed(seed):
     """
     Set the random seed for reproducibility across various libraries.
@@ -846,7 +848,31 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.savefig('./outputs/prosody_raw_acoustic_metrics.png')
     plt.close()
     print(f'Metrics plot saved to ./outputs/prosody_raw_acoustic_metrics.png')
+    
+def evaluate_new_set(model, new_dataset_path, scaler=None):
+    """
+    Evaluates the model on a new held-out dataset.
 
+    Args:
+        model (nn.Module): The trained Seq2Seq model.
+        new_dataset_path (str): Path to the new JSON dataset.
+
+    Returns:
+        tuple: All true labels and all predicted labels.
+    """
+    # Load new data
+    new_data = load_data(new_dataset_path)
+    if scaler is not None:
+        new_dataset = ProsodyDataset(new_data, scaler = scaler)
+    else:
+        new_dataset = ProsodyDataset(new_data)
+    new_loader = DataLoader(new_dataset, batch_size=8, shuffle=False, collate_fn=collate_fn)
+    
+    # Test the model on the new dataset and get predictions
+    print('\n\nEvaluation on Held Out Set Dataset:')
+    all_labels, all_preds = test_model(model, new_loader)
+
+    return all_labels, all_preds
 # ==============================
 # Main Execution Block
 # ==============================
@@ -937,7 +963,7 @@ if __name__ == "__main__":
     optimizer = optim.Adam(model.parameters(), 
                            lr=0.0005438229945889153, 
                            weight_decay=1e-5)  # Adam optimizer with learning rate and weight decay
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)  # Learning rate scheduler
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)  # Learning rate scheduler
 
     # Define the loss function with ignoring the padding index
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
@@ -1015,6 +1041,83 @@ if __name__ == "__main__":
     # Evaluate on a New Held-Out Set
     # ==============================
 
+
+    # Evaluate model on held out set
     eval_json = "../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_eval.json"
-    # Evaluate the model on the new dataset and get predictions
-    evaluate_new_set(model, eval_json)
+    # Evaluate the model on the new dataset
+    true_labels, predicted_labels = evaluate_new_set(model, eval_json)
+
+    # Log directory
+    log_dir = "../prosody/outputs"
+
+    # Ensure log directory exists
+    os.makedirs(log_dir, exist_ok=True)
+
+    # Class names
+    class_names = [0, 1, 2] #sorted(list(set(true_labels)))
+
+    # Compute per-class precision, recall, f1-score, and support
+    class_precision, class_recall, class_f1, class_support = precision_recall_fscore_support(
+        true_labels, predicted_labels, average=None, zero_division=0)
+    
+    # Compute weighted precision, recall, f1-score
+    weighted_precision, weighted_recall, weighted_f1, _ = precision_recall_fscore_support(
+        true_labels, predicted_labels, average='weighted', zero_division=0)
+    
+    print("Class Support:", class_support)
+    
+    # Compute the multilabel confusion matrix
+    confusion_matrices = multilabel_confusion_matrix(true_labels, predicted_labels)
+    
+    # Initialize a list to store accuracy for each class
+    class_accuracy = []
+    
+    # Calculate accuracy for each class using the confusion matrices
+    for i in range(len(class_names)):
+        tn, fp, fn, tp = confusion_matrices[i].ravel()
+        accuracy = (tp + tn) / (tp + tn + fp + fn)
+        class_accuracy.append(accuracy)
+    
+    # Compute weighted accuracy
+    total_support = sum(class_support)
+    weighted_accuracy = sum(acc * supp for acc, supp in zip(class_accuracy, class_support)) / total_support
+    
+    # Write class-wise metrics to a file, including accuracy
+    with open(f"{log_dir}/bilstm_prosody_raw_classwise_metrics.txt", "w") as f:
+        for i, class_name in enumerate(class_names):
+            f.write(f"{class_name}:\n")
+            f.write(f"  Precision: {class_precision[i]:.4f}\n")
+            f.write(f"  Recall: {class_recall[i]:.4f}\n")
+            f.write(f"  F1-Score: {class_f1[i]:.4f}\n")
+            f.write(f"  Accuracy: {class_accuracy[i]:.4f}\n")  # Added accuracy
+            f.write(f"  Support (True instances in eval data): {class_support[i]}\n")
+            f.write("-" * 40 + "\n")
+        
+        # Write weighted metrics
+        f.write("\nWeighted Metrics:\n")
+        f.write(f"  Weighted Precision: {weighted_precision:.4f}\n")
+        f.write(f"  Weighted Recall: {weighted_recall:.4f}\n")
+        f.write(f"  Weighted F1-Score: {weighted_f1:.4f}\n")
+        f.write(f"  Weighted Accuracy: {weighted_accuracy:.4f}\n")
+        f.write("-" * 40 + "\n")
+    
+    # Write confusion matrix to a file
+    with open(f"{log_dir}/bilstm_prosody_raw_confusion_matrix.txt", "w") as f:
+        for i, class_name in enumerate(class_names):
+            tn, fp, fn, tp = confusion_matrices[i].ravel()  # Extract the values from the confusion matrix
+    
+            f.write(f"\nConfusion Matrix for {class_name}:\n")
+            f.write(f"True Negatives (TN): {tn}\n")
+            f.write(f"False Positives (FP): {fp}\n")
+            f.write(f"False Negatives (FN): {fn}\n")
+            f.write(f"True Positives (TP): {tp}\n")
+    
+            f.write("\nInterpretation:\n")
+            f.write(f"  - The model correctly predicted that '{class_name}' is NOT present {tn} times (TN).\n")
+            f.write(f"  - The model incorrectly predicted that '{class_name}' is present {fp} times when it was actually NOT present (FP).\n")
+            f.write(f"  - The model incorrectly predicted that '{class_name}' is NOT present {fn} times when it was actually present (FN).\n")
+            f.write(f"  - The model correctly predicted that '{class_name}' is present {tp} times (TP).\n")
+            f.write("-" * 40 + "\n")
+    
+    print("Training and evaluation completed successfully.")
+

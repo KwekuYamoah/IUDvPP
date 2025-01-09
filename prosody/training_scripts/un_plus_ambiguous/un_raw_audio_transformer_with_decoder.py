@@ -580,7 +580,7 @@ def test_model(model, iterator):
     all_preds = []
 
     os.makedirs('./outputs', exist_ok=True)
-    with open('./outputs/prosody_transformer_multiclass_results.txt', 'w') as file:
+    with open('./outputs/un_raw_transformer_multiclass_results.txt', 'w') as file:
         file.write("")
 
     with torch.no_grad():
@@ -615,7 +615,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/prosody_transformer_multiclass_results.txt', 'a') as file:
+                with open('./outputs/un_raw_transformer_multiclass_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -682,11 +682,12 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.title('F1 Score')
     
     plt.tight_layout()
-    plt.savefig('./outputs/transformer_multiclass_metrics.png')
+    plt.savefig('./outputs/un_raw_transformer_multiclass_metrics.png')
     plt.close()
 
+    
 # Evaluate on a new dataset
-def evaluate_new_set(model, new_dataset_path):
+def evaluate_new_set(model, new_path_un, new_path_am,):
     """
     Evaluate the given model on a new dataset.
     Args:
@@ -698,8 +699,9 @@ def evaluate_new_set(model, new_dataset_path):
             - all_preds (list): The model's predictions on the new dataset.
     """
     # Load new data
-    new_data = load_data(new_dataset_path)
-    new_dataset = ProsodyDataset(new_data)
+    # combine the two datasets
+    eval_data = {**load_data(new_path_un), **load_data(new_path_am)}
+    new_dataset = ProsodyDataset(eval_data)
     new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
     
     # Test the model on the new dataset and get predictions
@@ -758,12 +760,24 @@ def get_all_unique_labels(datasets):
 # Main script
 if __name__ == "__main__":
     set_seed(42)
-    json_path = '../prosody/data/ambiguous_prosody_multi_label_features_train.json'
-    data = load_data(json_path)
+    
+    am_json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features_train.json'
+    un_json_path = '../prosody/data/multi_label_extracted_raw_audio_features_train.json'
+    am_data = load_data(am_json_path)
+    un_data = load_data(un_json_path)
+
+    # Combine the two datasets
+    data = {**am_data, **un_data}
+    
+
+    # Sanity check
+    print(f'Total number of Unambiguous entries: {len(un_data)}')
+    print(f'Total number of Ambiguous entries: {len(am_data)}')
+    print(f'Total number of entries: {len(data)}')
 
     # Create a descriptive filename for the model
-    dataset_name = "ambiguous_instructions"
-    task_name = "prosody_multiclass"
+    dataset_name = "un-ambiguous-instructions"
+    task_name = "raw-audio-multiclass"
     best_model_filename = f"models/best-transformer-model-{dataset_name}-{task_name}.pt"
 
     # Split data
@@ -798,11 +812,11 @@ if __name__ == "__main__":
     SOS_IDX = NUM_CLASSES - 1  # Start-of-Sequence token index
 
     # Define model hyperparameters
-    HIDDEN_DIM = 128
+    HIDDEN_DIM = 320
     OUTPUT_DIM = NUM_CLASSES  # Updated to num_classes
-    NUM_LAYERS = 2
-    DROPOUT = 0.46413941258903124
-    NUM_HEADS = 8
+    NUM_LAYERS = 6
+    DROPOUT = 0.1
+    NUM_HEADS = 4
 
     # Define device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -821,8 +835,8 @@ if __name__ == "__main__":
 
     # Define optimizer and scheduler
     optimizer = optim.Adam(model.parameters(), 
-                           lr=0.001175385480166815, 
-                           weight_decay=1.3835287809131501e-05)
+                           lr=1.2383235890092043e-05, 
+                           weight_decay=1.475185569861857e-05)
     # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=3, min_lr=1e-6)
 
@@ -895,9 +909,10 @@ if __name__ == "__main__":
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    eval_json = "../prosody/data/ambiguous_prosody_multi_label_features_eval.json"
-    # Evaluate the model on the new dataset
-    true_labels, predicted_labels  = evaluate_new_set(model, eval_json)
+    am_eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json"
+    un_eval_json = "../prosody/data/multi_label_extracted_raw_audio_features_eval.json"
+    
+    true_labels, predicted_labels  = evaluate_new_set(model, un_eval_json, am_eval_json)
 
     # Log directory
     log_dir = "../prosody/outputs"
@@ -906,7 +921,7 @@ if __name__ == "__main__":
     os.makedirs(log_dir, exist_ok=True)
 
     # Class names 
-    class_names = [0,1,2] #sorted(list(all_unique_labels))
+    class_names = sorted(list(all_unique_labels))
 
     # Compute precision, recall, f1-score, and support for each class
     class_precision, class_recall, class_f1, class_support = precision_recall_fscore_support(
@@ -917,7 +932,7 @@ if __name__ == "__main__":
     confusion_matrices = multilabel_confusion_matrix(true_labels, predicted_labels)
 
     # Write class-wise metrics to a file
-    with open(f"{log_dir}/classwise_metrics.txt", "w") as f:
+    with open(f"{log_dir}/un_raw_classwise_metrics.txt", "w") as f:
             for i, class_name in enumerate(class_names):
                 f.write(f"{class_name}:\n")
                 f.write(f"  Precision: {class_precision[i]:.4f}\n")
@@ -927,7 +942,7 @@ if __name__ == "__main__":
                 f.write("-" * 40 + "\n")
 
     # Write confusion matrix to a file
-    with open(f"{log_dir}/confusion_matrix.txt", "w") as f:
+    with open(f"{log_dir}/un_raw_confusion_matrix.txt", "w") as f:
         for i, class_name in enumerate(class_names):
             tn, fp, fn, tp = confusion_matrices[i].ravel()  # Extract the values from the confusion matrix
 

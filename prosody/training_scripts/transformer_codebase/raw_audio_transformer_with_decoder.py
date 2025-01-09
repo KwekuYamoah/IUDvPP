@@ -5,6 +5,7 @@ import numpy as np
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import multilabel_confusion_matrix, precision_recall_fscore_support
+import string
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
@@ -16,6 +17,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchinfo import summary
 from torch.optim.lr_scheduler import StepLR, ReduceLROnPlateau
+
 
 def set_seed(seed):
     """
@@ -162,7 +164,7 @@ class ProsodyDataset(Dataset):
 
     Args:
         data (dict): A dictionary where keys are identifiers and values are dictionaries 
-                     containing 'words', 'prosodic_features', 'raw_acoustic_features', and 'labels'.
+                     containing 'words', 'features', and 'labels'.
 
     Attributes:
         entries (list): A list of tuples where each tuple contains a key and its corresponding data.
@@ -170,6 +172,15 @@ class ProsodyDataset(Dataset):
     Methods:
         __len__(): Returns the number of entries in the dataset.
         __getitem__(idx): Retrieves the words, features, and labels for the given index.
+
+    Example:
+        data = {
+            'id1': {'words': 'example sentence', 'features': [0.1, 0.2], 'labels': [0]},
+            'id2': {'words': 'another example', 'features': [0.3, 0.4], 'labels': [1]}
+        }
+        dataset = ProsodyDataset(data)
+        print(len(dataset))  # Output: 2
+        words, features, labels = dataset[0]
     """
     def __init__(self, data):
         self.entries = list(data.items())
@@ -180,10 +191,7 @@ class ProsodyDataset(Dataset):
     def __getitem__(self, idx):
         key, item = self.entries[idx]
         words = preprocess_text(item['words'])
-        prosodic_features = torch.tensor(item['prosodic_features'], dtype=torch.float32)
-        raw_acoustic_features = torch.tensor(item['raw_acoustic_features'], dtype=torch.float32)
-        # Concatenate features along the feature dimension
-        features = torch.cat((prosodic_features, raw_acoustic_features), dim=1)
+        features = torch.tensor(item['features'], dtype=torch.float32)
         labels = torch.tensor(item['labels'], dtype=torch.long) + 1  # Shift labels by +1
         return words, features, labels
 
@@ -195,7 +203,7 @@ def collate_fn(batch):
     Args:
         batch (list of tuples): A list where each tuple contains:
             - item[0] (list of str): List of words.
-            - item[1] (torch.Tensor): Tensor of combined features.
+            - item[1] (torch.Tensor): Tensor of features.
             - item[2] (torch.Tensor): Tensor of labels.
 
     Returns:
@@ -394,7 +402,7 @@ class TransformerSeq2Seq(nn.Module):
         # labels: [batch_size, seq_len]
         
         # Generate padding mask for encoder (source)
-        src_key_padding_mask = create_padding_mask(features.sum(dim=2), padding_value=0.0)
+        src_key_padding_mask = create_padding_mask(labels, padding_value=PADDING_VALUE)
         
         # Pass through encoder
         memory = self.encoder(features, src_key_padding_mask=src_key_padding_mask)  # [batch_size, seq_len, hidden_dim]
@@ -438,16 +446,16 @@ def generate_causal_mask(sz):
     return mask  # [sz, sz]
 
 # Function to create padding masks
-def create_padding_mask(seq, padding_value=0):
+def create_padding_mask(labels, padding_value=0):
     """
     Creates a padding mask for sequences.
     Args:
-        seq: Tensor of shape [batch_size, seq_len]
+        labels: Tensor of shape [batch_size, seq_len]
         padding_value: The value used for padding in labels
     Returns:
         mask: Tensor of shape [batch_size, seq_len], where True indicates padding positions
     """
-    mask = (seq == padding_value)
+    mask = (labels == padding_value)
     return mask  # [batch_size, seq_len]
 
 # Training function
@@ -553,13 +561,26 @@ def test_model(model, iterator):
         tuple: A tuple containing:
             - all_labels (list): The list of all ground truth labels.
             - all_preds (list): The list of all predicted labels.
+
+    The function performs the following steps:
+        1. Sets the model to evaluation mode.
+        2. Initializes lists to store all labels and predictions.
+        3. Creates an output directory and initializes the results file.
+        4. Iterates over the batches in the iterator:
+            - Moves features, labels, and lengths to the appropriate device.
+            - Computes the model's logits and predictions.
+            - Cleans up the sentences by excluding padding positions.
+            - Writes the cleaned data to the results file.
+            - Collects valid labels and predictions for metrics calculation.
+        5. Calculates and prints accuracy, precision, recall, and F1 score.
+        6. Returns the collected labels and predictions.
     """
     model.eval()
     all_labels = []
     all_preds = []
 
     os.makedirs('./outputs', exist_ok=True)
-    with open('./outputs/prosody_raw_transformer_multiclass_results.txt', 'w') as file:
+    with open('./outputs/raw_audio_transformer_multiclass_results.txt', 'w') as file:
         file.write("")
 
     with torch.no_grad():
@@ -594,7 +615,7 @@ def test_model(model, iterator):
                 }
 
                 df = pd.DataFrame(data)
-                with open('./outputs/prosody_raw_transformer_multiclass_results.txt', 'a') as file:
+                with open('./outputs/raw_audio_transformer_multiclass_results.txt', 'a') as file:
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
 
@@ -661,7 +682,7 @@ def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_r
     plt.title('F1 Score')
     
     plt.tight_layout()
-    plt.savefig('./outputs/prosody_raw_transformer_multiclass_metrics.png')
+    plt.savefig('./outputs/raw_audio_transformer_multiclass_metrics.png')
     plt.close()
 
 # Evaluate on a new dataset
@@ -698,7 +719,7 @@ def validate_labels(datasets, num_classes):
         num_classes (int): The number of classes. Labels should be in the range [0, num_classes - 1].
 
     Raises:
-        ValueError: If any label in the datasets is found to be outside the range [0, {num_classes - 1}].
+        ValueError: If any label in the datasets is found to be outside the range [0, num_classes - 1].
 
     Example:
         datasets = [
@@ -734,20 +755,15 @@ def get_all_unique_labels(datasets):
             unique_labels.update(labels.numpy().flatten())
     return unique_labels
 
+# Main script
 if __name__ == "__main__":
-    """
-    Main execution block for training and evaluation of the Transformer model.
-    """
-    # Set random seed for reproducibility
     set_seed(42)
-
-    # Load data
-    json_path = '../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_train.json'
+    json_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features_train.json'
     data = load_data(json_path)
 
     # Create a descriptive filename for the model
     dataset_name = "ambiguous_instructions"
-    task_name = "prosody-raw-multiclass"
+    task_name = "raw-audio-multiclass"
     best_model_filename = f"models/best-transformer-model-{dataset_name}-{task_name}.pt"
 
     # Split data
@@ -773,7 +789,6 @@ if __name__ == "__main__":
 
     # Determine number of classes based on all datasets
     all_unique_labels = get_all_unique_labels([train_dataset, val_dataset, test_dataset])
-
     # Update the number of classes to include SOS token
     NUM_CLASSES = len(all_unique_labels) + 2  # +1 for label shifting, +1 for SOS token
     print(f"All unique labels across datasets: {sorted(all_unique_labels)}")
@@ -784,12 +799,10 @@ if __name__ == "__main__":
 
     # Define model hyperparameters
     HIDDEN_DIM = 320
-    OUTPUT_DIM = NUM_CLASSES
-    NUM_LAYERS = 5
+    OUTPUT_DIM = NUM_CLASSES  # Updated to num_classes
+    NUM_LAYERS = 6
     DROPOUT = 0.1
-    NUM_HEADS = 8
-    LR = 7.09586457311747e-05
-    WEIGHT_DECAY = 2.0597041763339934e-06
+    NUM_HEADS = 4
 
     # Define device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -800,14 +813,18 @@ if __name__ == "__main__":
     decoder = TransformerDecoder(HIDDEN_DIM, OUTPUT_DIM, NUM_LAYERS, DROPOUT, num_classes=NUM_CLASSES, num_heads=NUM_HEADS).to(device)
     model = TransformerSeq2Seq(encoder, decoder).to(device)
 
+    # Optionally, uncomment to see model summary
+    # summary(model, input_data=(sample_features.to(device), sample_labels.to(device), sample_lengths.to(device)), device=device)
+
     # Validate labels before training
     validate_labels([train_dataset, val_dataset, test_dataset], NUM_CLASSES)
 
     # Define optimizer and scheduler
     optimizer = optim.Adam(model.parameters(), 
-                           lr=LR, 
-                           weight_decay=WEIGHT_DECAY)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
+                           lr=1.2383235890092043e-05, 
+                           weight_decay=1.475185569861857e-05)
+    # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=3, min_lr=1e-6)
 
     # Define loss function
     criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
@@ -821,7 +838,7 @@ if __name__ == "__main__":
     val_f1s = []
 
     # Define training parameters
-    N_EPOCHS = 20
+    N_EPOCHS = 100  # Increased epochs to allow early stopping to kick in
     CLIP = 1
 
     # Initialize early stopping
@@ -844,7 +861,10 @@ if __name__ == "__main__":
         val_f1s.append(valid_f1)
 
         # Update the learning rate scheduler
-        scheduler.step()
+        if isinstance(scheduler, ReduceLROnPlateau):
+            scheduler.step(valid_loss)
+        else:
+            scheduler.step()
 
         # Save the model if validation loss has decreased
         if valid_loss < best_valid_loss:
@@ -875,9 +895,9 @@ if __name__ == "__main__":
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
     # Evaluate model on held out set
-    eval_json = "../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_eval.json"
+    eval_json = "../prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json"
     # Evaluate the model on the new dataset
-    true_labels, predicted_labels = evaluate_new_set(model, eval_json)
+    true_labels, predicted_labels  = evaluate_new_set(model, eval_json)
 
     # Log directory
     log_dir = "../prosody/outputs"
@@ -885,43 +905,108 @@ if __name__ == "__main__":
     # Ensure log directory exists
     os.makedirs(log_dir, exist_ok=True)
 
-    # Class names
-    class_names = sorted(list(set(true_labels)))
+    # Class names 
+    class_names = [0,1,2] #sorted(list(all_unique_labels))
 
-    # Compute precision, recall, f1-score, and support for each class
+    # # Compute precision, recall, f1-score, and support for each class
+    # class_precision, class_recall, class_f1, class_support = precision_recall_fscore_support(
+    #     true_labels, predicted_labels, average=None, zero_division=0)
+    
+    # print("Class Support:", class_support)
+    # # Compute the multilabel confusion matrix
+    # confusion_matrices = multilabel_confusion_matrix(true_labels, predicted_labels)
+
+    # # Write class-wise metrics to a file
+    # with open(f"{log_dir}/raw_audio_classwise_metrics.txt", "w") as f:
+    #     for i, class_name in enumerate(class_names):
+    #         f.write(f"{class_name}:\n")
+    #         f.write(f"  Precision: {class_precision[i]:.4f}\n")
+    #         f.write(f"  Recall: {class_recall[i]:.4f}\n")
+    #         f.write(f"  F1-Score: {class_f1[i]:.4f}\n")
+    #         f.write(f"  Support (True instances in eval data): {class_support[i]}\n")
+    #         f.write("-" * 40 + "\n")
+
+    # # Write confusion matrix to a file
+    # with open(f"{log_dir}/raw_audio_confusion_matrix.txt", "w") as f:
+    #     for i, class_name in enumerate(class_names):
+    #         tn, fp, fn, tp = confusion_matrices[i].ravel()  # Extract the values from the confusion matrix
+
+    #         f.write(f"\nConfusion Matrix for {class_name}:\n")
+    #         f.write(f"True Negatives (TN): {tn}\n")
+    #         f.write(f"False Positives (FP): {fp}\n")
+    #         f.write(f"False Negatives (FN): {fn}\n")
+    #         f.write(f"True Positives (TP): {tp}\n")
+
+    #         f.write("\nInterpretation:\n")
+    #         f.write(f"  - The model correctly predicted that '{class_name}' is NOT present {tn} times (TN).\n")
+    #         f.write(f"  - The model incorrectly predicted that '{class_name}' is present {fp} times when it was actually NOT present (FP).\n")
+    #         f.write(f"  - The model incorrectly predicted that '{class_name}' is NOT present {fn} times when it was actually present (FN).\n")
+    #         f.write(f"  - The model correctly predicted that '{class_name}' is present {tp} times (TP).\n")
+    #         f.write("-" * 40 + "\n")
+
+    # print("Training and evaluation completed successfully.")
+
+    # Compute per-class precision, recall, f1-score, and support
     class_precision, class_recall, class_f1, class_support = precision_recall_fscore_support(
         true_labels, predicted_labels, average=None, zero_division=0)
-
+    
+    # Compute weighted precision, recall, f1-score
+    weighted_precision, weighted_recall, weighted_f1, _ = precision_recall_fscore_support(
+        true_labels, predicted_labels, average='weighted', zero_division=0)
+    
     print("Class Support:", class_support)
+    
     # Compute the multilabel confusion matrix
     confusion_matrices = multilabel_confusion_matrix(true_labels, predicted_labels)
-
-    # Write class-wise metrics to a file
-    with open(f"{log_dir}/prosody_raw_classwise_metrics.txt", "w") as f:
+    
+    # Initialize a list to store accuracy for each class
+    class_accuracy = []
+    
+    # Calculate accuracy for each class using the confusion matrices
+    for i in range(len(class_names)):
+        tn, fp, fn, tp = confusion_matrices[i].ravel()
+        accuracy = (tp + tn) / (tp + tn + fp + fn)
+        class_accuracy.append(accuracy)
+    
+    # Compute weighted accuracy
+    total_support = sum(class_support)
+    weighted_accuracy = sum(acc * supp for acc, supp in zip(class_accuracy, class_support)) / total_support
+    
+    # Write class-wise metrics to a file, including accuracy
+    with open(f"{log_dir}/raw_audio_classwise_metrics.txt", "w") as f:
         for i, class_name in enumerate(class_names):
             f.write(f"{class_name}:\n")
             f.write(f"  Precision: {class_precision[i]:.4f}\n")
             f.write(f"  Recall: {class_recall[i]:.4f}\n")
             f.write(f"  F1-Score: {class_f1[i]:.4f}\n")
+            f.write(f"  Accuracy: {class_accuracy[i]:.4f}\n")  # Added accuracy
             f.write(f"  Support (True instances in eval data): {class_support[i]}\n")
             f.write("-" * 40 + "\n")
-
+        
+        # Write weighted metrics
+        f.write("\nWeighted Metrics:\n")
+        f.write(f"  Weighted Precision: {weighted_precision:.4f}\n")
+        f.write(f"  Weighted Recall: {weighted_recall:.4f}\n")
+        f.write(f"  Weighted F1-Score: {weighted_f1:.4f}\n")
+        f.write(f"  Weighted Accuracy: {weighted_accuracy:.4f}\n")
+        f.write("-" * 40 + "\n")
+    
     # Write confusion matrix to a file
-    with open(f"{log_dir}/prosody_raw_confusion_matrix.txt", "w") as f:
+    with open(f"{log_dir}/raw_audio_confusion_matrix.txt", "w") as f:
         for i, class_name in enumerate(class_names):
             tn, fp, fn, tp = confusion_matrices[i].ravel()  # Extract the values from the confusion matrix
-
+    
             f.write(f"\nConfusion Matrix for {class_name}:\n")
             f.write(f"True Negatives (TN): {tn}\n")
             f.write(f"False Positives (FP): {fp}\n")
             f.write(f"False Negatives (FN): {fn}\n")
             f.write(f"True Positives (TP): {tp}\n")
-
+    
             f.write("\nInterpretation:\n")
             f.write(f"  - The model correctly predicted that '{class_name}' is NOT present {tn} times (TN).\n")
             f.write(f"  - The model incorrectly predicted that '{class_name}' is present {fp} times when it was actually NOT present (FP).\n")
             f.write(f"  - The model incorrectly predicted that '{class_name}' is NOT present {fn} times when it was actually present (FN).\n")
             f.write(f"  - The model correctly predicted that '{class_name}' is present {tp} times (TP).\n")
             f.write("-" * 40 + "\n")
-
+    
     print("Training and evaluation completed successfully.")
