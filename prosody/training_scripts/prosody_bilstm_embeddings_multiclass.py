@@ -35,7 +35,7 @@ import torch.nn.utils.rnn as rnn_utils
 # ==============================
 # Utility Functions
 # ==============================
-
+PADDING_LABEL = 0
 def set_seed(seed):
     """
     Set the random seed for reproducibility across various libraries.
@@ -779,7 +779,7 @@ if __name__ == "__main__":
     seed = 42 
     set_seed(seed)  # Set seed for reproducibility
 
-    json_path = '../prosody/multi_label_features.json'  # Path to data
+    json_path = '../prosody/data/multi_label_features.json'  # Path to data
     data = load_data(json_path)  # Load data
 
     # Compute number of classes dynamically
@@ -797,8 +797,8 @@ if __name__ == "__main__":
     # Embedding Initialization
     # ==============================
 
-    embedding_dim = 50  # Dimension of GloVe embeddings
-    glove_path = '../prosody/glove_embeddings/glove.6B.50d.txt'  # Path to GloVe file
+    embedding_dim = 300  # Dimension of GloVe embeddings
+    glove_path = '../prosody/glove_embeddings/glove.6B.300d.txt'  # Path to GloVe file
     glove_embeddings = load_glove_embeddings(glove_path, embedding_dim)  # Load GloVe embeddings
 
     vocab = list(glove_embeddings.keys())  # Vocabulary from GloVe
@@ -836,7 +836,7 @@ if __name__ == "__main__":
     # ==============================
 
     VOCAB_SIZE = len(word2idx)
-    EMBEDDING_DIM = 50
+    EMBEDDING_DIM = 300
     HIDDEN_DIM = 128
     OUTPUT_DIM = num_classes  # Number of output classes
     NUM_LAYERS = 4
