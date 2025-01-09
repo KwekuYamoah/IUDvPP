@@ -88,7 +88,7 @@ PROJECT_DIR = '/Users/kayems/Documents/GitHub/IUDvPP/'
 AENEAS_DIR = os.path.join(PROJECT_DIR, 'aeneas')  # Assuming 'aeneas' is directly under project_dir
 VOICE_SAMPLES_DIR = os.path.join(PROJECT_DIR, 'voice_sample_two_ways')
 TEXT_GRID_DIR = os.path.join(PROJECT_DIR, 'prosody', 'text_grid_files_set2')
-TRANSCRIPTIONS_JSON_PATH = os.path.join(PROJECT_DIR, 'asr', 'transcriptions_ambiguous_instructions.json')
+TRANSCRIPTIONS_JSON_PATH = os.path.join(PROJECT_DIR, 'asr', 'transcriptions_ambiguous_instructions_prosody.json')
 TEMP_TEXT_FILE_PATH = os.path.join(PROJECT_DIR, 'temp_transcription.txt')
 
 # Ensure the output directory exists
