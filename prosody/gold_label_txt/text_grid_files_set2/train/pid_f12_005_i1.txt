@@ -1,6 +1,6 @@
 place 0
 the 0
-v's 0
+vase 1
 on 0
 the 0
 table 1

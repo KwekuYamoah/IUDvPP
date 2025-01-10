@@ -1,4 +1,4 @@
-cook 0
+move 0
 the 0
 table 1
 in 0

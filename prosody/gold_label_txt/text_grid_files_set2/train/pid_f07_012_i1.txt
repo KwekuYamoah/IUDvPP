@@ -1,5 +1,5 @@
 place 0
-a 0
+the 0
 basket 1
 with 0
 the 0

@@ -1,7 +1,7 @@
 import json
 
 # load json data
-with open('../prosody/data/multi_label_prosodic_raw_acoustic_features.json', 'r', encoding='utf-8') as f:
+with open('../prosody/data/ambiguous_prosody_multi_label_features.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 ids_to_extract = ['003', '014', '017', '013', '032']
@@ -21,9 +21,9 @@ for file in data:
         training_data[file] = data[file]
 
 # save training data
-with open('../prosody/data/multi_label_prosodic_raw_acoustic_features_train.json', 'w', encoding='utf-8') as f:
+with open('../prosody/data/ambiguous_prosody_multi_label_features_train.json', 'w', encoding='utf-8') as f:
     json.dump(training_data, f, ensure_ascii=False, indent=2)
 
 # save test data
-with open('../prosody/data/multi_label_prosodic_raw_acoustic_features_eval.json', 'w', encoding='utf-8') as f:
+with open('../prosody/data/ambiguous_prosody_multi_label_features_eval.json', 'w', encoding='utf-8') as f:
     json.dump(test_data, f, ensure_ascii=False, indent=2)

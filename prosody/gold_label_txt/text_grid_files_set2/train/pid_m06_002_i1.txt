@@ -10,7 +10,3 @@ right 0
 of 0
 the 0
 chair 1
-is 0
-that 0
-okay? 0
-okay 0

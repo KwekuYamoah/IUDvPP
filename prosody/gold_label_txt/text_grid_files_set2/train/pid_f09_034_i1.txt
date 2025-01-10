@@ -6,4 +6,4 @@ the 0
 lamp 2
 near 0
 the 0
-shove 0
+shelf 1

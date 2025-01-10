@@ -1,7 +1,7 @@
 put 0
 the 0
 keys 1
-and 0
+under 0
 the 0
 book 2
 on 0

@@ -1,6 +1,6 @@
 place 0
 the 0
-wreath 0
+vase 1
 near 0
 the 0
 flowers 1

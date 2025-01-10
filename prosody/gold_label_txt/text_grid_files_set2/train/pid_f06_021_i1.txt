@@ -1,6 +1,6 @@
 move 0
 the 0
-keto 0
+kettle 1
 over 0
 the 0
 sink 2

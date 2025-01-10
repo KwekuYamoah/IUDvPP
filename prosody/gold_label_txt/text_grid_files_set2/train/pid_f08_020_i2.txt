@@ -6,4 +6,4 @@ the 0
 drone 1
 near 0
 the 0
-pots 0
+pot 2

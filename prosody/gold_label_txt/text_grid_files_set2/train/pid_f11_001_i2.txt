@@ -1,4 +1,4 @@
-put 0
+place 0
 the 0
 rug 1
 in 0

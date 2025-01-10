@@ -1,6 +1,6 @@
-it's 0
+place 0
 the 0
-lump 0
+lamp 1
 on 0
 the 0
 nightstand 1

@@ -1,10 +1,10 @@
 send 0
 the 0
-throne 0
+drone 1
 over 0
 the 0
 green 2
-books 0
+box 2
 to 0
 the 0
 lamppost 1

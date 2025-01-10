@@ -1,4 +1,4 @@
-is 0
+place 0
 the 0
 vase 1
 near 0
@@ -6,4 +6,4 @@ the 0
 flowers 1
 on 0
 the 0
-table? 0
+table 2

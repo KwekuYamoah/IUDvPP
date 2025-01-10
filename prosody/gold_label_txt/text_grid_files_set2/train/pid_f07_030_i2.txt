@@ -2,7 +2,7 @@ move 0
 the 0
 chair 1
 beside 0
-a 0
+the 0
 sofa 1
 close 0
 to 0

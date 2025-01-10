@@ -1,4 +1,4 @@
-please 0
+place 0
 the 0
 camera 1
 below 0
@@ -6,4 +6,4 @@ the 0
 drone 2
 near 0
 the 0
-pots 0
+pot 1

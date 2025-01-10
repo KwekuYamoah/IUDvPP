@@ -6,4 +6,4 @@ the 0
 bridge 2
 to 0
 the 0
-depots 0
+depot 1

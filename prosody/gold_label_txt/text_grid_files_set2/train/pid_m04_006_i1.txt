@@ -1,6 +1,6 @@
 bring 0
 the 0
-lump 0
+lamp 1
 from 0
 the 0
 bedroom 1

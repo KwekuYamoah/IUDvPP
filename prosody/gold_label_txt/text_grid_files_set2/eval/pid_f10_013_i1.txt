@@ -6,5 +6,4 @@ the 0
 magazine 1
 on 0
 the 0
-9th 0
-stand 0
+nightstand 2

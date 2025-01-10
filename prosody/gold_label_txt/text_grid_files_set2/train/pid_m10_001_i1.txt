@@ -1,9 +1,8 @@
-he 0
-placed 0
+place 0
 the 0
-rag 0
+rug 1
 in 0
-a 0
+the 0
 basket 1
 beside 0
 the 0

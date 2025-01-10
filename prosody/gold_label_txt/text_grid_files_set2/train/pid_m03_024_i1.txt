@@ -7,5 +7,4 @@ green 2
 box 2
 to 0
 the 0
-lamp 0
-post 0
+lamppost 1

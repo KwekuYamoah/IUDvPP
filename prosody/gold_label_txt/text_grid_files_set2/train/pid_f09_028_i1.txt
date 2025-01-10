@@ -2,7 +2,7 @@ place 0
 the 0
 jar 1
 on 0
-a 0
+the 0
 shelf 1
 near 0
 the 0

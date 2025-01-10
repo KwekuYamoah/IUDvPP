@@ -3,5 +3,5 @@ the 0
 chair 1
 behind 0
 the 0
-cabinets 0
+cabinet 2
 carefully 0

@@ -1,7 +1,7 @@
 move 0
-their 0
+the 0
 chair 1
 behind 0
-their 0
-cabinets 0
+the 0
+cabinet 1
 carefully 0

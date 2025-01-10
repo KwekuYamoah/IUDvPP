@@ -1,6 +1,6 @@
 send 0
 the 0
-poster 0
+bottle 1
 behind 0
 the 0
 sofa 2

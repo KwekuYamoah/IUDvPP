@@ -1,10 +1,10 @@
 place 0
 the 0
-cook 0
-camp 0
+coke 1
+can 1
 beside 0
 the 0
 pringles 2
 on 0
-their 0
+the 0
 counter 1

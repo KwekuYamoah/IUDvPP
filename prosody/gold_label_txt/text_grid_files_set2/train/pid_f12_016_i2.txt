@@ -6,4 +6,4 @@ the 0
 hoop 2
 to 0
 the 0
-circuit 0
+socket 1

@@ -4,7 +4,7 @@ the 0
 pillow 1
 and 0
 the 0
-blankets 0
+blanket 1
 on 0
 the 0
 chair 2

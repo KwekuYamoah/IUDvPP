@@ -9,4 +9,4 @@ the 0
 right 0
 of 0
 the 0
-shape 0
+chair 1

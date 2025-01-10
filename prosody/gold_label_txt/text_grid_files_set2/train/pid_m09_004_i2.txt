@@ -4,7 +4,7 @@ the 0
 painting 1
 of 0
 the 0
-door 0
+dog 1
 and 0
 the 0
-cut 0
+cat 1

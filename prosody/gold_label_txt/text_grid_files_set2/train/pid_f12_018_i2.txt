@@ -4,7 +4,7 @@ coffee 1
 machine 1
 above 0
 the 0
-show 0
+shelf 1
 to 0
 the 0
 right 0

@@ -1,5 +1,5 @@
-get 0
-a 0
+guide 0
+the 0
 vehicle 1
 under 0
 the 0

@@ -7,4 +7,4 @@ the 0
 dog 2
 and 0
 the 0
-cats 0
+cat 2

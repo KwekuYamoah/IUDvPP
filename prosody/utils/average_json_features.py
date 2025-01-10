@@ -32,4 +32,4 @@ for key, value in data.items():
 with open('../prosody/data/ambiguous_prosody_multi_label_features_eval_averaged.json', 'w') as f:
     json.dump(new_data, f, indent=2)
 
-print("New JSON file saved as output.json")
+print("New JSON file saved asambiguous_prosody_multi_label_features_eval_averaged.json")

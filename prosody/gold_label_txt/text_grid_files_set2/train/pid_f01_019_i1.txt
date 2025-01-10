@@ -1,9 +1,9 @@
 push 0
 the 0
-cut 0
+cart 1
 between 0
 the 0
-corners 0
+scanners 2
 to 0
 the 0
-dough 0
+door 1
