@@ -83,14 +83,14 @@ def main():
         The paths to the input and output JSON files are hardcoded within the function.
     """
     # Load the original JSON data
-    with open('../ltl/data/prosody_transformer_multiclass_results.json', 'r') as f:
+    with open('../ltl/data/prosody_bilstm_multiclass_results.json', 'r') as f:
         original_data = json.load(f)
 
     # Reconstruct the JSON data
     reconstructed_data = reconstruct_json(original_data)
 
     # Save the reconstructed data to a new JSON file
-    with open('../ltl/data/filtered_prosody_transformer_multiclass_results.json', 'w') as f:
+    with open('../ltl/data/filtered_prosody_bilstm_multiclass_results.json', 'w') as f:
         json.dump(reconstructed_data, f, indent=4)
 
     print("Reconstruction complete. Check 'filtered_prosody_transformer_multiclass_results.json' for the output.")
