@@ -92,18 +92,18 @@ def restructure_json_objects(json_object_path):
     previous_filename = input_data[0]['filename']
 
     #iterate through the items in json_objects
-    for json_item_index in range(len(input_data)):
-        #obtain the filename
-        current_filename = input_data[json_item_index]['filename'] 
+    for json_item_index, item in enumerate(input_data):
+        # obtain the filename
+        current_filename = item['filename'] 
 
         #obtain the extracted prosody features
-        current_prosody_features = input_data[json_item_index]['features']
+        current_prosody_features = item['features']
 
         #obtain the current word
-        current_word = input_data[json_item_index]['word']
+        current_word = item['word']
 
         #obtain the current position
-        current_position = input_data[json_item_index]['position']
+        current_position = item['position']
 
         #check if the current filename is the same as the previous filename
         if current_filename == previous_filename:
@@ -289,7 +289,7 @@ def prepare_features_json(input_folder, output_json_path, data):
 # Main function
 def main():
     # Define paths
-    json_path = "../ltl/instructions_ambiguous_with_ids.json"
+    json_path = "../ltl/data/instructions_ambiguous_with_ids.json"
     voice_samples_folder = "../voice_sample_two_ways"
     text_grid_folder = "./text_grid_files_set2"
     temp_folder = "tmp/"
