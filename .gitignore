@@ -189,7 +189,11 @@ prosody/data/multi_label_extracted_raw_audio_features_eval.json
 prosody/data/multi_label_prosodic_raw_acoustic_features_train.json
 prosody/data/multi_label_prosodic_raw_acoustic_features_eval.json
 prosody/data/ambiguous_prosody_multi_label_features_train_embeddings.json
-
+prosody/data/ambiguous_raw_extracted_audio_ml_features_train.json
+prosody/data/ambiguous_raw_extracted_audio_ml_features_eval.json
+prosody/data/ambiguous_prosodic_raw_acoustic_ml_features.json
+prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_train.json
+prosody/data/ambiguous_prosodic_raw_acoustic_ml_features_eval.json
 
 # ignore temp audio folder
 prosody/tmp_audio_slices/

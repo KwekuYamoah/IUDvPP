@@ -134,15 +134,15 @@ def process_files(textgrid_dir, audio_dir, gold_labels_dir, output_file, tmp_fol
 
     # Write the final JSON output
     with open(output_file, 'w') as json_file:
-        json.dump(results, json_file, indent=4)
+        json.dump(results, json_file, indent=2)
 
 
 
 if __name__ == "__main__":
-    text_grid_dir = "../prosody/text_grid_files_set1"
-    audio_dir = "../voice_samples"
-    gold_labels_dir = "../prosody/gold_label_txt/text_grid_files_set1"
-    output_file = "../prosody/data/multi_label_extracted_raw_audio_features.json"
+    text_grid_dir = "../prosody/text_grid_files_set2"
+    audio_dir = "../voice_sample_two_ways"
+    gold_labels_dir = "../prosody/gold_label_txt/text_grid_files_set2"
+    output_file = "../prosody/data/ambiguous_raw_extracted_audio_ml_features.json"
     tmp_folder = "./tmp_audio_slices"
 
     # Ensure the temporary folder exists

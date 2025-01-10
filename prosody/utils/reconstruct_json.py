@@ -92,8 +92,8 @@ if __name__ == "__main__":
     # print(f"Reconstructed JSON data has been written to {output_filename}")
 
     # Paths to the two JSON files
-    json1_path = '../prosody/data/multi_label_features.json'
-    json2_path = '../prosody/data/multi_label_extracted_raw_audio_features.json'
+    json1_path = '../prosody/data/ambiguous_prosody_multi_label_features.json'
+    json2_path = '../prosody/data/ambiguous_raw_extracted_audio_ml_features.json'
     
     # Load the JSON data
     json1 = load_json(json1_path)
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     merged_dataset = merge_json_entries(json1, json2)
     
     # Save the new dataset to a JSON file
-    output_file = '../prosody/data/multi_label_prosodic_raw_acoustic_features.json'
+    output_file = '../prosody/data/ambiguous_prosodic_raw_acoustic_ml_features.json'
     save_json(merged_dataset, output_file)
     
     print(f"New dataset saved to {output_file}")
