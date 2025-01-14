@@ -16,17 +16,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -35,7 +35,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -47,17 +47,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -66,14 +66,14 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -83,11 +83,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "pringles",
                 "counter"
             ]
         }
@@ -140,17 +140,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -159,15 +159,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -177,15 +190,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -200,24 +232,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -237,17 +270,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -263,22 +296,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -330,17 +363,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -349,16 +382,29 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
-                "word": "cover",
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
+            },
+            {
+                "word": "cover",
+                "gold_label": 2,
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book",
+                "cover"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "cover"
+                "table"
             ]
         }
     },
@@ -367,15 +413,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -397,17 +462,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -421,9 +486,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -434,11 +499,12 @@
         "intent_dict": {
             "Goal_intent": [
                 "coke",
-                "can",
                 "counter"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles"
+            ]
         }
     },
     {
@@ -446,9 +512,14 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
+            },
+            {
+                "word": "pringles",
+                "gold_label": 1,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -458,10 +529,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "pringles",
                 "counter"
             ]
         }
@@ -483,17 +555,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -507,6 +579,11 @@
                 "predicted_label": 1
             },
             {
+                "word": "pringles",
+                "gold_label": 1,
+                "predicted_label": 2
+            },
+            {
                 "word": "counter",
                 "gold_label": 2,
                 "predicted_label": 2
@@ -518,6 +595,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "pringles",
                 "counter"
             ]
         }
@@ -532,9 +610,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
+                "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -544,11 +622,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "pringles",
                 "counter"
             ]
         }
@@ -570,17 +648,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -601,17 +679,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -632,17 +710,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -651,7 +729,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -668,7 +746,7 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -682,29 +760,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -712,7 +791,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -729,7 +808,7 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -750,22 +829,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -779,24 +858,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -804,15 +884,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -834,17 +927,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -865,17 +958,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -884,15 +977,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -902,15 +1014,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -958,22 +1083,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -994,17 +1119,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1020,7 +1145,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1031,12 +1156,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "book",
+                "magazine",
                 "nightstand"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -1044,15 +1168,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1069,22 +1212,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1100,22 +1243,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1131,22 +1274,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1167,17 +1310,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -1186,15 +1329,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1211,22 +1373,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1235,15 +1397,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1265,17 +1446,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -1296,17 +1477,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -1315,15 +1496,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -1340,22 +1534,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1376,17 +1570,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1400,18 +1594,25 @@
                 "predicted_label": 1
             },
             {
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -1450,15 +1651,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1468,15 +1688,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1493,22 +1732,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1529,17 +1768,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -1548,15 +1787,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1573,22 +1831,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1597,15 +1855,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1615,15 +1892,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -1633,15 +1923,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1663,17 +1972,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1694,17 +2003,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1720,22 +2029,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1744,15 +2053,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -1762,15 +2084,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -1787,22 +2122,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -1811,29 +2146,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -1841,15 +2177,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1871,17 +2226,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -1890,15 +2245,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -1920,17 +2294,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1944,30 +2318,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -1975,15 +2344,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -2005,17 +2393,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2031,22 +2419,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2062,22 +2450,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2098,17 +2486,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2129,17 +2517,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2160,17 +2548,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2191,17 +2579,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2217,22 +2605,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2248,22 +2636,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2279,22 +2667,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2308,9 +2696,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
+                "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -2320,11 +2708,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "pringles",
                 "counter"
             ]
         }
@@ -2339,24 +2727,24 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
+                "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "coke",
-                "can"
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -2377,17 +2765,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2403,22 +2791,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2427,15 +2815,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -2450,24 +2857,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2480,30 +2888,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2518,22 +2921,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2573,29 +2976,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2615,17 +3019,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2646,17 +3050,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2670,30 +3074,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2708,22 +3107,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -2732,7 +3131,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -2744,17 +3143,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles"
+                "pringles",
+                "counter"
             ]
         }
     },
@@ -2763,29 +3162,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2793,15 +3193,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -2811,15 +3224,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -2841,17 +3267,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -2891,29 +3317,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -2921,15 +3348,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -2951,17 +3397,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2982,17 +3428,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3013,17 +3459,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3044,17 +3490,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3106,17 +3552,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3132,22 +3578,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -3156,15 +3602,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -3174,15 +3633,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -3204,17 +3676,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3230,22 +3702,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -3261,22 +3733,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -3297,17 +3769,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3359,17 +3831,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3390,17 +3862,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3421,17 +3893,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3452,17 +3924,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3478,22 +3950,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -3502,15 +3974,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -3532,17 +4017,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3563,17 +4048,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3582,15 +4067,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -3612,17 +4116,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3643,17 +4147,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3674,17 +4178,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3698,9 +4202,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -3711,11 +4215,12 @@
         "intent_dict": {
             "Goal_intent": [
                 "coke",
-                "can",
                 "counter"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles"
+            ]
         }
     },
     {
@@ -3730,22 +4235,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -3754,7 +4259,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -3771,7 +4276,7 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -3797,17 +4302,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -3816,15 +4321,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -3846,17 +4370,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3872,7 +4396,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -3883,12 +4407,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "book",
+                "magazine",
                 "nightstand"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3908,17 +4431,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3939,17 +4462,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3963,14 +4486,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -3981,12 +4499,12 @@
         "intent_dict": {
             "Goal_intent": [
                 "coke",
-                "can",
-                "pringles",
                 "counter"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles"
+            ]
         }
     },
     {
@@ -4006,17 +4524,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4032,22 +4550,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4056,15 +4574,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4086,17 +4623,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4117,17 +4654,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4143,22 +4680,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4203,24 +4740,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -4235,22 +4773,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4259,7 +4797,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -4271,17 +4809,17 @@
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles"
+                "pringles",
+                "counter"
             ]
         }
     },
@@ -4297,22 +4835,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4333,17 +4871,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4352,15 +4890,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4370,15 +4927,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4393,24 +4969,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
+                "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -4423,24 +5000,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -4453,30 +5031,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -4491,22 +5064,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4515,15 +5088,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4545,17 +5137,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4576,17 +5168,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4595,29 +5187,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -4625,15 +5218,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4655,17 +5267,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4681,22 +5293,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -4717,17 +5329,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4779,17 +5391,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4810,17 +5422,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4829,15 +5441,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -4859,17 +5490,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4885,7 +5516,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -4896,12 +5527,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "book",
+                "magazine",
                 "nightstand"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -4921,17 +5551,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -4952,17 +5582,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4983,17 +5613,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -5002,15 +5632,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -5025,30 +5668,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5061,14 +5699,9 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -5079,12 +5712,12 @@
         "intent_dict": {
             "Goal_intent": [
                 "coke",
-                "can",
-                "pringles",
                 "counter"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles"
+            ]
         }
     },
     {
@@ -5099,22 +5732,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5123,7 +5756,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -5135,17 +5768,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles"
+                "pringles",
+                "counter"
             ]
         }
     },
@@ -5154,7 +5787,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -5171,7 +5804,7 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -5185,16 +5818,29 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
-                "word": "cover",
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
+            },
+            {
+                "word": "cover",
+                "gold_label": 2,
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book",
+                "cover"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "cover"
+                "table"
             ]
         }
     },
@@ -5215,17 +5861,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -5246,17 +5892,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -5272,22 +5918,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5296,7 +5942,7 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
@@ -5313,7 +5959,7 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can"
+                "coke"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -5334,22 +5980,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5363,18 +6009,25 @@
                 "predicted_label": 1
             },
             {
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5382,15 +6035,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -5405,24 +6071,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5442,17 +6109,17 @@
             {
                 "word": "table",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -5461,14 +6128,14 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
@@ -5478,12 +6145,13 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
+                "coke",
                 "counter"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles"
+            ]
         }
     },
     {
@@ -5503,17 +6171,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5527,18 +6195,25 @@
                 "predicted_label": 1
             },
             {
+                "word": "pringles",
+                "gold_label": 1,
+                "predicted_label": 2
+            },
+            {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5546,15 +6221,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -5576,17 +6264,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5600,24 +6288,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
-                "gold_label": 1,
-                "predicted_label": 1
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5637,17 +6326,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5663,22 +6352,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5699,17 +6388,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5730,17 +6419,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5749,15 +6438,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -5779,17 +6481,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5805,22 +6507,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5829,29 +6531,30 @@
         "sentence": "place the coke can beside the pringles on the counter",
         "words_info": [
             {
-                "word": "can",
+                "word": "coke",
                 "gold_label": 1,
                 "predicted_label": 1
             },
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "can",
-                "pringles",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -5866,22 +6569,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5897,22 +6600,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -5933,17 +6636,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -5964,17 +6667,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5988,24 +6691,25 @@
                 "predicted_label": 1
             },
             {
-                "word": "can",
+                "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "counter",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke",
-                "can",
-                "counter"
+                "coke"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "pringles",
+                "counter"
+            ]
         }
     },
     {
@@ -6013,15 +6717,28 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
                 "cover"
             ]
         }
@@ -6043,17 +6760,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     },
@@ -6062,15 +6779,34 @@
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "red",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
                 "word": "cover",
                 "gold_label": 2,
                 "predicted_label": 2
             }
         ],
         "intent_dict": {
-            "Goal_intent": [],
+            "Goal_intent": [
+                "book"
+            ],
             "Avoidance_intent": [],
             "Detail_intent": [
+                "table",
+                "red",
                 "cover"
             ]
         }
@@ -6087,22 +6823,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -6118,7 +6854,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6129,12 +6865,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "book",
+                "magazine",
                 "nightstand"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -6180,22 +6915,22 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "book",
-                "nightstand"
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine"
+                "nightstand"
             ]
         }
     },
@@ -6216,17 +6951,17 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase",
-                "table"
+                "vase"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers"
+                "flowers",
+                "table"
             ]
         }
     }
