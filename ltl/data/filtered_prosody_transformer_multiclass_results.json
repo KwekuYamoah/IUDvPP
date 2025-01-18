@@ -16,17 +16,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -47,17 +47,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -104,7 +104,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -115,12 +115,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -135,7 +134,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -145,11 +144,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -245,17 +244,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -276,17 +275,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -302,7 +301,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -312,11 +311,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -333,7 +332,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -344,12 +343,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -369,17 +367,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -401,11 +399,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -415,8 +408,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -474,17 +466,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -505,17 +497,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -567,17 +559,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -660,17 +652,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -691,17 +683,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -753,17 +745,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -784,17 +776,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -841,7 +833,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -851,11 +843,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -877,17 +869,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -909,11 +901,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -923,8 +910,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -945,17 +931,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -976,17 +962,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1076,7 +1062,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1087,12 +1073,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -1107,7 +1092,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1117,11 +1102,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1143,17 +1128,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1169,7 +1154,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1179,11 +1164,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1237,7 +1222,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1247,11 +1232,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1268,7 +1253,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1278,11 +1263,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1299,7 +1284,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1309,11 +1294,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1330,7 +1315,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1341,12 +1326,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -1367,11 +1351,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1381,8 +1360,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -1398,7 +1376,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1408,11 +1386,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1435,11 +1413,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1449,8 +1422,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -1466,7 +1438,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1476,11 +1448,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -1497,7 +1469,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1507,11 +1479,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -1601,17 +1573,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -1632,17 +1604,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -1658,7 +1630,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1669,12 +1641,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -1695,11 +1666,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1709,8 +1675,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -1732,11 +1697,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1746,8 +1706,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -1763,7 +1722,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1773,11 +1732,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1794,7 +1753,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -1805,12 +1764,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -1862,7 +1820,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -1872,11 +1830,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -1899,11 +1857,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1913,8 +1866,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -1973,11 +1925,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -1987,8 +1934,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -2009,17 +1955,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2040,17 +1986,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2066,7 +2012,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2076,11 +2022,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2171,7 +2117,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2181,11 +2127,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2202,7 +2148,7 @@
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "counter",
@@ -2212,11 +2158,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "pringles"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
                 "counter"
             ]
         }
@@ -2270,7 +2216,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -2281,12 +2227,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -2307,11 +2252,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -2321,8 +2261,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -2343,17 +2282,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2406,11 +2345,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -2420,8 +2354,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -2437,7 +2370,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -2447,11 +2380,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -2468,7 +2401,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2478,11 +2411,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2499,7 +2432,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2509,11 +2442,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2530,17 +2463,22 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 1,
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers",
+                "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -2555,7 +2493,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -2565,11 +2503,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -2586,7 +2524,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -2596,11 +2534,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -2622,17 +2560,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -2648,7 +2586,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2658,11 +2596,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2679,7 +2617,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2689,11 +2627,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2710,7 +2648,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2720,11 +2658,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2803,7 +2741,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -2814,12 +2752,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -2871,11 +2808,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -2885,8 +2817,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -2907,17 +2838,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -2964,7 +2895,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -2974,11 +2905,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -2995,7 +2926,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3006,12 +2937,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3031,17 +2961,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -3057,7 +2987,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3068,12 +2998,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3093,17 +3022,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3119,7 +3048,7 @@
             {
                 "word": "pringles",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "counter",
@@ -3129,11 +3058,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "pringles"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
                 "counter"
             ]
         }
@@ -3150,7 +3079,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -3160,11 +3089,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -3186,17 +3115,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -3217,17 +3146,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -3249,11 +3178,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -3263,8 +3187,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -3317,7 +3240,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3328,12 +3251,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3348,7 +3270,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3359,12 +3281,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3452,17 +3373,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3478,22 +3399,23 @@
             {
                 "word": "table",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             },
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "table",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": []
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
         }
     },
     {
@@ -3508,7 +3430,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3519,12 +3441,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3539,7 +3460,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3550,12 +3471,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3570,7 +3490,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3581,12 +3501,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3606,17 +3525,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3632,7 +3551,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -3642,11 +3561,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -3742,17 +3661,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3799,7 +3718,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -3809,11 +3728,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -3835,17 +3754,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3861,7 +3780,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3872,12 +3791,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -3897,17 +3815,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -3923,7 +3841,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3933,11 +3851,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -3954,7 +3872,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -3964,11 +3882,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -3990,17 +3908,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4016,7 +3934,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -4026,11 +3944,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -4053,11 +3971,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -4067,8 +3980,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -4089,17 +4001,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4120,17 +4032,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4184,6 +4096,11 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 2,
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -4192,7 +4109,8 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4208,7 +4126,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -4218,11 +4136,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -4240,6 +4158,11 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 1,
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -4248,7 +4171,8 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -4269,17 +4193,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -4295,7 +4219,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -4305,11 +4229,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -4357,7 +4281,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -4367,17 +4291,265 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
     },
     {
         "audio_file": "pid_m03_003_i2",
+        "sentence": "pick up the book on the table with the red cover",
+        "words_info": [
+            {
+                "word": "the",
+                "gold_label": 0,
+                "predicted_label": 1
+            },
+            {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "the",
+                "book"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f06_032_i2",
+        "sentence": "bring the mug from the table near the sink",
+        "words_info": [
+            {
+                "word": "mug",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 1,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f08_013_i1",
+        "sentence": "bring the book and the magazine on the nightstand",
+        "words_info": [
+            {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "magazine",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "nightstand",
+                "gold_label": 2,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "nightstand"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f07_032_i1",
+        "sentence": "bring the mug from the table near the sink",
+        "words_info": [
+            {
+                "word": "mug",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 2,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f11_032_i2",
+        "sentence": "bring the mug from the table near the sink",
+        "words_info": [
+            {
+                "word": "mug",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 1,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "mug"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table",
+                "sink"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_m05_017_i1",
+        "sentence": "place the coke can beside the pringles on the counter",
+        "words_info": [
+            {
+                "word": "coke",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "pringles",
+                "gold_label": 2,
+                "predicted_label": 2
+            },
+            {
+                "word": "counter",
+                "gold_label": 1,
+                "predicted_label": 1
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "coke",
+                "counter"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "pringles"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f10_014_i1",
+        "sentence": "place the vase near the flowers on the table",
+        "words_info": [
+            {
+                "word": "vase",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "flowers",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "table",
+                "gold_label": 2,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "vase",
+                "flowers"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "table"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_m07_013_i1",
+        "sentence": "bring the book and the magazine on the nightstand",
+        "words_info": [
+            {
+                "word": "book",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "magazine",
+                "gold_label": 1,
+                "predicted_label": 1
+            },
+            {
+                "word": "nightstand",
+                "gold_label": 2,
+                "predicted_label": 2
+            }
+        ],
+        "intent_dict": {
+            "Goal_intent": [
+                "book",
+                "magazine"
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": [
+                "nightstand"
+            ]
+        }
+    },
+    {
+        "audio_file": "pid_f12_003_i2",
         "sentence": "pick up the book on the table with the red cover",
         "words_info": [
             {
@@ -4414,260 +4586,6 @@
         }
     },
     {
-        "audio_file": "pid_f06_032_i2",
-        "sentence": "bring the mug from the table near the sink",
-        "words_info": [
-            {
-                "word": "mug",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "table",
-                "gold_label": 2,
-                "predicted_label": 2
-            },
-            {
-                "word": "sink",
-                "gold_label": 1,
-                "predicted_label": 1
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "mug",
-                "sink"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "table"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_f08_013_i1",
-        "sentence": "bring the book and the magazine on the nightstand",
-        "words_info": [
-            {
-                "word": "book",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "magazine",
-                "gold_label": 1,
-                "predicted_label": 2
-            },
-            {
-                "word": "nightstand",
-                "gold_label": 2,
-                "predicted_label": 2
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "book"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine",
-                "nightstand"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_f07_032_i1",
-        "sentence": "bring the mug from the table near the sink",
-        "words_info": [
-            {
-                "word": "mug",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "table",
-                "gold_label": 2,
-                "predicted_label": 2
-            },
-            {
-                "word": "sink",
-                "gold_label": 2,
-                "predicted_label": 1
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "mug",
-                "sink"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "table"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_f11_032_i2",
-        "sentence": "bring the mug from the table near the sink",
-        "words_info": [
-            {
-                "word": "mug",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "table",
-                "gold_label": 2,
-                "predicted_label": 2
-            },
-            {
-                "word": "sink",
-                "gold_label": 1,
-                "predicted_label": 1
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "mug",
-                "sink"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "table"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_m05_017_i1",
-        "sentence": "place the coke can beside the pringles on the counter",
-        "words_info": [
-            {
-                "word": "coke",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "pringles",
-                "gold_label": 2,
-                "predicted_label": 2
-            },
-            {
-                "word": "counter",
-                "gold_label": 1,
-                "predicted_label": 2
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "coke"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "pringles",
-                "counter"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_f10_014_i1",
-        "sentence": "place the vase near the flowers on the table",
-        "words_info": [
-            {
-                "word": "vase",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "flowers",
-                "gold_label": 1,
-                "predicted_label": 2
-            },
-            {
-                "word": "table",
-                "gold_label": 2,
-                "predicted_label": 2
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "vase"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers",
-                "table"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_m07_013_i1",
-        "sentence": "bring the book and the magazine on the nightstand",
-        "words_info": [
-            {
-                "word": "book",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "magazine",
-                "gold_label": 1,
-                "predicted_label": 2
-            },
-            {
-                "word": "nightstand",
-                "gold_label": 2,
-                "predicted_label": 2
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "book"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "magazine",
-                "nightstand"
-            ]
-        }
-    },
-    {
-        "audio_file": "pid_f12_003_i2",
-        "sentence": "pick up the book on the table with the red cover",
-        "words_info": [
-            {
-                "word": "the",
-                "gold_label": 0,
-                "predicted_label": 1
-            },
-            {
-                "word": "book",
-                "gold_label": 1,
-                "predicted_label": 1
-            },
-            {
-                "word": "table",
-                "gold_label": 2,
-                "predicted_label": 1
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
-            }
-        ],
-        "intent_dict": {
-            "Goal_intent": [
-                "the",
-                "book",
-                "table"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
-                "red"
-            ]
-        }
-    },
-    {
         "audio_file": "pid_f09_014_i2",
         "sentence": "place the vase near the flowers on the table",
         "words_info": [
@@ -4679,7 +4597,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -4690,12 +4608,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -4710,7 +4627,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -4720,11 +4637,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -4741,7 +4658,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -4751,11 +4668,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -4772,7 +4689,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -4783,12 +4700,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -4808,17 +4724,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -4896,7 +4812,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -4906,11 +4822,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -4932,17 +4848,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5001,11 +4917,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -5015,8 +4926,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -5068,17 +4978,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -5099,17 +5009,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -5162,11 +5072,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -5176,8 +5081,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -5198,17 +5102,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5229,17 +5133,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5292,11 +5196,6 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "red",
-                "gold_label": 2,
-                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -5306,8 +5205,7 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table",
-                "red"
+                "table"
             ]
         }
     },
@@ -5323,7 +5221,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5333,11 +5231,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5354,7 +5252,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -5364,11 +5262,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -5390,17 +5288,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5416,7 +5314,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5427,12 +5325,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -5452,17 +5349,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5478,7 +5375,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5488,11 +5385,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5546,7 +5443,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5556,11 +5453,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5577,7 +5474,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -5587,11 +5484,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -5608,7 +5505,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5618,11 +5515,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5644,17 +5541,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -5670,7 +5567,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5680,11 +5577,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5800,7 +5697,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -5810,11 +5707,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -5836,17 +5733,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -5904,19 +5801,13 @@
                 "word": "red",
                 "gold_label": 2,
                 "predicted_label": 2
-            },
-            {
-                "word": "cover",
-                "gold_label": 2,
-                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
                 "the",
                 "book",
-                "table",
-                "cover"
+                "table"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
@@ -5936,7 +5827,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5946,11 +5837,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -5967,7 +5858,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -5978,12 +5869,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -5998,7 +5888,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6008,11 +5898,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6034,17 +5924,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -6060,7 +5950,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6070,11 +5960,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6091,23 +5981,22 @@
             {
                 "word": "pringles",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
-            ],
-            "Avoidance_intent": [],
-            "Detail_intent": [
+                "coke",
                 "pringles",
                 "counter"
-            ]
+            ],
+            "Avoidance_intent": [],
+            "Detail_intent": []
         }
     },
     {
@@ -6164,17 +6053,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -6190,7 +6079,7 @@
             {
                 "word": "flowers",
                 "gold_label": 2,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -6201,12 +6090,11 @@
         "intent_dict": {
             "Goal_intent": [
                 "vase",
+                "flowers",
                 "table"
             ],
             "Avoidance_intent": [],
-            "Detail_intent": [
-                "flowers"
-            ]
+            "Detail_intent": []
         }
     },
     {
@@ -6226,17 +6114,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -6257,17 +6145,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6356,17 +6244,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6387,17 +6275,17 @@
             {
                 "word": "counter",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "coke"
+                "coke",
+                "counter"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "pringles",
-                "counter"
+                "pringles"
             ]
         }
     },
@@ -6418,17 +6306,17 @@
             {
                 "word": "sink",
                 "gold_label": 2,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6480,17 +6368,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6507,6 +6395,11 @@
                 "word": "table",
                 "gold_label": 2,
                 "predicted_label": 2
+            },
+            {
+                "word": "sink",
+                "gold_label": 1,
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
@@ -6515,7 +6408,8 @@
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6573,17 +6467,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6599,7 +6493,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6609,11 +6503,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6661,7 +6555,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6671,11 +6565,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6692,7 +6586,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6702,11 +6596,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6723,7 +6617,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -6733,11 +6627,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -6759,17 +6653,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -6853,7 +6747,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -6863,11 +6757,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
@@ -6921,7 +6815,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6931,11 +6825,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6952,7 +6846,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -6962,11 +6856,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -6988,17 +6882,17 @@
             {
                 "word": "sink",
                 "gold_label": 1,
-                "predicted_label": 1
+                "predicted_label": 2
             }
         ],
         "intent_dict": {
             "Goal_intent": [
-                "mug",
-                "sink"
+                "mug"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "table"
+                "table",
+                "sink"
             ]
         }
     },
@@ -7014,7 +6908,7 @@
             {
                 "word": "magazine",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "nightstand",
@@ -7024,11 +6918,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "book"
+                "book",
+                "magazine"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "magazine",
                 "nightstand"
             ]
         }
@@ -7045,7 +6939,7 @@
             {
                 "word": "flowers",
                 "gold_label": 1,
-                "predicted_label": 2
+                "predicted_label": 1
             },
             {
                 "word": "table",
@@ -7055,11 +6949,11 @@
         ],
         "intent_dict": {
             "Goal_intent": [
-                "vase"
+                "vase",
+                "flowers"
             ],
             "Avoidance_intent": [],
             "Detail_intent": [
-                "flowers",
                 "table"
             ]
         }
