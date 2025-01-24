@@ -501,10 +501,20 @@ class AttentionBasedFusion(nn.Module):
         Returns:
             fused_features: (batch, seq_len, combined_dim)
         """
+        # Calculate the energy scores for each position in the sequence
         energy = torch.tanh(self.attn(combined_features))  # (batch, seq_len, hidden_dim)
+        
+        # Compute the attention scores by applying a linear layer to the energy scores
         attention = self.v(energy).squeeze(2)  # (batch, seq_len)
+        
+        # Apply softmax to the attention scores to get the attention weights
+        # Mask out the padding tokens by setting their attention scores to -1e10 before softmax
         attn_weights = torch.softmax(attention.masked_fill(~mask, -1e10), dim=1).unsqueeze(2)  # (batch, seq_len, 1)
+        
+        # Compute the fused features by element-wise multiplying the combined features with the attention weights
         fused = combined_features * attn_weights  # (batch, seq_len, combined_dim)
+        
+        # Return the fused features
         return fused  # (batch, seq_len, combined_dim)
 
 class Seq2Seq(nn.Module):

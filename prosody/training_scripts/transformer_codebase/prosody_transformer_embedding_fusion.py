@@ -650,36 +650,30 @@ class Decoder(nn.Module):
         self.concat_proj = nn.Linear(hidden_dim * 2, hidden_dim)       # Projects concatenated memory back to hidden_dim
 
     def forward(self, memory, tgt, fused_memory, word_embeddings, tgt_mask=None, tgt_key_padding_mask=None):
-        """
-        Forward pass through the Decoder.
-
-        Args:
-            memory (torch.Tensor): Encoder outputs [batch_size, seq_len, hidden_dim].
-            tgt (torch.Tensor): Target labels [batch_size, seq_len].
-            fused_memory (torch.Tensor): Fused features from AttentionBasedFusion [batch_size, hidden_dim].
-            word_embeddings (torch.Tensor): Word embeddings [batch_size, seq_len, embedding_dim].
-            tgt_mask (torch.Tensor, optional): Causal mask for target sequence. Default is None.
-            tgt_key_padding_mask (torch.Tensor, optional): Padding mask for target sequence. Default is None.
-
-        Returns:
-            torch.Tensor: Output logits [batch_size, seq_len, num_classes].
-        """
-        # Apply attention-based fusion to obtain the fused context
+        # Compute fused context
         fused_context = self.attention_fusion(fused_memory, memory, memory, mask=None)  # [batch_size, hidden_dim]
 
-        # Project word_embeddings to hidden_dim
+        # Project word embeddings
         projected_word_embeddings = self.word_embedding_proj(word_embeddings)  # [batch_size, seq_len, hidden_dim]
 
-        # Concatenate memory and projected_word_embeddings along feature dimension
-        # Resulting shape: [batch_size, seq_len, hidden_dim * 2]
+        # Concatenate memory and projected word embeddings
         concatenated_memory = torch.cat([memory, projected_word_embeddings], dim=2)  # [batch_size, seq_len, hidden_dim * 2]
 
         # Project concatenated memory back to hidden_dim
         projected_concatenated_memory = self.concat_proj(concatenated_memory)  # [batch_size, seq_len, hidden_dim]
 
-        # Pass the projected concatenated memory and target inputs through the transformer decoder
+        # Expand fused_context to match sequence length
+        fused_context_expanded = fused_context.unsqueeze(1).repeat(1, projected_concatenated_memory.size(1), 1)  # [batch_size, seq_len, hidden_dim]
+
+        # Concatenate with projected_concatenated_memory
+        enriched_memory = torch.cat([projected_concatenated_memory, fused_context_expanded], dim=2)  # [batch_size, seq_len, hidden_dim * 3]
+
+        # Project back to hidden_dim
+        enriched_memory = self.concat_proj(enriched_memory)  # [batch_size, seq_len, hidden_dim]
+
+        # Pass through transformer decoder
         output = self.transformer_decoder(
-            projected_concatenated_memory,
+            enriched_memory,
             tgt,
             tgt_mask=tgt_mask,
             tgt_key_padding_mask=tgt_key_padding_mask
