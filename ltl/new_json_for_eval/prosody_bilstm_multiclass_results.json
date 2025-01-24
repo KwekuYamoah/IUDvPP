@@ -1,0 +1,8318 @@
+[
+    {
+        "audio_file": "pid_f12_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f04_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f06_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f04_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m10_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f01_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f04_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m06_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f11_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m01_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m09_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f12_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m01_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f06_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m10_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f07_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f10_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f07_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m04_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m07_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f08_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m03_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m05_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m05_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m01_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f07_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f03_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f03_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f06_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m02_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f09_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_014_i2",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_f09_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_017_i1",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            1
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_032_i1",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f10_003_i2",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m09_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f04_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f11_013_i2",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m10_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m08_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f08_017_i2",
+        "words": [
+            "place",
+            "the",
+            "coke",
+            "can",
+            "beside",
+            "the",
+            "pringles",
+            "on",
+            "the",
+            "counter"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f12_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f01_003_i1",
+        "words": [
+            "pick",
+            "up",
+            "the",
+            "book",
+            "on",
+            "the",
+            "table",
+            "with",
+            "the",
+            "red",
+            "cover"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f05_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f02_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "audio_file": "pid_m02_032_i2",
+        "words": [
+            "bring",
+            "the",
+            "mug",
+            "from",
+            "the",
+            "table",
+            "near",
+            "the",
+            "sink"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_m06_013_i1",
+        "words": [
+            "bring",
+            "the",
+            "book",
+            "and",
+            "the",
+            "magazine",
+            "on",
+            "the",
+            "nightstand"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        "audio_file": "pid_f07_014_i1",
+        "words": [
+            "place",
+            "the",
+            "vase",
+            "near",
+            "the",
+            "flowers",
+            "on",
+            "the",
+            "table"
+        ],
+        "gold_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2
+        ],
+        "predicted_labels": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2
+        ]
+    }
+]
