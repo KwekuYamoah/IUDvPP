@@ -12,7 +12,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # function to read json file
 
 
-def load_json(file_path='../prosody/data/ambiguous_prosody_multi_label_features_train.json'):
+def load_json(file_path='../prosody/data/ambiguous_prosody_multi_label_features_eval.json'):
     with open(file_path) as f:
         data = json.load(f)
     return data
@@ -109,7 +109,7 @@ def generate_embeddings(data):
     return new_data
 
 
-def write_json(data, file_path='../prosody/data/ambiguous_prosody_multi_label_features_train_embeddings.json'):
+def write_json(data, file_path='../prosody/data/ambiguous_prosody_multi_label_features_eval_embeddings.json'):
     """
     Write the given data to a JSON file.
 
@@ -138,4 +138,4 @@ if __name__ == "__main__":
     # write the new data to a file
     write_json(new_data)
 
-    print("New JSON file saved as ambiguous_prosody_multi_label_features_train_embeddings.json")
+    print("New JSON file saved as ambiguous_prosody_multi_label_features_eval_embeddings.json")
