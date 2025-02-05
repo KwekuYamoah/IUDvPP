@@ -1,61 +1,107 @@
+"""Main script for training and evaluating a transformer-based prosody prediction model.
+
+This script implements a transformer-based sequence-to-sequence model for prosody prediction 
+with feature fusion and embedding integration. The model processes both acoustic features 
+and word embeddings to predict prosodic labels.
+
+Key Components:
+    - Transformer encoder-decoder architecture with:
+        - Feature fusion and projection layers
+        - Multi-head attention mechanisms
+        - Custom decoder with embedding integration
+        
+    - Training pipeline with:
+        - Early stopping and learning rate scheduling 
+        - Gradient clipping
+        - Class weighting support
+        
+    - Evaluation metrics:
+        - Accuracy, precision, recall, F1 score
+        - Per-class performance analysis
+        - Confusion matrices
+
+Data:
+    - Training: '../../prosody/data/ambiguous_prosody_multi_label_features_train_embeddings.json'
+    - Evaluation: '../../prosody/data/ambiguous_prosody_multi_label_features_eval_embeddings.json'
+
+Outputs:
+    - Model checkpoints: '../models/'
+    - Performance metrics: '../outputs/'
+
+Dependencies:
+    - PyTorch
+    - NumPy
+    - Pandas
+    - Matplotlib
+    - Scikit-learn
+
+Usage:
+    python prosody_transformer_embedding_fusion.py
+"""
+
 import os
 import json
 import random
 import numpy as np
+import re
+import string
+import pandas as pd
+import matplotlib.pyplot as plt
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import multilabel_confusion_matrix, precision_recall_fscore_support
-import string
-import pandas as pd
-import re
-import matplotlib.pyplot as plt
+from sklearn.utils.class_weight import compute_class_weight
 
-# torch imports
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
-from torchinfo import summary
 from torch.optim.lr_scheduler import StepLR, ReduceLROnPlateau
+# Optionally: from torchinfo import summary
 
+# =============================================================================
+# Utility Functions and Constants
+# =============================================================================
 
 def set_seed(seed):
     """
-    Set the seed for generating random numbers to ensure reproducibility.
+    Set the seed for reproducibility.
 
-    This function sets the seed for Python's built-in random module, NumPy's random module,
-    and PyTorch's random number generators. It also configures PyTorch to use deterministic
-    algorithms and disables the benchmark mode in cuDNN to ensure reproducibility.
+    This function sets the seed for various random number generators to ensure
+    that the results are reproducible. It sets the seed for Python's built-in
+    random module, NumPy, and PyTorch. Additionally, it configures PyTorch to
+    use deterministic algorithms and disables the benchmark mode in cuDNN.
 
     Args:
-        seed (int): The seed value to use for random number generation.
+        seed (int): The seed value to be set for the random number generators.
     """
+    """Set the seed for reproducibility."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
 
-
-# Custom padding value for labels
-PADDING_VALUE = 0  # Use 0 as the padding index
-
+PADDING_VALUE = 0  # Padding index
 
 class EarlyStopping:
     """
-    Early stopping to terminate training when validation loss does not improve after a given patience.
+    Early stopping utility to stop training when a monitored metric has stopped improving.
 
     Attributes:
-        patience (int): Number of epochs to wait after last time validation loss improved.
-        min_delta (float): Minimum change in the monitored quantity to qualify as an improvement.
-        best_loss (float or None): Best recorded validation loss.
-        counter (int): Number of epochs since the last improvement in validation loss.
-        early_stop (bool): Flag to indicate whether training should be stopped.
+        patience (int): Number of epochs to wait after the last time the monitored metric improved.
+        min_delta (float): Minimum change in the monitored metric to qualify as an improvement.
+        best_loss (float or None): The best recorded value of the monitored metric.
+        counter (int): Number of epochs since the last improvement.
+        early_stop (bool): Flag to indicate whether early stopping should be triggered.
 
     Methods:
         __call__(val_loss):
-            Checks if the validation loss has improved and updates the counter and early_stop flag accordingly.
+            Checks if the validation loss has improved and updates the state accordingly.
+            Args:
+                val_loss (float): The current value of the monitored metric.
     """
+    """Early stopping utility."""
     def __init__(self, patience=5, min_delta=0):
         self.patience = patience
         self.min_delta = min_delta
@@ -74,8 +120,6 @@ class EarlyStopping:
             if self.counter >= self.patience:
                 self.early_stop = True
 
-
-# Load data from a JSON file
 def load_data(json_path):
     """
     Load data from a JSON file.
@@ -86,28 +130,28 @@ def load_data(json_path):
     Returns:
         dict: The data loaded from the JSON file.
     """
+    """Load data from a JSON file."""
     with open(json_path, 'r') as file:
         data = json.load(file)
     return data
 
-
-# Split the data into train, validation, and test sets
 def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
     """
-    Splits the given data into training, validation, and test sets based on the provided ratios.
+    Splits the data into train, validation, and test sets.
 
-    Args:
-        data (dict): The data to be split, where keys are data identifiers and values are data points.
-        train_ratio (float, optional): The proportion of the data to be used for training. Defaults to 0.8.
-        val_ratio (float, optional): The proportion of the data to be used for validation. Defaults to 0.1.
-        test_ratio (float, optional): The proportion of the data to be used for testing. Defaults to 0.1.
+    Parameters:
+    data (dict): The data to be split, where keys are data identifiers and values are data points.
+    train_ratio (float): The proportion of the data to include in the training set. Default is 0.8.
+    val_ratio (float): The proportion of the data to include in the validation set. Default is 0.1.
+    test_ratio (float): The proportion of the data to include in the test set. Default is 0.1.
 
     Returns:
-        tuple: A tuple containing three lists: the training set, the validation set, and the test set.
+    tuple: A tuple containing three lists: the training set, the validation set, and the test set.
 
     Raises:
-        AssertionError: If the sum of train_ratio, val_ratio, and test_ratio is not equal to 1.
+    AssertionError: If the sum of train_ratio, val_ratio, and test_ratio is not equal to 1.
     """
+    """Splits the data into train, validation, and test sets."""
     assert train_ratio + val_ratio + test_ratio == 1.0, "Ratios must sum to 1"
     total = len(data)
     train_size = int(total * train_ratio)
@@ -115,47 +159,45 @@ def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
     test_size = total - train_size - val_size
     return random_split(list(data.items()), [train_size, val_size, test_size])
 
-
-# Preprocess words (remove punctuation and tokenize)
 def preprocess_text(words):
     """
-    Preprocesses a list of words by splitting each word into individual tokens.
+    Tokenize a list of words using regular expressions.
 
-    This function uses a regular expression to split each word into tokens that
-    include words, contractions, and punctuation marks such as periods, commas,
-    exclamation points, question marks, and semicolons.
+    This function takes a list of words and tokenizes each word into smaller components
+    based on a regular expression pattern. The pattern matches alphanumeric characters,
+    apostrophes, and common punctuation marks (.,!?;).
 
     Args:
-        words (list of str): A list of words to be processed.
+        words (list of str): A list of words to be tokenized.
 
     Returns:
-        list of str: A list of processed tokens.
+        list of str: A list of tokenized words and punctuation marks.
     """
+    """Tokenize words using regex."""
     processed_words = []
     for word in words:
         processed_words.extend(re.findall(r"[\w']+|[.,!?;]", word))
     return processed_words
 
-
-# Clean up sentence by removing padding
 def clean_up_sentence(words, gold_labels, pred_labels, padding_value):
     """
-    Cleans up the input sentence by removing elements with padding values.
-    Args:
-        words (list): A list of words in the sentence.
-        gold_labels (list): A list of gold label values corresponding to the words.
-        pred_labels (list): A list of predicted label values corresponding to the words.
-        padding_value (int): The value used for padding that should be removed.
-    Returns:
-        tuple: A tuple containing three lists:
-            - filtered_words (list): The list of words with padding values removed.
-            - filtered_gold_labels (list): The list of gold labels with padding values removed.
-            - filtered_pred_labels (list): The list of predicted labels with padding values removed.
+    Remove padded elements from the sentence and corresponding labels.
+        Args:
+            words (list): A list of words in the sentence.
+            gold_labels (list): A list of gold standard labels corresponding to the words.
+            pred_labels (list): A list of predicted labels corresponding to the words.
+            padding_value (int): The value used for padding that needs to be removed.
+
+        Returns:
+            tuple: A tuple containing three lists:
+                - filtered_words (list): The list of words with padding removed.
+                - filtered_gold_labels (list): The list of gold labels with padding removed.
+                - filtered_pred_labels (list): The list of predicted labels with padding removed.
+    
     """
     filtered_words = []
     filtered_gold_labels = []
     filtered_pred_labels = []
-
     for i in range(len(words)):
         if gold_labels[i] != padding_value:
             filtered_words.append(words[i])
@@ -163,42 +205,60 @@ def clean_up_sentence(words, gold_labels, pred_labels, padding_value):
             filtered_pred_labels.append(int(pred_labels[i]))
     return filtered_words, filtered_gold_labels, filtered_pred_labels
 
+def compute_class_weights(dataset, num_classes, device):
+    """
+    Compute class weights from the training dataset.
+    
+    Note: The original dataset has 4 unique labels: 0, 1, 2, 3.
+          In __getitem__ each label is shifted by +1 so that the labels become 1,2,3,4.
+          In addition, NUM_CLASSES is defined as 4 + 2 = 6 (with index 0 reserved for padding and
+          index 5 reserved for the SOS token). We compute weights for classes 1-4 and then insert them
+          into a weight vector of size 6.
+    """
+    all_labels = []
+    for _, _, _, _, labels in dataset:
+        # labels are already shifted, so they are in {1,2,3,4}
+        labels_np = labels.numpy().flatten()
+        # Exclude padding labels (value 0)
+        labels_np = labels_np[labels_np != PADDING_VALUE]
+        all_labels.extend(labels_np)
+    # Compute balanced weights for classes 1,2,3,4.
+    classes = np.array([1, 2, 3, 4])
+    computed_weights = compute_class_weight('balanced', classes=classes, y=all_labels)
+    # Create a weight vector of length num_classes (6).
+    weight_vector = np.ones(num_classes)
+    weight_vector[0] = 0.0         # Padding index weight is 0.
+    weight_vector[1:5] = computed_weights  # Assign computed weights for classes 1-4.
+    weight_vector[num_classes - 1] = 0.0     # SOS token (last index) gets default weight 1.0.
+    weight_tensor = torch.tensor(weight_vector, dtype=torch.float).to(device)
+    return weight_tensor
 
-# Custom dataset class for prosody features
+# =============================================================================
+# Dataset and Collate Function
+# =============================================================================
+
 class ProsodyDataset(Dataset):
-    """
-    A custom Dataset class for handling prosody data.
-
+    """A PyTorch Dataset for prosody data processing.
+    This dataset class handles prosodic data including words, word embeddings,
+    acoustic features, and prosodic labels.
     Args:
-        data (dict): A dictionary where keys are identifiers and values are dictionaries 
-                     containing 'words', 'word_embeddings', 'features', and 'labels'.
-
-    Attributes:
-        entries (list): A list of tuples where each tuple contains a key and its corresponding data.
-
-    Methods:
-        __len__(): Returns the number of entries in the dataset.
-        __getitem__(idx): Retrieves the words, word_embeddings, features, and labels for the given index.
-
+        data (dict): A dictionary containing prosody data entries where each item has:
+            - 'words': List of words
+            - 'word_embeddings': Word embedding vectors
+            - 'features': Acoustic features
+            - 'labels': Prosodic labels
+    Returns:
+        tuple: A tuple containing:
+            - key: Entry identifier
+            - words: Preprocessed text
+            - word_embeddings (torch.Tensor): Word embedding vectors
+            - features (torch.Tensor): Acoustic features
+            - labels (torch.Tensor): Prosodic labels (shifted by +1 for padding)
     Example:
-        data = {
-            'id1': {
-                'words': 'example sentence',
-                'word_embeddings': [[0.1, 0.2], [0.3, 0.4]],
-                'features': [0.1, 0.2],
-                'labels': [0, 1]
-            },
-            'id2': {
-                'words': 'another example',
-                'word_embeddings': [[0.5, 0.6], [0.7, 0.8]],
-                'features': [0.3, 0.4],
-                'labels': [1, 0]
-            }
-        }
-        dataset = ProsodyDataset(data)
-        print(len(dataset))  # Output: 2
-        key, words, word_embeddings, features, labels = dataset[0]
+        >>> dataset = ProsodyDataset(data_dict)
+        >>> key, words, embeddings, features, labels = dataset[0]
     """
+    
     def __init__(self, data):
         self.entries = list(data.items())
 
@@ -210,310 +270,103 @@ class ProsodyDataset(Dataset):
         words = preprocess_text(item['words'])
         word_embeddings = torch.tensor(item['word_embeddings'], dtype=torch.float32)
         features = torch.tensor(item['features'], dtype=torch.float32)
-        labels = torch.tensor(item['labels'], dtype=torch.long) + 1  # Shift labels by +1
+        # Shift labels by +1 so that 0 is reserved for padding.
+        labels = torch.tensor(item['labels'], dtype=torch.long) + 1
         return key, words, word_embeddings, features, labels
 
-
-# Custom collate function to handle padding
 def collate_fn(batch):
     """
-    Collates a batch of data for the prosody transformer model, including the audio file names (keys).
-
+    Collate function for creating batches in a DataLoader.
+    This function takes a batch of individual samples and combines them into a single batch by padding sequences
+    to the same length.
     Args:
-        batch (list of tuples): A list where each tuple contains:
-            - item[0] (str): Audio file name (key).
-            - item[1] (list of str): List of words.
-            - item[2] (torch.Tensor): Tensor of word embeddings.
-            - item[3] (torch.Tensor): Tensor of features.
-            - item[4] (torch.Tensor): Tensor of labels.
-
+        batch (List[Tuple]): A list of tuples where each tuple contains:
+            - keys (str): Identifier for the sample
+            - words (List[str]): List of words
+            - word_embeddings (torch.Tensor): Word embeddings
+            - features (torch.Tensor): Features for each word
+            - labels (torch.Tensor): Labels for each word
     Returns:
-        tuple: A tuple containing:
-            - keys (list of str): List of audio file names.
-            - words (list of list of str): List of lists of words.
-            - word_embeddings_padded (torch.Tensor): Padded tensor of word embeddings with shape (batch_size, max_seq_length, embedding_dim).
-            - features_padded (torch.Tensor): Padded tensor of features with shape (batch_size, max_seq_length, feature_dim).
-            - labels_padded (torch.Tensor): Padded tensor of labels with shape (batch_size, max_seq_length).
-            - lengths (torch.Tensor): Tensor containing the lengths of each sequence in the batch.
+        Tuple containing:
+            - keys (List[str]): List of sample identifiers
+            - words (List[List[str]]): List of word lists
+            - word_embeddings_padded (torch.Tensor): Padded word embeddings [batch_size, max_seq_len, embedding_dim]
+            - features_padded (torch.Tensor): Padded features [batch_size, max_seq_len, feature_dim]
+            - labels_padded (torch.Tensor): Padded labels [batch_size, max_seq_len]
+            - lengths (torch.Tensor): Original sequence lengths before padding [batch_size]
     """
-    keys = [item[0] for item in batch]            # List of audio file names
-    words = [item[1] for item in batch]           # List of lists of words
-    word_embeddings = [item[2] for item in batch] # List of word embeddings tensors
-    features = [item[3] for item in batch]        # List of features tensors
-    labels = [item[4] for item in batch]          # List of label tensors
+    
+    keys = [item[0] for item in batch]
+    words = [item[1] for item in batch]
+    word_embeddings = [item[2] for item in batch]
+    features = [item[3] for item in batch]
+    labels = [item[4] for item in batch]
 
-    # Pad word_embeddings
     word_embeddings_padded = torch.nn.utils.rnn.pad_sequence(word_embeddings, batch_first=True, padding_value=0.0)
-    
-    # Pad features
     features_padded = torch.nn.utils.rnn.pad_sequence(features, batch_first=True, padding_value=0.0)
-    
-    # Pad labels
     labels_padded = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=PADDING_VALUE)
-    
     lengths = torch.tensor([len(f) for f in features])
-
     return keys, words, word_embeddings_padded, features_padded, labels_padded, lengths
 
+# =============================================================================
+# Model Components
+# =============================================================================
 
-# Positional Encoding for Transformer
 class PositionalEncoding(nn.Module):
-    """
-    Positional encoding module for adding positional information to the input embeddings.
-
+    """Positional Encoding module for Transformer models.
+    This class implements positional encoding as described in "Attention Is All You Need"
+    (Vaswaniak et al., 2017). It adds positional information to the input embeddings
+    using sine and cosine functions of different frequencies.
     Args:
-        d_model (int): The dimension of the model.
-        max_len (int, optional): The maximum length of the input sequences. Default is 10000.
-
+        d_model (int): The dimension of the model/embedding vector
+        max_len (int, optional): Maximum sequence length. Defaults to 10000.
     Attributes:
-        pe (torch.Tensor): The positional encoding matrix of shape (1, max_len, d_model).
-
-    Methods:
-        forward(x):
-            Adds positional encoding to the input tensor.
-
-            Args:
-                x (torch.Tensor): Input tensor of shape (batch_size, seq_len, d_model).
-
-            Returns:
-                torch.Tensor: The input tensor with positional encoding added.
+        pe (Tensor): Positional encoding matrix of shape [1, max_len, d_model]
+    Forward Args:
+        x (Tensor): Input tensor to add positional encoding to.
+                    Shape: [batch_size, seq_len, d_model]
+    Returns:
+        Tensor: Input with positional encoding added.
+                Shape: [batch_size, seq_len, d_model]
     """
+    
     def __init__(self, d_model, max_len=10000):
         super(PositionalEncoding, self).__init__()
-        pe = torch.zeros(max_len, d_model)  # [max_len, d_model]
-        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)  # [max_len, 1]
-        div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-np.log(10000.0) / d_model))  # [d_model/2]
-        pe[:, 0::2] = torch.sin(position * div_term)  # [max_len, d_model/2]
-        pe[:, 1::2] = torch.cos(position * div_term)  # [max_len, d_model/2]
-        pe = pe.unsqueeze(0)  # [1, max_len, d_model]
+        pe = torch.zeros(max_len, d_model)
+        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-np.log(10000.0) / d_model))
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
+        pe = pe.unsqueeze(0)  # Shape: [1, max_len, d_model]
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        # x: [batch_size, seq_len, d_model]
-        x = x + self.pe[:, :x.size(1), :]
-        return x
+        return x + self.pe[:, :x.size(1), :]
 
-
-# Transformer Encoder with Padding Masking
-class TransformerEncoder(nn.Module):
-    """
-    Transformer Encoder module for processing sequential data.
-
-    Args:
-        feature_dim (int): The dimension of the input features.
-        hidden_dim (int): The dimension of the hidden layer.
-        num_layers (int): The number of transformer encoder layers.
-        dropout (float): The dropout rate.
-        num_heads (int, optional): The number of attention heads. Default is 8.
-
-    Attributes:
-        input_fc (nn.Linear): Linear layer to transform input features to hidden dimension.
-        positional_encoding (PositionalEncoding): Positional encoding to add positional information to the input.
-        encoder_layer (nn.TransformerEncoderLayer): A single transformer encoder layer.
-        transformer_encoder (nn.TransformerEncoder): Stack of transformer encoder layers.
-        dropout (nn.Dropout): Dropout layer.
-
-    Methods:
-        forward(features, src_key_padding_mask=None):
-            Forward pass through the transformer encoder.
-            Args:
-                features (torch.Tensor): Input features of shape [batch_size, seq_len, feature_dim].
-                src_key_padding_mask (torch.Tensor, optional): Mask for padding tokens. Default is None.
-            Returns:
-                torch.Tensor: Output memory of shape [batch_size, seq_len, hidden_dim].
-    """
-    def __init__(self, feature_dim, hidden_dim, num_layers, dropout, num_heads=8):
-        super(TransformerEncoder, self).__init__()
-        self.input_fc = nn.Linear(feature_dim, hidden_dim)
-        self.positional_encoding = PositionalEncoding(d_model=hidden_dim, max_len=5000)
-        self.encoder_layer = nn.TransformerEncoderLayer(
-            d_model=hidden_dim,
-            nhead=num_heads,
-            dropout=dropout,
-            batch_first=True  # Align with data format
-        )
-        self.transformer_encoder = nn.TransformerEncoder(self.encoder_layer, num_layers=num_layers)
-        self.dropout = nn.Dropout(dropout)
-
-    def forward(self, features, src_key_padding_mask=None):
-        src = self.input_fc(features)  # [batch_size, seq_len, hidden_dim]
-        src = self.positional_encoding(src)  # [batch_size, seq_len, hidden_dim]
-        src = self.dropout(src)
-        memory = self.transformer_encoder(src, src_key_padding_mask=src_key_padding_mask)  # [batch_size, seq_len, hidden_dim]
-        return memory
-
-
-# Attention Layer
-class AttentionLayer(nn.Module):
-    """
-    AttentionLayer computes attention weights by evaluating the relevance of encoder outputs relative to the current hidden state.
-
-    Args:
-        hidden_dim (int): The dimension of the hidden state.
-
-    Attributes:
-        query_linear (nn.Linear): Linear layer to transform the query.
-        key_linear (nn.Linear): Linear layer to transform the keys.
-        value_linear (nn.Linear): Linear layer to transform the values.
-        scale (float): Scaling factor for attention scores.
-
-    Methods:
-        forward(query, keys, values, mask=None):
-            Computes attention weights and returns the context vector.
-
-            Args:
-                query (torch.Tensor): Query tensor of shape [batch_size, hidden_dim].
-                keys (torch.Tensor): Keys tensor of shape [batch_size, seq_len, hidden_dim].
-                values (torch.Tensor): Values tensor of shape [batch_size, seq_len, hidden_dim].
-                mask (torch.Tensor, optional): Mask tensor of shape [batch_size, seq_len]. Default is None.
-
-            Returns:
-                torch.Tensor: Context vector of shape [batch_size, hidden_dim].
-                torch.Tensor: Attention weights of shape [batch_size, seq_len].
-    """
-    def __init__(self, hidden_dim):
-        super(AttentionLayer, self).__init__()
-        self.query_linear = nn.Linear(hidden_dim, hidden_dim)
-        self.key_linear = nn.Linear(hidden_dim, hidden_dim)
-        self.value_linear = nn.Linear(hidden_dim, hidden_dim)
-        self.scale = hidden_dim ** 0.5
-
-    def forward(self, query, keys, values, mask=None):
-        # query: [batch_size, hidden_dim]
-        # keys: [batch_size, seq_len, hidden_dim]
-        # values: [batch_size, seq_len, hidden_dim]
-        Q = self.query_linear(query)  # [batch_size, hidden_dim]
-        K = self.key_linear(keys)     # [batch_size, seq_len, hidden_dim]
-        V = self.value_linear(values) # [batch_size, seq_len, hidden_dim]
-
-        # Compute attention scores
-        scores = torch.bmm(K, Q.unsqueeze(2)).squeeze(2) / self.scale  # [batch_size, seq_len]
-
-        if mask is not None:
-            scores = scores.masked_fill(mask, float('-inf'))
-
-        # Compute attention weights
-        attn_weights = torch.softmax(scores, dim=1)  # [batch_size, seq_len]
-
-        # Compute context vector
-        context = torch.bmm(attn_weights.unsqueeze(1), V).squeeze(1)  # [batch_size, hidden_dim]
-
-        return context, attn_weights
-
-
-# Multi-Attention Layer
-class MultiAttention(nn.Module):
-    """
-    MultiAttention implements a multi-head self-attention mechanism by aggregating outputs from multiple AttentionLayer instances.
-
-    Args:
-        hidden_dim (int): The dimension of the hidden state.
-        num_heads (int): The number of attention heads.
-
-    Attributes:
-        attention_layers (nn.ModuleList): A list of AttentionLayer instances.
-
-    Methods:
-        forward(query, keys, values, mask=None):
-            Applies multiple attention layers and aggregates their outputs.
-
-            Args:
-                query (torch.Tensor): Query tensor of shape [batch_size, hidden_dim].
-                keys (torch.Tensor): Keys tensor of shape [batch_size, seq_len, hidden_dim].
-                values (torch.Tensor): Values tensor of shape [batch_size, seq_len, hidden_dim].
-                mask (torch.Tensor, optional): Mask tensor of shape [batch_size, seq_len]. Default is None.
-
-            Returns:
-                torch.Tensor: Aggregated context vector of shape [batch_size, hidden_dim].
-                list of torch.Tensor: List of attention weights from each head.
-    """
-    def __init__(self, hidden_dim, num_heads):
-        super(MultiAttention, self).__init__()
-        self.num_heads = num_heads
-        self.attention_layers = nn.ModuleList([AttentionLayer(hidden_dim) for _ in range(num_heads)])
-
-    def forward(self, query, keys, values, mask=None):
-        contexts = []
-        attn_weights_all = []
-        for attn in self.attention_layers:
-            context, attn_weights = attn(query, keys, values, mask=mask)
-            contexts.append(context)
-            attn_weights_all.append(attn_weights)
-        # Concatenate all context vectors
-        aggregated_context = torch.cat(contexts, dim=1)  # [batch_size, hidden_dim * num_heads]
-        return aggregated_context, attn_weights_all
-
-
-# Attention-Based Fusion
-class AttentionBasedFusion(nn.Module):
-    """
-    AttentionBasedFusion applies attention-based weighting to fuse combined features, emphasizing more informative parts of the input sequence.
-
-    Args:
-        hidden_dim (int): The dimension of the hidden state.
-        num_heads (int): The number of attention heads.
-
-    Attributes:
-        multi_attention (MultiAttention): Multi-head attention mechanism.
-        fusion_linear (nn.Linear): Linear layer to fuse the aggregated context.
-
-    Methods:
-        forward(query, keys, values, mask=None):
-            Applies multi-head attention and fuses the context vectors.
-
-            Args:
-                query (torch.Tensor): Query tensor of shape [batch_size, hidden_dim].
-                keys (torch.Tensor): Keys tensor of shape [batch_size, seq_len, hidden_dim].
-                values (torch.Tensor): Values tensor of shape [batch_size, seq_len, hidden_dim].
-                mask (torch.Tensor, optional): Mask tensor of shape [batch_size, seq_len]. Default is None.
-
-            Returns:
-                torch.Tensor: Fused context vector of shape [batch_size, hidden_dim].
-        """
-    def __init__(self, hidden_dim, num_heads):
-        super(AttentionBasedFusion, self).__init__()
-        self.multi_attention = MultiAttention(hidden_dim, num_heads)
-        self.fusion_linear = nn.Linear(hidden_dim * num_heads, hidden_dim)
-
-    def forward(self, query, keys, values, mask=None):
-        aggregated_context, attn_weights_all = self.multi_attention(query, keys, values, mask=mask)
-        fused_context = self.fusion_linear(aggregated_context)  # [batch_size, hidden_dim]
-        return fused_context
-
-
-# Projected Encoder: Projects combined features into lower-dimensional space and applies Transformer
 class ProjectedEncoder(nn.Module):
-    """
-    ProjectedEncoder projects combined features (prosody features concatenated with word embeddings)
-    into a lower-dimensional space using a linear layer followed by a Transformer layer.
-    It processes the input sequences to capture context from past states.
-
+    """Implements a transformer encoder with projection layer for combined features and word embeddings.
+    This module projects concatenated word embeddings and prosodic features into a common space
+    before applying positional encoding and transformer encoder layers.
     Args:
-        feature_dim (int): The dimension of the prosody features.
-        embedding_dim (int): The dimension of the word embeddings.
-        hidden_dim (int): The dimension of the hidden layer after projection.
-        num_layers (int): The number of transformer encoder layers.
-        dropout (float): The dropout rate.
-        num_heads (int): The number of attention heads.
-
+        feature_dim (int): Dimension of the prosodic feature vectors
+        embedding_dim (int): Dimension of the word embeddings
+        hidden_dim (int): Hidden dimension size for the transformer encoder
+        num_layers (int): Number of transformer encoder layers
+        dropout (float): Dropout probability
+        num_heads (int, optional): Number of attention heads. Defaults to 8.
     Attributes:
-        projection (nn.Linear): Linear layer to project concatenated features.
-        positional_encoding (PositionalEncoding): Positional encoding for the projected features.
-        transformer_encoder (nn.TransformerEncoder): Transformer encoder to capture contextual information.
-        dropout (nn.Dropout): Dropout layer.
-
-    Methods:
-        forward(word_embeddings, features, src_key_padding_mask=None):
-            Forward pass through the ProjectedEncoder.
-
-            Args:
-                word_embeddings (torch.Tensor): Tensor of word embeddings [batch_size, seq_len, embedding_dim].
-                features (torch.Tensor): Tensor of prosody features [batch_size, seq_len, feature_dim].
-                src_key_padding_mask (torch.Tensor, optional): Padding mask [batch_size, seq_len].
-
-            Returns:
-                torch.Tensor: Encoded memory [batch_size, seq_len, hidden_dim].
+        projection (nn.Linear): Linear projection layer
+        positional_encoding (PositionalEncoding): Adds positional information to the sequences
+        transformer_encoder (nn.TransformerEncoder): Multi-layer transformer encoder
+        dropout (nn.Dropout): Dropout layer
+    Forward Args:
+        word_embeddings (torch.Tensor): Word embeddings tensor of shape [batch_size, seq_len, embedding_dim]
+        features (torch.Tensor): Prosodic features tensor of shape [batch_size, seq_len, feature_dim]
+        src_key_padding_mask (torch.Tensor, optional): Mask for padded elements. Defaults to None.
+    Returns:
+        torch.Tensor: Encoded sequence of shape [batch_size, seq_len, hidden_dim]
     """
+    
     def __init__(self, feature_dim, embedding_dim, hidden_dim, num_layers, dropout, num_heads=8):
         super(ProjectedEncoder, self).__init__()
         self.projection = nn.Linear(feature_dim + embedding_dim, hidden_dim)
@@ -528,55 +381,52 @@ class ProjectedEncoder(nn.Module):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, word_embeddings, features, src_key_padding_mask=None):
-        # Concatenate word embeddings and prosody features
-        combined = torch.cat((word_embeddings, features), dim=2)  # [batch_size, seq_len, embedding_dim + feature_dim]
-        projected = self.projection(combined)  # [batch_size, seq_len, hidden_dim]
+        # Concatenate word embeddings and prosody features along the last dimension.
+        combined = torch.cat((word_embeddings, features), dim=2)
+        projected = self.projection(combined)
         projected = self.positional_encoding(projected)
         projected = self.dropout(projected)
-        memory = self.transformer_encoder(projected, src_key_padding_mask=src_key_padding_mask)  # [batch_size, seq_len, hidden_dim]
+        memory = self.transformer_encoder(projected, src_key_padding_mask=src_key_padding_mask)
         return memory
 
-
-# Transformer Decoder with Causal and Padding Masking
 class TransformerDecoder(nn.Module):
-    """
-    TransformerDecoder is a neural network module that implements a transformer-based decoder.
-
+    """TransformerDecoder is a decoder module that implements the transformer architecture.
+    This class implements a transformer decoder that processes target sequences and memory
+    from an encoder to generate output sequences. It includes embedding layers, positional
+    encoding, and multi-head self-attention mechanisms.
     Args:
-        hidden_dim (int): The dimension of the hidden layers.
-        output_dim (int): The dimension of the output.
-        num_layers (int): The number of decoder layers.
-        dropout (float): The dropout rate.
-        num_classes (int, optional): The number of classes for the embedding and output layers.
-        num_heads (int, optional): The number of attention heads. Default is 8.
-
+        hidden_dim (int): Dimension of the model's hidden layers
+        output_dim (int): Dimension of the output 
+        num_layers (int): Number of transformer decoder layers
+        dropout (float): Dropout rate (0 to 1.0)
+        num_classes (int): Number of possible output classes (vocabulary size)
+        num_heads (int, optional): Number of attention heads. Defaults to 8
     Attributes:
-        hidden_dim (int): The dimension of the hidden layers.
-        num_classes (int): The number of classes for the embedding and output layers.
-        embedding (nn.Embedding): The embedding layer.
-        positional_encoding (PositionalEncoding): Positional encoding for the target embeddings.
-        transformer_decoder (nn.TransformerDecoder): The transformer decoder composed of multiple decoder layers.
-        fc_out (nn.Linear): The final fully connected layer that maps the hidden states to the output classes.
-
+        hidden_dim (int): Dimension of hidden layers
+        num_classes (int): Size of output vocabulary
+        embedding (nn.Embedding): Token embedding layer
+        positional_encoding (PositionalEncoding): Adds positional information to embeddings
+        transformer_decoder (nn.TransformerDecoder): Main transformer decoder layers
+        fc_out (nn.Linear): Final linear layer for output projection
+        dropout (nn.Dropout): Dropout layer
     Methods:
         forward(memory, tgt, tgt_mask=None, tgt_key_padding_mask=None):
-            Performs a forward pass through the transformer decoder.
-
+            Forward pass of the decoder
             Args:
-                memory (Tensor): The memory tensor from the encoder. Shape [batch_size, seq_len, hidden_dim].
-                tgt (Tensor): The target sequence tensor. Shape [batch_size, seq_len].
-                tgt_mask (Tensor, optional): The target mask tensor. Default is None.
-                tgt_key_padding_mask (Tensor, optional): The target key padding mask tensor. Default is None.
-
+                memory (Tensor): Output from the encoder [batch_size, src_len, hidden_dim]
+                tgt (Tensor): Target sequence [batch_size, tgt_len]
+                tgt_mask (Tensor, optional): Mask for target sequence
+                tgt_key_padding_mask (Tensor, optional): Mask for padding in target sequence
             Returns:
-                Tensor: The output tensor. Shape [batch_size, seq_len, num_classes].
+                Tensor: Output predictions [batch_size, tgt_len, num_classes]
     """
+    
     def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_classes, num_heads=8):
         super(TransformerDecoder, self).__init__()
         self.hidden_dim = hidden_dim
         self.num_classes = num_classes
         self.embedding = nn.Embedding(
-            num_embeddings=num_classes,  # Updated to include SOS token
+            num_embeddings=num_classes,  # includes SOS token
             embedding_dim=hidden_dim,
             padding_idx=PADDING_VALUE
         )
@@ -585,14 +435,14 @@ class TransformerDecoder(nn.Module):
             d_model=hidden_dim,
             nhead=num_heads,
             dropout=dropout,
-            batch_first=True  # Align with data format
+            batch_first=True
         )
         self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=num_layers)
-        self.fc_out = nn.Linear(hidden_dim, num_classes)  # Ensure output_dim == num_classes
+        self.fc_out = nn.Linear(hidden_dim, num_classes)
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, memory, tgt, tgt_mask=None, tgt_key_padding_mask=None):
-        tgt_embed = self.embedding(tgt)  # [batch_size, seq_len, hidden_dim]
+        tgt_embed = self.embedding(tgt)
         tgt_embed = self.positional_encoding(tgt_embed)
         tgt_embed = self.dropout(tgt_embed)
         output = self.transformer_decoder(
@@ -600,174 +450,153 @@ class TransformerDecoder(nn.Module):
             memory,
             tgt_mask=tgt_mask,
             tgt_key_padding_mask=tgt_key_padding_mask
-        )  # [batch_size, seq_len, hidden_dim]
-        output = self.fc_out(output)  # [batch_size, seq_len, num_classes]
+        )
+        output = self.fc_out(output)
         return output
 
-
-# Attention-Based Decoder incorporating Attention-Based Fusion
 class Decoder(nn.Module):
-    """
-    Decoder utilizes the fused features and word embeddings to generate predictions.
-    It incorporates the attention mechanism to focus on relevant encoder outputs and processes
-    the information through another transformer.
-
-    Args:
-        hidden_dim (int): The dimension of the hidden layers.
-        output_dim (int): The dimension of the output.
-        num_layers (int): The number of transformer decoder layers.
-        dropout (float): The dropout rate.
-        num_classes (int, optional): The number of classes for the embedding and output layers.
-        num_heads (int, optional): The number of attention heads. Default is 8.
-        embedding_dim (int): The dimension of the word embeddings.
-
-    Attributes:
-        attention_fusion (AttentionBasedFusion): Attention-based fusion mechanism.
-        transformer_decoder (TransformerDecoder): Transformer-based decoder.
-        word_embedding_proj (nn.Linear): Linear layer to project word embeddings to hidden_dim.
-        concat_proj (nn.Linear): Linear layer to project concatenated memory back to hidden_dim.
-
-    Methods:
-        forward(memory, tgt, fused_memory, word_embeddings, tgt_mask=None, tgt_key_padding_mask=None):
-            Forward pass through the Decoder.
-
-            Args:
-                memory (torch.Tensor): Encoder outputs [batch_size, seq_len, hidden_dim].
-                tgt (torch.Tensor): Target labels [batch_size, seq_len].
-                fused_memory (torch.Tensor): Fused features from AttentionBasedFusion [batch_size, hidden_dim].
-                word_embeddings (torch.Tensor): Word embeddings [batch_size, seq_len, embedding_dim].
-                tgt_mask (torch.Tensor, optional): Causal mask for target sequence. Default is None.
-                tgt_key_padding_mask (torch.Tensor, optional): Padding mask for target sequence. Default is None.
-
-            Returns:
-                torch.Tensor: Output logits [batch_size, seq_len, num_classes].
-    """
+"""Decoder module that combines transformer decoding with word embeddings.
+This decoder implements a modified transformer decoder architecture that fuses word embeddings
+with the encoder memory before decoding. It projects word embeddings to the hidden dimension,
+concatenates them with encoder memory, and applies transformer decoding.
+Args:
+    hidden_dim (int): Dimension of the hidden representations
+    output_dim (int): Dimension of the output
+    num_layers (int): Number of transformer decoder layers
+    dropout (float): Dropout probability
+    num_classes (int): Number of output classes
+    num_heads (int, optional): Number of attention heads. Defaults to 8
+    embedding_dim (int, optional): Dimension of input word embeddings. Defaults to 300
+Attributes:
+    transformer_decoder (TransformerDecoder): Main transformer decoder component
+    word_embedding_proj (nn.Linear): Projects word embeddings to hidden dimension
+    concat_proj (nn.Linear): Projects concatenated features to hidden dimension
+Example:
+    decoder = Decoder(512, 256, 6, 0.1, 10)
+    output = decoder(memory, tgt, word_embeddings, tgt_mask, tgt_key_padding_mask)
+"""
+ 
     def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_classes, num_heads=8, embedding_dim=300):
         super(Decoder, self).__init__()
-        self.attention_fusion = AttentionBasedFusion(hidden_dim, num_heads)
         self.transformer_decoder = TransformerDecoder(hidden_dim, output_dim, num_layers, dropout, num_classes, num_heads)
-        self.word_embedding_proj = nn.Linear(embedding_dim, hidden_dim)  # Projects word_embeddings to hidden_dim
-        self.concat_proj = nn.Linear(hidden_dim * 2, hidden_dim)       # Projects concatenated memory back to hidden_dim
+        self.word_embedding_proj = nn.Linear(embedding_dim, hidden_dim)
+        self.concat_proj = nn.Linear(hidden_dim * 2, hidden_dim)
 
-    def forward(self, memory, tgt, fused_memory, word_embeddings, tgt_mask=None, tgt_key_padding_mask=None):
-        # Compute fused context
-        fused_context = self.attention_fusion(fused_memory, memory, memory, mask=None)  # [batch_size, hidden_dim]
-
-        # Project word embeddings
-        projected_word_embeddings = self.word_embedding_proj(word_embeddings)  # [batch_size, seq_len, hidden_dim]
-
-        # Concatenate memory and projected word embeddings
-        concatenated_memory = torch.cat([memory, projected_word_embeddings], dim=2)  # [batch_size, seq_len, hidden_dim * 2]
-
-        # Project concatenated memory back to hidden_dim
-        projected_concatenated_memory = self.concat_proj(concatenated_memory)  # [batch_size, seq_len, hidden_dim]
-
-        # Expand fused_context to match sequence length
-        fused_context_expanded = fused_context.unsqueeze(1).repeat(1, projected_concatenated_memory.size(1), 1)  # [batch_size, seq_len, hidden_dim]
-
-        # Concatenate with projected_concatenated_memory
-        enriched_memory = torch.cat([projected_concatenated_memory, fused_context_expanded], dim=2)  # [batch_size, seq_len, hidden_dim * 3]
-
-        # Project back to hidden_dim
-        enriched_memory = self.concat_proj(enriched_memory)  # [batch_size, seq_len, hidden_dim]
-
-        # Pass through transformer decoder
+    def forward(self, memory, tgt, word_embeddings, tgt_mask=None, tgt_key_padding_mask=None):
+        projected_word_embeddings = self.word_embedding_proj(word_embeddings)
+        concatenated_memory = torch.cat([memory, projected_word_embeddings], dim=2)
+        projected_concatenated_memory = self.concat_proj(concatenated_memory)
         output = self.transformer_decoder(
-            enriched_memory,
+            projected_concatenated_memory,
             tgt,
             tgt_mask=tgt_mask,
             tgt_key_padding_mask=tgt_key_padding_mask
-        )  # [batch_size, seq_len, num_classes]
-
+        )
         return output
 
-
 class Seq2Seq(nn.Module):
+    """A sequence-to-sequence model combining an encoder and decoder for prosody prediction.
+    This class implements a sequence-to-sequence architecture that processes word embeddings
+    and additional features through an encoder-decoder structure to predict prosodic labels.
+    Args:
+        encoder (nn.Module): The encoder module that processes input sequences
+        decoder (nn.Module): The decoder module that generates output sequences
+    Attributes:
+        encoder (nn.Module): Stores the encoder component
+        decoder (nn.Module): Stores the decoder component
+    Forward Args:
+        word_embeddings (torch.Tensor): Word embedding inputs
+        features (torch.Tensor): Additional features for the model
+        labels (torch.Tensor): Target labels for training
+        lengths (torch.Tensor): Sequence lengths for proper padding handling
+    Returns:
+        torch.Tensor: The output predictions from the decoder
+    Note:
+        The forward pass handles padding masks and implements teacher forcing by using
+        the ground truth labels shifted right during training. It also generates causal 
+        attention masks to ensure the decoder can only attend to previous positions.
+    """
+    
     def __init__(self, encoder, decoder):
         super(Seq2Seq, self).__init__()
         self.encoder = encoder
         self.decoder = decoder
 
     def forward(self, word_embeddings, features, labels, lengths):
-        # Generate padding mask for encoder (source)
         src_key_padding_mask = create_padding_mask(labels, padding_value=PADDING_VALUE)
-
-        # Pass through encoder
-        memory = self.encoder(word_embeddings, features, src_key_padding_mask=src_key_padding_mask)  # [batch_size, seq_len, hidden_dim]
-
-        # Prepare decoder inputs by shifting labels and adding SOS token
+        memory = self.encoder(word_embeddings, features, src_key_padding_mask=src_key_padding_mask)
         batch_size, seq_len = labels.size()
+        # Prepare decoder inputs: insert an SOS token at the beginning and shift right.
         decoder_inputs = torch.full((batch_size, 1), SOS_IDX, dtype=labels.dtype, device=labels.device)
-        decoder_inputs = torch.cat([decoder_inputs, labels[:, :-1]], dim=1)  # Shifted labels
-
-        # Generate causal mask for decoder
+        decoder_inputs = torch.cat([decoder_inputs, labels[:, :-1]], dim=1)
         tgt_seq_len = decoder_inputs.size(1)
-        tgt_mask = generate_causal_mask(tgt_seq_len).to(features.device)  # [seq_len, seq_len]
+        tgt_mask = generate_causal_mask(tgt_seq_len).to(features.device)
+        tgt_key_padding_mask = create_padding_mask(decoder_inputs, padding_value=PADDING_VALUE).to(features.device)
+        output = self.decoder(memory, decoder_inputs, word_embeddings, tgt_mask=tgt_mask, tgt_key_padding_mask=tgt_key_padding_mask)
+        return output
 
-        # Generate padding mask for decoder (target)
-        tgt_key_padding_mask = create_padding_mask(decoder_inputs, padding_value=PADDING_VALUE).to(features.device)  # [batch_size, seq_len]
-
-        # Fused features for attention-based fusion (can be a global context or any other representation)
-        # Here, we'll use the mean of the memory as a simple fused representation
-        fused_memory = memory.mean(dim=1)  # [batch_size, hidden_dim]
-
-        # Pass through decoder, including word_embeddings
-        outputs = self.decoder(
-            memory,
-            decoder_inputs,
-            fused_memory,
-            word_embeddings,        # Passing word_embeddings to the Decoder
-            tgt_mask=tgt_mask,
-            tgt_key_padding_mask=tgt_key_padding_mask
-        )  # [batch_size, seq_len, num_classes]
-
-        return outputs
-        
-# Function to generate a causal mask
 def generate_causal_mask(sz):
-    """
-    Generates a causal mask for a sequence of a given size.
-    This mask is an upper triangular matrix with ones above the main diagonal
-    and zeros on and below the main diagonal. It is used to prevent the model
-    from attending to future tokens in a sequence during training.
+    """Generate a causal mask for transformer self-attention.
+
+    This function creates an upper triangular mask that prevents attention to future tokens
+    in the sequence during self-attention. The mask ensures that position i can only attend
+    to positions j ≤ i.
+
     Args:
-        sz (int): The size of the sequence.
+        sz (int): The size of the square mask matrix to generate.
+
     Returns:
-        torch.Tensor: A boolean tensor of shape (sz, sz) representing the causal mask.
+        torch.Tensor: A boolean tensor of shape (sz, sz) where True values indicate
+                     positions that should be masked out (prevented from attending).
+                     The lower triangle (including diagonal) contains False values,
+                     while the upper triangle contains True values.
+
+    Example:
+        >>> mask = generate_causal_mask(3)
+        >>> # Results in:
+        >>> # [[False, True,  True ],
+        >>> #  [False, False, True ],
+        >>> #  [False, False, False]]
     """
+    
+    mask = torch.triu(torch.ones(sz, sz), diagonal=1).bool()
+    return mask
 
-    mask = torch.triu(torch.ones(sz, sz), diagonal=1).bool()  # Upper triangular part (excluding diagonal)
-    return mask  # [sz, sz]
-
-
-# Function to create padding masks
 def create_padding_mask(labels, padding_value=0):
-    """
-    Creates a padding mask for sequences.
-    Args:
-        labels: Tensor of shape [batch_size, seq_len]
-        padding_value: The value used for padding in labels
-    Returns:
-        mask: Tensor of shape [batch_size, seq_len], where True indicates padding positions
-    """
-    mask = (labels == padding_value)
-    return mask  # [batch_size, seq_len]
+    """Create a padding mask for sequences."""
+    return (labels == padding_value)
 
+# =============================================================================
+# Training, Evaluation, and Testing Functions
+# =============================================================================
 
-# Training function
 def train_model(model, iterator, optimizer, criterion, num_classes):
     """
-    Trains the given model for one epoch.
+    Train the model for one epoch.
+
+    This function performs training for one epoch by iterating through the data loader,
+    computing loss, and updating model parameters through backpropagation.
 
     Args:
-        model (torch.nn.Module): The model to be trained.
-        iterator (iterable): An iterable that provides batches of data.
-        optimizer (torch.optim.Optimizer): The optimizer used for training.
-        criterion (torch.nn.Module): The loss function.
-        num_classes (int): The number of classes.
+        model: The neural network model to be trained.
+        iterator: DataLoader containing training data batches.
+        optimizer: The optimizer used for updating model parameters.
+        criterion: The loss function used for training.
+        num_classes: Integer representing number of output classes.
 
     Returns:
-        float: The average loss over the epoch.
+        float: Average loss value for the epoch (total loss divided by number of batches).
+
+    Note:
+        - Assumes data is moved to appropriate device (CPU/GPU) within the function
+        - Performs gradient clipping with max norm of 1.0
+        - Expects batched inputs with the following structure:
+            - keys: Batch of sample identifiers
+            - words: Batch of input words
+            - word_embeddings: Tensor of word embeddings
+            - features: Tensor of additional features
+            - labels: Tensor of target labels
+            - lengths: Tensor of sequence lengths
     """
     model.train()
     epoch_loss = 0
@@ -778,11 +607,9 @@ def train_model(model, iterator, optimizer, criterion, num_classes):
         lengths = lengths.to(device)
 
         optimizer.zero_grad()
-        output = model(word_embeddings, features, labels, lengths)  # [batch_size, seq_len, num_classes]
-        output = output.view(-1, num_classes)  # [batch_size * seq_len, num_classes]
-        labels_flat = labels.view(-1)  # [batch_size * seq_len]
-
-        # Exclude padding indices from loss
+        output = model(word_embeddings, features, labels, lengths)  # [B, T, num_classes]
+        output = output.view(-1, num_classes)
+        labels_flat = labels.view(-1)
         loss = criterion(output, labels_flat)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
@@ -790,25 +617,32 @@ def train_model(model, iterator, optimizer, criterion, num_classes):
         epoch_loss += loss.item()
     return epoch_loss / len(iterator)
 
-
-# Evaluation function
 def evaluate_model(model, iterator, criterion, num_classes):
     """
-    Evaluates the performance of a given model on a dataset.
+    Evaluates the performance of a model on a given dataset iterator.
+
+    This function runs the model in evaluation mode, computing various metrics including
+    loss, accuracy, precision, recall, and F1 score. It handles padded sequences by
+    excluding padding tokens from the metric calculations.
 
     Args:
-        model (torch.nn.Module): The model to evaluate.
-        iterator (DataLoader): DataLoader providing the dataset to evaluate on.
-        criterion (torch.nn.Module): Loss function to use for evaluation.
-        num_classes (int): Number of classes in the output.
+        model: The neural network model to evaluate.
+        iterator: DataLoader containing the evaluation data.
+        criterion: Loss function used for model evaluation.
+        num_classes: Number of classes in the classification task.
 
     Returns:
         tuple: A tuple containing:
-            - epoch_loss (float): The average loss over the dataset.
-            - accuracy (float): The accuracy of the model on the dataset.
-            - precision (float): The precision of the model on the dataset.
-            - recall (float): The recall of the model on the dataset.
-            - f1 (float): The F1 score of the model on the dataset.
+            - float: Average loss per batch
+            - float: Accuracy score
+            - float: Weighted precision score
+            - float: Weighted recall score
+            - float: Weighted F1 score
+
+    Notes:
+        - The function assumes labels are 1-indexed and converts them to 0-indexed for metric calculation
+        - Padding values are excluded from metric calculations
+        - Precision, recall and F1 scores use weighted averaging to handle class imbalance
     """
     model.eval()
     epoch_loss = 0
@@ -820,117 +654,88 @@ def evaluate_model(model, iterator, criterion, num_classes):
             features = features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
-
-            output = model(word_embeddings, features, labels, lengths)  # [batch_size, seq_len, num_classes]
-            output = output.view(-1, num_classes)  # [batch_size * seq_len, num_classes]
-            labels_flat = labels.view(-1)  # [batch_size * seq_len]
-
-            preds = torch.argmax(output, dim=1)  # [batch_size * seq_len]
-
+            output = model(word_embeddings, features, labels, lengths)
+            output = output.view(-1, num_classes)
+            labels_flat = labels.view(-1)
+            preds = torch.argmax(output, dim=1)
             loss = criterion(output, labels_flat)
             epoch_loss += loss.item()
-
-            # Exclude padding indices from metrics
             non_pad_indices = labels_flat != PADDING_VALUE
-            labels_np = labels_flat[non_pad_indices].cpu().numpy() - 1  # Adjust labels back by -1
-            preds_np = preds[non_pad_indices].cpu().numpy() - 1    # Adjust preds back by -1
+            labels_np = labels_flat[non_pad_indices].cpu().numpy() - 1
+            preds_np = preds[non_pad_indices].cpu().numpy() - 1
             all_labels.extend(labels_np)
             all_preds.extend(preds_np)
-
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
     return epoch_loss / len(iterator), accuracy, precision, recall, f1
 
-
-# Test model function
 def test_model(model, iterator):
     """
-    Evaluates the given model on the provided data iterator and writes the results to a file.
+    Tests the model on the given dataset iterator and computes performance metrics.
 
     Args:
-        model (torch.nn.Module): The model to be evaluated.
-        iterator (iterable): An iterable that provides batches of data. Each batch should be a tuple containing:
-            - words (list of list of str): The words in each sentence.
-            - word_embeddings (torch.Tensor): The word embeddings for each sentence.
-            - features (torch.Tensor): The input features for the model.
-            - labels (torch.Tensor): The ground truth labels.
-            - lengths (torch.Tensor): The lengths of each sequence in the batch.
+        model: The transformer model to be evaluated
+        iterator: DataLoader containing test data batches with keys, words, word embeddings,
+                 features, labels and lengths
 
     Returns:
-        tuple: A tuple containing:
-            - all_labels (list): The list of all ground truth labels.
-            - all_preds (list): The list of all predicted labels.
+        tuple:
+            all_labels (list): List of all gold (true) labels from test set
+            all_preds (list): List of all predicted labels from the model
+            
+    Details:
+        - Sets model to evaluation mode
+        - Performs forward pass without gradient calculation
+        - Saves detailed results to text file with word-level predictions
+        - Saves complete results to JSON file
+        - Computes and prints accuracy, precision, recall and F1 metrics
+        - Results files are saved in '../outputs/' directory
+        - Text output format includes audio file ID and word-level predictions
+        - JSON output contains complete prediction details for each audio file
 
-    The function performs the following steps:
-        1. Sets the model to evaluation mode.
-        2. Initializes lists to store all labels and predictions.
-        3. Creates an output directory and initializes the results file.
-        4. Iterates over the batches in the iterator:
-            - Moves word_embeddings, features, labels, and lengths to the appropriate device.
-            - Computes the model's logits and predictions.
-            - Cleans up the sentences by excluding padding positions.
-            - Writes the cleaned data to the results file.
-            - Collects valid labels and predictions for metrics calculation.
-        5. Calculates and prints accuracy, precision, recall, and F1 score.
-        6. Writes detailed results to a JSON file.
-        7. Returns the collected labels and predictions.
+    File outputs:
+        - '../outputs/prosody_transformer_multiclass_results.txt': Detailed word-level results
+        - '../outputs/prosody_transformer_multiclass_results.json': Complete results in JSON format
     """
     model.eval()
     all_labels = []
     all_preds = []
-    all_data = []  # List to store data for Json
-
+    all_data = []
     os.makedirs('../outputs', exist_ok=True)
     results_txt_path = '../outputs/prosody_transformer_multiclass_results.txt'
     with open(results_txt_path, 'w') as file:
         file.write("")
-
     with torch.no_grad():
         for batch_idx, (keys, words, word_embeddings, features, labels, lengths) in enumerate(iterator):
             word_embeddings = word_embeddings.to(device)
             features = features.to(device)
             labels = labels.to(device)
             lengths = lengths.to(device)
-
-            logits = model(word_embeddings, features, labels, lengths)  # [batch_size, seq_len, num_classes]
-            preds = torch.argmax(logits, dim=2)  # [batch_size, seq_len]
-
+            logits = model(word_embeddings, features, labels, lengths)
+            preds = torch.argmax(logits, dim=2)
             for i in range(features.size(0)):
                 key = keys[i]
-                word_sentence = words[i]  # List of words
-                gold_labels = labels[i].cpu().numpy().flatten()
-                pred_labels = preds[i].cpu().numpy().flatten()
-
-                # Adjust labels back by -1
-                gold_labels = gold_labels - 1
-                pred_labels = pred_labels - 1
-                PADDING_VALUE_EVAL = -1  # Update padding value for evaluation
-
-                # Clean up the sentence by excluding padding positions
+                word_sentence = words[i]
+                gold_labels = labels[i].cpu().numpy().flatten() - 1
+                pred_labels = preds[i].cpu().numpy().flatten() - 1
+                PADDING_VALUE_EVAL = -1
                 cleaned_words, cleaned_gold_labels, cleaned_pred_labels = clean_up_sentence(
                     word_sentence, gold_labels, pred_labels, padding_value=PADDING_VALUE_EVAL
                 )
-
-                # Create DataFrame
                 data = {
                     'Word': cleaned_words,
                     'Gold Label': cleaned_gold_labels,
                     'Predicted Label': cleaned_pred_labels
                 }
-
                 df = pd.DataFrame(data)
                 with open(results_txt_path, 'a') as file:
                     file.write(f"Audio File: {key}\n")
                     file.write(df.to_string(index=False))
                     file.write("\n" + "-" * 50 + "\n")
-
-                # Collect valid labels and predictions for metrics
                 all_labels.extend(cleaned_gold_labels)
                 all_preds.extend(cleaned_pred_labels)
-
-                # Collect data for JSON
                 data_json = {
                     'audio_file': key,
                     'words': cleaned_words,
@@ -938,119 +743,115 @@ def test_model(model, iterator):
                     'predicted_labels': cleaned_pred_labels
                 }
                 all_data.append(data_json)
-
-    # Calculate metrics using only valid labels and predictions
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, average='weighted', zero_division=0)
     recall = recall_score(all_labels, all_preds, average='weighted', zero_division=0)
     f1 = f1_score(all_labels, all_preds, average='weighted', zero_division=0)
-
     print('*' * 45)
     print(f'Test Accuracy: {accuracy*100:.2f}%')
     print(f'Test Precision: {precision*100:.2f}%')
     print(f'Test Recall: {recall*100:.2f}%')
     print(f'Test F1 Score: {f1*100:.2f}%')
     print('*' * 45)
-
-    # Write the collected data to a JSON file
     results_json_path = os.path.join('../outputs/prosody_transformer_multiclass_results.json')
     with open(results_json_path, 'w') as json_file:
         json.dump(all_data, json_file, indent=4)
-
     return all_labels, all_preds
 
-
-# Plot metrics function
 def plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s):
     """
-    Plots training and validation metrics over epochs and saves the plot as an image file.
-    Args:
-        train_losses (list of float): List of training loss values for each epoch.
-        val_losses (list of float): List of validation loss values for each epoch.
-        val_accuracies (list of float): List of validation accuracy values for each epoch.
-        val_precisions (list of float): List of validation precision values for each epoch.
-        val_recalls (list of float): List of validation recall values for each epoch.
-        val_f1s (list of float): List of validation F1 score values for each epoch.
+    Plots and saves training and validation metrics over epochs.
+
+    This function creates a figure with 5 subplots showing the progression of different
+    metrics during model training. The plots include training/validation loss, validation
+    accuracy, precision, recall and F1 score. The resulting figure is saved as a PNG file.
+
+    Parameters:
+        train_losses (list): List of training loss values for each epoch
+        val_losses (list): List of validation loss values for each epoch  
+        val_accuracies (list): List of validation accuracy values for each epoch
+        val_precisions (list): List of validation precision values for each epoch
+        val_recalls (list): List of validation recall values for each epoch
+        val_f1s (list): List of validation F1 score values for each epoch
+
     Returns:
-        None
+        None. The function saves the plot to '../outputs/transformer_multiclass_metrics.png'
+
+    Example:
+        >>> plot_metrics([0.5, 0.3], [0.4, 0.2], [0.8, 0.9], [0.7, 0.8], [0.7, 0.8], [0.7, 0.8])
     """
     epochs = range(1, len(train_losses) + 1)
     plt.figure(figsize=(18, 12))
-
     plt.subplot(2, 3, 1)
     plt.plot(epochs, train_losses, label='Train Loss', marker='o')
     plt.plot(epochs, val_losses, label='Validation Loss', marker='o')
     plt.legend()
     plt.title('Loss')
-
     plt.subplot(2, 3, 2)
     plt.plot(epochs, val_accuracies, label='Validation Accuracy', marker='o')
     plt.legend()
     plt.title('Accuracy')
-
     plt.subplot(2, 3, 3)
     plt.plot(epochs, val_precisions, label='Validation Precision', marker='o')
     plt.legend()
     plt.title('Precision')
-
     plt.subplot(2, 3, 4)
     plt.plot(epochs, val_recalls, label='Validation Recall', marker='o')
     plt.legend()
     plt.title('Recall')
-
     plt.subplot(2, 3, 5)
     plt.plot(epochs, val_f1s, label='Validation F1 Score', marker='o')
     plt.legend()
     plt.title('F1 Score')
-
     plt.tight_layout()
     plt.savefig('../outputs/transformer_multiclass_metrics.png')
     plt.close()
 
-
-# Evaluate on a new dataset
 def evaluate_new_set(model, new_dataset_path):
     """
-    Evaluate the given model on a new dataset.
+    Evaluates the model's performance on a new dataset.
+
+    This function loads a new dataset, creates a DataLoader, and tests the model's performance
+    on this held-out set. It returns both the true labels and model predictions.
+
     Args:
-        model (torch.nn.Module): The trained model to be evaluated.
-        new_dataset_path (str): The file path to the new dataset.
+        model: The trained model to be evaluated
+        new_dataset_path (str): Path to the new dataset file
+
     Returns:
-        tuple: A tuple containing two lists:
-            - all_labels (list): The true labels from the new dataset.
-            - all_preds (list): The model's predictions on the new dataset.
+        tuple: A tuple containing:
+            - all_labels: True labels from the dataset
+            - all_preds: Model predictions for the dataset
+
+    Example:
+        labels, predictions = evaluate_new_set(trained_model, "path/to/new/data.csv")
     """
-    # Load new data
     new_data = load_data(new_dataset_path)
     new_dataset = ProsodyDataset(new_data)
     new_loader = DataLoader(new_dataset, batch_size=16, shuffle=False, collate_fn=collate_fn)
-
-    # Test the model on the new dataset and get predictions
     print('\n\nEvaluation on Held Out Set Dataset:')
     all_labels, all_preds = test_model(model, new_loader)
-
     return all_labels, all_preds
 
-
-# Validate label integrity
 def validate_labels(datasets, num_classes):
     """
-    Validates the labels in the given datasets to ensure they are within the specified range.
+    Validates labels across multiple datasets to ensure they fall within the valid range.
+
+    This function checks if all labels in the provided datasets are within the valid range
+    [0, num_classes - 1]. It raises a ValueError if any invalid labels are found.
 
     Args:
-        datasets (list of datasets): A list of datasets where each dataset is an iterable of tuples.
-                                     Each tuple contains three elements, and the third element is expected to be the labels.
-        num_classes (int): The number of classes. Labels should be in the range [0, num_classes - 1].
+        datasets (list): A list of datasets, where each dataset yields tuples containing labels
+                        at the 5th position (index 4).
+        num_classes (int): The number of valid classes. Valid labels should be in range
+                          [0, num_classes - 1].
 
     Raises:
-        ValueError: If any label in the datasets is found to be outside the range [0, num_classes - 1].
+        ValueError: If any labels are found that are either negative or >= num_classes,
+                   including the invalid labels and their dataset index in the error message.
 
-    Example:
-        datasets = [
-            [(input1, target1, labels1), (input2, target2, labels2)],
-            [(input3, target3, labels3), (input4, target4, labels4)]
-        ]
-        validate_labels(datasets, num_classes=10)
+    Prints:
+        "All labels are valid." if all labels across all datasets are within valid range.
     """
     for dataset in datasets:
         for idx, (_, _, _, _, labels) in enumerate(dataset):
@@ -1060,19 +861,21 @@ def validate_labels(datasets, num_classes):
                 raise ValueError(f"Found invalid labels {invalid_labels} in dataset at index {idx}. Labels should be in the range [0, {num_classes - 1}].")
     print("All labels are valid.")
 
-
-# Get all unique labels across multiple datasets
 def get_all_unique_labels(datasets):
     """
-    Extracts all unique labels from a list of datasets.
+    Get all unique labels from a list of datasets.
 
     Args:
-        datasets (list): A list of datasets, where each dataset is an iterable of tuples.
-                         Each tuple contains three elements, with the third element being
-                         the labels.
+        datasets (list): A list of datasets where each dataset contains tuples of 
+                         (data, ..., labels) where labels is a tensor containing label values.
 
     Returns:
-        set: A set containing all unique labels found in the datasets.
+        set: A set of unique label values found across all datasets.
+
+    Notes:
+        - Labels are extracted from the 5th element (index 4) of each tuple in the datasets
+        - Labels are converted from tensor to numpy array before processing
+        - CPU values are used when converting tensors
     """
     unique_labels = set()
     for dataset in datasets:
@@ -1080,22 +883,20 @@ def get_all_unique_labels(datasets):
             unique_labels.update(labels.cpu().numpy().flatten())
     return unique_labels
 
+# =============================================================================
+# Main Script
+# =============================================================================
 
-# Main script
 if __name__ == "__main__":
     set_seed(42)
     json_path = '../../prosody/data/ambiguous_prosody_multi_label_features_train_embeddings.json'
     data = load_data(json_path)
 
-    # Create a descriptive filename for the model
     dataset_name = "ambiguous_instructions"
     task_name = "prosody_multiclass"
     best_model_filename = f"../models/best-transformer-model-{dataset_name}-{task_name}.pt"
 
-    # Split data
     train_data, val_data, test_data = split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1)
-
-    # Create datasets
     train_dataset = ProsodyDataset(dict(train_data))
     val_dataset = ProsodyDataset(dict(val_data))
     test_dataset = ProsodyDataset(dict(test_data))
@@ -1104,39 +905,34 @@ if __name__ == "__main__":
     print(f'Validation size: {len(val_dataset)}')
     print(f'Test size: {len(test_dataset)}')
 
-    # Create data loaders
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, collate_fn=collate_fn)
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
-    # Retrieve a sample batch to determine feature dimensions
     sample_batch = next(iter(train_loader))
     _, _, sample_word_embeddings, sample_features, sample_labels, _ = sample_batch
     feature_dim = sample_features.shape[2]
     embedding_dim = sample_word_embeddings.shape[2]
 
-    # Determine number of classes based on all datasets
     all_unique_labels = get_all_unique_labels([train_dataset, val_dataset, test_dataset])
-    # Update the number of classes to include SOS token
-    NUM_CLASSES = len(all_unique_labels) + 2  # +1 for label shifting, +1 for SOS token
+    # NUM_CLASSES = (# unique labels) + 2 (for shifting and SOS token)
+    NUM_CLASSES = len(all_unique_labels) + 2
     print(f"All unique labels across datasets: {sorted(all_unique_labels)}")
     print(f"Model Training with {NUM_CLASSES} classes")
 
-    # Define special token indices
     SOS_IDX = NUM_CLASSES - 1  # Start-of-Sequence token index
 
-    # Define model hyperparameters
+    # Model hyperparameters
     HIDDEN_DIM = 448
-    OUTPUT_DIM = NUM_CLASSES  # Updated to num_classes
+    OUTPUT_DIM = NUM_CLASSES
     NUM_LAYERS = 3
     DROPOUT = 0.25
     NUM_HEADS = 8
 
-    # Define device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {device}')
 
-    # Initialize Encoder and Decoder
+    # Initialize encoder and decoder
     encoder = ProjectedEncoder(
         feature_dim=feature_dim,
         embedding_dim=embedding_dim,
@@ -1146,7 +942,6 @@ if __name__ == "__main__":
         num_heads=NUM_HEADS
     ).to(device)
 
-    
     decoder = Decoder(
         hidden_dim=HIDDEN_DIM,
         output_dim=OUTPUT_DIM,
@@ -1154,28 +949,24 @@ if __name__ == "__main__":
         dropout=DROPOUT,
         num_classes=NUM_CLASSES,
         num_heads=NUM_HEADS,
-        embedding_dim=embedding_dim  # Pass embedding_dim to Decoder
+        embedding_dim=embedding_dim
     ).to(device)
 
     model = Seq2Seq(encoder, decoder).to(device)
 
-    # Optionally, uncomment to see model summary
-    # summary(model, input_data=(sample_word_embeddings.to(device), sample_features.to(device), sample_labels.to(device), torch.tensor([sample_features.size(1)]).to(device)), device=device)
-
-    # Validate labels before training
     validate_labels([train_dataset, val_dataset, test_dataset], NUM_CLASSES)
 
-    # Define optimizer and scheduler
+    # Compute class weights based on the training dataset.
+    class_weights = compute_class_weights(train_dataset, NUM_CLASSES, device)
+
+    # Use the computed class weights in the cross entropy loss.
+    criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE, ) #weight=class_weights
+
     optimizer = optim.Adam(model.parameters(), 
                            lr=0.00022254132061744368, 
                            weight_decay=2.255008416912481e-06)
-    # scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, min_lr=1e-6)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, min_lr=1e-6)
 
-    # Define loss function
-    criterion = nn.CrossEntropyLoss(ignore_index=PADDING_VALUE)
-
-    # Initialize lists to store metrics
     train_losses = []
     val_losses = []
     val_accuracies = []
@@ -1183,18 +974,14 @@ if __name__ == "__main__":
     val_recalls = []
     val_f1s = []
 
-    # Define training parameters
-    N_EPOCHS = 100  # Increased epochs to allow early stopping to kick in
+    N_EPOCHS = 100
     CLIP = 1
 
-    # Initialize early stopping
     early_stopping = EarlyStopping(patience=10, min_delta=0.001)
     best_valid_loss = float('inf')
 
-    # Ensure the models directory exists
     os.makedirs('../models', exist_ok=True)
 
-    # Training loop
     for epoch in range(N_EPOCHS):
         train_loss = train_model(model, train_loader, optimizer, criterion, num_classes=NUM_CLASSES)
         valid_loss, valid_acc, valid_precision, valid_recall, valid_f1 = evaluate_model(model, val_loader, criterion, num_classes=NUM_CLASSES)
@@ -1206,81 +993,52 @@ if __name__ == "__main__":
         val_recalls.append(valid_recall)
         val_f1s.append(valid_f1)
 
-        # Update the learning rate scheduler
-        if isinstance(scheduler, ReduceLROnPlateau):
-            scheduler.step(valid_loss)
-        else:
-            scheduler.step()
+        scheduler.step(valid_loss)
 
-        # Save the model if validation loss has decreased
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
             torch.save(model.state_dict(), best_model_filename)
 
-        # Print training progress
         print(f'Epoch: {epoch+1:02} | Train Loss: {train_loss:.4f} | Val. Loss: {valid_loss:.4f} | '
               f'Val. Acc: {valid_acc*100:.2f}% | Precision: {valid_precision:.4f} | '
               f'Recall: {valid_recall:.4f} | F1 Score: {valid_f1:.4f}')
 
-        # Early stopping check
         early_stopping(valid_loss)
         if early_stopping.early_stop:
             print("Early stopping triggered")
             break
 
-    # Load the best model and evaluate on the test set
     model.load_state_dict(torch.load(best_model_filename))
     test_loss, test_acc, test_precision, test_recall, test_f1 = evaluate_model(model, test_loader, criterion, num_classes=NUM_CLASSES)
     print(f'Test Loss: {test_loss:.4f} | Test Acc: {test_acc*100:.2f}% | '
           f'Precision: {test_precision:.4f} | Recall: {test_recall:.4f} | F1 Score: {test_f1:.4f}')
 
-    # Generate detailed test results
     test_model(model, test_loader)
-
-    # Plot training and validation metrics
     plot_metrics(train_losses, val_losses, val_accuracies, val_precisions, val_recalls, val_f1s)
 
-    # Evaluate model on held out set
     eval_json = "../../prosody/data/ambiguous_prosody_multi_label_features_eval_embeddings.json"
-    # Evaluate the model on the new dataset
     true_labels, predicted_labels = evaluate_new_set(model, eval_json)
 
-    # Log directory
     log_dir = "../../prosody/outputs"
-
-    # Ensure log directory exists
     os.makedirs(log_dir, exist_ok=True)
 
-    # Class names 
-    class_names = [0,1,2] #sorted(list(all_unique_labels))  # Updated to dynamically get class names
-
-    # Compute per-class precision, recall, f1-score, and support
+    # Define class names manually (or compute dynamically)
+    class_names = [0, 1, 2]
     class_precision, class_recall, class_f1, class_support = precision_recall_fscore_support(
         true_labels, predicted_labels, average=None, zero_division=0)
-
-    # Compute weighted precision, recall, f1-score
     weighted_precision, weighted_recall, weighted_f1, _ = precision_recall_fscore_support(
         true_labels, predicted_labels, average='weighted', zero_division=0)
-
     print("Class Support:", class_support)
 
-    # Compute the multilabel confusion matrix
     confusion_matrices = multilabel_confusion_matrix(true_labels, predicted_labels)
-
-    # Initialize a list to store accuracy for each class
     class_accuracy = []
-
-    # Calculate accuracy for each class using the confusion matrices
     for i in range(len(class_names)):
         tn, fp, fn, tp = confusion_matrices[i].ravel()
-        accuracy = (tp + tn) / (tp + tn + fp + fn)
-        class_accuracy.append(accuracy)
-
-    # Compute weighted accuracy
+        acc = (tp + tn) / (tp + tn + fp + fn)
+        class_accuracy.append(acc)
     total_support = sum(class_support)
     weighted_accuracy = sum(acc * supp for acc, supp in zip(class_accuracy, class_support)) / total_support
 
-    # Write class-wise metrics to a file, including accuracy
     classwise_metrics_path = os.path.join(log_dir, "prosody_classwise_metrics.txt")
     with open(classwise_metrics_path, "w") as f:
         for i, class_name in enumerate(class_names):
@@ -1288,11 +1046,9 @@ if __name__ == "__main__":
             f.write(f"  Precision: {class_precision[i]:.4f}\n")
             f.write(f"  Recall: {class_recall[i]:.4f}\n")
             f.write(f"  F1-Score: {class_f1[i]:.4f}\n")
-            f.write(f"  Accuracy: {class_accuracy[i]:.4f}\n")  # Added accuracy
+            f.write(f"  Accuracy: {class_accuracy[i]:.4f}\n")
             f.write(f"  Support (True instances in eval data): {class_support[i]}\n")
             f.write("-" * 40 + "\n")
-        
-        # Write weighted metrics
         f.write("\nWeighted Metrics:\n")
         f.write(f"  Weighted Precision: {weighted_precision:.4f}\n")
         f.write(f"  Weighted Recall: {weighted_recall:.4f}\n")
@@ -1300,18 +1056,15 @@ if __name__ == "__main__":
         f.write(f"  Weighted Accuracy: {weighted_accuracy:.4f}\n")
         f.write("-" * 40 + "\n")
     
-    # Write confusion matrix to a file
     confusion_matrix_path = os.path.join(log_dir, "prosody_confusion_matrix.txt")
     with open(confusion_matrix_path, "w") as f:
         for i, class_name in enumerate(class_names):
-            tn, fp, fn, tp = confusion_matrices[i].ravel()  # Extract the values from the confusion matrix
-
+            tn, fp, fn, tp = confusion_matrices[i].ravel()
             f.write(f"\nConfusion Matrix for {class_name}:\n")
             f.write(f"True Negatives (TN): {tn}\n")
             f.write(f"False Positives (FP): {fp}\n")
             f.write(f"False Negatives (FN): {fn}\n")
             f.write(f"True Positives (TP): {tp}\n")
-
             f.write("\nInterpretation:\n")
             f.write(f"  - The model correctly predicted that '{class_name}' is NOT present {tn} times (TN).\n")
             f.write(f"  - The model incorrectly predicted that '{class_name}' is present {fp} times when it was actually NOT present (FP).\n")
