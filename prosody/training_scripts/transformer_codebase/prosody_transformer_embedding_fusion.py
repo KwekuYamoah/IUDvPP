@@ -455,26 +455,26 @@ class TransformerDecoder(nn.Module):
         return output
 
 class Decoder(nn.Module):
-"""Decoder module that combines transformer decoding with word embeddings.
-This decoder implements a modified transformer decoder architecture that fuses word embeddings
-with the encoder memory before decoding. It projects word embeddings to the hidden dimension,
-concatenates them with encoder memory, and applies transformer decoding.
-Args:
-    hidden_dim (int): Dimension of the hidden representations
-    output_dim (int): Dimension of the output
-    num_layers (int): Number of transformer decoder layers
-    dropout (float): Dropout probability
-    num_classes (int): Number of output classes
-    num_heads (int, optional): Number of attention heads. Defaults to 8
-    embedding_dim (int, optional): Dimension of input word embeddings. Defaults to 300
-Attributes:
-    transformer_decoder (TransformerDecoder): Main transformer decoder component
-    word_embedding_proj (nn.Linear): Projects word embeddings to hidden dimension
-    concat_proj (nn.Linear): Projects concatenated features to hidden dimension
-Example:
-    decoder = Decoder(512, 256, 6, 0.1, 10)
-    output = decoder(memory, tgt, word_embeddings, tgt_mask, tgt_key_padding_mask)
-"""
+    """Decoder module that combines transformer decoding with word embeddings.
+    This decoder implements a modified transformer decoder architecture that fuses word embeddings
+    with the encoder memory before decoding. It projects word embeddings to the hidden dimension,
+    concatenates them with encoder memory, and applies transformer decoding.
+    Args:
+        hidden_dim (int): Dimension of the hidden representations
+        output_dim (int): Dimension of the output
+        num_layers (int): Number of transformer decoder layers
+        dropout (float): Dropout probability
+        num_classes (int): Number of output classes
+        num_heads (int, optional): Number of attention heads. Defaults to 8
+        embedding_dim (int, optional): Dimension of input word embeddings. Defaults to 300
+    Attributes:
+        transformer_decoder (TransformerDecoder): Main transformer decoder component
+        word_embedding_proj (nn.Linear): Projects word embeddings to hidden dimension
+        concat_proj (nn.Linear): Projects concatenated features to hidden dimension
+    Example:
+        decoder = Decoder(512, 256, 6, 0.1, 10)
+        output = decoder(memory, tgt, word_embeddings, tgt_mask, tgt_key_padding_mask)
+    """
  
     def __init__(self, hidden_dim, output_dim, num_layers, dropout, num_classes, num_heads=8, embedding_dim=300):
         super(Decoder, self).__init__()
