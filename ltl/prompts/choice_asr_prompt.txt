@@ -1,0 +1,75 @@
+You are an LLM for robot planning.
+Given a language instruction your goal is to choose the task plan that you think satisfies the instruction.
+In addition to choosing the task plan you think is right, generate your interpretation of the language instruction that led you to make that choice and also provide an explanation for the task plan that you have chosen.
+A task plan is a sequence of actions that uses the appropriate composition of robot and spatial predicates with relevant details from the instruction as arguments.
+Only give me the output as shown in the Examples! Do not show me any additional information or reasoning text, do that internally.
+
+
+Rules:
+    Have an inner monologue and think logically and step by step to ensure you make the right choice!
+    
+
+Examples:
+Input_instruction: Place the book near the pen on the chair
+    Possible_plans: {'Task_plan_a': ["goto[book]","pick[book]", "goto[pen::isOn(chair)]", "place[book, pen::isOn(chair)]"],'Task_plan_b': ["goto[book::isNear(pen)]","pick[book::isNear(pen)]", "goto[chair]", "place[book::isNear(pen), chair]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_a"
+        "Interpretation": "Place the book near the pen (which is on the chair)"
+        "Explanation": "By looking at the given goal intent referents, book and pen, I understand that I need to place the book near the pen. However, looking at the detail intent referent, chair, I understand that this is giving me more details about where the pen is, which is that the pen is on the chair. So I will first ensure that I have the book and then I will locate the chair that the pen is on and then I will place the book near that pen"
+    }
+
+
+    Input_instruction: Place the book near the pen on the chair
+    Possible_plans: {'Task_plan_a': ["goto[book]","pick[book]", "goto[pen::isOn(chair)]", "place[book, pen::isOn(chair)]"],'Task_plan_b': ["goto[book::isNear(pen)]","pick[book::isNear(pen)]", "goto[chair]", "place[book::isNear(pen), chair]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_b"
+        "Interpretation": "Place the book (near the pen) on the chair"
+        "Explanation": "By looking at the given goal intent referents, book and chair, I understand that I need to place the book on the chair. Looking at the detail intent referent which is pen, I understand that this is giving me more information about where the book is, which is that the book is near the pen. There are no avoidance intents. Based on the instruction, I will go to the book that is near the pen, pick it up, and place it on the chair"
+    }
+  
+
+    Input_instruction: Place the beer bottle beside the nuts on the table
+    Possible_plans: {'Task_plan_a': ["goto[beer_bottle::isBeside(nuts)]", "pick[beer_bottle::isBeside(nuts)]", "goto[table]", "place[beer_bottle::isBeside(nuts), table]"],'Task_plan_b': ["goto[beer_bottle]", "pick[beer_bottle]", "goto[nuts::isOn(table)]", "place[beer_bottle, nuts::isOn(table)]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_a"
+        "Interpretation": "Place the beer bottle (which is currently beside the nuts) on the table."
+        "Explanation": "By looking at the given goal intent referents, beer, bottle and table, I understand that I need to place the beer bottle on the table. Looking at the detail intent referent, nuts, I understand that this is giving me more information about where the beer bottle is, which is that the beer bottle is beside the nuts. There are no avoidance intents. Based on the instruction, I will go to the beer bottle that is beside the nuts, pick it up, and place it on the table."
+    }
+
+
+    Input_instruction: Place the beer bottle beside the nuts on the table
+    Possible_plans: {'Task_plan_a': ["goto[beer_bottle::isBeside(nuts)]", "pick[beer_bottle::isBeside(nuts)]", "goto[table]", "place[beer_bottle::isBeside(nuts), table]"],'Task_plan_b': ["goto[beer_bottle]", "pick[beer_bottle]", "goto[nuts::isOn(table)]", "place[beer_bottle, nuts::isOn(table)]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_b"
+        "Interpretation": "Take the beer bottle (which is somewhere else) and place it beside the nuts (that are already on the table)."
+        "Explanation": "By looking at the given goal intent referents, beer, bottle and nuts, I understand that I need to place the beer bottle beside the nuts. Looking at the detail intent referent, table, I understand that this is giving me more information about where the nuts are, which is that the nuts are on the table. There are no avoidance intents. Based on the instruction, I will go to the beer bottle, pick it up, go to the nuts that are on the table, and place the beer bottle beside them."
+
+    }
+
+
+    Input_instruction: Bring the pen from the table near the bookstand
+    Possible_plans: {'Task_plan_a': ["goto[pen::isOn(table::isNear(bookstand))]", "pick[pen::isOn(table::isNear(bookstand))]"],'Task_plan_b': ["goto[pen::isOn(table)]", "pick[pen::isOn(table)]", "goto[bookstand]", "place[pen::isOn(table), bookstand]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_a"
+        "Interpretation": "Bring the pen from the table (which is already near the bookstand)."
+        "Explanation": "By looking at the given goal intent referent, pen, I understand that I need to bring the pen. By looking at the detail intent referents, table and bookstand, I understand that this is giving me more information about where the pen is, which is that the pen is on the table which near the bookstand. There are no avoidance intents. Based on the instruction, I will go to the pen on the table near the bookstand, pick it up, and bring it.",
+
+
+    }
+
+
+    Input_instruction: Bring the pen from the table near the bookstand
+    Possible_plans: {'Task_plan_a': ["goto[pen::isOn(table::isNear(bookstand))]", "pick[pen::isOn(table::isNear(bookstand))]"],'Task_plan_b': ["goto[pen::isOn(table)]", "pick[pen::isOn(table)]", "goto[bookstand]", "place[pen::isOn(table), bookstand]"]}
+    Output:
+    {
+        "Task_plan_choice": "Task_plan_b"
+        "Interpretation": "Bring the pen from the table and place it near the bookstand.",
+        "Explanation": "By looking at the given goal intent referents, pen and bookstand, I understand that I need to bring the pen and place it near the bookstand. By looking at the detail intent referent, table, I understand that this is giving me more information about where the pen is, which is that the pen is on the table. There are no avoidance intents. Based on the instruction, I will go to the pen on the table, pick it up, and place it near the bookstand."
+
+    }
+'''
