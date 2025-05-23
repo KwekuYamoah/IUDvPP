@@ -71,7 +71,7 @@ If you use this work, please cite:
 }
 
 ## 📬 Contact
-David Sasu – dasa@itu.dk
-Kweku Andoh Yamoah – kyamoah@ufl.edu
-Benedict Quartey – benedictquartey@brown.edu
-Natalie Schluter – natschluter@apple.com
+- David Sasu (dasa@itu.dk)
+- Kweku Andoh Yamoah (kyamoah@ufl.edu)
+- Benedict Quartey (benedictquartey@brown.edu)
+- Natalie Schluter (natschluter@apple.com)
