@@ -63,12 +63,15 @@ We present this dataset as the **first speech disambiguation corpus for robotics
 
 ## 📢 Citation
 If you use this work, please cite:
+```bibtex
 @inproceedings{sasu2025prosody,
   title={Enhancing Robot Instruction Understanding and Disambiguation via Speech Prosody},
   author={Sasu, David and Yamoah, Kweku Andoh and Quartey, Benedict and Schluter, Natalie},
   booktitle={Proceedings of Interspeech 2025},
   year={2025}
 }
+```
+
 
 ## 📬 Contact
 - David Sasu (dasa@itu.dk)
