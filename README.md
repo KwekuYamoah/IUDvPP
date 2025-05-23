@@ -4,7 +4,7 @@ This repository contains the code and dataset accompanying our INTERSPEECH 2025 
 
 **Title:** Enhancing Robot Instruction Understanding and Disambiguation via Speech Prosody  
 **Authors:** David Sasu, Kweku Andoh Yamoah, Benedict Quartey, Natalie Schluter  
-**Affiliations:** IT University of Copenhagen, University of Florida, Brown University, Apple  
+**Affiliations:** IT University of Copenhagen, University of Florida, Brown University  
 
 ## 📄 Abstract
 
