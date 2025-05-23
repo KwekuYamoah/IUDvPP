@@ -22,6 +22,7 @@ Our approach achieves **95.79% token-level referent intent accuracy** and **71.9
 - `models/` – Prosody-aware BiLSTM and Transformer architectures for referent detection.
 - `data/` – Speech dataset of ambiguous instructions (1,540 samples).
 - `scripts/` – Training, evaluation, and LLM integration scripts.
+- `notebooks/` – Exploratory notebooks for dataset analysis and ablation studies.
 
 ## 🧠 Method Overview
 
