@@ -1,4 +1,4 @@
-# Enhancing Robot Instruction Understanding and Disambiguation via Speech Prosody
+# Enhancing Robot Instruction Understanding and Disambiguation via Speech Prosody [![DOI](https://zenodo.org/badge/765877036.svg)](https://doi.org/10.5281/zenodo.15505482)
 
 This repository contains the code and dataset accompanying our INTERSPEECH 2025 paper:
 
@@ -72,6 +72,8 @@ If you use this work, please cite:
   year={2025}
 }
 ```
+
+[![DOI](https://zenodo.org/badge/765877036.svg)](https://doi.org/10.5281/zenodo.15505482)
 
 
 ## 📬 Contact
