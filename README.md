@@ -80,4 +80,4 @@ If you use this work, please cite:
 - David Sasu (dasa@itu.dk)
 - Kweku Andoh Yamoah (kyamoah@ufl.edu)
 - Benedict Quartey (benedictquartey@brown.edu)
-- Natalie Schluter (natschluter@apple.com)
+- Natalie Schluter (nael@itu.dk)
